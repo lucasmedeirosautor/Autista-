@@ -24,6 +24,7 @@
       margin: auto;
       padding: 2rem;
       background: white;
+      border-radius: 10px;
     }
     h1, h2, h3 {
       color: #222;
@@ -50,4 +51,70 @@
       max-width: 300px;
       width: 100%;
     }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+    .form-box {
+      background: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    input[type="text"], input[type="email"] {
+      width: 90%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Conexão e Calmaria</h1>
+    <p>Transforme crises em conexão e descubra como trazer calma e esperança para sua família</p>
+  </header>
 
+  <div class="container">
+    <div class="ebook-image">
+      <img src="COLOQUE_AQUI_O_LINK_DA_IMAGEM_3D" alt="Capa do Ebook Conexão e Calmaria">
+    </div>
+
+    <h2>Um guia transformador para pais de crianças autistas</h2>
+    <p><strong>Este guia foi feito para você que deseja mais do que sobreviver ao dia a dia.</strong>  
+    Com ele, você vai aprender a transformar medo e culpa em confiança e esperança, criando momentos de conexão verdadeira com seu filho.</p>
+
+    <h2>O que você vai aprender:</h2>
+    <ul>
+      <li>Como quebrar a culpa que paralisa e descobrir forças que você já tem.</li>
+      <li>Estratégias de conexão diária que transformam 5 minutos em vínculo profundo.</li>
+      <li>Como criar calmaria em casa e reduzir crises com pequenas mudanças.</li>
+      <li>Exercícios práticos para aplicar imediatamente e sentir resultados.</li>
+    </ul>
+
+    <div class="form-box">
+      <h3>Baixe gratuitamente o ebook</h3>
+      <p>Preencha seus dados para receber agora mesmo:</p>
+      <form action="https://formsubmit.co/SEUEMAILAQUI" method="POST">
+        <input type="text" name="nome" placeholder="Seu nome" required><br>
+        <input type="email" name="email" placeholder="Seu melhor e-mail" required><br>
