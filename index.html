@@ -1,180 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conexão e Calmaria – Guia para Pais de Crianças Autistas</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Méthode 5×10 – Perdez 5 kg en 10 jours sans faim</title>
+  <meta name="description" content="Découvrez la méthode 5×10 : perdez 5 kg en seulement 10 jours, sans souffrir de la faim, avec un protocole simple et efficace."/>
   <style>
-    /* Fonte e cores base */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f8ff; /* azul suave */
-      color: #333;
+    :root {
+      --bg:#ffffff;
+      --card:#f9f9f9;
+      --text:#1a1a1a;
+      --muted:#555;
+      --brand:#ff3131;
+      --brand-dark:#d41f1f;
+      --accent:#0066ff;
     }
-
-    /* Header com degradê do espectro autista */
-    header {
-      background: linear-gradient(90deg, #1E90FF, #FFD700, #FF4500, #32CD32);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      border-bottom: 5px solid #333;
-    }
-
-    /* Container principal */
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    /* Títulos */
-    h1, h2, h3 {
-      color: #222;
-    }
-
-    /* Botões de ação com cores do espectro */
-    .cta-btn {
-      display: inline-block;
-      background: #1E90FF; /* azul principal */
-      color: white;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      margin: 1rem 0;
-      text-align: center;
-      transition: background 0.3s;
-    }
-
-    .cta-btn:hover {
-      background: #FF4500; /* vermelho vibrante */
-    }
-
-    /* Imagem do ebook */
-    .ebook-image {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    .ebook-image img {
-      max-width: 300px;
-      width: 100%;
-      border-radius: 8px;
-      border: 2px solid #1E90FF;
-    }
-
-    /* Lista com ícone de quebra-cabeça */
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 0.5rem 0;
-      padding-left: 2rem;
-      position: relative;
-    }
-    ul li::before {
-      content: "🧩";
-      position: absolute;
-      left: 0;
-    }
-
-    /* Preço */
-    .price {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #32CD32; /* verde esperança */
-      margin: 1rem 0;
-    }
-    .old-price {
-      text-decoration: line-through;
-      color: #888;
-      font-size: 1.2rem;
-    }
-
-    /* Garantia */
-    .garantia {
-      background: #E0F7FA; /* azul suave */
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 2rem 0;
-      border: 2px solid #1E90FF;
-    }
-
-    /* Rodapé */
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    /* Pequenos ajustes de parágrafo */
-    p {
-      margin: 1rem 0;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    header{padding:40px 20px;text-align:center;max-width:1000px;margin:auto;}
+    header h1{font-size:2.5rem;margin-bottom:20px;color:var(--brand);}
+    header p{font-size:1.2rem;margin-bottom:30px;color:var(--muted);}
+    .btn{display:inline-block;padding:15px 30px;margin:10px;font-size:1.1rem;color:#fff;background:var(--brand);border-radius:8px;text-decoration:none;font-weight:bold;transition:0.3s;}
+    .btn:hover{background:var(--brand-dark);}
+    .hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px;}
+    .hero img{max-width:300px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+    section{padding:60px 20px;max-width:1100px;margin:auto;}
+    section h2{text-align:center;font-size:2rem;margin-bottom:40px;color:var(--brand);}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+    .card{background:var(--card);padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);text-align:center;}
+    .card img{max-width:100%;border-radius:8px;margin-bottom:15px;}
+    .testimonials .card{font-style:italic;}
+    footer{background:#f2f2f2;text-align:center;padding:30px;margin-top:50px;color:var(--muted);}
+    footer img{max-height:50px;margin:10px;}
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Conexão e Calmaria</h1>
-    <p>Transforme crises em conexão e descubra como trazer calma e esperança para sua família</p>
+    <div class="hero">
+      <div>
+        <h1>Méthode 5×10</h1>
+        <p>Perdez <strong>5 kg en seulement 10 jours</strong> sans souffrir de la faim. Découvrez le protocole simple qui change la vie de milliers de personnes en France.</p>
+        <a href="#" class="btn">📥 Télécharger Maintenant</a>
+        <a href="#" class="btn">🔥 Obtenir le Protocole Complet</a>
+      </div>
+      <img src="https://lucasmedeirosautor.github.io/emagrecimento/livro.png" alt="Ebook Méthode 5x10">
+    </div>
   </header>
 
-  <div class="container">
-    <div class="ebook-image">
-      <img src="Capa.png .PNG" alt="Capa do Ebook Conexão e Calmaria">
+  <section>
+    <h2>Pourquoi la Méthode 5×10 fonctionne ?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>✅ Résultats Rapides</h3>
+        <p>Un protocole conçu pour activer la perte de poids dès les premiers jours.</p>
+      </div>
+      <div class="card">
+        <h3>✅ Sans Souffrir</h3>
+        <p>Vous perdez du poids sans avoir faim ni suivre des régimes compliqués.</p>
+      </div>
+      <div class="card">
+        <h3>✅ 100% Réaliste</h3>
+        <p>Facile à suivre, même avec une vie bien remplie.</p>
+      </div>
     </div>
+  </section>
 
-    <h2>Você se identifica com isso?</h2>
-    <p>👉 Se sente perdido(a) diante das crises do seu filho?<br>
-    👉 Acredita que está falhando como pai/mãe?<br>
-    👉 Gostaria de ter mais calma e conexão com seu filho?<br><br>
-    Então este guia é para você.</p>
-
-    <h2>O que você vai aprender:</h2>
-    <ul>
-      <li>Como quebrar a culpa que paralisa e descobrir forças que você já tem.</li>
-      <li>Estratégias de conexão diária que transformam 5 minutos em vínculo profundo.</li>
-      <li>Como criar calmaria em casa e reduzir crises com pequenas mudanças.</li>
-      <li>Exercícios práticos para aplicar imediatamente e sentir resultados.</li>
-      <li>Preparar um futuro com mais esperança e confiança.</li>
-    </ul>
-
-    <h2>Oferta Exclusiva de Lançamento</h2>
-    <p class="old-price">De R$ 97</p>
-    <p class="price">Por apenas R$ 27</p>
-    <a href="LINK_DO_CHECKOUT" class="cta-btn">Quero garantir meu ebook agora</a>
-
-    <div class="garantia">
-      <h3>Garantia Incondicional de 7 Dias</h3>
-      <p>Se dentro de 7 dias você sentir que este guia não ajudou você e sua família, devolvemos 100% do valor investido.  
-      Simples assim. Você não corre risco algum.</p>
+  <section>
+    <h2>Avant et Après</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x350?text=Avant" alt="Avant">
+        <p><strong>Marie, 34 ans</strong> – “J’avais tout essayé sans succès. Avec la méthode 5×10, j’ai perdu 5,4 kg en 10 jours !”</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x350?text=Après" alt="Après">
+        <p><strong>Julien, 41 ans</strong> – “Je me sens plus léger, confiant et plein d’énergie. Incroyable en si peu de temps.”</p>
+      </div>
     </div>
+  </section>
 
-    <h2>Sobre o autor</h2>
-    <p><strong>Lucas Daniel Silva de Medeiros</strong> é escritor, palestrante, mentor, pesquisador da área de saúde mental e bem-estar emocional.  
-    Autor dos livros <em>“Como Vencer a Depressão”</em> e <em>“Como Vencer a Ansiedade”</em>, que já impactaram muitos leitores no Brasil.</p>
+  <section class="testimonials">
+    <h2>Témoignages</h2>
+    <div class="grid">
+      <div class="card">“Je n’ai jamais pensé que perdre du poids pouvait être aussi simple. Merci !” – Claire</div>
+      <div class="card">“10 jours, –5,2 kg. C’est bluffant !” – Antoine</div>
+      <div class="card">“Je recommande à tout le monde qui veut des résultats rapides sans souffrir.” – Sophie</div>
+    </div>
+  </section>
 
-    <p>Durante sua trajetória, Lucas teve contato com diversas famílias de crianças autistas.  
-    Percebeu que, além do suporte médico e terapêutico, muitos pais se sentiam sozinhos, culpados e sem orientação prática para lidar com o dia a dia.</p>
-
-    <p>Foi então que decidiu criar <strong>“Conexão e Calmaria”</strong>, um guia que une sua experiência em saúde mental com histórias reais de famílias,  
-    trazendo acolhimento e estratégias que realmente funcionam — longe dos clichês encontrados na maioria dos materiais.</p>
-
-    <a href="LINK_DO_CHECKOUT" class="cta-btn">Sim, quero meu guia agora</a>
-  </div>
+  <section style="text-align:center;">
+    <h2>Prêt à commencer votre transformation ?</h2>
+    <a href="#" class="btn">📥 Télécharger Gratuitement</a>
+    <a href="#" class="btn">🔥 Obtenir le Protocole Complet</a>
+  </section>
 
   <footer>
-    <p>© 2025 Lucas Daniel Silva de Medeiros. Todos os direitos reservados.</p>
+    <p>🔒 Paiement 100% Sécurisé | Accès Immédiat</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/MasterCard_Logo.svg" alt="Mastercard">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="Paypal">
   </footer>
+
 </body>
 </html>
-
