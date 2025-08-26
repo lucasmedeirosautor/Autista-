@@ -135,23 +135,148 @@
   </section>
 
   <!-- DEPOIMENTOS WHATSAPP -->
-  <section data-aos="fade-up">
-    <h2>Veja o que estão falando no WhatsApp</h2>
-    <div class="whatsapp">
-      <div class="message">
-        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente">
-        <div class="bubble client">No começo fiquei com medo de não funcionar, mas em 1 semana já vi resultado!</div>
-      </div>
-      <div class="message">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Você">
-        <div class="bubble user">Fico feliz demais em saber! Continue firme que os resultados só aumentam 💪</div>
-      </div>
-      <div class="message">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
-        <div class="bubble client">Meu marido até perguntou o que eu tinha feito, ele disse que estou mais feliz 😍</div>
-      </div>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Fake Horizontal</title>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  background: #e5ddd5;
+  padding: 50px;
+}
+
+.chat-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.conversation {
+  min-width: 300px;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.message.left {
+  justify-content: flex-start;
+}
+
+.message.right {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.left .bubble {
+  background: #ece5dd;
+  border-bottom-left-radius: 0;
+}
+
+.right .bubble {
+  background: #25d366;
+  color: #fff;
+  border-bottom-right-radius: 0;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+  <!-- Conversa 1 -->
+  <div class="conversation" data-aos="fade-right">
+    <div class="message left">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/women/68.jpg" alt="perfil">
+      <div class="bubble">Oi! Vi sua página, ficou incrível! 😍</div>
     </div>
-  </section>
+    <div class="message right">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/32.jpg" alt="perfil">
+      <div class="bubble">Muito obrigado! Fico feliz que tenha gostado!</div>
+    </div>
+    <div class="message left">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/women/68.jpg" alt="perfil">
+      <div class="bubble">Vou mostrar para meus amigos também 😉</div>
+    </div>
+  </div>
+
+  <!-- Conversa 2 -->
+  <div class="conversation" data-aos="fade-right" data-aos-delay="100">
+    <div class="message left">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/44.jpg" alt="perfil">
+      <div class="bubble">Consegui implementar o modelo no meu site, ficou top! 👍</div>
+    </div>
+    <div class="message right">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/women/22.jpg" alt="perfil">
+      <div class="bubble">Que bom! Isso me deixa muito feliz 😄</div>
+    </div>
+    <div class="message left">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/44.jpg" alt="perfil">
+      <div class="bubble">Obrigado pelo suporte também!</div>
+    </div>
+  </div>
+
+  <!-- Conversa 3 -->
+  <div class="conversation" data-aos="fade-right" data-aos-delay="200">
+    <div class="message left">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/women/55.jpg" alt="perfil">
+      <div class="bubble">Cara, estou impressionada! Parece conversa real 😱</div>
+    </div>
+    <div class="message right">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/men/50.jpg" alt="perfil">
+      <div class="bubble">Fiz exatamente pra isso! 😎</div>
+    </div>
+    <div class="message left">
+      <img class="profile-pic" src="https://randomuser.me/api/portraits/women/55.jpg" alt="perfil">
+      <div class="bubble">Vou compartilhar na minha página agora!</div>
+    </div>
+  </div>
+</div>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 800,
+  once: true,
+});
+</script>
+
+</body>
+</html>
+
 
   <!-- CTA -->
   <section id="comprar" data-aos="fade-up" style="text-align:center;">
