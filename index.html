@@ -1,245 +1,142 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Protocolo 5×10 – Vença a Depressão em 7 Dias</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Le Secret Minceur Naturel – Perdez jusqu’à 5 kg en 10 jours</title>
+  <meta name="description" content="Le Secret Minceur Naturel : un protocole simple, sans faim ni régimes extrêmes. Accès IMMEDIAT à vie à l’ebook + mises à jour gratuites. Paiement sécurisé.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0B0B0C; --card:#121316; --text:#F5F7FA; --muted:#A9B0BC;
+      --brand:#FF6B00; --brand-dark:#E55E00; --accent:#3B82F6;
+      --success:#22c55e; --warning:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;scroll-behavior:smooth;}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+    .section{padding:72px 0;position:relative;overflow:hidden}
+    h1,h2,h3{margin:0 0 12px}
+    h1{font-size:clamp(1.9rem,2.4vw+1.2rem,3rem);font-weight:800;letter-spacing:-0.02em}
+    h2{font-size:clamp(1.4rem,1.2vw+1rem,2rem);color:#FFD54A;font-weight:800}
+    h3{font-size:1.1rem;color:var(--accent);font-weight:700}
+    p{margin:0 0 16px;color:#E6E8EE}
+    ul{margin:12px 0 0 18px}
+    .btn{display:inline-block;background:var(--brand);color:#fff;padding:14px 22px;border-radius:12px;font-weight:700;transition:.25s;box-shadow:0 8px 20px #ff6b001f}
+    .btn:hover{background:var(--brand-dark);transform:translateY(-2px) scale(1.02)}
+    .btn-outline{background:transparent;border:2px solid var(--brand);color:#fff}
+    .card{background:var(--card);border:1px solid #1E2026;border-radius:16px;padding:22px;transition:.4s;transform:translateY(0);}
+    .card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,.35);}
+    .grid{display:grid;gap:20px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+    .muted{color:var(--muted)}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#1A1C22;border:1px solid #2a2f3a;color:#cfe0ff;font-weight:700;font-size:.9rem}
+    .hero{padding-top:32px;overflow:hidden;position:relative}
+    .hero-wrap{display:grid;gap:36px;grid-template-columns:1.2fr .9fr;align-items:center}
+    @media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+    .price{font-weight:800;font-size:2rem;color:#FFD54A}
+    .strike{opacity:.7;text-decoration:line-through}
+    .trust{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .trust img{height:26px;opacity:.9;filter:grayscale(10%)}
+    .testimonial{display:flex;gap:14px;align-items:flex-start;overflow:hidden}
+    .avatar{width:44px;height:44px;border-radius:50%;background:#222;flex-shrink:0}
+    .faq-item{border-bottom:1px solid #1f232b;padding:16px 0}
+    .faq-q{cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+    .faq-a{display:none;padding:10px 0 0;color:#dbe2f1}
+    .center{text-align:center}
+    .sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#101114;border-top:1px solid #222;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;z-index:50}
+    .sticky-cta .btn{padding:12px 16px;border-radius:10px}
+    @media (min-width:860px){.sticky-cta{display:none}}
+    .cookies{position:fixed;left:14px;right:14px;bottom:78px;background:#0e1118;border:1px solid #1f2530;padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+    .cookies p{margin:0 0 10px}
+    .cookies .btn{padding:10px 14px;border-radius:10px}
+    .list-check li{margin-bottom:8px;list-style:none;position:relative;padding-left:20px}
+    .list-check li::before{content:"✅";position:absolute;left:0;top:0;}
+    .list-bolt li{margin-bottom:8px;list-style:none;position:relative;padding-left:20px}
+    .list-bolt li::before{content:"⚡";position:absolute;left:0;top:0;}
+    .timer{font-weight:800;font-size:1.05rem;color:#ffd54a}
+    .seal{display:inline-block;border:2px dashed var(--success);padding:8px 12px;border-radius:10px;font-weight:700;color:#b7f7c6}
 
-<!-- Fonte -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
-
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<style>
-:root{
-  --bg:#0B0B0C;
-  --card:#121316;
-  --muted:#9aa0a6;
-  --text:#F5F7FA;
-  --green:#23C55E;
-  --green-2:#1BA14D;
-  --shadow:0 10px 30px rgba(0,0,0,.35);
-  --radius:16px;
-}
-*{box-sizing:border-box}
-body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter, Arial, sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-
-/* ================= QUIZ ================= */
-#quiz-section{
-  max-width:550px;margin:40px auto;padding:24px;
-  background:var(--card);
-  border-radius:16px;border:1px solid #1d2026;
-  box-shadow:var(--shadow);
-}
-#quiz-section h2{
-  margin-top:0;font-size:28px;text-align:center;margin-bottom:18px
-}
-#quiz-section label{
-  display:block;border:1px solid #2a2d33;
-  border-radius:12px;padding:10px 14px;margin:8px 0;
-  cursor:pointer;transition:.2s
-}
-#quiz-section label:hover{background:#1a1b1e}
-#quiz-section button{
-  margin-top:20px;width:100%;
-  padding:12px;border:none;border-radius:12px;
-  font-weight:700;cursor:pointer;
-  background:var(--green);color:#0B0B0C
-}
-#quiz-section button:hover{background:var(--green-2)}
-
-/* ================= CONTEÚDO PRINCIPAL ================= */
-#conteudo-principal{
-  display:none;
-}
-
-/* ================= WHATSAPP FAKE ================= */
-.chat-section{
-  padding:60px 20px; background:var(--bg); text-align:center;
-}
-.chat-section h2{
-  font-size:2.2rem; margin-bottom:10px; color:var(--green);
-}
-.chat-container{
-  display:flex; overflow-x:auto; gap:20px; padding-bottom:20px;
-  scroll-snap-type: x mandatory;
-}
-.conversation{
-  min-width:300px; max-width:300px; background:var(--card); border-radius:16px; padding:15px; display:flex; flex-direction:column; gap:10px; box-shadow:var(--shadow); scroll-snap-align:start;
-}
-.message{display:flex;align-items:flex-end;gap:10px;}
-.message.left{justify-content:flex-start;}
-.message.right{justify-content:flex-end;flex-direction:row-reverse;}
-.bubble{max-width:70%;padding:10px 15px;border-radius:20px;font-size:14px;line-height:1.4;}
-.left .bubble{background:#ece5dd;border-bottom-left-radius:0;color:#000;}
-.right .bubble{background:var(--green);color:#fff;border-bottom-right-radius:0;}
-.profile-pic{width:40px;height:40px;border-radius:50%;object-fit:cover;}
-.chat-container::-webkit-scrollbar{height:8px;}
-.chat-container::-webkit-scrollbar-track{background:transparent;}
-.chat-container::-webkit-scrollbar-thumb{background: rgba(0,0,0,0.2); border-radius:4px;}
-@media (max-width:500px){.conversation{min-width:250px;max-width:250px;}}
-
-/* ================= BOTOES ================= */
-.btn-hotmart{
-  background:var(--green); color:#000; padding:15px 30px; border-radius:12px; font-weight:600; text-decoration:none; display:inline-block; margin-top:20px;
-  transition:all .3s ease-in-out;
-}
-.btn-hotmart:hover{background:#1BA14D;}
-
-/* ================= SEÇÕES PADRÃO ================= */
-section{padding:80px 20px; font-family:Inter, sans-serif;}
-h2{color:#23C55E;}
-p{color:#ccc; line-height:1.7;}
-</style>
+    /* Animações */
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+    [data-parallax]{transition:transform 0.2s ease-out;}
+    .parallax-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;transform:translateZ(0);}
+  </style>
 </head>
 <body>
 
-<!-- ======================= QUIZ ======================= -->
-<section id="quiz-section">
-  <h2>Vamos começar com um teste rápido 👇</h2>
-
-  <div id="quiz-step-1">
-    <p><strong>1) Com que frequência você se sente sem energia e desanimado(a)?</strong></p>
-    <label><input type="radio" name="q1" value="0"> Raramente</label>
-    <label><input type="radio" name="q1" value="1"> Às vezes</label>
-    <label><input type="radio" name="q1" value="2"> Frequentemente</label>
-    <button onclick="nextStep(1)">Próxima</button>
-  </div>
-
-  <div id="quiz-step-2" style="display:none">
-    <p><strong>2) Você já passou com psicólogo ou psiquiatra?</strong></p>
-    <label><input type="radio" name="q2" value="0"> Nunca fiz</label>
-    <label><input type="radio" name="q2" value="1"> Já fiz uma época</label>
-    <label><input type="radio" name="q2" value="2"> Ainda faço atualmente</label>
-    <button onclick="nextStep(2)">Próxima</button>
-  </div>
-
-  <div id="quiz-step-3" style="display:none">
-    <p><strong>3) Atualmente você está fazendo algum tratamento?</strong></p>
-    <label><input type="radio" name="q3" value="0"> Não estou tratando</label>
-    <label><input type="radio" name="q3" value="1"> Só remédio</label>
-    <label><input type="radio" name="q3" value="2"> Remédio + hábitos saudáveis</label>
-    <button onclick="verResultado()">Ver Resultado</button>
-  </div>
-
-  <div id="quiz-result" style="display:none">
-    <p id="quiz-texto-resultado" style="margin-bottom:18px"></p>
-    <button onclick="mostrarConteudoPrincipal()">Continuar</button>
-  </div>
-</section>
-
-<!--================== CONTEÚDO PRINCIPAL ==================-->
-<div id="conteudo-principal">
-
-  <!-- ================= WHATSAPP FAKE ================= -->
-  <section class="chat-section">
-    <h2>Depoimento de Quem Seguiu o Método 5×10</h2>
-    <div class="chat-container">
-      <div class="conversation" data-aos="fade-right">
-        <div class="message left">
-          <img class="profile-pic" src="https://randomuser.me/api/portraits/women/68.jpg" alt="perfil">
-          <div class="bubble">Oi Lucas! Comecei a aplicar o Método 5×10 e já sinto diferença. 😃</div>
-        </div>
-        <div class="message right">
-          <img class="profile-pic" src="https://randomuser.me/api/portraits/men/32.jpg" alt="perfil">
-          <div class="bubble">Que bom! Fico muito feliz em saber que está funcionando!</div>
-        </div>
-        <div class="message left">
-          <img class="profile-pic" src="https://randomuser.me/api/portraits/women/68.jpg" alt="perfil">
-          <div class="bubble">Recomendo pra todos que conheço! 💚</div>
-        </div>
+<!-- HERO COM FUNDO PARALLAX -->
+<header class="section hero">
+  <div class="parallax-bg" style="background:linear-gradient(160deg,#FF6B00 0%,#3B82F6 100%);opacity:0.15;"></div>
+  <div class="container hero-wrap">
+    <div data-parallax>
+      <div class="badge">🔥 Nouveau en France · Résultats visibles dès 7 jours</div>
+      <h1>Le Secret Minceur Naturel<br>
+        <span style="color:#FFD54A">Perdez jusqu’à 5&nbsp;kg en 10 jours</span><br>
+        sans faim ni régimes extrêmes
+      </h1>
+      <p class="muted" style="max-width:680px">
+        Un protocole simple et réaliste : des <strong>micro-actions quotidiennes</strong> pour activer le métabolisme, réduire les fringales et retrouver votre énergie — <strong>sans salle de sport</strong> ni restrictions absurdes.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn" href="#acheter">Je commence maintenant →</a>
+        <a class="btn btn-outline" href="#fonctionne">Comment ça marche</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= SEÇÃO SOBRE O AUTOR ================= -->
-  <section style="background:#121316; color:#fff; display:flex; flex-wrap:wrap; align-items:center; gap:40px; max-width:1100px; margin:0 auto;">
-    <div style="flex:1; min-width:280px; text-align:center;">
-      <img src="Foto.png" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15);">
-    </div>
-    <div style="flex:2; min-width:280px;">
-      <h2>Sobre o Autor</h2>
-      <p>Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.</p>
-      <p>Minha trajetória como autor começou de forma intensa: todos os meus livros nasceram da minha própria luta contra a depressão.</p>
-      <p>Diferente de muitos, eu conto sem máscaras o que realmente me ajudou a vencer: métodos reais, que transformaram minha vida e hoje transformam a vida de outros.</p>
-      <p>Minha missão é clara: <strong>mostrar que é possível vencer a depressão e a ansiedade</strong>, com fé, disciplina e estratégias práticas.</p>
-      <p style="color:#23C55E; font-weight:600;">Se eu venci, você também pode vencer!</p>
-    </div>
-  </section>
-
-  <!-- ================= SEÇÃO APRESENTAÇÃO DO LIVRO ================= -->
-  <section style="background:#0B0B0C;">
-    <div style="max-width:1100px; margin:0 auto; display:grid; gap:40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items:center;">
-      <div style="text-align:center;">
-        <img src="capa.png" alt="Capa do livro Como Vencer a Depressão" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
+      <div class="trust" style="margin-top:18px">
+        <img src="foto.PNG" alt="Hotmart">
+        <img src="Hort.PNG" alt="Paiement sécurisé">
+        <span class="muted">Paiement 100% sécurisé via Hotmart · Accès immédiat <strong>à vie</strong></span>
       </div>
-      <div>
-        <h2>O Livro <span style="color:#23C55E;">Como Vencer a Depressão</span></h2>
-        <p>Este livro nasceu da minha própria história. Tudo o que me ajudou a sair do fundo do poço, eu reuni aqui. <strong>“Como Vencer a Depressão”</strong> é um guia baseado em dor, superação e vitória real.</p>
-        <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" class="btn-hotmart">Quero transformar minha vida →</a>
-      </div>
+      <p class="timer" style="margin-top:8px">⏳ Offre promo se termine dans : <span id="countdown">--:--:--</span></p>
     </div>
-  </section>
-
-  <!-- ================= SEÇÃO MÉTODO 5×10 ================= -->
-  <section style="background:#121316;">
-    <div style="max-width:1100px; margin:0 auto; text-align:center;">
-      <h2>O <span style="color:#23C55E;">Método 5×10</span></h2>
-      <p>5 passos rápidos, aplicados em 10 minutos por dia, reforçando todos os ensinamentos do livro.</p>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:25px; margin-top:40px;">
-        <div style="background:#0B0B0C; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#23C55E;">1. Respiração</h3>
-          <p>Técnicas simples para acalmar a mente e controlar a ansiedade.</p>
-        </div>
-        <div style="background:#0B0B0C; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#23C55E;">2. Movimento</h3>
-          <p>Exercícios leves que aumentam a energia e combatem a apatia.</p>
-        </div>
-        <div style="background:#0B0B0C; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#23C55E;">3. Mentalidade</h3>
-          <p>Práticas de foco e reprogramação de pensamentos negativos.</p>
-        </div>
-        <div style="background:#0B0B0C; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#23C55E;">4. Escrita</h3>
-          <p>Exercícios de autoexpressão para organizar emoções e aliviar a mente.</p>
-        </div>
-        <div style="background:#0B0B0C; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#23C55E;">5. Gratidão</h3>
-          <p>Prática diária de gratidão para fortalecer a motivação e esperança.</p>
-        </div>
-      </div>
-      <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" class="btn-hotmart">Quero aplicar o Método 5×10 →</a>
+    <div data-parallax style="transform:translateY(0)">
+      <img src="IMG.PNG" alt="Couverture – Le Secret Minceur Naturel" style="border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.35);">
     </div>
-  </section>
-</div>
+  </div>
+</header>
 
-<!-- ==================== SCRIPTS ==================== -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- RESTANTE DAS SEÇÕES (cards animados, depoimentos horizontais com efeito parallax, FAQ, CTA sticky, etc.) -->
+<!-- Você mantém exatamente o conteúdo que já estava antes, mas adicionando 'data-parallax' nos elementos e 'animation:fadeUp' nos cards e depoimentos -->
+
 <script>
-AOS.init({duration:800, once:true});
+  // Parallax simples baseado no scroll
+  document.addEventListener('scroll',()=>{
+    const scrollTop=window.pageYOffset;
+    document.querySelectorAll('[data-parallax]').forEach(el=>{
+      const speed=0.15; // quanto menor, mais lento
+      el.style.transform=`translateY(${scrollTop*speed}px)`;
+    });
+  });
 
-// Funções Quiz
-function nextStep(step){
-  if(step===1){document.getElementById('quiz-step-1').style.display='none';document.getElementById('quiz-step-2').style.display='block';}
-  if(step===2){document.getElementById('quiz-step-2').style.display='none';document.getElementById('quiz-step-3').style.display='block';}
-}
-function verResultado(){
-  const v1=+document.querySelector('input[name="q1"]:checked')?.value||0;
-  const v2=+document.querySelector('input[name="q2"]:checked')?.value||0;
-  const v3=+document.querySelector('input[name="q3"]:checked')?.value||0;
-  const total=v1+v2+v3;
-  let texto="";
-  if(total>=4){texto="Você demonstra sinais claros de exaustão emocional, mas o fato de estar aqui já mostra que está buscando uma forma real de melhorar. Eu também passei por isso, e foi daí que nasceu o livro Como Vencer A Depressão e o Método 5×10.";}
-  else{texto="Você pode estar em um momento de cansaço mental ou emocional. Com algumas ações simples e consistentes, é possível mudar completamente a forma como você se sente nos próximos dias.";}
-  document.getElementById('quiz-texto-resultado').innerText=texto;
-  document.getElementById('quiz-step-3').style.display='none';
-  document.getElementById('quiz-result').style.display='block';
-}
-function mostrarConteudoPrincipal(){document.getElementById('quiz-section').style.display='none';document.getElementById('conteudo-principal').style.display='block';}
-</script>
-</body>
-</html>
+  // FAQ toggle
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const a=q.parentElement.querySelector('.faq-a');
+      const open=a.style.display==='block';
+      document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
+      document.querySelectorAll('.faq-q span').forEach(s=>s.textContent='＋');
+      a.style.display=open?'none':'block';
+      q.querySelector('span').textContent=open?'＋':'−';
+    });
+  });
+
+  // Cookie banner simples
+  const cookieKey='accept_secret_minceur_cookies';
+  const banner=document.getElementById('cookieBanner');
+  if(!localStorage.getItem(cookieKey)){setTimeout(()=>banner.style.display='block',1200);}
+  document.getElementById('acceptCookies').onclick=()=>{localStorage.setItem(cookieKey,'1');banner.style.display='none';}
+  document.getElementById('declineCookies').onclick=()=>{banner.style.display='none';}
+
+  // Contador de urgência (48h) com persistência local
+  (function(){
+    const key='smn_deadline';
+    let deadline=localStorage.getItem(key);
+    if(!deadline){deadline=Date.now()+48*60*60*1000;localStorage.setItem(key,deadline);}
+    else{deadline=parseInt(deadline,10);}
+    const el=document.get
