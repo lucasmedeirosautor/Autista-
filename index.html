@@ -1,216 +1,256 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Le Secret Minceur Naturel – Perdez jusqu’à 5 kg en 10 jours</title>
-  <meta name="description" content="Le Secret Minceur Naturel : un protocole simple, sans faim ni régimes extrêmes. Accès IMMEDIAT à vie à l’ebook + mises à jour gratuites. Paiement sécurisé.">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    :root{
-      --bg:#0B0B0C; --card:#121316; --text:#F5F7FA; --muted:#A9B0BC;
-      --accent:#3B82F6; --success:#22c55e;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
-    img{max-width:100%;display:block}
-    a{text-decoration:none;color:inherit}
-    .container{max-width:1080px;margin:0 auto;padding:0 20px}
-    .section{padding:72px 0}
-    h1,h2,h3{margin:0 0 12px}
-    h1{font-size:clamp(1.9rem,2.4vw+1.2rem,3rem);font-weight:800;letter-spacing:-0.02em}
-    h2{font-size:clamp(1.4rem,1.2vw+1rem,2rem);color:#00FFCC;font-weight:800;text-shadow:0 0 6px #00FFCC,0 0 12px #00FFCC}
-    h3{font-size:1.1rem;color:var(--accent);font-weight:700}
-    p{margin:0 0 16px;color:#E6E8EE}
-    ul{margin:12px 0 0 18px}
-    .btn{display:inline-block;background:#FF00FF;color:#fff;padding:14px 22px;border-radius:12px;font-weight:700;transition:.25s;box-shadow:0 8px 20px #ff00ff4d}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px #ff00ff7f}
-    .btn-outline{background:transparent;border:2px solid #00FFCC;color:#00FFCC}
-    .card{background:var(--card);border:1px solid #1E2026;border-radius:16px;padding:22px}
-    .grid{display:grid;gap:20px}
-    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
-    .muted{color:var(--muted)}
-    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#1A1C22;border:1px solid #2a2f3a;color:#cfe0ff;font-weight:700;font-size:.9rem}
-    .hero{padding-top:32px}
-    .hero-wrap{display:grid;gap:36px;grid-template-columns:1.2fr .9fr;align-items:center}
-    @media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
-    .price{font-weight:800;font-size:2rem;color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC}
-    .strike{opacity:.7;text-decoration:line-through}
-    .trust{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-    .trust img{height:26px;opacity:.9;filter:grayscale(10%)}
-    .testimonial{display:flex;gap:14px}
-    .avatar{width:44px;height:44px;border-radius:50%;background:#222}
-    .faq-item{border-bottom:1px solid #1f232b;padding:16px 0}
-    .faq-q{cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700}
-    .faq-a{display:none;padding:10px 0 0;color:#dbe2f1}
-    .center{text-align:center}
-    .sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#101114;border-top:1px solid #222;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;z-index:50}
-    .sticky-cta .btn{padding:12px 16px;border-radius:10px}
-    @media (min-width:860px){.sticky-cta{display:none}}
-    .cookies{position:fixed;left:14px;right:14px;bottom:78px;background:#0e1118;border:1px solid #1f2530;padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
-    .cookies p{margin:0 0 10px}
-    .cookies .btn{padding:10px 14px;border-radius:10px}
-    .list-check li{margin-bottom:8px} .list-check li::marker{content:"✅ "}
-    .list-bolt li{margin-bottom:8px} .list-bolt li::marker{content:"⚡ "}
-    .timer{font-weight:800;font-size:1.05rem;color:#00FFCC;text-shadow:0 0 6px #00FFCC,0 0 12px #00FFCC}
-    .seal{display:inline-block;border:2px dashed var(--success);padding:8px 12px;border-radius:10px;font-weight:700;color:#b7f7c6}
-    @keyframes scroll {0% {transform:translateX(0);}100% {transform:translateX(-50%);}}
-    .testimonial-wrapper:hover .testimonial-scroller {animation-play-state:paused;}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Le Secret Minceur Naturel – Perdez jusqu’à 5 kg en 10 jours</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg-gradient: linear-gradient(135deg,#0b0b0c,#1f1a36,#0b0b0c);
+  --card:#121316; --text:#F5F7FA; --muted:#A9B0BC;
+  --accent:#3B82F6; --success:#22c55e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg-gradient);color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;scroll-behavior:smooth;}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+.section{padding:72px 0;position:relative}
+h1,h2,h3{margin:0 0 12px}
+h1{font-size:clamp(1.9rem,2.4vw+1.2rem,3rem);font-weight:800;letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,1.2vw+1rem,2rem);color:#00FFCC;font-weight:800;text-shadow:0 0 6px #00FFCC,0 0 12px #00FFCC}
+h3{font-size:1.1rem;color:var(--accent);font-weight:700}
+p{margin:0 0 16px;color:#E6E8EE}
+ul{margin:12px 0 0 18px}
+.btn{display:inline-block;background:#FF00FF;color:#fff;padding:14px 22px;border-radius:12px;font-weight:700;transition:.25s;box-shadow:0 8px 20px #ff00ff4d}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px #ff00ff7f}
+.btn-outline{background:transparent;border:2px solid #00FFCC;color:#00FFCC}
+.card{background:var(--card);border:1px solid #1E2026;border-radius:16px;padding:22px;opacity:0;transform:translateX(-100px);transition:all 0.8s ease-out;}
+.grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.muted{color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#1A1C22;border:1px solid #2a2f3a;color:#cfe0ff;font-weight:700;font-size:.9rem}
+.hero{padding-top:32px}
+.hero-wrap{display:grid;gap:36px;grid-template-columns:1.2fr .9fr;align-items:center}
+@media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+.price{font-weight:800;font-size:2rem;color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC}
+.strike{opacity:.7;text-decoration:line-through}
+.trust{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.trust img{height:26px;opacity:.9;filter:grayscale(10%)}
+.testimonial{display:flex;gap:14px}
+.avatar{width:44px;height:44px;border-radius:50%;background:#222}
+.faq-item{border-bottom:1px solid #1f232b;padding:16px 0}
+.faq-q{cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.faq-a{display:none;padding:10px 0 0;color:#dbe2f1}
+.center{text-align:center}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#101114;border-top:1px solid #222;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;z-index:50}
+.sticky-cta .btn{padding:12px 16px;border-radius:10px}
+@media (min-width:860px){.sticky-cta{display:none}}
+.cookies{position:fixed;left:14px;right:14px;bottom:78px;background:#0e1118;border:1px solid #1f2530;padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.cookies p{margin:0 0 10px}
+.cookies .btn{padding:10px 14px;border-radius:10px}
+.list-check li{margin-bottom:8px} .list-check li::marker{content:"✅ "}
+.list-bolt li{margin-bottom:8px} .list-bolt li::marker{content:"⚡ "}
+.timer{font-weight:800;font-size:1.05rem;color:#00FFCC;text-shadow:0 0 6px #00FFCC,0 0 12px #00FFCC}
+.seal{display:inline-block;border:2px dashed var(--success);padding:8px 12px;border-radius:10px;font-weight:700;color:#b7f7c6}
+@keyframes scroll {0% {transform:translateX(0);}100% {transform:translateX(-50%);}}
+.testimonial-wrapper:hover .testimonial-scroller {animation-play-state:paused;}
+/* ANIMAÇÃO SLIDE-IN */
+.slide-in {opacity:1 !important; transform:translateX(0px) !important;}
+</style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="section hero">
-    <div class="container hero-wrap">
-      <div>
-        <div class="badge">🔥 Nouveau en France · Résultats visibles dès 7 jours</div>
-        <h1>Le Secret Minceur Naturel<br>
-          <span style="color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC">Perdez jusqu’à 5&nbsp;kg en 10 jours</span><br>
-          sans faim ni régimes extrêmes
-        </h1>
-        <p class="muted" style="max-width:680px">
-          Un protocole simple et réaliste : des <strong>micro-actions quotidiennes</strong> pour activer le métabolisme, réduire les fringales et retrouver votre énergie — <strong>sans salle de sport</strong> ni restrictions absurdes.
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
-          <a class="btn" href="#acheter">Je commence maintenant →</a>
-          <a class="btn btn-outline" href="#fonctionne">Comment ça marche</a>
-        </div>
-        <div class="trust" style="margin-top:18px">
-          <img src="foto.PNG" alt="Hotmart">
-          <img src="Hort.PNG" alt="Paiement sécurisé">
-          <span class="muted">Paiement 100% sécurisé via Hotmart · Accès immédiat <strong>à vie</strong></span>
-        </div>
-        <p class="timer" style="margin-top:8px">⏳ Offre promo se termine dans : <span id="countdown">--:--:--</span></p>
+<!-- HERO -->
+<header class="section hero">
+  <div class="container hero-wrap">
+    <div class="card">
+      <div class="badge">🔥 Nouveau en France · Résultats visibles dès 7 jours</div>
+      <h1>Le Secret Minceur Naturel<br><span style="color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC">Perdez jusqu’à 5&nbsp;kg en 10 jours</span><br>sans faim ni régimes extrêmes</h1>
+      <p class="muted">Un protocole simple et réaliste : micro-actions quotidiennes pour activer le métabolisme, réduire les fringales et retrouver votre énergie.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn" href="#acheter">Je commence maintenant →</a>
+        <a class="btn btn-outline" href="#fonctionne">Comment ça marche</a>
       </div>
-      <div>
-        <img src="IMG.PNG" alt="Couverture – Le Secret Minceur Naturel" style="border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.35)">
+      <div class="trust" style="margin-top:18px">
+        <img src="foto.PNG" alt="Hotmart">
+        <img src="Hort.PNG" alt="Paiement sécurisé">
+        <span class="muted">Paiement 100% sécurisé via Hotmart · Accès immédiat à vie</span>
+      </div>
+      <p class="timer" style="margin-top:8px">⏳ Offre promo se termine dans : <span id="countdown">--:--:--</span></p>
+    </div>
+    <div class="card">
+      <img src="IMG.PNG" alt="Couverture" style="border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.35)">
+    </div>
+  </div>
+</header>
+
+<!-- BENEFICIOS -->
+<section class="section" id="fonctionne">
+  <div class="container">
+    <h2 class="center">Pourquoi ça fonctionne (sans souffrir)</h2>
+    <div class="grid grid-3" style="margin-top:16px">
+      <div class="card"><h3>Micro-actions, maxi résultats</h3><p>Des habitudes de 10 minutes faciles à tenir qui s’additionnent et font bouger la balance dès la 1ère semaine.</p></div>
+      <div class="card"><h3>Sans faim, sans stress</h3><p>Mangez mieux, pas moins. Menus anti-fringales et satiété naturelle.</p></div>
+      <div class="card"><h3>Chez vous, sans matériel</h3><p>Mouvements intelligents et routines simples : zéro salle de sport, zéro pression.</p></div>
+    </div>
+    <div class="center" style="margin-top:18px"><a class="btn" href="#acheter">Oui, je veux commencer aujourd’hui →</a></div>
+  </div>
+</section>
+
+<!-- ANIMAÇÃO JS -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('slide-in');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.card').forEach(card => {observer.observe(card)});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Le Secret Minceur Naturel – Perdez jusqu’à 5 kg en 10 jours</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg-gradient: linear-gradient(135deg,#0b0b0c,#1f1a36,#0b0b0c);
+  --card:#121316; --text:#F5F7FA; --muted:#A9B0BC;
+  --accent:#3B82F6; --success:#22c55e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg-gradient);color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;scroll-behavior:smooth;}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+.section{padding:72px 0;position:relative}
+h1,h2,h3{margin:0 0 12px}
+h1{font-size:clamp(1.9rem,2.4vw+1.2rem,3rem);font-weight:800;letter-spacing:-0.02em}
+h2{font-size:clamp(1.4rem,1.2vw+1rem,2rem);color:#00FFCC;font-weight:800;text-shadow:0 0 6px #00FFCC,0 0 12px #00FFCC}
+h3{font-size:1.1rem;color:var(--accent);font-weight:700}
+p{margin:0 0 16px;color:#E6E8EE}
+ul{margin:12px 0 0 18px}
+.btn{display:inline-block;background:#FF00FF;color:#fff;padding:14px 22px;border-radius:12px;font-weight:700;transition:.25s;box-shadow:0 8px 20px #ff00ff4d}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px #ff00ff7f}
+.btn-outline{background:transparent;border:2px solid #00FFCC;color:#00FFCC}
+.card{background:var(--card);border:1px solid #1E2026;border-radius:16px;padding:22px;opacity:0;transform:translateX(-100px);transition:all 0.8s ease-out;}
+.grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.muted{color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#1A1C22;border:1px solid #2a2f3a;color:#cfe0ff;font-weight:700;font-size:.9rem}
+.hero{padding-top:32px}
+.hero-wrap{display:grid;gap:36px;grid-template-columns:1.2fr .9fr;align-items:center}
+@media (max-width:980px){.hero-wrap{grid-template-columns:1fr}}
+.price{font-weight:800;font-size:2rem;color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC}
+.strike{opacity:.7;text-decoration:line-through}
+.trust{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.trust img{height:26px;opacity:.9;filter:grayscale(10%)}
+.testimonial-wrapper{overflow:hidden;position:relative;}
+.testimonial-scroller{display:flex;gap:14px;animation:scroll 30s linear infinite;}
+.testimonial{min-width:250px;padding:16px;background:#1c1c2a;border-radius:12px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px #00ffcc80;}
+.avatar{width:44px;height:44px;border-radius:50%;background:#222;margin-bottom:8px;}
+.faq-item{border-bottom:1px solid #1f232b;padding:16px 0}
+.faq-q{cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.faq-a{display:none;padding:10px 0 0;color:#dbe2f1}
+.center{text-align:center}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#101114;border-top:1px solid #222;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;z-index:50}
+.sticky-cta .btn{padding:12px 16px;border-radius:10px}
+@media (min-width:860px){.sticky-cta{display:none}}
+.cookies{position:fixed;left:14px;right:14px;bottom:78px;background:#0e1118;border:1px solid #1f2530;padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.cookies p{margin:0 0 10px}
+.cookies .btn{padding:10px 14px;border-radius:10px}
+.list-check li{margin-bottom:8px} .list-check li::marker{content:"✅ "}
+.list-bolt li{margin-bottom:8px} .list-bolt li::marker{content:"⚡ "}
+.timer{font-weight:800;font-size:1.05rem;color:#00FFCC;text-shadow:0 0 6px #00FFCC,0 0 12px #00FFCC}
+.seal{display:inline-block;border:2px dashed var(--success);padding:8px 12px;border-radius:10px;font-weight:700;color:#b7f7c6}
+@keyframes scroll {0% {transform:translateX(0);}100% {transform:translateX(-50%);}}
+.slide-in {opacity:1 !important; transform:translateX(0px) !important;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="section hero">
+  <div class="container hero-wrap">
+    <div class="card">
+      <div class="badge">🔥 Nouveau en France · Résultats visibles dès 7 jours</div>
+      <h1>Le Secret Minceur Naturel<br><span style="color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC">Perdez jusqu’à 5&nbsp;kg en 10 jours</span><br>sans faim ni régimes extrêmes</h1>
+      <p class="muted">Un protocole simple et réaliste : micro-actions quotidiennes pour activer le métabolisme, réduire les fringales et retrouver votre énergie.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+        <a class="btn" href="#acheter">Je commence maintenant →</a>
+        <a class="btn btn-outline" href="#fonctionne">Comment ça marche</a>
+      </div>
+      <div class="trust" style="margin-top:18px">
+        <img src="foto.PNG" alt="Hotmart">
+        <img src="Hort.PNG" alt="Paiement sécurisé">
+        <span class="muted">Paiement 100% sécurisé via Hotmart · Accès immédiat à vie</span>
+      </div>
+      <p class="timer" style="margin-top:8px">⏳ Offre promo se termine dans : <span id="countdown">--:--:--</span></p>
+    </div>
+    <div class="card">
+      <img src="IMG.PNG" alt="Couverture" style="border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.35)">
+    </div>
+  </div>
+</header>
+
+<!-- BENEFICIOS -->
+<section class="section" id="fonctionne">
+  <div class="container">
+    <h2 class="center">Pourquoi ça fonctionne (sans souffrir)</h2>
+    <div class="grid grid-3" style="margin-top:16px">
+      <div class="card"><h3>Micro-actions, maxi résultats</h3><p>Des habitudes de 10 minutes faciles à tenir qui s’additionnent et font bouger la balance dès la 1ère semaine.</p></div>
+      <div class="card"><h3>Sans faim, sans stress</h3><p>Mangez mieux, pas moins. Menus anti-fringales et satiété naturelle.</p></div>
+      <div class="card"><h3>Chez vous, sans matériel</h3><p>Mouvements intelligents et routines simples : zéro salle de sport, zéro pression.</p></div>
+    </div>
+    <div class="center" style="margin-top:18px"><a class="btn" href="#acheter">Oui, je veux commencer aujourd’hui →</a></div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS CARROSSEL -->
+<section class="section" style="background:#0f1117">
+  <div class="container">
+    <h2 class="center">Transformations réelles — Avant / Après</h2>
+    <div class="testimonial-wrapper" style="margin-top:20px">
+      <div class="testimonial-scroller">
+        <div class="testimonial"><div class="avatar"></div><p>« Simple, clair et faisable. J’ai perdu 3,2 kg sans faim. »</p><p>Élodie – Toulouse</p></div>
+        <div class="testimonial"><div class="avatar"></div><p>« Moins de fringales dès la 1ère semaine. Je dors mieux. »</p><p>Hugo – Nantes</p></div>
+        <div class="testimonial"><div class="avatar"></div><p>« Enfin un plan réaliste. Pas de gym, pas de souffrance. »</p><p>Sarah – Lille</p></div>
+        <div class="testimonial"><div class="avatar"></div><p>« Plus d’énergie et moins de stress quotidien. »</p><p>Luc – Lyon</p></div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- BENEFICIOS -->
-  <section class="section" id="fonctionne">
-    <div class="container">
-      <h2 class="center">Pourquoi ça fonctionne (sans souffrir)</h2>
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="card"><h3>Micro-actions, maxi résultats</h3><p>Des habitudes de 10 minutes faciles à tenir qui s’additionnent et font bouger la balance dès la 1ère semaine.</p></div>
-        <div class="card"><h3>Sans faim, sans stress</h3><p>Mangez mieux, pas moins. Menus anti-fringales et satiété naturelle.</p></div>
-        <div class="card"><h3>Chez vous, sans matériel</h3><p>Mouvements intelligents et routines simples : zéro salle de sport, zéro pression.</p></div>
-      </div>
-      <div class="center" style="margin-top:18px"><a class="btn" href="#acheter">Oui, je veux commencer aujourd’hui →</a></div>
-    </div>
-  </section>
+<!-- ANIMAÇÃO JS -->
+<script>
+// Slide-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('slide-in');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('.card').forEach(card => {observer.observe(card)});
+</script>
 
-  <!-- HISTOIRE + CE QUE VOUS RECEVEZ -->
-  <section class="section">
-    <div class="container grid grid-2">
-      <div class="card">
-        <h2>Mon histoire en 30 secondes</h2>
-        <p>Après des “régimes miracles” et l’effet yoyo, j’ai créé un protocole simple : <strong>micro-actions</strong>, <strong>menus anti-fringales</strong> et <strong>rituels métaboliques</strong>. Résultat : plus d’énergie, meilleur sommeil et poids en baisse.</p>
-        <p>Ce guide est <strong>clair</strong>, <strong>sans blabla</strong> et conçu pour des journées chargées.</p>
-      </div>
-      <div class="card">
-        <h2>Vous recevez exactement</h2>
-        <ul class="list-check">
-          <li><strong>Plan jour par jour (10 jours)</strong></li>
-          <li><strong>Menus & listes de courses</strong> anti-fringales</li>
-          <li><strong>Protocoles de 10 minutes</strong> (sans matériel)</li>
-          <li><strong>Accès à vie</strong> + <strong>mises à jour gratuites</strong></li>
-          <li>Lecture sur mobile, tablette ou ordinateur</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPOIMENTOS ANIMADOS HORIZONTAL -->
-  <section class="section" style="background:#0f1117;padding-top:50px;padding-bottom:50px">
-    <div class="container">
-      <h2 class="center" style="margin-bottom:32px;color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC">Transformations réelles — Avant / Après</h2>
-      <div class="testimonial-wrapper" style="overflow:hidden;position:relative">
-        <div class="testimonial-scroller" style="display:flex;gap:20px;animation:scroll 20s linear infinite">
-          <div class="card" style="min-width:280px;flex-shrink:0;background:#111;color:#00FFCC;text-shadow:0 0 4px #00FFCC,0 0 8px #00FFCC">
-            <img src="branca.PNG" alt="Avant Après 1" style="border-radius:12px;margin-bottom:12px">
-            <p><strong>Claire, 34 ans – Lyon</strong></p>
-            <p class="muted" style="color:#00FFCC">-5,2 kg en 10 jours, sans privation.</p>
-          </div>
-          <div class="card" style="min-width:280px;flex-shrink:0;background:#111;color:#FF00FF;text-shadow:0 0 4px #FF00FF,0 0 8px #FF00FF">
-            <img src="nova2.PNG" alt="Avant Après 2" style="border-radius:12px;margin-bottom:12px">
-            <p><strong>Marc, 32 ans – Paris</strong></p>
-            <p class="muted" style="color:#FF00FF">-6,1 kg, énergie retrouvée.</p>
-          </div>
-          <div class="card" style="min-width:280px;flex-shrink:0;background:#111;color:#FFCC00;text-shadow:0 0 4px #FFCC00,0 0 8px #FFCC00">
-            <img src="nova1.PNG" alt="Avant Après 3" style="border-radius:12px;margin-bottom:12px">
-            <p><strong>Sophie, 41 ans – Marseille</strong></p>
-            <p class="muted" style="color:#FFCC00">-5,7 kg en 9 jours. Plus légère et motivée.</p>
-          </div>
-          <!-- Duplicação para loop -->
-          <div class="card" style="min-width:280px;flex-shrink:0;background:#111;color:#00FFCC;text-shadow:0 0 4px #00FFCC,0 0 8px #00FFCC">
-            <img src="branca.PNG" alt="Avant Après 1" style="border-radius:12px;margin-bottom:12px">
-            <p><strong>Claire, 34 ans – Lyon</strong></p>
-            <p class="muted" style="color:#00FFCC">-5,2 kg en 10 jours, sans privation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEMOIGNAGES TEXTO -->
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <h2 class="center">Témoignages vérifiés</h2>
-      <div class="grid grid-3" style="margin-top:16px">
-        <div class="card testimonial">
-          <div class="avatar"></div>
-          <div>
-            <p>« Simple, clair et faisable. J’ai perdu 3,2 kg sans faim. »</p>
-            <p class="muted">Élodie – Toulouse</p>
-          </div>
-        </div>
-        <div class="card testimonial">
-          <div class="avatar"></div>
-          <div>
-            <p>« Moins de fringales dès la 1ère semaine. Je dors mieux. »</p>
-            <p class="muted">Hugo – Nantes</p>
-          </div>
-        </div>
-        <div class="card testimonial">
-          <div class="avatar"></div>
-          <div>
-            <p>« Enfin un plan réaliste. Pas de gym, pas de souffrance. »</p>
-            <p class="muted">Sarah – Lille</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREÇO DESTACADO -->
-  <section class="section" style="background:#0e1116;padding-top:40px;padding-bottom:40px">
-    <div class="container center">
-      <p class="muted" style="margin-bottom:6px">Édition numérique · Accès <strong>immédiat</strong> et <strong>à vie</strong></p>
-      <p style="margin-top:0;font-size:1.2rem;color:#999;text-decoration:line-through">19,90 €</p>
-      <p class="price" style="font-size:2.5rem;color:#00FFCC;text-shadow:0 0 8px #00FFCC,0 0 16px #00FFCC;margin-top:4px">Aujourd’hui&nbsp;: 4,99 €</p>
-      <a class="btn" href="https://go.hotmart.com/X101471251A" target="_blank" rel="noopener" style="background:#FF00FF;box-shadow:0 0 16px #FF00FF,0 0 32px #FF00FF">Obtenir l’ebook maintenant →</a>
-    </div>
-  </section>
-
-  <!-- GARANTIE -->
-  <section class="section" id="garantie">
-    <div class="container card center" style="border:2px dashed #22c55e">
-      <h2>✅ Garantie 7 jours satisfait ou remboursé</h2>
-      <p>Essayez le protocole pendant une semaine. Si vous n’êtes pas satisfait·e, nous vous remboursons <strong>intégralement</strong> — sans question, sans risque.</p>
-      <img src="foto.PNG" alt="Garantie 7 jours" style="max-width:120px;margin:16px auto">
-      <a class="btn" href="https://go.hotmart.com/X101471251A" target="_blank" rel="noopener">Je commence sans risque →</a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
-    <div class="container">
-      <h2 class="center">
+</body>
+</html>
