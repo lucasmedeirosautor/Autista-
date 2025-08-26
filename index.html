@@ -3,176 +3,321 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Protocolo 5×10 – Vença a Depressão em 7 Dias</title>
+  <title>Como Vencer a Depressão + Método 5×10</title>
 
-  <!-- Fonte moderna -->
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0B0B0C;
-      --card:#121316;
-      --muted:#9aa0a6;
-      --text:#F5F7FA;
-      --gold:#FFD54A;
-      --green:#23C55E;
-      --green-2:#1BA14D;
-      --red:#FF5757;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#ffffff;
+      --ink:#0f172a;            /* texto principal (slate-900) */
+      --muted:#475569;          /* texto secundário (slate-600) */
+      --line:#e2e8f0;           /* bordas (slate-200) */
+      --card:#ffffff;
+      --blue:#0056ff;           /* primária igual sua página */
+      --blue-2:#0347cf;
+      --accent:#0ea5e9;         /* auxiliar para detalhes */
+      --success:#16a34a;
+      --warning:#f59e0b;
       --radius:16px;
+      --shadow:0 10px 30px rgba(2,6,23,.08);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter, Arial, sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.6}
     img{max-width:100%;display:block}
-    h2,h3{margin:0 0 15px 0}
-    button{cursor:pointer}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
 
-    /* =================== QUIZ =================== */
-    #quiz-section{
-      max-width:550px;margin:40px auto;padding:24px;
-      background:var(--card);
-      border-radius:16px;border:1px solid #1d2026;
-      box-shadow:var(--shadow);
+    /* Header fixo */
+    .header{
+      position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);
+      backdrop-filter: saturate(180%) blur(6px);
     }
-    #quiz-section h2{text-align:center;font-size:28px;margin-bottom:18px}
-    #quiz-section label{
-      display:block;border:1px solid #2a2d33;
-      border-radius:12px;padding:10px 14px;margin:8px 0;
-      cursor:pointer;transition:.2s
-    }
-    #quiz-section label:hover{background:#1a1b1e}
-    #quiz-section button{
-      margin-top:20px;width:100%;
-      padding:12px;border:none;border-radius:12px;
-      font-weight:700;background:var(--green);color:#0B0B0C;
-      font-size:1rem
-    }
-    #quiz-section button:hover{background:var(--green-2)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo img{width:36px;height:36px;border-radius:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:700}
+    .btn-primary{background:linear-gradient(180deg,var(--blue),var(--blue-2));color:#fff;box-shadow:0 8px 20px rgba(0,86,255,.25)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-outline{border:1px solid var(--line);background:#fff}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#eff6ff;border:1px solid #dbeafe;color:#1d4ed8;font-weight:600;font-size:.85rem}
 
-    /* =================== CONTEÚDO PRINCIPAL =================== */
-    #conteudo-principal{display:none; background:#fff; color:#111}
-    section{padding:60px 20px}
-    .container{max-width:1100px;margin:0 auto}
-    .text-center{text-align:center}
-    .btn-primary{
-      background:#0056ff; color:#fff; padding:15px 30px; border-radius:10px; font-size:1.1rem;
-      font-weight:600; display:inline-block; text-decoration:none; box-shadow:0 6px 15px rgba(0,86,255,0.3);
-      transition:all .3s ease-in-out
-    }
-    .btn-primary:hover{background:#0041c4}
+    /* Hero */
+    .hero{padding:56px 0 24px;background:#fff}
+    .hero-grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:40px;align-items:center}
+    .hero h1{font-size: clamp(1.8rem, 1.2rem + 2.2vw, 3.2rem);line-height:1.15;margin:10px 0 12px}
+    .hero p.lead{font-size:clamp(1rem,.9rem + .6vw,1.25rem);color:var(--muted)}
+    .hero-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:22px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+
+    /* Highlights strip */
+    .strip{background:#0b1220;color:#e5edff}
+    .strip-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:18px 0}
+    .strip .item{display:flex;gap:12px;align-items:flex-start}
+    .strip .item b{color:#fff}
+
+    /* Seções padrão */
+    section{padding:72px 0}
+    .section-title{font-size:clamp(1.4rem,1.1rem + 1.2vw,2.2rem);margin:0 0 12px}
+    .section-sub{color:var(--muted);max-width:820px}
+
+    /* Cards */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+    @media(max-width:980px){.hero-grid,.grid-2{grid-template-columns:1fr}.strip-inner{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:22px}
+    .check{display:flex;align-items:flex-start;gap:12px}
+    .check i{width:20px;height:20px;background:linear-gradient(180deg,var(--success),#0e7a37);border-radius:6px}
 
     /* Depoimentos */
-    .depoimentos{display:grid; gap:30px; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); margin-top:40px}
-    .depoimento-card{background:#121316;padding:20px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);text-align:left}
-    .depoimento-card strong{display:block;margin-bottom:5px}
-    .depoimento-card span{color:#9aa0a6;font-size:0.9rem;margin-bottom:10px;display:block}
-    .depoimento-card p{color:#eaeaea;font-size:1rem;line-height:1.5}
+    .testimonial p{color:#111}
+    .who{color:#64748b;font-size:.95rem;margin-top:6px}
 
-    /* Seções do livro e método */
-    .grid{display:grid; gap:40px; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); align-items:center}
-    .grid img{border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2)}
-    .grid ul{list-style:none;padding:0;margin:0;color:#444;font-size:1rem}
-    .grid ul li{margin-bottom:12px}
-    .metodo-box{background:#f9f9f9;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.08);text-align:left}
-    .metodo-box h3{color:#0056ff;font-size:1.3rem;margin-bottom:10px}
-    .metodo-box p{color:#555;font-size:0.95rem}
+    /* Oferta bônus */
+    .offer{background:#f1f6ff;border:1px solid #dbeafe;border-radius:18px;box-shadow:var(--shadow);padding:24px}
 
-    /* Oferta Especial */
-    .oferta{background:#f1f6ff;text-align:center;padding:70px 20px;border-radius:12px}
-    .oferta img{border-radius:12px; box-shadow:0 8px 18px rgba(0,0,0,.15)}
-    .oferta ul{list-style:none;padding:0;margin:0;text-align:left;display:inline-block;margin-top:15px;font-size:1rem}
-    .oferta ul li{margin-bottom:12px}
-    .oferta a{display:inline-block;margin-top:15px}
+    /* FAQ */
+    .faq-item{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+    .faq-item h4{margin:0 0 8px}
+    .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media(max-width:980px){.faq-grid{grid-template-columns:1fr}}
+
+    /* Rodapé */
+    footer{background:#0b1220;color:#c7d2fe;padding:40px 0;border-top:1px solid rgba(255,255,255,.06)}
+    footer a{color:#e5edff;text-decoration:underline}
+
+    /* Barra fixa mobile */
+    .stickybar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#ffffff;border-top:1px solid var(--line);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .stickybar .txt{font-weight:700}
+    @media(min-width:860px){.stickybar{display:none}}
   </style>
 </head>
 <body>
 
-<!-- ======================= QUIZ ======================= -->
-<section id="quiz-section">
-  <h2>Vamos começar com um teste rápido 👇</h2>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <span>Protocolo 5×10</span>
+      </div>
+      <nav style="display:flex;gap:10px;align-items:center">
+        <a class="btn btn-outline" href="#metodo">Método 5×10</a>
+        <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Quero começar agora</a>
+      </nav>
+    </div>
+  </header>
 
-  <div id="quiz-step-1">
-    <p><strong>1) Com que frequência você se sente sem energia e desanimado(a)?</strong></p>
-    <label><input type="radio" name="q1" value="0"> Raramente</label>
-    <label><input type="radio" name="q1" value="1"> Às vezes</label>
-    <label><input type="radio" name="q1" value="2"> Frequentemente</label>
-    <button onclick="nextStep(1)">Próxima</button>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">Guia prático + método diário</span>
+        <h1>Como Vencer a Depressão<br> com o <span style="color:var(--blue)">Método 5×10</span></h1>
+        <p class="lead">Um plano simples de <b>10 minutos por dia</b> que já ajudou pessoas comuns a recuperarem energia, clareza e propósito. Livro completo + método prático para aplicar imediatamente.</p>
+
+        <div class="badges">
+          <span class="pill" style="background:#ecfdf5;border-color:#bbf7d0;color:#047857">7 dias de aplicação</span>
+          <span class="pill" style="background:#fff7ed;border-color:#fed7aa;color:#c2410c">Passo a passo simples</span>
+          <span class="pill">Acesso imediato</span>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+          <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Quero transformar minha vida</a>
+          <a class="btn btn-outline" href="#conteudo">Ver o que você recebe</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="capa-livro.png" alt="Capa do livro Como Vencer a Depressão" style="border-radius:14px;box-shadow:0 10px 22px rgba(2,6,23,.12);margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <img src="pagamentos.png" alt="Formas de pagamento" style="height:28px">
+          <span style="font-size:.95rem;color:var(--muted)">Compra segura na Hotmart</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS STRIP (3 colunas) -->
+  <div class="strip">
+    <div class="container strip-inner">
+      <div class="item"><div>✅</div><div><b>Plano diário 10'</b><br><small>Aplicação rápida e realista</small></div></div>
+      <div class="item"><div>📘</div><div><b>Livro + Método</b><br><small>Teoria e prática juntas</small></div></div>
+      <div class="item"><div>🔒</div><div><b>Garantia 7 dias</b><br><small>Teste sem risco</small></div></div>
+    </div>
   </div>
 
-  <div id="quiz-step-2" style="display:none">
-    <p><strong>2) Você já passou com psicólogo ou psiquiatra?</strong></p>
-    <label><input type="radio" name="q2" value="0"> Nunca fiz</label>
-    <label><input type="radio" name="q2" value="1"> Já fiz uma época</label>
-    <label><input type="radio" name="q2" value="2"> Ainda faço atualmente</label>
-    <button onclick="nextStep(2)">Próxima</button>
-  </div>
+  <!-- O QUE VOCÊ RECEBE -->
+  <section id="conteudo">
+    <div class="container">
+      <h2 class="section-title">O que você recebe ao entrar agora</h2>
+      <p class="section-sub">Você terá o <b>Livro “Como Vencer a Depressão”</b> (versão digital) e o <b>Método 5×10</b> para aplicar em 10 minutos por dia. Simples, direto e feito para quem quer retomar a vida.</p>
 
-  <div id="quiz-step-3" style="display:none">
-    <p><strong>3) Atualmente você está fazendo algum tratamento?</strong></p>
-    <label><input type="radio" name="q3" value="0"> Não estou tratando</label>
-    <label><input type="radio" name="q3" value="1"> Só remédio</label>
-    <label><input type="radio" name="q3" value="2"> Remédio + hábitos saudáveis</label>
-    <button onclick="verResultado()">Ver Resultado</button>
-  </div>
+      <div class="grid-3" style="margin-top:22px">
+        <div class="card check">
+          <i></i><div><b>Relato real + guia prático</b><br><small>O que realmente funcionou na minha própria jornada.</small></div>
+        </div>
+        <div class="card check">
+          <i></i><div><b>Passos aplicáveis no dia a dia</b><br><small>Sem complicação: faça hoje e sinta a diferença.</small></div>
+        </div>
+        <div class="card check">
+          <i></i><div><b>Método 5×10</b><br><small>5 passos em 10 minutos para criar um ciclo positivo.</small></div>
+        </div>
+      </div>
 
-  <div id="quiz-result" style="display:none">
-    <p id="quiz-texto-resultado" style="margin-bottom:18px"></p>
-    <button onclick="mostrarConteudoPrincipal()">Continuar</button>
-  </div>
-</section>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px">
+        <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Quero aplicar o Método 5×10</a>
+        <a class="btn btn-outline" href="#metodo">Como funciona</a>
+      </div>
+    </div>
+  </section>
 
-<!--================== CONTEÚDO PRINCIPAL ==================-->
-<div id="conteudo-principal">
+  <!-- MÉTODO 5x10 -->
+  <section id="metodo" style="background:#f8fafc">
+    <div class="container">
+      <div class="grid-2" style="align-items:center">
+        <div>
+          <h2 class="section-title">O <span style="color:var(--blue)">Método 5×10</span></h2>
+          <p class="section-sub">A espinha dorsal do processo: <b>5 passos rápidos</b>, aplicados em <b>10 minutos por dia</b>. Um apoio garantido que reforça os ensinamentos do livro.</p>
+
+          <div class="card" style="margin-top:14px">
+            <ol style="margin:0;padding-left:18px;color:#111">
+              <li><b>Respiração</b> — acalme a mente e controle a ansiedade.</li>
+              <li><b>Movimento</b> — exercícios leves para energia e ânimo.</li>
+              <li><b>Mentalidade</b> — foco e reprogramação dos pensamentos.</li>
+              <li><b>Escrita</b> — organize emoções e alivie a mente.</li>
+              <li><b>Gratidão</b> — cultive motivação e esperança diária.</li>
+            </ol>
+          </div>
+
+          <div style="margin-top:18px">
+            <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Quero começar</a>
+          </div>
+        </div>
+        <div>
+          <img src="mockup-metodo.png" alt="Mockup Método 5x10" style="border-radius:18px;box-shadow:var(--shadow)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (sem fotos) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Veja o que dizem</h2>
+      <p class="section-sub">Depoimentos fictícios para demonstração – troque pelos reais quando quiser.</p>
+
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card testimonial">
+          <p>“Eu estava sem ânimo há meses. O livro e o método 5×10 foram a primeira coisa que consegui seguir sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”</p>
+          <div class="who">Mariana Souza — 32, São Paulo/SP</div>
+        </div>
+        <div class="card testimonial">
+          <p>“Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram meu humor e rotina. Recomendo de verdade.”</p>
+          <div class="who">Ricardo Almeida — 40, Belo Horizonte/MG</div>
+        </div>
+        <div class="card testimonial">
+          <p>“Eu já fazia terapia, mas ainda me sentia travada. O 5×10 me deu um empurrão diário, um motivo para seguir. Simples e poderoso.”</p>
+          <div class="who">Jéssica Lima — 26, Curitiba/PR</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA ESPECIAL (BÔNUS) -->
+  <section style="background:#f8fafc">
+    <div class="container">
+      <div class="offer">
+        <h3 style="margin:0 0 6px;font-size:1.6rem">🎁 Oferta Exclusiva: <span style="color:var(--blue)">Ebook Como Vencer a Ansiedade</span></h3>
+        <p style="margin:0 0 16px;color:var(--muted)">Adicione ao seu pedido por apenas <b style="color:#dc2626">R$ 9,99</b> e acelere seus resultados com técnicas rápidas para reduzir crises e restaurar a paz interior.</p>
+
+        <div class="grid-2" style="align-items:center">
+          <div><img src="ansiedade.png" alt="Ebook Como Vencer a Ansiedade" style="border-radius:14px;box-shadow:var(--shadow)"></div>
+          <div>
+            <ul style="margin:0;padding-left:18px">
+              <li>Exercícios de respiração e foco em <b>&lt;5 min</b></li>
+              <li>Plano prático de <b>7 dias</b></li>
+              <li>Apoio extra para potencializar o <b>Método 5×10</b></li>
+            </ul>
+            <div style="margin-top:16px">
+              <a class="btn btn-primary" href="https://pay.hotmart.com/U101468779L?checkoutMode=10" target="_blank" rel="noopener">✅ Quero adicionar por R$ 9,99</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:22px">
+        <img src="selo-garantia.png" alt="Garantia 7 dias" style="height:70px;margin:0 auto 10px auto">
+        <p style="color:var(--muted);margin:0">Você tem <b>7 dias de garantia</b>. Se não curtir, é só solicitar reembolso.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- SOBRE O AUTOR -->
-  <section style="background:#fff; padding:80px 20px">
-    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; gap:40px">
-      <div style="flex:1; min-width:280px; text-align:center">
-        <img src="Foto.png" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15)">
-      </div>
-      <div style="flex:2; min-width:280px">
-        <h2>Sobre o Autor</h2>
-        <p>Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.</p>
-        <p>Todos os meus livros nasceram da minha própria luta contra a depressão. Eu conto sem máscaras o que realmente me ajudou a vencer.</p>
-        <p>Minha missão é clara: <strong>mostrar que é possível vencer a depressão e a ansiedade</strong>, com fé, disciplina e estratégias práticas que funcionam no dia a dia.</p>
-        <p style="color:#0056ff; font-weight:600">Se eu venci, você também pode vencer!</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- APRESENTAÇÃO DO LIVRO -->
-  <section style="background:#f9f9f9; padding:80px 20px">
-    <div class="container grid">
-      <div style="text-align:center">
-        <img src="capa.png" alt="Capa do livro Como Vencer a Depressão">
+  <section>
+    <div class="container grid-2" style="align-items:center">
+      <div>
+        <img src="autor.png" alt="Lucas Daniel" style="border-radius:18px;box-shadow:var(--shadow);max-width:360px">
       </div>
       <div>
-        <h2>O Livro <span style="color:#0056ff;">Como Vencer a Depressão</span></h2>
-        <p>Este livro nasceu da minha própria história. Tudo o que me ajudou a sair do fundo do poço, recuperar a vontade de viver e construir uma nova vida, eu reuni aqui. <strong>“Como Vencer a Depressão”</strong> é um guia baseado em dor, superação e vitória real.</p>
-        <h3>E para potencializar ainda mais…</h3>
-        <p>Criei também o <strong>Método 5×10</strong> – um plano simples de 10 minutos por dia, que funciona como apoio diário junto ao livro.</p>
-        <ul>
-          <li>✔ Um relato real de quem enfrentou e venceu a depressão</li>
-          <li>✔ Passos práticos e aplicáveis no dia a dia</li>
-          <li>✔ O Método 5×10 como apoio diário e constante</li>
-          <li>✔ Livro + Método: teoria e prática caminhando juntas</li>
-        </ul>
-        <a class="btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank">Quero transformar minha vida →</a>
+        <h2 class="section-title">Sobre o Autor</h2>
+        <p>Meu nome é <b>Lucas Daniel</b>. Sou cristão, estudante de Direito, palestrante em saúde mental, escritor e mentor. Minha trajetória como autor nasceu da minha própria luta contra a depressão.</p>
+        <p>Sem máscaras, compartilho o que realmente me ajudou a vencer: métodos reais, sem enrolação, que transformaram a minha vida e hoje transformam a vida de outros.</p>
+        <p><b>Missão:</b> mostrar que é possível vencer a depressão e a ansiedade com fé, disciplina e estratégias práticas que funcionam no dia a dia.</p>
+        <p style="color:var(--blue);font-weight:700">Se eu venci, você também pode vencer!</p>
       </div>
     </div>
   </section>
 
-  <!-- MÉTODO 5×10 -->
-  <section style="background:#fff; padding:80px 20px">
-    <div class="container text-center">
-      <img src="5x10.PNG" alt="Método 5×10" style="max-width:400px; margin-bottom:30px">
-      <h2>O <span style="color:#0056ff;">Método 5×10</span></h2>
-      <p>5 passos rápidos aplicados em 10 minutos por dia. Um ciclo positivo de energia, clareza e propósito.</p>
-      <div class="depoimentos">
-        <div class="metodo-box">
-          <h3>1. Respiração</h3>
-          <p>Técnicas simples para acalmar a mente e controlar a ansiedade.</p>
+  <!-- FAQ -->
+  <section style="background:#f8fafc">
+    <div class="container">
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <div class="faq-grid" style="margin-top:16px">
+        <div class="faq-item">
+          <h4>Como acesso o material?</h4>
+          <p>Após a compra pela Hotmart, você recebe acesso imediato por e-mail. É tudo digital.</p>
         </div>
-        <
+        <div class="faq-item">
+          <h4>Em quanto tempo vejo resultados?</h4>
+          <p>Algumas pessoas relatam mudanças em poucos dias. A consistência diária de 10 minutos é a chave.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Funciona se eu já faço terapia?</h4>
+          <p>Sim. O método é complementar e pode potencializar o que você já trabalha com seu profissional.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Tem garantia?</h4>
+          <p>Sim, 7 dias. Se não fizer sentido pra você, é só pedir o reembolso.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:22px">
+        <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Quero garantir meu acesso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="logo.png" alt="Logo" style="width:28px;height:28px;border-radius:6px">
+        <span>Protocolo 5×10</span>
+      </div>
+      <div style="font-size:.9rem">© <span id="y"></span> Lucas Daniel. Todos os direitos reservados. • <a href="#">Termos</a> • <a href="#">Privacidade</a></div>
+    </div>
+  </footer>
+
+  <!-- BARRA FIXA MOBILE -->
+  <div class="stickybar">
+    <div class="txt">Protocolo 5×10</div>
+    <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Começar agora</a>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
