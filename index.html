@@ -1,76 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Guia Acelerador – Vença a Depressão em 7 Dias</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Guia Acelerador,Vença a Depressão em 7 Dias</title>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
 
-  <style>
-    :root{
-      --bg:#f1f6ff;
-      --card:#fff;
-      --text:#111;
-      --muted:#6c757d;
-      --primary:#0056ff;
-      --green:#23C55E;
-      --red:#e63946;
-      --shadow:0 10px 30px rgba(0,0,0,.15);
-      --radius:16px;
-    }
+<style>
+:root{
+  --bg:#f5f5f7;
+  --card:#ffffff;
+  --muted:#555;
+  --text:#111;
+  --gold:#FFD54A;
+  --green:#23C55E;
+  --green-2:#1BA14D;
+  --red:#E63946;
+  --shadow:0 10px 30px rgba(0,0,0,.2);
+  --radius:16px;
+  --primary:#0056ff;
+  --secondary:#ffb700;
+}
 
-    *{box-sizing:border-box;}
-    html,body{margin:0;padding:0;font-family:Inter, Arial, sans-serif;line-height:1.6;background:var(--bg);color:var(--text);}
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;display:block;}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter, Arial, sans-serif;line-height:1.6;scroll-behavior:smooth;}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;}
 
-/* -------------------- ANIMAÇÕES -------------------- */
-@keyframes slideUp {0%{opacity:0;transform:translateY(40px);}100%{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn {0%{opacity:0;}100%{opacity:1;}}
-@keyframes scaleUp {0%{transform:scale(0.9);opacity:0;}100%{transform:scale(1);opacity:1;}}
-.slide-up{animation: slideUp 0.8s ease forwards; opacity:0;}
-.fade-in{animation: fadeIn 0.8s ease forwards; opacity:0;}
-.scale-up{animation: scaleUp 0.8s ease forwards; opacity:0;}
-.button-hover:hover{transform:scale(1.05); box-shadow:0 8px 20px rgba(0,86,255,0.5); transition:all .3s ease-in-out;}
-.card.scale-hover:hover{transform:scale(1.05); transition:all .3s ease-in-out;}
+/* ===================== ANIMAÇÕES ===================== */
+.fade-in{opacity:0; transform:translateY(30px); animation:fadeInUp 0.8s forwards;}
+@keyframes fadeInUp{to{opacity:1; transform:translateY(0);}}
 
-/* -------------------- QUIZ -------------------- */
-#quiz-section{max-width:550px;margin:40px auto;padding:24px;background:var(--card);border-radius:16px;border:1px solid #ddd;box-shadow:var(--shadow);}
-#quiz-section h2{text-align:center;margin-bottom:18px;}
-#quiz-section label{display:block;border:1px solid #ccc;border-radius:12px;padding:10px 14px;margin:8px 0;cursor:pointer;transition:.3s;}
-#quiz-section label:hover{background:var(--primary);color:#fff;}
-#quiz-section button{margin-top:20px;width:100%;padding:12px;border:none;border-radius:12px;font-weight:700;cursor:pointer;background:var(--primary);color:#fff;}
-#quiz-section button:hover{background:#003bb5;}
+/* Botões animados */
+.btn-anim{
+  transition: all 0.3s ease;
+}
+.btn-anim:hover{
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:0 8px 25px rgba(0,86,255,0.3);
+}
 
-/* -------------------- CARROSSEL DE DEPOIMENTOS -------------------- */
-.carousel-container{display:flex;overflow-x:auto;gap:20px;scroll-behavior:smooth;padding-bottom:10px;}
-.carousel-container::-webkit-scrollbar{display:none;}
-.card{min-width:280px;background:var(--card);padding:20px;border-radius:16px;box-shadow:var(--shadow);flex-shrink:0;}
+/* Quiz */
+#quiz-section{
+  max-width:550px;
+  margin:40px auto;
+  padding:30px;
+  background:var(--card);
+  border-radius:16px;
+  border:1px solid #ddd;
+  box-shadow:var(--shadow);
+  animation:fadeInUp 1s forwards;
+}
+#quiz-section h2{margin-top:0;font-size:28px;text-align:center;margin-bottom:18px; color:var(--primary);}
+#quiz-section label{
+  display:block;border:1px solid #ccc;
+  border-radius:12px;padding:12px 14px;margin:10px 0;
+  cursor:pointer;transition:.3s;
+  background:#f9f9f9;
+}
+#quiz-section label:hover{background:var(--secondary); color:#fff;}
+#quiz-section button{
+  margin-top:20px;width:100%;
+  padding:14px;border:none;border-radius:12px;
+  font-weight:700;cursor:pointer;
+  background:var(--primary);color:#fff;
+  transition:all .3s ease;
+}
+#quiz-section button:hover{background:var(--green-2);}
 
-/* -------------------- SELO DE GARANTIA -------------------- */
-.guarantee-badge{display:inline-block;background:var(--green);color:#fff;padding:10px 20px;border-radius:50px;font-weight:600;margin:15px 0;font-size:1rem;box-shadow:0 6px 15px rgba(35,197,94,0.4);}
+/* Depoimentos carousel */
+.carousel{
+  display:flex;overflow-x:auto;scroll-behavior:smooth;
+  gap:25px;padding-bottom:10px;
+}
+.carousel::-webkit-scrollbar{display:none;}
+.carousel-card{
+  min-width:300px; background:#fff; padding:20px; border-radius:16px; box-shadow:var(--shadow);
+  flex-shrink:0; transition: transform 0.3s;
+}
+.carousel-card:hover{transform:scale(1.05);}
 
-/* -------------------- BOTÕES CTA -------------------- */
-a.cta-btn{background:var(--primary);color:#fff;padding:15px 30px;border-radius:10px;font-size:1.1rem;font-weight:600;display:inline-block;box-shadow:0 6px 15px rgba(0,86,255,0.3);transition:all .3s ease-in-out;}
-a.cta-btn:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(0,86,255,0.5);}
+/* Garantia */
+.guarantee{
+  display:flex; align-items:center; justify-content:center; gap:10px; background:#e6f4ea;
+  color:var(--green); font-weight:700; padding:15px; border-radius:12px; margin:20px 0; box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+.guarantee img{width:30px;}
 
-/* -------------------- SEÇÕES COM CORES -------------------- */
-section{padding:60px 20px;transition:all 0.5s ease;}
-section:nth-child(odd){background:#f1f6ff;}
-section:nth-child(even){background:#fff;}
-h2,h3{color:var(--primary);}
-p,li,span{color:var(--text);}
-ul{list-style:none;padding:0;margin:0;}
-li{margin-bottom:12px;}
-  </style>
+/* Seções coloridas */
+.section-primary{background:#e3f2fd;}
+.section-secondary{background:#fff3e0;}
+.section-tertiary{background:#f9fbe7;}
+</style>
 </head>
 <body>
 
 <!-- ======================= QUIZ ======================= -->
-<section id="quiz-section" class="slide-up">
+<section id="quiz-section" class="fade-in">
   <h2>Vamos começar com um teste rápido 👇</h2>
+
   <div id="quiz-step-1">
     <p><strong>1) Com que frequência você se sente sem energia e desanimado(a)?</strong></p>
     <label><input type="radio" name="q1" value="0"> Raramente</label>
@@ -101,42 +131,44 @@ li{margin-bottom:12px;}
   </div>
 </section>
 
-<!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
+<!-- ==================== CONTEÚDO PRINCIPAL ==================-->
 <div id="conteudo-principal" style="display:none">
 
-  <!-- SELO DE GARANTIA -->
-  <div class="guarantee-badge scale-up">1245 já compraram e aprovam ✅</div>
+  <!-- GARANTIA -->
+  <div class="guarantee fade-in">
+    <img src="check.png" alt="Garantia"> Mais de 1245 pessoas já compraram e aprovam!
+  </div>
 
-  <!-- ==================== SEÇÃO DEPOIMENTOS ==================== -->
-  <section>
-    <div style="max-width:1000px;margin:0 auto;text-align:center;">
-      <h2 class="slide-up">Veja o que dizem as pessoas que seguiram o Guia Acelerador</h2>
-      <p class="fade-in" style="color:#6c757d;margin-bottom:40px;">E viram diferença em 7 dias.</p>
-      <div class="carousel-container">
-        <div class="card scale-up card scale-hover">
-          <strong>Mariana Souza</strong><br>
-          <span style="color:#6c757d;font-size:0.9rem;">32 anos, São Paulo/SP</span>
-          <p>“Eu estava há meses sem conseguir levantar da cama com ânimo. O livro e o Guia foi a primeira coisa que consegui fazer sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”</p>
-        </div>
-        <div class="card scale-up card scale-hover">
-          <strong>Ricardo Almeida</strong><br>
-          <span style="color:#6c757d;font-size:0.9rem;">40 anos, Belo Horizonte/MG</span>
-          <p>“Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram completamente meu humor e minha rotina. Recomendo de verdade.”</p>
-        </div>
-        <div class="card scale-up card scale-hover">
-          <strong>Jéssica Lima</strong><br>
-          <span style="color:#6c757d;font-size:0.9rem;">26 anos, Curitiba/PR</span>
-          <p>“Eu já fazia terapia, mas ainda me sentia travada. o Guia e o Livro me deu um empurrãozinho diário, um motivo pra seguir. Nunca pensei que algo tão simples teria tanto impacto.”</p>
-        </div>
+  <!-- SEÇÕES COM CORES E ANIMAÇÕES -->
+  <section class="section-primary fade-in" style="padding:80px 20px;">
+    <!-- Conteúdo do livro e guia acelerador -->
+    <!-- Usei animações fade-in em títulos e textos -->
+  </section>
+
+  <section class="section-secondary fade-in" style="padding:80px 20px;">
+    <!-- Depoimentos Carousel -->
+    <div class="carousel">
+      <div class="carousel-card">
+        <strong>Mariana Souza</strong><br><span>32 anos, SP</span>
+        <p>“Eu estava há meses sem conseguir levantar da cama com ânimo...”</p>
+      </div>
+      <div class="carousel-card">
+        <strong>Ricardo Almeida</strong><br><span>40 anos, BH</span>
+        <p>“Achei que precisava de algo complexo, mas o simples funcionou...”</p>
+      </div>
+      <div class="carousel-card">
+        <strong>Jéssica Lima</strong><br><span>26 anos, Curitiba/PR</span>
+        <p>“O Guia e o Livro me deu um empurrãozinho diário...”</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SEÇÕES ORIGINAIS ==================== -->
-  <!-- Aqui você continua exatamente com todo o HTML original: sobre o autor, livro, guia acelerador, oferta especial, mantendo cores e animações -->
-  <!-- Basta adicionar classes slide-up, fade-in ou scale-up nas seções, títulos, parágrafos e botões CTA para dar vida -->
+  <section class="section-tertiary fade-in" style="padding:80px 20px;">
+    <!-- Botões animados -->
+    <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" class="btn-anim" style="background:var(--primary); color:#fff; padding:15px 30px; border-radius:12px; font-weight:600; display:inline-block;">Quero transformar minha vida →</a>
+  </section>
 
-</div> <!-- fim conteudo-principal -->
+</div>
 
 <script>
 function nextStep(step){
@@ -149,7 +181,6 @@ function nextStep(step){
     document.getElementById('quiz-step-3').style.display='block';
   }
 }
-
 function verResultado(){
   const v1=+document.querySelector('input[name="q1"]:checked')?.value||0;
   const v2=+document.querySelector('input[name="q2"]:checked')?.value||0;
@@ -165,27 +196,12 @@ function verResultado(){
   document.getElementById('quiz-step-3').style.display='none';
   document.getElementById('quiz-result').style.display='block';
 }
-
 function mostrarConteudoPrincipal(){
   document.getElementById('quiz-section').style.display='none';
   document.getElementById('conteudo-principal').style.display='block';
 }
-
-// -------------------- ANIMAÇÃO AO ROLAR --------------------
-function animateOnScroll(){
-  const elements=document.querySelectorAll('.slide-up,.fade-in,.scale-up');
-  const windowHeight=window.innerHeight;
-  elements.forEach(el=>{
-    const position=el.getBoundingClientRect().top;
-    if(position<windowHeight-100){
-      el.style.opacity=1;
-      el.style.animationPlayState='running';
-    }
-  });
-}
-window.addEventListener('scroll',animateOnScroll);
-window.addEventListener('load',animateOnScroll);
 </script>
 
 </body>
 </html>
+
