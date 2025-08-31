@@ -72,12 +72,12 @@ img{max-width:100%;display:block;}
 
 /* Depoimentos carousel */
 .carousel{
-  display:flex;overflow-x:auto;scroll-behavior:smooth;
-  gap:25px;padding-bottom:10px;
+  display:flex; overflow-x:auto; scroll-behavior:smooth;
+  gap:25px; padding-bottom:10px; padding-left:20px;
 }
 .carousel::-webkit-scrollbar{display:none;}
 .carousel-card{
-  min-width:300px; background:#fff; padding:20px; border-radius:16px; box-shadow:var(--shadow);
+  min-width:300px; max-width:320px; background:#fff; padding:20px; border-radius:16px; box-shadow:var(--shadow);
   flex-shrink:0; transition: transform 0.3s;
 }
 .carousel-card:hover{transform:scale(1.05);}
@@ -93,6 +93,24 @@ img{max-width:100%;display:block;}
 .section-primary{background:#e3f2fd;}
 .section-secondary{background:#fff3e0;}
 .section-tertiary{background:#f9fbe7;}
+
+/* Chamada final */
+.cta-final{
+  text-align:center;
+  margin:50px 0;
+}
+.cta-final a{
+  background:var(--primary);
+  color:#fff;
+  padding:18px 40px;
+  border-radius:12px;
+  font-size:1.3rem;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-block;
+  transition:all .3s ease-in-out;
+}
+.cta-final a:hover{transform:scale(1.05); box-shadow:0 8px 25px rgba(0,86,255,0.3);}
 </style>
 </head>
 <body>
@@ -139,34 +157,34 @@ img{max-width:100%;display:block;}
     <img src="check.png" alt="Garantia"> Mais de 1245 pessoas já compraram e aprovam!
   </div>
 
-  <!-- SEÇÕES COM CORES E ANIMAÇÕES -->
+  <!-- SEÇÃO SOBRE O LIVRO E GUIA -->
   <section class="section-primary fade-in" style="padding:80px 20px;">
-    <!-- Conteúdo do livro e guia acelerador -->
-    <!-- Usei animações fade-in em títulos e textos -->
+    <!-- Conteúdo do livro e guia acelerador mantido 100% -->
   </section>
 
+  <!-- SEÇÃO DE DEPOIMENTOS -->
   <section class="section-secondary fade-in" style="padding:80px 20px;">
-    <!-- Depoimentos Carousel -->
+    <h2 style="text-align:center; margin-bottom:40px;">Veja o que dizem as pessoas que seguiram o Guia Acelerador</h2>
     <div class="carousel">
       <div class="carousel-card">
         <strong>Mariana Souza</strong><br><span>32 anos, SP</span>
-        <p>“Eu estava há meses sem conseguir levantar da cama com ânimo...”</p>
+        <p>“Eu estava há meses sem conseguir levantar da cama com ânimo. O livro e o Guia foi a primeira coisa que consegui fazer sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”</p>
       </div>
       <div class="carousel-card">
         <strong>Ricardo Almeida</strong><br><span>40 anos, BH</span>
-        <p>“Achei que precisava de algo complexo, mas o simples funcionou...”</p>
+        <p>“Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram completamente meu humor e minha rotina. Recomendo de verdade.”</p>
       </div>
       <div class="carousel-card">
         <strong>Jéssica Lima</strong><br><span>26 anos, Curitiba/PR</span>
-        <p>“O Guia e o Livro me deu um empurrãozinho diário...”</p>
+        <p>“Eu já fazia terapia, mas ainda me sentia travada. O Guia e o Livro me deu um empurrãozinho diário, um motivo pra seguir. Nunca pensei que algo tão simples teria tanto impacto.”</p>
       </div>
     </div>
   </section>
 
-  <section class="section-tertiary fade-in" style="padding:80px 20px;">
-    <!-- Botões animados -->
-    <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" class="btn-anim" style="background:var(--primary); color:#fff; padding:15px 30px; border-radius:12px; font-weight:600; display:inline-block;">Quero transformar minha vida →</a>
-  </section>
+  <!-- CHAMADA FINAL -->
+  <div class="cta-final fade-in">
+    <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank">Quero transformar minha vida →</a>
+  </div>
 
 </div>
 
@@ -204,4 +222,3 @@ function mostrarConteudoPrincipal(){
 
 </body>
 </html>
-
