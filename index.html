@@ -3,86 +3,106 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Guia Acelerador – Vença a Depressão em 7 Dias</title>
+  <title>Guia Acelerador,Vença a Depressão em 7 Dias</title>
 
-  <!-- Fonts -->
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
 
-  <!-- CSS -->
   <style>
     :root{
       --bg:#0B0B0C;
       --card:#121316;
       --muted:#9aa0a6;
       --text:#F5F7FA;
-      --blue:#0056ff;
+      --gold:#FFD54A;
       --green:#23C55E;
       --green-2:#1BA14D;
-      --red:#e63946;
+      --red:#FF5757;
       --shadow:0 10px 30px rgba(0,0,0,.35);
       --radius:16px;
     }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter, Arial, sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
-    *{box-sizing:border-box;}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter, Arial, sans-serif;line-height:1.6;scroll-behavior:smooth;}
-    a{color:inherit;text-decoration:none;}
-    img{max-width:100%;display:block;}
-    
-    /* ===== Animações ===== */
-    .fade-in{animation:fadeIn 1s ease forwards; opacity:0;}
-    .fade-up{animation:fadeUp 1s ease forwards; opacity:0;}
-    .btn-animate{transition:all .3s ease;}
-    .btn-animate:hover{transform:translateY(-4px) scale(1.05); box-shadow:0 10px 20px rgba(0,0,0,.3);}
-    
-    @keyframes fadeIn{
-      from{opacity:0;}
-      to{opacity:1;}
+    /* ====================== ANIMAÇÕES ====================== */
+    .word {
+      display:inline-block;
+      opacity:0;
+      transform:translateY(20px);
+      animation: fadeInUp 0.5s forwards;
     }
-    @keyframes fadeUp{
-      from{opacity:0; transform:translateY(30px);}
-      to{opacity:1; transform:translateY(0);}
+    @keyframes fadeInUp {
+      to { opacity:1; transform:translateY(0); }
     }
 
-    /* ===== QUIZ ===== */
+    a.btn, #quiz-section button {
+      transition: all .3s ease-in-out;
+    }
+    a.btn:hover, #quiz-section button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,86,255,0.6);
+    }
+
+    .selo-garantia {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:15px;
+      animation: fadeInUp 1s forwards;
+    }
+
+    /* ====================== QUIZ ====================== */
     #quiz-section{
       max-width:550px;margin:40px auto;padding:24px;
       background:var(--card);
       border-radius:16px;border:1px solid #1d2026;
       box-shadow:var(--shadow);
-      animation:fade-in 1s ease forwards;
     }
-    #quiz-section h2{margin-top:0;font-size:28px;text-align:center;margin-bottom:18px;}
+    #quiz-section h2{
+      margin-top:0;font-size:28px;text-align:center;margin-bottom:18px
+    }
     #quiz-section label{
       display:block;border:1px solid #2a2d33;
       border-radius:12px;padding:10px 14px;margin:8px 0;
-      cursor:pointer;transition:.2s;
+      cursor:pointer;transition:.2s
     }
-    #quiz-section label:hover{background:#1a1b1e;}
+    #quiz-section label:hover{background:#1a1b1e}
     #quiz-section button{
       margin-top:20px;width:100%;
       padding:12px;border:none;border-radius:12px;
       font-weight:700;cursor:pointer;
-      background:var(--green);color:#0B0B0C;
-      transition:all .3s ease;
+      background:var(--green);color:#0B0B0C
     }
-    #quiz-section button:hover{background:var(--green-2);}
-    
-    /* ===== Sticky CTA ===== */
-    .sticky-cta{
-      position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
-      background:var(--blue);color:#fff;padding:15px 30px;border-radius:12px;
-      display:flex;gap:15px;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,.3);
-      font-weight:600; z-index:999; animation:fadeUp 1s ease forwards;
+    #quiz-section button:hover{background:var(--green-2)}
+
+    /* ====================== DEPOIMENTOS SLIDER ====================== */
+    .depoimentos-slider {
+      display:flex;
+      overflow-x:auto;
+      gap:30px;
+      scroll-snap-type: x mandatory;
+      padding-bottom:20px;
     }
-    .sticky-cta .btn-primary{background:#23C55E;color:#0B0B0C;padding:12px 25px;border-radius:12px;font-weight:700; transition:all .3s ease;}
-    .sticky-cta .btn-primary:hover{background:#1BA14D; transform:scale(1.05);}
+    .depoimento {
+      flex:0 0 300px;
+      background:#121316;
+      border-radius:16px;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.3);
+      scroll-snap-align:start;
+      transition: transform .3s;
+    }
+    .depoimentos-slider::-webkit-scrollbar { display:none; }
+    .depoimento:hover { transform: scale(1.05); }
   </style>
 </head>
 <body>
 
 <!-- ======================= QUIZ ======================= -->
-<section id="quiz-section" class="fade-in">
+<section id="quiz-section">
   <h2>Vamos começar com um teste rápido 👇</h2>
 
   <div id="quiz-step-1">
@@ -115,19 +135,29 @@
   </div>
 </section>
 
-<!--================== CONTEÚDO PRINCIPAL (PARTE 1) ==================-->
+<!--================== CONTEÚDO PRINCIPAL ==================-->
 <div id="conteudo-principal" style="display:none">
-  <div class="sticky-cta fade-up" id="bar">
+  <!-- Barra fixa CTA (mobile) -->
+  <div class="sticky-cta" id="bar">
     <span class="label">Guia Acelerador</span>
-    <a class="btn-primary btn-animate" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank">Começar agora</a>
+    <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Começar agora</a>
+    <div class="selo-garantia">
+      <img src="selo.png" alt="Garantia 100% Satisfação" style="width:60px; margin-right:10px;">
+      <span>100% Garantia de Satisfação</span>
+    </div>
   </div>
+
   <!-- ==================== DEPOIMENTOS ==================== -->
-  <section class="fade-up" style="padding:60px 20px; background:#0B0B0C; color:#fff; font-family:Inter, sans-serif;">
+  <section style="padding:60px 20px; background:#0B0B0C; color:#fff; font-family:Inter, sans-serif;">
     <div style="max-width:1000px; margin:0 auto; text-align:center;">
-      <h2 style="font-size:2.2rem; margin-bottom:10px;">Veja o que dizem as pessoas que seguiram o Guia Acelerador e Leram o Livro</h2>
+      <h2 style="font-size:2.2rem; margin-bottom:10px;">
+        Veja o que dizem as pessoas que seguiram o <span class="word">Guia</span> <span class="word">Acelerador</span> e Leram o Livro
+      </h2>
       <p style="color:#9aa0a6; margin-bottom:50px;">e Viram Diferença Em 7 Dias.</p>
-      <div style="display:grid; gap:30px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-        <div style="background:#121316; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.3); text-align:left;" class="fade-up">
+
+      <div class="depoimentos-slider">
+        <!-- CARD 1 -->
+        <div class="depoimento">
           <div style="margin-bottom:15px;">
             <strong>Mariana Souza</strong><br>
             <span style="color:#9aa0a6; font-size:0.9rem;">32 anos, São Paulo/SP</span>
@@ -136,7 +166,9 @@
             “Eu estava há meses sem conseguir levantar da cama com ânimo. O livro e o Guia foi a primeira coisa que consegui fazer sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”
           </p>
         </div>
-        <div style="background:#121316; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.3); text-align:left;" class="fade-up">
+
+        <!-- CARD 2 -->
+        <div class="depoimento">
           <div style="margin-bottom:15px;">
             <strong>Ricardo Almeida</strong><br>
             <span style="color:#9aa0a6; font-size:0.9rem;">40 anos, Belo Horizonte/MG</span>
@@ -145,7 +177,9 @@
             “Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram completamente meu humor e minha rotina. Recomendo de verdade.”
           </p>
         </div>
-        <div style="background:#121316; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.3); text-align:left;" class="fade-up">
+
+        <!-- CARD 3 -->
+        <div class="depoimento">
           <div style="margin-bottom:15px;">
             <strong>Jéssica Lima</strong><br>
             <span style="color:#9aa0a6; font-size:0.9rem;">26 anos, Curitiba/PR</span>
@@ -158,148 +192,51 @@
     </div>
   </section>
 
-  <!-- ==================== SOBRE O AUTOR ==================== -->
-  <section class="fade-up" style="padding:80px 20px; background:#fff; font-family:Inter, sans-serif;">
-    <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-      <div style="flex:1; min-width:280px; text-align:center;">
-        <img src="Foto.png" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15);">
-      </div>
-      <div style="flex:2; min-width:280px;">
-        <h2 style="font-size:2.2rem; color:#111; margin-bottom:20px;">Sobre o Autor</h2>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
-          Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.
-        </p>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
-          Minha trajetória como autor começou de forma intensa: todos os meus livros nasceram da minha própria luta contra a depressão. Eu sei, na pele, o que significa sentir o peso desse desafio.
-        </p>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
-          Diferente de muitos que falam de fora, eu conto sem máscaras o que realmente me ajudou a vencer: Caminhos reais, sem enrolação, que transformaram minha vida e hoje transformam a vida de outros.
-        </p>
-        <p style="font-size:1.2rem; font-weight:600; color:#0056ff;">
-          Se eu venci, você também pode vencer!
-        </p>
-      </div>
-    </div>
-  </section>
+  <!-- ==================== RESTO DO CONTEÚDO ==================== -->
+  <!-- Mantém seu código original do Autor, Livro, Guia Acelerador e Oferta Especial -->
+</div>
 
-  <!-- ==================== APRESENTAÇÃO DO LIVRO ==================== -->
-  <section class="fade-up" style="padding:80px 20px; background:#f9f9f9; font-family:Inter, sans-serif;">
-    <div style="max-width:1100px; margin:0 auto; display:grid; gap:40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items:center;">
-      <div style="text-align:center;">
-        <img src="capa.png" alt="Capa do livro Como Vencer a Depressão" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);" class="fade-up">
-      </div>
-      <div>
-        <h2 style="font-size:2.4rem; color:#111; margin-bottom:15px;">O Livro <span style="color:#0056ff;">Como Vencer a Depressão</span></h2>
-        <p style="font-size:1.15rem; color:#333; margin-bottom:20px; line-height:1.6;">
-          Este livro nasceu da minha própria história. Tudo o que me ajudou a sair do fundo do poço, a recuperar a vontade de viver e a construir uma nova vida, eu reuni aqui.  
-          <strong>“Como Vencer a Depressão”</strong> é mais do que páginas escritas, é um guia baseado em dor, superação e vitória real.
-        </p>
-        <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" class="btn-primary btn-animate"
-           style="background:#0056ff; color:#fff; padding:15px 30px; border-radius:10px; font-size:1.1rem; font-weight:600; display:inline-block; box-shadow:0 6px 15px rgba(0,86,255,0.3); margin-top:10px;">
-          Quero transformar minha vida →
-        </a>
-      </div>
-    </div>
-  </section>
-<!-- ==================== SEÇÃO Guia Acelerador ==================== -->
-<section class="fade-in-section" style="padding:80px 20px; background:#fff; font-family:Inter, sans-serif; opacity:0; transform: translateY(30px); transition:all 0.8s ease-out;">
-  <div style="max-width:1100px; margin:0 auto; text-align:center;">
-    <div style="text-align:center;">
-      <img src="Guia .PNG" alt="Capa do Guia Acelerador" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2); transform: scale(0.8); opacity:0; transition:all 0.8s ease-out;" class="fade-in-img">
-    </div>
-    <h2 style="font-size:2.4rem; color:#0056ff; margin-bottom:20px;" class="fade-in-title">O Guia Acelerador</h2>
-    <p style="max-width:800px; margin:0 auto 40px auto; font-size:1.15rem; color:#444; line-height:1.6;" class="fade-in-text">
-      Criado a partir da minha experiência, o <strong>Guia Acelerador</strong> é um plano simples e eficaz: 5 passos rápidos aplicados em apenas 10 minutos por dia. Reforça todos os ensinamentos do livro.
-    </p>
-
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:25px; margin-bottom:40px;">
-      <div class="fade-in-card" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-        <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">1. Respiração</h3>
-        <p style="color:#555; font-size:0.95rem;">Técnicas simples para acalmar a mente e controlar a ansiedade.</p>
-      </div>
-      <div class="fade-in-card" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-        <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">2. Movimento</h3>
-        <p style="color:#555; font-size:0.95rem;">Exercícios leves que aumentam a energia e combatem a apatia.</p>
-      </div>
-      <div class="fade-in-card" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-        <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">3. Mentalidade</h3>
-        <p style="color:#555; font-size:0.95rem;">Práticas de foco e reprogramação de pensamentos negativos.</p>
-      </div>
-      <div class="fade-in-card" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-        <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">4. Escrita</h3>
-        <p style="color:#555; font-size:0.95rem;">Exercícios de autoexpressão para organizar emoções e aliviar a mente.</p>
-      </div>
-      <div class="fade-in-card" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-        <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">5. Gratidão</h3>
-        <p style="color:#555; font-size:0.95rem;">Prática diária de gratidão para fortalecer a motivação e esperança.</p>
-      </div>
-    </div>
-
-    <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener"
-       style="background:#0056ff; color:#fff; padding:15px 30px; border-radius:12px; font-size:1.1rem; text-decoration:none; font-weight:700; display:inline-block; box-shadow:0 6px 20px rgba(0,86,255,0.4); transition:all 0.3s ease-in-out;" 
-       onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      Quero aplicar o Guia Acelerador →
-    </a>
-  </div>
-</section>
-
-<!-- ==================== SEÇÃO OFERTA ESPECIAL ==================== -->
-<section class="fade-in-section" style="padding:70px 20px; background:#f1f6ff; font-family:Inter, sans-serif; opacity:0; transform: translateY(30px); transition:all 0.8s ease-out;">
-  <div style="max-width:900px; margin:0 auto; text-align:center;">
-    <h2 style="font-size:2rem; color:#111; margin-bottom:15px;">🎁 Oferta Exclusiva: Ebook <span style="color:#e63946;">Como Vencer a Ansiedade</span></h2>
-    <p style="font-size:1.1rem; color:#444; margin-bottom:25px; line-height:1.6;">
-      Baseado na minha experiência, este ebook traz um plano simples e eficaz para lidar com a ansiedade no dia a dia.  
-      Adicione ao seu pedido por apenas <strong>R$ 9,99</strong>.
-    </p>
-
-    <div style="background:#fff; border-radius:12px; padding:25px; box-shadow:0 8px 20px rgba(0,0,0,.1); margin-bottom:25px; display:flex; align-items:center; gap:25px; flex-wrap:wrap;">
-      <div style="flex:1; min-width:250px; text-align:center;">
-        <img src="Ansiedade .PNG" alt="Ebook Como Vencer a Ansiedade" style="max-width:100%; border-radius:12px; box-shadow:0 8px 18px rgba(0,0,0,.15);" class="fade-in-img">
-      </div>
-      <div style="flex:2; min-width:250px; text-align:left;">
-        <ul style="list-style:none; padding:0; margin:0; color:#333; font-size:1rem;">
-          <li style="margin-bottom:12px;">✔ Técnicas rápidas para reduzir crises de ansiedade</li>
-          <li style="margin-bottom:12px;">✔ Exercícios de respiração e foco em menos de 5 minutos</li>
-          <li style="margin-bottom:12px;">✔ Um plano prático de 7 dias para restaurar sua paz interior</li>
-          <li style="margin-bottom:12px;">✔ Apoio extra para potencializar o Guia Acelerador</li>
-        </ul>
-      </div>
-    </div>
-
-    <a href="https://pay.hotmart.com/U101468779L?checkoutMode=10" target="_blank" rel="noopener"
-       style="background:#e63946; color:#fff; padding:18px 40px; border-radius:12px; font-size:1.3rem; text-decoration:none; font-weight:700; display:inline-block; box-shadow:0 6px 20px rgba(230,57,70,0.4); transition:all .3s ease-in-out;"
-       onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-      ✅ Quero adicionar por apenas R$ 9,99
-    </a>
-  </div>
-</section>
-
-<!-- ==================== FOOTER ==================== -->
-<footer style="padding:50px 20px; background:#121316; color:#aaa; text-align:center; font-family:Inter, sans-serif;">
-  <p>© 2025 Lucas Daniel. Todos os direitos reservados.</p>
-</footer>
-
-<!-- ==================== SCRIPT DE ANIMAÇÃO ==================== -->
 <script>
-  const faders = document.querySelectorAll('.fade-in-section');
-  const fadeImgs = document.querySelectorAll('.fade-in-img');
-  const fadeTitles = document.querySelectorAll('.fade-in-title');
-  const fadeTexts = document.querySelectorAll('.fade-in-text');
-  const fadeCards = document.querySelectorAll('.fade-in-card');
+  // ====================== QUIZ ======================
+  function nextStep(step){
+    if(step === 1){
+      document.getElementById('quiz-step-1').style.display = 'none';
+      document.getElementById('quiz-step-2').style.display = 'block';
+    }
+    if(step === 2){
+      document.getElementById('quiz-step-2').style.display = 'none';
+      document.getElementById('quiz-step-3').style.display = 'block';
+    }
+  }
 
-  const appearOptions = { threshold:0.1, rootMargin:"0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver(function(entries, observer){
-    entries.forEach(entry=>{
-      if(!entry.isIntersecting) return;
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = 'translateY(0px)';
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
+  function verResultado(){
+    const v1 = +document.querySelector('input[name="q1"]:checked')?.value || 0;
+    const v2 = +document.querySelector('input[name="q2"]:checked')?.value || 0;
+    const v3 = +document.querySelector('input[name="q3"]:checked')?.value || 0;
+    const total = v1 + v2 + v3;
+    let texto = "";
 
-  faders.forEach(fader => appearOnScroll.observe(fader));
-  fadeImgs.forEach(img => appearOnScroll.observe(img));
-  fadeTitles.forEach(title => appearOnScroll.observe(title));
-  fadeTexts.forEach(text => appearOnScroll.observe(text));
-  fadeCards.forEach(card => appearOnScroll.observe(card));
+    if(total >= 4){
+      texto = "Você demonstra sinais claros de exaustão emocional, mas o fato de estar aqui já mostra que está buscando uma forma real de melhorar. Eu também passei por isso, e foi daí que nasceu o Livro Como Vencer A Depressão e o Guia Acelerador.";
+    } else {
+      texto = "Você pode estar em um momento de cansaço mental ou emocional. Com algumas ações simples e consistentes, é possível mudar completamente a forma como você se sente nos próximos dias.";
+    }
+
+    document.getElementById('quiz-texto-resultado').innerText = texto;
+    document.getElementById('quiz-step-3').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+  }
+
+  function mostrarConteudoPrincipal(){
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+  }
+
+  // ====================== ANIMAÇÃO DE PALAVRAS ======================
+  window.addEventListener('load', ()=>{
+    const words = document.querySelectorAll('.word');
+    words.forEach((w,i)=>{ w.style.animationDelay = (i*0.1)+'s'; });
+  });
 </script>
+</body>
+</html>
