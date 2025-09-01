@@ -220,3 +220,333 @@
       </div>
     </div>
   </section>
+  <!-- PLAYER DE MÚSICA (discreto, controlado por botão) -->
+  <button id="music-toggle" class="gold-border"><span>🎧 Música</span></button>
+  <audio id="bg-music-el" preload="auto">
+    <!-- Coloque seu arquivo em /assets ou raiz e troque o nome abaixo -->
+    <source src="trilha-relaxante.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- CONTEÚDO PRINCIPAL (liberado somente após o quiz) -->
+  <div id="main-content">
+
+    <!-- Barra fixa CTA (mobile) -->
+    <div class="sticky-cta gold-border" id="bar">
+      <span class="label">Guia Acelerador</span>
+      <a class="btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Começar agora</a>
+    </div>
+
+    <!-- ==================== SEÇÃO DEPOIMENTOS como CONVERSAS (CARROSSEL) ==================== -->
+    <section class="container reveal">
+      <div class="gold-border" style="padding:22px">
+        <h2 class="title" style="color:#fff; text-align:center;">Veja o que dizem as pessoas que seguiram o Guia Acelerador e Leram o Livro</h2>
+        <p class="subtitle" style="text-align:center; margin-bottom:18px;">e Viram Diferença Em 7 Dias.</p>
+
+        <div class="chat-carousel" aria-label="Depoimentos estilo conversa">
+          <!-- CARD 1 -->
+          <div class="chat-box">
+            <div class="chat-meta">Mariana Souza</div>
+            <div class="chat-city">32 anos, São Paulo/SP</div>
+            <p>“Eu estava há meses sem conseguir levantar da cama com ânimo. O livro e o Guia foi a primeira coisa que consegui fazer sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”</p>
+          </div>
+          <!-- CARD 2 -->
+          <div class="chat-box">
+            <div class="chat-meta">Ricardo Almeida</div>
+            <div class="chat-city">40 ano, Belo Horizonte/MG</div>
+            <p>“Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram completamente meu humor e minha rotina. Recomendo de verdade.”</p>
+          </div>
+          <!-- CARD 3 -->
+          <div class="chat-box">
+            <div class="chat-meta">Jéssica Lima</div>
+            <div class="chat-city">26 anos, Curitiba/PR</div>
+            <p>“Eu já fazia terapia, mas ainda me sentia travada. o Guia e o Livro me deu um empurrãozinho diário, um motivo pra seguir. Nunca pensei que algo tão simples teria tanto impacto.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO SOBRE O AUTOR ==================== -->
+    <section class="container light reveal gold-border">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
+        <!-- FOTO DO AUTOR -->
+        <div style="flex:1; min-width:280px; text-align:center;">
+          <img src="Foto.png .JPG.JPG" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15);">
+        </div>
+        <!-- TEXTO -->
+        <div style="flex:2; min-width:280px;">
+          <h2 class="title" style="color:#111;">Sobre o Autor</h2>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
+            Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.
+          </p>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
+            Minha trajetória como autor começou de forma intensa: todos os meus livros nasceram da minha própria luta contra a depressão. Eu sei, na pele, o que significa sentir o peso desse desafio.
+          </p>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
+            Diferente de muitos que falam de fora, eu conto sem máscaras o que realmente me ajudou a vencer: Caminhos reais, sem enrolação, que transformaram minha vida e hoje transformam a vida de outros.
+          </p>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:20px;">
+            Minha missão é clara: <strong>mostrar que é possível vencer a depressão e a ansiedade</strong>, com fé, disciplina e estratégias práticas que funcionam no dia a dia.
+          </p>
+          <p style="font-size:1.2rem; font-weight:600; color:#0056ff;">Se eu venci, você também pode vencer!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO APRESENTAÇÃO DO LIVRO ==================== -->
+    <section class="container soft reveal gold-border">
+      <div style="display:grid; gap:40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items:center;">
+        <!-- IMAGEM DO LIVRO -->
+        <div style="text-align:center;">
+          <img src="capa.png.JPG.JPG" alt="Capa do livro Como Vencer a Depressão" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
+        </div>
+        <!-- TEXTO -->
+        <div>
+          <h2 class="title" style="color:#111;">O Livro <span style="color:#0056ff;">Como Vencer a Depressão</span></h2>
+          <p style="font-size:1.15rem; color:#333; margin-bottom:20px; line-height:1.6;">
+            Este livro nasceu da minha própria história.
+            Tudo o que me ajudou a sair do fundo do poço, a recuperar a vontade de viver e a construir uma nova vida, eu reuni aqui.
+            <strong>“Como Vencer a Depressão”</strong> é mais do que páginas escritas ,é um guia baseado em dor, superação e vitória real.
+          </p>
+          <h3 style="font-size:1.4rem; color:#111; margin:25px 0 15px;">E para potencializar ainda mais…</h3>
+          <p style="font-size:1.05rem; color:#444; margin-bottom:20px; line-height:1.6;">
+            Criei também o <strong>Guia Acelerador</strong> um plano simples de 10 minutos por dia.
+            Ele funciona como um apoio garantido, um braço prático que, junto com o livro, forma uma <span style="color:#0056ff; font-weight:600;">arma poderosa contra a depressão</span>.
+          </p>
+          <ul style="list-style:none; padding:0; margin:0 0 25px 0; color:#444; font-size:1rem;">
+            <li style="margin-bottom:12px;">✔ Um relato real de quem enfrentou e venceu a depressão</li>
+            <li style="margin-bottom:12px;">✔ Passos práticos e aplicáveis no dia a dia</li>
+            <li style="margin-bottom:12px;">✔ O Guia Acelerador como apoio diário e constante</li>
+            <li style="margin-bottom:12px;">✔ Livro + Guia: teoria e prática caminhando juntas</li>
+          </ul>
+          <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener" class="btn-primary">Quero transformar minha vida →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO Guia Acelerador ==================== -->
+    <section class="container light reveal gold-border">
+      <div style="text-align:center;">
+        <div style="text-align:center;">
+          <img src="Guia .PNG" alt="Capa do livro Como Vencer a Depressão" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
+        </div>
+        <h2 class="title" style="color:#111;">O <span style="color:#0056ff;">Guia Acelerador</span></h2>
+        <p style="max-width:800px; margin:0 auto 40px auto; font-size:1.15rem; color:#444; line-height:1.6;">
+          Criado a partir da minha própria experiência, o <strong>Guia Acelerador</strong> é um plano simples e eficaz:
+          apenas <strong>5 passos rápidos</strong>, aplicados em <strong>10 minutos por dia</strong>.
+          Ele funciona como um apoio garantido, reforçando todos os ensinamentos do livro.
+        </p>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:25px; margin-bottom:40px;">
+          <div class="gold-border" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">1. Respiração</h3>
+            <p style="color:#555; font-size:0.95rem;">Técnicas simples para acalmar a mente e controlar a ansiedade.</p>
+          </div>
+          <div class="gold-border" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">2. Movimento</h3>
+            <p style="color:#555; font-size:0.95rem;">Exercícios leves que aumentam a energia e combatem a apatia.</p>
+          </div>
+          <div class="gold-border" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">3. Mentalidade</h3>
+            <p style="color:#555; font-size:0.95rem;">Práticas de foco e reprogramação de pensamentos negativos.</p>
+          </div>
+          <div class="gold-border" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">4. Escrita</h3>
+            <p style="color:#555; font-size:0.95rem;">Exercícios de autoexpressão para organizar emoções e aliviar a mente.</p>
+          </div>
+          <div class="gold-border" style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
+            <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">5. Gratidão</h3>
+            <p style="color:#555; font-size:0.95rem;">Prática diária de gratidão para fortalecer a motivação e esperança.</p>
+          </div>
+        </div>
+        <p style="font-size:1.15rem; color:#333; margin-bottom:25px;">
+          Em apenas <strong>10 minutos por dia</strong>, você cria um ciclo positivo de energia, clareza e propósito.
+          Quando aplicado junto ao livro <strong>“Como Vencer a Depressão”</strong>, o resultado é ainda mais poderoso.
+        </p>
+        <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener" class="btn-primary">Quero aplicar o Guia Acelerador →</a>
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO OFERTA ESPECIAL ==================== -->
+    <section class="container soft-blue reveal gold-border" style="text-align:center;">
+      <h2 class="title">🎁 Oferta Exclusiva: Ebook <span style="color:#0056ff;">Como Vencer a Ansiedade</span></h2>
+      <p style="font-size:1.1rem; color:#444; margin-bottom:25px; line-height:1.6;">
+        Baseado também na minha experiência pessoal, este ebook traz um plano simples e eficaz
+        para lidar com a ansiedade no dia a dia.
+        E você pode adicioná-lo ao seu pedido por apenas <strong style="color:#e63946;">R$ 9,99</strong>.
+      </p>
+
+      <div class="gold-border" style="background:#fff; border-radius:12px; padding:25px; box-shadow:0 8px 20px rgba(0,0,0,.1); margin-bottom:25px; display:flex; align-items:center; gap:25px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:250px; text-align:center;">
+          <img src="Ansiedade .PNG" alt="Ebook Como Vencer a Ansiedade" style="max-width:100%; border-radius:12px; box-shadow:0 8px 18px rgba(0,0,0,.15);">
+        </div>
+        <div style="flex:2; min-width:250px; text-align:left;">
+          <ul style="list-style:none; padding:0; margin:0; color:#333; font-size:1rem;">
+            <li style="margin-bottom:12px;">✔ Técnicas rápidas para reduzir crises de ansiedade</li>
+            <li style="margin-bottom:12px;">✔ Exercícios de respiração e foco em menos de 5 minutos</li>
+            <li style="margin-bottom:12px;">✔ Um plano prático de 7 dias para restaurar sua paz interior</li>
+            <li style="margin-bottom:12px;">✔ Apoio extra para potencializar o Guia Acelerador</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="https://pay.hotmart.com/U101468779L?checkoutMode=10" target="_blank" rel="noopener"
+         style="background:#e63946; color:#fff; padding:18px 40px; border-radius:12px; font-size:1.3rem; text-decoration:none; font-weight:700; display:inline-block; box-shadow:0 6px 15px rgba(230,57,70,0.4); transition:all .3s ease-in-out;">
+        ✅ Quero adicionar por apenas R$ 9,99
+      </a>
+    </section>
+
+    <!-- (se tiver footer, coloque aqui) -->
+
+  </div> <!-- fim main-content -->
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    /* ---- IntersectionObserver: revela ao rolar ---- */
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    /* ---- Música de fundo (controlada pelo botão) ---- */
+    const musicBtn = document.getElementById('music-toggle');
+    const musicEl = document.getElementById('bg-music-el');
+    let isPlaying = false;
+    musicBtn.addEventListener('click', async ()=>{
+      try{
+        if(!isPlaying){ await musicEl.play(); isPlaying = true; musicBtn.innerHTML = '<span>⏸️ Pausar</span>'; }
+        else{ musicEl.pause(); isPlaying = false; musicBtn.innerHTML = '<span>🎧 Música</span>'; }
+      }catch(err){ console.log('Autoplay bloqueado:', err); }
+    });
+
+    /* ---- QUIZ LÓGICA ---- */
+    const quizBar = document.getElementById('quiz-bar');
+    const quizStage = document.getElementById('quiz-stage');
+    const quizResult = document.getElementById('quiz-result');
+    const quizContainer = document.getElementById('quiz-container');
+    const mainContent = document.getElementById('main-content');
+    const btnContinue = document.getElementById('quiz-continue');
+    const btnRestart = document.getElementById('quiz-restart');
+    const headline = document.getElementById('quiz-headline');
+    const message = document.getElementById('quiz-message');
+
+    const quiz = [
+      {
+        q: 'Nos últimos dias, sua energia e motivação diminuíram?',
+        opts: [
+          {t:'Sim, muito', score:2},
+          {t:'Às vezes', score:1},
+          {t:'Não, mas tenho medo disso acontecer', score:1}
+        ]
+      },
+      {
+        q: 'Quando a tristeza aperta, o que você costuma fazer?',
+        opts: [
+          {t:'Me isolo e não quero falar com ninguém', score:2},
+          {t:'Tento me distrair, mas logo volta', score:2},
+          {t:'Converso com alguém, mas parece não resolver', score:1}
+        ]
+      },
+      {
+        q: 'Como estão seu sono e apetite recentemente?',
+        opts: [
+          {t:'Bagunçados (ou sem vontade de comer/dormir)', score:2},
+          {t:'Oscilando bastante', score:1},
+          {t:'Relativamente ok', score:0}
+        ]
+      },
+      {
+        q: 'Você sente que já tentou de tudo e nada parece durar?',
+        opts: [
+          {t:'Sim, e isso me cansa', score:2},
+          {t:'Algumas coisas ajudam, mas volta', score:1},
+          {t:'Ainda estou começando a tentar', score:1}
+        ]
+      },
+      {
+        q: 'Se existisse um método simples e humano para virar o jogo em 7 dias, você se daria essa chance?',
+        opts: [
+          {t:'Sim, eu quero agora', score:2},
+          {t:'Talvez, se funcionar', score:1},
+          {t:'Não sei', score:0}
+        ]
+      }
+    ];
+
+    let step = 0;
+    let score = 0;
+
+    function renderStep(){
+      quizBar.style.width = ((step)/quiz.length)*100 + '%';
+      const item = quiz[step];
+      quizStage.innerHTML = `
+        <div class="quiz-q">${item.q}</div>
+        <div class="quiz-options">
+          ${item.opts.map((o,i)=>`<button class="quiz-btn" data-i="${i}">${o.t}</button>`).join('')}
+        </div>
+        <div class="quiz-nav">
+          <button id="prev-step"${step===0?' disabled':''}>Voltar</button>
+          <button id="skip-step">Pular</button>
+        </div>
+      `;
+      quizStage.querySelectorAll('.quiz-btn').forEach(b=>{
+        b.addEventListener('click', ()=>{
+          const i = +b.dataset.i;
+          score += item.opts[i].score;
+          next();
+        });
+      });
+      document.getElementById('skip-step').addEventListener('click', ()=> next());
+      const prev = document.getElementById('prev-step');
+      if(prev) prev.addEventListener('click', ()=>{
+        if(step>0){ step--; /* ao voltar, não subtrai score (intencional para manter urgência) */ renderStep(); }
+      });
+    }
+
+    function next(){
+      step++;
+      if(step < quiz.length){ renderStep(); }
+      else { finish(); }
+    }
+
+    function finish(){
+      quizBar.style.width = '100%';
+      quizStage.style.display = 'none';
+      quizResult.style.display = 'block';
+
+      // Classificação dinâmica
+      let head = '', msg = '';
+      if(score >= 7){
+        head = '⚠️ Você não pode esperar mais.';
+        msg = 'Seus sinais mostram exaustão emocional. A boa notícia é: existe um caminho prático, humano e guiado para você começar hoje. O Guia Acelerador + Livro foi criado justamente para momentos como o seu.';
+      }else if(score >= 4){
+        head = '🟨 Você está no ponto da virada.';
+        msg = 'Ainda dá tempo de agir antes que isso pese mais. Com passos simples de 10 minutos/dia, você consegue retomar energia e clareza já nesta semana.';
+      }else{
+        head = '🟩 Prevenção é sua maior força.';
+        msg = 'Você já percebeu sinais e está aberto(a) a agir. Com um método simples e constante, você acelera resultados e evita recaídas.';
+      }
+      headline.textContent = head;
+      message.textContent = msg;
+    }
+
+    btnContinue.addEventListener('click', ()=>{
+      // Libera a página
+      quizContainer.style.display = 'none';
+      mainContent.style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    btnRestart.addEventListener('click', ()=>{
+      step = 0; score = 0;
+      quizResult.style.display = 'none';
+      quizStage.style.display = 'block';
+      renderStep();
+    });
+
+    // Inicia o quiz
+    renderStep();
+  </script>
+
+</body>
+</html>
