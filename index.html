@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Guia Acelerador, Vença a Depressão em 7 Dias</title>
+  <title>Guia Testado e Aprovado – Vença a Depressão em 7 Dias</title>
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,9 +11,9 @@
 
   <style>
     :root{
-      --bg:#2b2b2b;
-      --card:#3a3a3a;
-      --muted:#b0b0b0;
+      --bg:#0B0B0C;
+      --card:#121316;
+      --muted:#9aa0a6;
       --text:#F5F7FA;
       --gold:#FFD54A;
       --gold-2:#e6c200;
@@ -22,8 +22,8 @@
       --green-2:#1BA14D;
       --red:#FF5757;
       --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-      --border-width:3px;
+      --radius:20px; /* cantos mais arredondados */
+      --border-thick:3px; /* moldura um pouco mais grossa */
     }
     *{box-sizing:border-box}
     html,body{
@@ -36,26 +36,27 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
 
+    /* ---------- Fundo gradiente animado com glitter ---------- */
     body{
       background:
         radial-gradient(1200px 600px at -10% -10%, rgba(255,215,0,.06), transparent 60%),
-        radial-gradient(1200px 600px at 110% 110%, rgba(255,215,0,.04), transparent 60%),
-        linear-gradient(135deg,#2b2b2b,#3a3a3a 40%,#2b2b2b);
+        radial-gradient(1200px 600px at 110% 110%, rgba(0,86,255,.08), transparent 60%),
+        linear-gradient(135deg,#0b0b0c,#1a1c20 40%,#0b0b0c);
       background-size: 100% 100%;
       animation: bgPulse 22s ease-in-out infinite;
     }
     @keyframes bgPulse{
       0%,100%{filter:brightness(1)}
-      50%{filter:brightness(1.04)}
+      50%{filter:brightness(1.06)}
     }
 
     .glitter-overlay{
       position:fixed; inset:0; pointer-events:none; z-index:5;
       background-image:
-        radial-gradient(2px 2px at 20% 30%, rgba(255,215,0,.2), transparent 60%),
-        radial-gradient(2px 2px at 80% 60%, rgba(255,240,190,.18), transparent 60%),
-        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.1), transparent 60%),
-        radial-gradient(1.2px 1.2px at 70% 15%, rgba(255,215,0,.15), transparent 60%);
+        radial-gradient(2px 2px at 20% 30%, rgba(255,215,0,.25), transparent 60%),
+        radial-gradient(2px 2px at 80% 60%, rgba(255,240,190,.22), transparent 60%),
+        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.14), transparent 60%),
+        radial-gradient(1.2px 1.2px at 70% 15%, rgba(255,215,0,.18), transparent 60%);
       animation: glitterDrift 10s linear infinite;
     }
     @keyframes glitterDrift{
@@ -63,11 +64,12 @@
       100%{background-position:100vw 0,-100vw 0,0 100vh,0 -100vh}
     }
 
+    /* ---------- Bordas douradas elegantes ---------- */
     .gold-border{
-      border:var(--border-width) solid transparent;
+      border:var(--border-thick) solid transparent;
       border-radius:var(--radius);
       border-image:linear-gradient(45deg, var(--gold), var(--gold-2)) 1;
-      box-shadow: 0 0 0 2px rgba(255,215,0,.12), 0 10px 30px rgba(0,0,0,.3);
+      box-shadow: 0 0 0 1px rgba(255,215,0,.12), 0 10px 30px rgba(0,0,0,.3);
       position:relative;
     }
     .gold-border::after{
@@ -84,9 +86,11 @@
       100%{transform:translateX(100%)}
     }
 
+    /* ---------- Animações on-scroll ---------- */
     .reveal{opacity:0; transform:translateY(22px); transition: all .7s ease;}
     .reveal.in-view{opacity:1; transform:translateY(0)}
 
+    /* ---------- Botões ---------- */
     .btn-primary{
       background:linear-gradient(45deg,var(--accent),#2d7bff);
       color:#fff; padding:14px 24px; border-radius:12px;
@@ -96,6 +100,7 @@
     }
     .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,86,255,.38)}
 
+    /* ---------- Carrossel horizontal ---------- */
     .chat-carousel{
       display:flex; gap:18px; overflow-x:auto; scroll-behavior:smooth; padding:6px 2px 12px;
       -webkit-overflow-scrolling:touch;
@@ -104,7 +109,7 @@
     .chat-carousel::-webkit-scrollbar-thumb{background:rgba(255,215,0,.3); border-radius:8px}
     .chat-box{
       flex:0 0 300px; background:var(--card); color:#eaeaea;
-      padding:18px; border-radius:16px; box-shadow:var(--shadow);
+      padding:18px; border-radius:var(--radius); box-shadow:var(--shadow);
       border:1px solid rgba(255,215,0,.18); position:relative;
     }
     .chat-meta{font-weight:700; margin-bottom:6px}
@@ -116,6 +121,7 @@
       transform:rotate(45deg);
     }
 
+    /* ---------- Player música ---------- */
     #music-toggle{
       position:fixed; right:16px; bottom:16px; z-index:9999;
       background:linear-gradient(45deg,var(--gold),var(--gold-2));
@@ -126,6 +132,7 @@
     #music-toggle span{font-size:.95rem}
     audio{display:none}
 
+    /* ---------- Sticky CTA ---------- */
     .sticky-cta{
       position:fixed; left:0; right:0; bottom:0; z-index:9998;
       display:flex; justify-content:space-between; align-items:center; gap:12px;
@@ -134,6 +141,7 @@
     }
     .sticky-cta .label{font-weight:800; letter-spacing:.3px}
 
+    /* ---------- QUIZ ---------- */
     #quiz-container{
       position:fixed; inset:0; z-index:10000;
       display:flex; align-items:center; justify-content:center; text-align:center;
@@ -142,248 +150,188 @@
     }
     #quiz-box{
       width:min(92vw,560px);
-      background:var(--card); border-radius:18px; padding:26px 22px;
+      background:var(--card); border-radius:var(--radius); padding:26px 22px;
       box-shadow:0 25px 60px rgba(0,0,0,.55);
     }
     .quiz-title{font-size:1.55rem; font-weight:800; margin:0 0 10px}
     .quiz-sub{color:var(--muted); margin:0 0 18px}
     .quiz-progress{height:10px; background:#24262b; border-radius:999px; overflow:hidden; margin:10px 0 18px}
     .quiz-progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),#fff0a6)}
-    .quiz-q{font-size:1.15rem; font-weight:700; margin: 20px 0 14px}
-    .quiz-opt{padding:12px 16px; margin:8px 0; background:rgba(255,255,255,.05); border-radius:12px; cursor:pointer; transition:.2s ease}
-    .quiz-opt:hover{background:rgba(255,215,0,.18)}
-    .quiz-opt.selected{background:linear-gradient(90deg,var(--gold),var(--gold-2)); color:#000}
-    .quiz-result{font-size:1.4rem; font-weight:800; margin:16px 0}
+    .quiz-q{font-size:1.15rem; font-weight:700; margin: 6px 0 14px}
+    .quiz-options{display:grid; gap:12px}
+    .quiz-btn{
+      border:none; border-radius:12px; padding:12px 14px; font-weight:800; cursor:pointer;
+      background:linear-gradient(45deg, var(--gold), var(--gold-2)); color:#000;
+      transition: transform .12s ease, box-shadow .2s ease;
+    }
+    .quiz-btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(255,215,0,.25)}
+    .quiz-nav{display:flex; justify-content:space-between; margin-top:12px}
+    .quiz-nav button{
+      background:transparent; border:1px solid rgba(255,215,0,.35); color:#ffd;
+      padding:10px 14px; border-radius:10px; cursor:pointer;
+    }
+    .quiz-result{display:none}
+    .quiz-cta{
+      margin-top:14px;
+      background:linear-gradient(45deg, var(--accent), #2d7bff);
+      color:#fff; padding:12px 16px; border:none; border-radius:12px; font-weight:800; cursor:pointer;
+    }
+
+    #main-content{display:none}
+
+    /* helpers */
+    .container{max-width:1100px; margin:0 auto; padding:60px 20px}
+    .light{background:#fff; color:#111}
+    .soft{background:#f9f9f9}
+    .soft-blue{background:#f1f6ff}
+    .title{font-size:2.2rem; margin:0 0 12px}
+    .subtitle{color:#9aa0a6}
   </style>
 </head>
 <body>
+
   <div class="glitter-overlay" aria-hidden="true"></div>
 
-  <!-- ---------- Conteúdo principal ---------- -->
-  <section class="gold-border reveal" style="margin:40px auto; padding:32px; max-width:720px">
-    <h1>Guia Acelerador: Vença a Depressão em 7 Dias</h1>
-    <p>Descubra como pequenas mudanças podem criar um efeito gigantesco na sua energia, foco e felicidade.</p>
-    <a href="#quiz-container" class="btn-primary">Comece Agora</a>
+  <!-- QUIZ -->
+  <section id="quiz-container" role="dialog" aria-modal="true">
+    <div id="quiz-box" class="gold-border reveal in-view">
+      <h2 class="quiz-title">Descubra se você está pronto(a) para virar esse jogo em 7 dias</h2>
+      <p class="quiz-sub">Responda 5 perguntas rápidas. No final, te mostro um caminho prático que salvou a minha vida.</p>
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-bar"></div></div>
+      <div id="quiz-stage"></div>
+      <div id="quiz-result" class="quiz-result">
+        <h3 id="quiz-headline" style="margin:0 0 8px"></h3>
+        <p id="quiz-message" style="margin:0 0 12px; color:#e9e9e9"></p>
+        <button class="quiz-cta" id="quiz-continue">Ver meu resultado e liberar a página →</button>
+        <div class="quiz-nav" style="margin-top:10px">
+          <button id="quiz-restart">Refazer</button>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ---------- Carrossel de depoimentos ---------- -->
-  <div class="chat-carousel reveal">
-    <div class="chat-box gold-border">
-      <div class="chat-meta">Marina S. <span class="chat-city">Rio de Janeiro</span></div>
-      <div>Eu nunca acreditei que 7 dias poderiam mudar tanto a minha vida. Recomendo totalmente o Guia testado e aprovado!</div>
-    </div>
-    <div class="chat-box gold-border">
-      <div class="chat-meta">Carlos T. <span class="chat-city">São Paulo</span></div>
-      <div>As técnicas são simples, mas poderosas. Em poucos dias senti minha motivação voltar.</div>
-    </div>
-    <div class="chat-box gold-border">
-      <div class="chat-meta">Fernanda R. <span class="chat-city">Belo Horizonte</span></div>
-      <div>É impressionante como o Guia testado e aprovado é humano e fácil de aplicar. Salvou meus dias mais difíceis.</div>
-    </div>
-  </div>
-
-  <!-- ---------- Quiz ---------- -->
-  <div id="quiz-container">
-    <div id="quiz-box" class="gold-border">
-      <h2 class="quiz-title">Teste Rápido</h2>
-      <p class="quiz-sub">Descubra seu nível de preparação emocional</p>
-      <div class="quiz-progress"><div class="quiz-progress-bar"></div></div>
-      <div class="quiz-q" id="quiz-question">Pergunta aqui</div>
-      <div id="quiz-options"></div>
-    </div>
-  </div>
-
-  <audio id="bg-music" loop>
-    <source src="musica.mp3" type="audio/mpeg">
+  <button id="music-toggle" class="gold-border"><span>🎧 Música</span></button>
+  <audio id="bg-music-el" preload="auto">
+    <source src="trilha-relaxante.mp3" type="audio/mpeg">
   </audio>
-  <button id="music-toggle"><span>🔊 Música</span></button>
 
-  <div class="sticky-cta gold-border reveal">
-    <span class="label">Vença a depressão em 7 dias</span>
-    <a href="#quiz-container" class="btn-primary">Quero Começar</a>
+  <div id="main-content">
+    <!-- Sticky CTA -->
+    <div class="sticky-cta gold-border" id="bar">
+      <span class="label">Guia Testado e Aprovado</span>
+      <a class="btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Começar agora</a>
+    </div>
+
+    <!-- Depoimentos -->
+    <section class="container reveal">
+      <div class="gold-border" style="padding:22px">
+        <h2 class="title" style="color:#fff; text-align:center;">Veja o que dizem as pessoas que seguiram o Guia Testado e Aprovado</h2>
+        <p class="subtitle" style="text-align:center; margin-bottom:18px;">e Viram Diferença Em 7 Dias.</p>
+        <div class="chat-carousel" aria-label="Depoimentos estilo conversa">
+          <div class="chat-box">
+            <div class="chat-meta">Mariana Souza</div>
+            <div class="chat-city">32 anos, São Paulo/SP</div>
+            <p>“Eu estava há meses sem conseguir levantar da cama com ânimo. O livro e o Guia foi a primeira coisa que consegui fazer sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”</p>
+          </div>
+          <div class="chat-box">
+            <div class="chat-meta">Ricardo Almeida</div>
+            <div class="chat-city">40 ano, Belo Horizonte/MG</div>
+            <p>“Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram completamente meu humor e minha rotina. Recomendo de verdade.”</p>
+          </div>
+          <div class="chat-box">
+            <div class="chat-meta">Jéssica Lima</div>
+            <div class="chat-city">26 anos, Curitiba/PR</div>
+            <p>“Eu já fazia terapia, mas ainda me sentia travada. o Guia e o Livro me deu um empurrãozinho diário, um motivo pra seguir. Nunca pensei que algo tão simples teria tanto impacto.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre o Autor -->
+    <section class="container light reveal gold-border">
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
+        <div style="flex:1; min-width:280px; text-align:center;">
+          <img src="Foto.png .JPG.JPG" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15);">
+        </div>
+        <div style="flex:2; min-width:280px;">
+          <h2 class="title" style="color:#111;">Sobre o Autor</h2>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
+            Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.
+          </p>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
+            Minha trajetória como autor começou de forma intensa: todos os meus livros nasceram da minha própria luta contra a depressão. Eu sei, na pele, o que significa sentir o peso desse desafio.
+          </p>
+          <p style="font-size:1.1rem; color:#444; line-height:1.7;">
+            Com o Guia Testado e Aprovado você terá um caminho realista e prático, sem rodeios, para dar os primeiros passos rumo a dias melhores.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oferta Especial -->
+    <section class="container reveal gold-border" style="text-align:center;">
+      <h2 class="title" style="color:#fff;">Oferta Especial</h2>
+      <p class="subtitle" style="margin-bottom:20px;">Garanta seu exemplar com acesso imediato e bônus exclusivos!</p>
+      <a class="btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank">Quero Começar Agora</a>
+    </section>
+
   </div>
 
   <script>
-    const quiz = [
-      {
-        q: 'Nos últimos dias, sua energia e motivação diminuíram?',
-        opts: [
-          {t:'Sim, muito', score:2},
-          {t:'Às vezes', score:1},
-          {t:'Não, mas tenho medo disso acontecer', score:1}
-        ]
-      },
-      {
-        q: 'Quando a tristeza aperta, o que você costuma fazer?',
-        opts: [
-          {t:'Me isolo e não quero falar com ninguém', score:2},
-          {t:'Tento me distrair, mas logo volta', score:2},
-          {t:'Converso com alguém, mas parece não resolver', score:1}
-        ]
-      },
-      {
-        q: 'Como estão seu sono e apetite recentemente?',
-        opts: [
-          {t:'Bagunçados (ou sem vontade de comer/dormir)', score:2},
-          {t:'Oscilando bastante', score:1},
-          {t:'Relativamente ok', score:0}
-        ]
-      },
-      {
-        q: 'Você sente que já tentou de tudo e nada parece durar?',
-        opts: [
-          {t:'Sim, e isso me cansa', score:2},
-          {t:'Algumas coisas ajudam, mas volta', score:1},
-          {t:'Ainda estou começando a tentar', score:1}
-        ]
-      },
-      {
-        q: 'Se existisse um **Guia testado e aprovado** simples e humano para virar o jogo em 7 dias, você se daria essa chance?',
-        opts: [
-          {t:'Sim, eu quero agora', score:2},
-          {t:'Talvez, se funcionar', score:1},
-          {t:'Não sei', score:0}
-        ]
-      }
-    ];
+    // -------- QUIZ ----------
+    const quizData = [
+      {q:"Você se sente sem motivação na maioria dos dias?", options:["Sim","Não"]},
+      {q:"Já tentou métodos que não funcionaram?", options:["Sim","Não"]},
+      {q:"Quer uma mudança real e prática em 7 dias?", options:["Sim","Não"]},
+      {q:"Está disposto(a) a seguir passos simples diariamente?", options:["Sim","Não"]},
+      {q:"Deseja sentir mais energia e alegria no dia a dia?", options:["Sim","Não"]}
+    ]
+    const quizContainer=document.getElementById("quiz-stage");
+    const quizBar=document.getElementById("quiz-bar");
+    const quizResult=document.getElementById("quiz-result");
+    let current=0;
 
-    let currentQ = 0;
-    let score = 0;
-
-    const questionEl = document.getElementById('quiz-question');
-    const optionsEl = document.getElementById('quiz-options');
-    const progressBar = document.querySelector('.quiz-progress-bar');
-
-    function showQuestion(){
-      const q = quiz[currentQ];
-      questionEl.textContent = q.q;
-      optionsEl.innerHTML = '';
-      q.opts.forEach((o,i)=>{
-        const btn = document.createElement('div');
-        btn.className='quiz-opt';
-        btn.textContent=o.t;
-        btn.onclick=()=>{score+=o.score; nextQuestion()}
-        optionsEl.appendChild(btn)
+    function renderQuestion(){
+      if(current>=quizData.length){showResult(); return}
+      quizContainer.innerHTML="";
+      const item=quizData[current];
+      const qEl=document.createElement("div");
+      qEl.className="quiz-q"; qEl.textContent=item.q;
+      const opts=document.createElement("div"); opts.className="quiz-options";
+      item.options.forEach(o=>{
+        const b=document.createElement("button");
+        b.className="quiz-btn"; b.textContent=o;
+        b.onclick=()=>{current++; quizBar.style.width=(current/quizData.length*100)+"%"; renderQuestion();}
+        opts.appendChild(b);
       });
-      progressBar.style.width = `${(currentQ/quiz.length)*100}%`;
+      quizContainer.appendChild(qEl); quizContainer.appendChild(opts);
     }
-
-    function nextQuestion(){
-      currentQ++;
-      if(currentQ<quiz.length){
-        showQuestion()
-      } else {
-        questionEl.textContent='Resultado';
-        optionsEl.innerHTML=`<div class="quiz-result">Seu resultado final: ${score} pontos</div>
-        <a href="#sticky-cta" class="btn-primary">Quero meu Guia testado e aprovado</a>`;
-        progressBar.style.width='100%';
+    function showResult(){
+      quizContainer.style.display="none";
+      quizResult.style.display="block";
+      document.getElementById("quiz-headline").textContent="Parabéns!";
+      document.getElementById("quiz-message").textContent="Você está pronto(a) para começar a mudança. Clique no botão abaixo para liberar o conteúdo completo e acessar o Guia Testado e Aprovado.";
+      document.getElementById("quiz-continue").onclick=()=>{
+        document.getElementById("quiz-container").style.display="none";
+        document.getElementById("main-content").style.display="block";
       }
     }
+    renderQuestion();
 
-    showQuestion();
+    // -------- Música ----------
+    const musicToggle=document.getElementById("music-toggle");
+    const bgMusic=document.getElementById("bg-music-el");
+    let playing=false;
+    musicToggle.addEventListener("click",()=>{
+      if(!playing){bgMusic.play(); playing=true;} else{bgMusic.pause(); playing=false;}
+    });
 
-    // Música
-    const musicBtn = document.getElementById('music-toggle');
-    const music = document.getElementById('bg-music');
-    musicBtn.onclick=()=>{
-      if(music.paused){music.play(); musicBtn.textContent='🔊 Pausar Música'}
-      else{music.pause(); musicBtn.textContent='🔊 Música'}
-    }
-
-    // On-scroll reveal
-    const revealEls=document.querySelectorAll('.reveal');
-    const onScroll=()=>{revealEls.forEach(el=>{const top=el.getBoundingClientRect().top; if(top<window.innerHeight-60){el.classList.add('in-view')}})}
-    window.addEventListener('scroll',onScroll);
-    onScroll();
+    // -------- Scroll Reveal ----------
+    const revealEls=document.querySelectorAll(".reveal");
+    const revealOnScroll=()=>{revealEls.forEach(el=>{const top=el.getBoundingClientRect().top; if(top<window.innerHeight-80){el.classList.add("in-view")}})}
+    window.addEventListener("scroll",revealOnScroll);
+    window.addEventListener("load",revealOnScroll);
   </script>
+
 </body>
 </html>
-<!-- ==================== SEÇÃO BÔNUS E EXTRAS ==================== -->
-<section class="container soft reveal gold-border">
-  <h2 class="title" style="text-align:center; color:#FFD54A;">Bônus Exclusivos</h2>
-  <p style="text-align:center; color:#fff; margin-bottom:30px; font-size:1.1rem;">
-    Além do <strong>Guia testado e aprovado</strong>, você recebe materiais extras que potencializam seus resultados:
-  </p>
-  <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:25px; margin-bottom:40px;">
-    <div class="gold-border" style="background:#121316; padding:22px; border-radius:18px; box-shadow:0 10px 25px rgba(0,0,0,.25);">
-      <h3 style="color:#FFD54A; font-size:1.25rem; margin-bottom:10px;">Checklist Diário</h3>
-      <p style="color:#eaeaea; font-size:0.95rem;">Um guia passo a passo para aplicar os 5 passos todos os dias.</p>
-    </div>
-    <div class="gold-border" style="background:#121316; padding:22px; border-radius:18px; box-shadow:0 10px 25px rgba(0,0,0,.25);">
-      <h3 style="color:#FFD54A; font-size:1.25rem; margin-bottom:10px;">Exercícios Extras</h3>
-      <p style="color:#eaeaea; font-size:0.95rem;">Atividades de reflexão e escrita para acelerar sua transformação.</p>
-    </div>
-    <div class="gold-border" style="background:#121316; padding:22px; border-radius:18px; box-shadow:0 10px 25px rgba(0,0,0,.25);">
-      <h3 style="color:#FFD54A; font-size:1.25rem; margin-bottom:10px;">Acesso VIP</h3>
-      <p style="color:#eaeaea; font-size:0.95rem;">Conteúdos exclusivos para reforçar aprendizado e prática diária.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SEÇÃO DE FAQ ==================== -->
-<section class="container light reveal gold-border">
-  <h2 class="title" style="text-align:center; color:#FFD54A;">Perguntas Frequentes</h2>
-  <div style="margin-top:30px;">
-    <div class="gold-border" style="padding:20px; border-radius:16px; margin-bottom:15px;">
-      <h3 style="color:#0056ff; margin-bottom:8px;">Quem pode seguir o Guia testado e aprovado?</h3>
-      <p style="color:#444;">Qualquer pessoa que deseja superar a depressão e ansiedade com passos simples e consistentes. Não exige experiência prévia.</p>
-    </div>
-    <div class="gold-border" style="padding:20px; border-radius:16px; margin-bottom:15px;">
-      <h3 style="color:#0056ff; margin-bottom:8px;">Preciso de terapia ou acompanhamento médico?</h3>
-      <p style="color:#444;">O Guia é complementar. Ele potencializa resultados práticos no dia a dia, mas não substitui acompanhamento profissional quando necessário.</p>
-    </div>
-    <div class="gold-border" style="padding:20px; border-radius:16px; margin-bottom:15px;">
-      <h3 style="color:#0056ff; margin-bottom:8px;">Quanto tempo até ver resultados?</h3>
-      <p style="color:#444;">Com dedicação diária de 10 minutos, muitas pessoas relatam mudanças perceptíveis já na primeira semana.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SEÇÃO DE DEPOIMENTOS FINAIS ==================== -->
-<section class="container soft reveal gold-border">
-  <h2 class="title" style="text-align:center; color:#FFD54A;">Mais histórias de transformação</h2>
-  <div class="chat-carousel" aria-label="Depoimentos adicionais estilo conversa" style="margin-top:25px;">
-    <div class="chat-box">
-      <div class="chat-meta">Paula Fernandes</div>
-      <div class="chat-city">28 anos, Rio de Janeiro/RJ</div>
-      <p>“Nunca imaginei que apenas 10 minutos por dia poderiam fazer tanta diferença. O Guia testado e aprovado me trouxe foco e motivação de novo.”</p>
-    </div>
-    <div class="chat-box">
-      <div class="chat-meta">Thiago Santos</div>
-      <div class="chat-city">35 anos, Porto Alegre/RS</div>
-      <p>“Senti uma clareza mental que não tinha há anos. Seguir o Guia junto com o livro fez minha rotina virar de cabeça para cima, pra melhor.”</p>
-    </div>
-    <div class="chat-box">
-      <div class="chat-meta">Larissa Melo</div>
-      <div class="chat-city">42 anos, Salvador/BA</div>
-      <p>“O que me conquistou foi a simplicidade. Eu aplicava todos os dias, e a cada semana me sentia mais confiante e com menos ansiedade.”</p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== CTA FINAL ==================== -->
-<section class="container light reveal gold-border" style="text-align:center;">
-  <h2 class="title" style="color:#FFD54A;">Está pronto(a) para transformar sua vida?</h2>
-  <p style="color:#fff; font-size:1.15rem; margin-bottom:25px;">Comece agora com o <strong>Guia testado e aprovado</strong> + Livro <strong>Como Vencer a Depressão</strong> e veja os resultados reais em poucos dias.</p>
-  <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener" class="btn-primary" style="font-size:1.2rem; padding:16px 40px;">✅ Quero Começar Agora</a>
-</section>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="container soft-blue reveal gold-border" style="text-align:center; margin-top:60px; padding:30px 20px;">
-  <p style="color:#444; font-size:0.95rem;">© 2025 Lucas Daniel. Todos os direitos reservados.</p>
-  <p style="color:#444; font-size:0.95rem;">Protegido por lei. Reprodução total ou parcial proibida.</p>
-</footer>
-
-</div> <!-- fim main-content -->
-
-<!-- ==================== SCRIPTS ADICIONAIS ==================== -->
-<script>
-  // Scroll suave para links internos (caso queira expandir futuramente)
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      e.preventDefault();
-      document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-    });
-  });
-</script>
-
