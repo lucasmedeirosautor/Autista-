@@ -1,289 +1,392 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Guia Acelerador – Vença a Depressão em 7 Dias</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Guia Acelerador, Vença a Depressão em 7 Dias</title>
 
-<style>
-:root{
-    --radius:16px;
-}
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;font-family:Inter, Arial, sans-serif;line-height:1.6;}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-body{overflow-x:hidden;}
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
 
-/* ------------------ ANIMAÇÕES ------------------ */
-@keyframes glow {
-  0% {box-shadow: 0 0 5px #fff;}
-  50% {box-shadow: 0 0 20px #00ffcc;}
-  100% {box-shadow: 0 0 5px #fff;}
-}
-@keyframes fadeInUp {
-  0% {opacity:0; transform: translateY(30px);}
-  100% {opacity:1; transform: translateY(0);}
-}
+  <style>
+    :root{
+      --bg:#0B0B0C;
+      --card:#121316;
+      --muted:#9aa0a6;
+      --text:#F5F7FA;
+      --gold:#FFD54A;
+      --green:#23C55E;
+      --green-2:#1BA14D;
+      --red:#FF5757;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg);color:var(--text);
+      font-family:Inter, Arial, sans-serif;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
-/* ------------------ QUIZ ------------------*/
-#quiz-section{
-    max-width:550px;margin:40px auto;padding:24px;
-    border-radius:var(--radius);border:1px solid #fff;
-    animation: fadeInUp 1s ease;
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-    color:#fff;
-}
-#quiz-section h2{margin-top:0;font-size:28px;text-align:center;margin-bottom:18px;}
-#quiz-section label{
-    display:block;border-radius:12px;padding:12px;margin:10px 0;cursor:pointer;
-    background:rgba(255,255,255,0.1); transition:.3s; font-weight:600;
-}
-#quiz-section label:hover{
-    background:rgba(255,255,255,0.3);
-}
-#quiz-section button{
-    margin-top:20px;width:100%; padding:12px;border:none;border-radius:12px; font-weight:700;cursor:pointer;
-    background:#00ffcc; color:#111;
-    animation: glow 2s infinite;
-}
-#quiz-section button:hover{
-    background:#00e6b8;
-}
+    /* -------- Fundo gradiente animado -------- */
+    body {
+      background: linear-gradient(135deg, #0b0b0c, #1a1c20, #0b0b0c);
+      background-size: 300% 300%;
+      animation: gradientMove 18s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
-/* ------------------ SEÇÕES ------------------ */
-section{
-    padding:80px 20px; 
-    animation: fadeInUp 1s ease;
-    border-radius:var(--radius); margin-bottom:40px;
-}
+    /* -------- Molduras douradas -------- */
+    .gold-border {
+      border:2px solid transparent;
+      border-image: linear-gradient(45deg, gold, #e6c200) 1;
+      border-radius: var(--radius);
+      box-shadow:0 0 15px rgba(255,215,0,.3);
+    }
 
-/* cores vivas para cada seção */
-#conteudo-principal > section:nth-child(1){background:#ffe066;}
-#conteudo-principal > section:nth-child(2){background:#ff6b6b;}
-#conteudo-principal > section:nth-child(3){background:#6bc1ff;}
-#conteudo-principal > section:nth-child(4){background:#caffbf;}
-#conteudo-principal > section:nth-child(5){background:#ffd6e0;}
-#conteudo-principal > section:nth-child(6){background:#d9b3ff;}
+    /* -------- Animações de entrada -------- */
+    .fade-in {
+      opacity:0;
+      transform:translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to {opacity:1; transform:translateY(0);}
+    }
 
-/* Cards de depoimento */
-.depoimento-card{
-    padding:20px; border-radius:var(--radius);
-    background:rgba(255,255,255,0.15);
-    color:#111;
-    transition: transform .3s, box-shadow .3s;
-}
-.depoimento-card:hover{
-    transform: translateY(-10px);
-    box-shadow:0 15px 25px rgba(0,0,0,.3);
-}
+    /* -------- Carrossel horizontal (conversas) -------- */
+    .chat-carousel {
+      display:flex;
+      overflow-x:auto;
+      gap:20px;
+      scroll-behavior:smooth;
+      padding-bottom:10px;
+    }
+    .chat-carousel::-webkit-scrollbar {display:none;}
+    .chat-box {
+      min-width:280px;
+      flex:0 0 auto;
+      background:var(--card);
+      padding:20px;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,215,0,0.2);
+    }
 
-/* CTA */
-a.cta-btn{
-    background:#00ffcc; color:#111;
-    padding:18px 40px; border-radius:12px; font-size:1.3rem; font-weight:700;
-    display:inline-block; text-decoration:none; box-shadow:0 6px 15px rgba(0,255,204,0.4);
-    transition: all .3s ease-in-out;
-    animation: glow 2s infinite;
-}
-a.cta-btn:hover{background:#00e6b8;}
+    /* -------- Música discreta -------- */
+    #bg-music {
+      position:fixed;
+      bottom:15px;right:15px;
+      z-index:999;
+      opacity:0.8;
+    }
 
-/* GRID */
-.grid-depoimentos{
-    display:grid; gap:20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-.grid-passos{
-    display:grid; gap:25px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-</style>
+    /* -------- QUIZ -------- */
+    #quiz-container {
+      width:100%;min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      position:relative;
+      z-index:1000;
+    }
+    #quiz-box {
+      max-width:500px;
+      background:var(--card);
+      padding:30px;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      border:2px solid var(--gold);
+      animation:fadeInUp 1s ease;
+    }
+    .quiz-question {font-size:1.3rem;font-weight:600;margin-bottom:20px;}
+    .quiz-options {
+      display:flex;flex-direction:column;gap:15px;
+    }
+    .quiz-options button {
+      padding:12px 20px;
+      font-size:1rem;
+      font-weight:600;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      background:linear-gradient(45deg,var(--gold),#e6c200);
+      color:#000;
+      transition:transform .2s, box-shadow .2s;
+    }
+    .quiz-options button:hover {
+      transform:scale(1.05);
+      box-shadow:0 0 12px gold;
+    }
+    .quiz-progress {
+      height:8px;width:100%;
+      background:#2c2c2c;
+      border-radius:8px;
+      margin-bottom:20px;
+      overflow:hidden;
+    }
+    .quiz-progress-bar {
+      height:100%;width:0%;
+      background:linear-gradient(90deg,var(--gold),#ffec80);
+      transition:width .4s;
+    }
+    #quiz-end {
+      display:none;
+      font-size:1.2rem;
+      font-weight:600;
+    }
+    #quiz-end button {
+      margin-top:20px;
+      background:var(--green);
+      color:#fff;
+      padding:14px 24px;
+      border:none;border-radius:12px;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:background .3s;
+    }
+    #quiz-end button:hover {background:var(--green-2);}
+    
+    /* -------- Conteúdo principal -------- */
+    #main-content {
+      display:none;
+    }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Guia Acelerador, Vença a Depressão em 7 Dias</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+
+  <style>
+    :root{
+      --bg:#0B0B0C;
+      --card:#121316;
+      --muted:#9aa0a6;
+      --text:#F5F7FA;
+      --gold:#FFD54A;         /* dourado quente */
+      --gold-2:#e6c200;       /* dourado mais profundo */
+      --accent:#0056ff;       /* azul de destaque */
+      --green:#23C55E;
+      --green-2:#1BA14D;
+      --red:#FF5757;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg);color:var(--text);
+      font-family:Inter, Arial, sans-serif;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ---------- Fundo gradiente animado chique ---------- */
+    body{
+      background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(255,215,0,.06), transparent 60%),
+        radial-gradient(1200px 600px at 110% 110%, rgba(0,86,255,.08), transparent 60%),
+        linear-gradient(135deg,#0b0b0c,#1a1c20 40%,#0b0b0c);
+      background-size: 100% 100%;
+      animation: bgPulse 22s ease-in-out infinite;
+    }
+    @keyframes bgPulse{
+      0%,100%{filter:brightness(1)}
+      50%{filter:brightness(1.06)}
+    }
+
+    /* ---------- Glitter sutil (overlay não clicável) ---------- */
+    .glitter-overlay{
+      position:fixed; inset:0; pointer-events:none; z-index:5;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,215,0,.25), transparent 60%),
+        radial-gradient(2px 2px at 80% 60%, rgba(255,240,190,.22), transparent 60%),
+        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.14), transparent 60%),
+        radial-gradient(1.2px 1.2px at 70% 15%, rgba(255,215,0,.18), transparent 60%);
+      animation: glitterDrift 10s linear infinite;
+    }
+    @keyframes glitterDrift{
+      0%{background-position:0 0,0 0,0 0,0 0}
+      100%{background-position:100vw 0,-100vw 0,0 100vh,0 -100vh}
+    }
+
+    /* ---------- Molduras douradas elegantes ---------- */
+    .gold-border{
+      border:2px solid transparent;
+      border-radius:var(--radius);
+      border-image:linear-gradient(45deg, var(--gold), var(--gold-2)) 1;
+      box-shadow: 0 0 0 1px rgba(255,215,0,.12), 0 10px 30px rgba(0,0,0,.3);
+      position:relative;
+    }
+    /* brilho que varre */
+    .gold-border::after{
+      content:"";
+      position:absolute; inset:-2px;
+      border-radius:inherit;
+      background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,.35), transparent 60%);
+      transform:translateX(-100%);
+      animation: sweep 4.5s ease-in-out infinite;
+    }
+    @keyframes sweep{
+      0%{transform:translateX(-100%)}
+      60%{transform:translateX(100%)}
+      100%{transform:translateX(100%)}
+    }
+
+    /* ---------- Animações on-scroll ---------- */
+    .reveal{opacity:0; transform:translateY(22px); transition: all .7s ease;}
+    .reveal.in-view{opacity:1; transform:translateY(0)}
+
+    /* ---------- Botões premium ---------- */
+    .btn-primary{
+      background:linear-gradient(45deg,var(--accent),#2d7bff);
+      color:#fff; padding:14px 24px; border-radius:12px;
+      font-weight:700; display:inline-block;
+      box-shadow:0 10px 25px rgba(0,86,255,.3);
+      transition:transform .15s ease, box-shadow .2s ease;
+    }
+    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,86,255,.38)}
+
+    /* ---------- Carrossel horizontal (conversas/depoimentos) ---------- */
+    .chat-carousel{
+      display:flex; gap:18px; overflow-x:auto; scroll-behavior:smooth; padding:6px 2px 12px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .chat-carousel::-webkit-scrollbar{height:8px}
+    .chat-carousel::-webkit-scrollbar-thumb{background:rgba(255,215,0,.3); border-radius:8px}
+    .chat-box{
+      flex:0 0 300px; background:var(--card); color:#eaeaea;
+      padding:18px; border-radius:16px; box-shadow:var(--shadow);
+      border:1px solid rgba(255,215,0,.18); position:relative;
+    }
+    .chat-meta{font-weight:700; margin-bottom:6px}
+    .chat-city{color:var(--muted); font-size:.9rem}
+
+    /* “balãozinho” decorativo */
+    .chat-box::before{
+      content:""; position:absolute; bottom:-8px; left:24px;
+      width:16px; height:16px; background:var(--card);
+      border-left:1px solid rgba(255,215,0,.18); border-bottom:1px solid rgba(255,215,0,.18);
+      transform:rotate(45deg);
+    }
+
+    /* ---------- Player de música discreto ---------- */
+    #music-toggle{
+      position:fixed; right:16px; bottom:16px; z-index:9999;
+      background:linear-gradient(45deg,var(--gold),var(--gold-2));
+      border:none; border-radius:999px; padding:12px 16px; font-weight:800; color:#000;
+      box-shadow:0 10px 25px rgba(0,0,0,.35);
+      cursor:pointer;
+    }
+    #music-toggle span{font-size:.95rem}
+    audio{display:none} /* controla só pelo botão */
+
+    /* ---------- Sticky CTA (exemplo mobile) ---------- */
+    .sticky-cta{
+      position:fixed; left:0; right:0; bottom:0; z-index:9998;
+      display:flex; justify-content:space-between; align-items:center; gap:12px;
+      background:rgba(18,19,22,.92); border-top:1px solid rgba(255,215,0,.22);
+      padding:10px 14px; backdrop-filter:blur(6px);
+    }
+    .sticky-cta .label{font-weight:800; letter-spacing:.3px}
+
+    /* ---------- QUIZ TELA CHEIA ---------- */
+    #quiz-container{
+      position:fixed; inset:0; z-index:10000; /* bloqueia a página até concluir */
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      background:linear-gradient(135deg, rgba(0,0,0,.75), rgba(0,0,0,.6));
+      backdrop-filter: blur(8px);
+    }
+    #quiz-box{
+      width:min(92vw,560px);
+      background:var(--card); border-radius:18px; padding:26px 22px;
+      box-shadow:0 25px 60px rgba(0,0,0,.55);
+    }
+    .quiz-title{font-size:1.55rem; font-weight:800; margin:0 0 10px}
+    .quiz-sub{color:var(--muted); margin:0 0 18px}
+    .quiz-progress{height:10px; background:#24262b; border-radius:999px; overflow:hidden; margin:10px 0 18px}
+    .quiz-progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),#fff0a6)}
+    .quiz-q{font-size:1.15rem; font-weight:700; margin: 6px 0 14px}
+    .quiz-options{display:grid; gap:12px}
+    .quiz-btn{
+      border:none; border-radius:12px; padding:12px 14px; font-weight:800; cursor:pointer;
+      background:linear-gradient(45deg, var(--gold), var(--gold-2)); color:#000;
+      transition: transform .12s ease, box-shadow .2s ease;
+    }
+    .quiz-btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(255,215,0,.25)}
+    .quiz-nav{display:flex; justify-content:space-between; margin-top:12px}
+    .quiz-nav button{
+      background:transparent; border:1px solid rgba(255,215,0,.35); color:#ffd;
+      padding:10px 14px; border-radius:10px; cursor:pointer;
+    }
+    .quiz-result{display:none}
+    .quiz-cta{
+      margin-top:14px;
+      background:linear-gradient(45deg, var(--accent), #2d7bff);
+      color:#fff; padding:12px 16px; border:none; border-radius:12px; font-weight:800; cursor:pointer;
+    }
+
+    /* ---------- Container do conteúdo (liberado após quiz) ---------- */
+    #main-content{display:none}
+
+    /* Pequenos helpers */
+    .container{max-width:1100px; margin:0 auto; padding:60px 20px}
+    .light{background:#fff; color:#111}
+    .soft{background:#f9f9f9}
+    .soft-blue{background:#f1f6ff}
+    .title{font-size:2.2rem; margin:0 0 12px}
+    .subtitle{color:#9aa0a6}
+  </style>
 </head>
 <body>
 
-<!-- ======================= QUIZ ======================= -->
-<section id="quiz-section">
-<h2>Vamos começar com um teste rápido 👇</h2>
-<div id="quiz-step-1">
-<p><strong>1) Com que frequência você se sente sem energia e desanimado(a)?</strong></p>
-<label><input type="radio" name="q1" value="0"> Raramente</label>
-<label><input type="radio" name="q1" value="1"> Às vezes</label>
-<label><input type="radio" name="q1" value="2"> Frequentemente</label>
-<button onclick="nextStep(1)">Próxima</button>
-</div>
-<div id="quiz-step-2" style="display:none">
-<p><strong>2) Você já passou com psicólogo ou psiquiatra?</strong></p>
-<label><input type="radio" name="q2" value="0"> Nunca fiz</label>
-<label><input type="radio" name="q2" value="1"> Já fiz uma época</label>
-<label><input type="radio" name="q2" value="2"> Ainda faço atualmente</label>
-<button onclick="nextStep(2)">Próxima</button>
-</div>
-<div id="quiz-step-3" style="display:none">
-<p><strong>3) Atualmente você está fazendo algum tratamento?</strong></p>
-<label><input type="radio" name="q3" value="0"> Não estou tratando</label>
-<label><input type="radio" name="q3" value="1"> Só remédio</label>
-<label><input type="radio" name="q3" value="2"> Remédio + hábitos saudáveis</label>
-<button onclick="verResultado()">Ver Resultado</button>
-</div>
-<div id="quiz-result" style="display:none">
-<p id="quiz-texto-resultado" style="margin-bottom:18px"></p>
-<button onclick="mostrarConteudoPrincipal()">Continuar</button>
-</div>
-</section>
+  <!-- glitter sutil -->
+  <div class="glitter-overlay" aria-hidden="true"></div>
 
-<!-- ======================= CONTEÚDO PRINCIPAL ======================= -->
-<div id="conteudo-principal" style="display:none">
+  <!-- QUIZ INTERATIVO (bloqueia a página até concluir) -->
+  <section id="quiz-container" role="dialog" aria-modal="true">
+    <div id="quiz-box" class="gold-border reveal in-view">
+      <h2 class="quiz-title">Descubra se você está pronto(a) para virar esse jogo em 7 dias</h2>
+      <p class="quiz-sub">Responda 5 perguntas rápidas. No final, te mostro um caminho prático que salvou a minha vida.</p>
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-bar"></div></div>
 
-<!-- Exemplo de seção 1: Sobre o Autor -->
-<section>
-<div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-<div style="flex:1; min-width:280px; text-align:center;">
-<img src="Foto.png .JPG.JPG" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15);">
-</div>
-<div style="flex:2; min-width:280px;">
-<h2 style="font-size:2.2rem; margin-bottom:20px;">Sobre o Autor</h2>
-<p>Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.</p>
-<p>Minha trajetória como autor começou de forma intensa...</p>
-<p>Minha missão é clara: <strong>mostrar que é possível vencer a depressão e a ansiedade</strong>...</p>
-<p style="font-size:1.2rem; font-weight:600; color:#0056ff;">Se eu venci, você também pode vencer!</p>
-</div>
-</div>
-</section>
+      <!-- Área dinâmica das perguntas -->
+      <div id="quiz-stage">
+        <!-- preenchido via JS -->
+      </div>
 
-<!-- Exemplo de seção 2: Apresentação do Livro -->
-<section>
-<div style="max-width:1100px; margin:0 auto; display:grid; gap:40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items:center;">
-<div style="text-align:center;">
-<img src="capa.png.JPG.JPG" alt="Capa do livro Como Vencer a Depressão" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
-</div>
-<div>
-<h2 style="font-size:2.4rem; margin-bottom:15px;">O Livro <span style="color:#0056ff;">Como Vencer a Depressão</span></h2>
-<p>Este livro nasceu da minha própria história... <strong>“Como Vencer a Depressão”</strong> é mais do que páginas escritas...</p>
-<a href="https://go.hotmart.com/T100961079V?dp=1" class="cta-btn">Quero transformar minha vida →</a>
-</div>
-</div>
-</section>
-
-<!-- Exemplo de seção 3: Guia Acelerador -->
-<section>
-<div style="max-width:1100px; margin:0 auto; text-align:center;">
-<img src="Guia .PNG" alt="Guia Acelerador" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2); margin-bottom:25px;">
-<h2>O <span style="color:#0056ff;">Guia Acelerador</span></h2>
-<p>Criei um plano simples: apenas <strong>5 passos rápidos</strong>, aplicados em <strong>10 minutos por dia</strong>...</p>
-
-<div class="grid-passos">
-<div style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-<h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">1. Respiração</h3>
-<p>Técnicas simples para acalmar a mente e controlar a ansiedade.</p>
-</div>
-<div style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-<h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">2. Movimento</h3>
-<p>Exercícios leves que aumentam a energia e combatem a apatia.</p>
-</div>
-<div style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-<h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">3. Mentalidade</h3>
-<p>Práticas de foco e reprogramação de pensamentos negativos.</p>
-</div>
-<div style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-<h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">4. Escrita</h3>
-<p>Exercícios de autoexpressão para organizar emoções e aliviar a mente.</p>
-</div>
-<div style="background:#fff; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-<h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">5. Gratidão</h3>
-<p>Prática diária de gratidão para fortalecer a motivação e esperança.</p>
-</div>
-</div>
-
-<a href="https://go.hotmart.com/T100961079V?dp=1" class="cta-btn">Quero aplicar o Guia Acelerador →</a>
-</div>
-</section>
-
-<!-- Depoimentos -->
-<section>
-<div style="max-width:1000px; margin:0 auto; text-align:center;">
-<h2>Veja o que dizem as pessoas que seguiram o Guia Acelerador</h2>
-<p>e viram diferença em 7 dias.</p>
-<div class="grid-depoimentos">
-<div class="depoimento-card">
-<strong>Mariana Souza</strong><br><span>32 anos, São Paulo/SP</span>
-<p>“Eu estava há meses sem conseguir levantar da cama... Em 7 dias, já me sentia outra pessoa.”</p>
-</div>
-<div class="depoimento-card">
-<strong>Ricardo Almeida</strong><br><span>40 anos, Belo Horizonte/MG</span>
-<p>“Achei que precisava de algo complexo, mas o simples funcionou...”</p>
-</div>
-<div class="depoimento-card">
-<strong>Jéssica Lima</strong><br><span>26 anos, Curitiba/PR</span>
-<p>“Eu já fazia terapia, mas ainda me sentia travada. O Guia e o Livro me deu um empurrãozinho diário...”</p>
-</div>
-</div>
-</div>
-</section>
-
-</div>
-
-<script>
-function nextStep(step){
-    if(step===1){document.getElementById('quiz-step-1').style.display='none'; document.getElementById('quiz-step-2').style.display='block';}
-    if(step===2){document.getElementById('quiz-step-2').style.display='none'; document.getElementById('quiz-step-3').style.display='block';}
-}
-function verResultado(){
-    const v1=+document.querySelector('input[name="q1"]:checked')?.value||0;
-    const v2=+document.querySelector('input[name="q2"]:checked')?.value||0;
-    const v3=+document.querySelector('input[name="q3"]:checked')?.value||0;
-    const total=v1+v2+v3;
-    let texto="";
-    if(total>=4){
-        texto="Você demonstra sinais claros de exaustão emocional, mas o fato de estar aqui já mostra que está buscando uma forma real de melhorar. Eu também passei por isso, e foi daí que nasceu o Livro Como Vencer A Depressão e o Guia Acelerador.";
-    }else{
-        texto="Você pode estar em um momento de cansaço mental ou emocional. Com algumas ações simples e consistentes, é possível mudar completamente a forma como você se sente nos próximos dias.";
-    }
-    document.getElementById('quiz-texto-resultado').innerText=texto;
-    document.getElementById('quiz-step-3').style.display='none';
-    document.getElementById('quiz-result').style.display='block';
-}
-function mostrarConteudoPrincipal(){
-    document.getElementById('quiz-section').style.display='none';
-    document.getElementById('conteudo-principal').style.display='block';
-}
-</script>
-
-</body>
-</html>
-<!-- ======================= QUIZ ======================= -->
-<section id="quiz-section">
-<!-- PROVA SOCIAL -->
-<div style="text-align:center; margin-bottom:20px; font-weight:700; font-size:1.2rem; color:#ffff00; animation: glow 2s infinite;">
-✅ +1245 pessoas já compraram e aprovaram!
-</div>
-
-<h2>Vamos começar com um teste rápido 👇</h2>
-
-<div id="quiz-step-1">
-<p><strong>1) Com que frequência você se sente sem energia e desanimado(a)?</strong></p>
-<label><input type="radio" name="q1" value="0"> Raramente</label>
-<label><input type="radio" name="q1" value="1"> Às vezes</label>
-<label><input type="radio" name="q1" value="2"> Frequentemente</label>
-<button onclick="nextStep(1)">Próxima</button>
-</div>
-
-<div id="quiz-step-2" style="display:none">
-<p><strong>2) Você já passou com psicólogo ou psiquiatra?</strong></p>
-<label><input type="radio" name="q2" value="0"> Nunca fiz</label>
-<label><input type="radio" name="q2" value="1"> Já fiz uma época</label>
-<label><input type="radio" name="q2" value="2"> Ainda faço atualmente</label>
-<button onclick="nextStep(2)">Próxima</button>
-</div>
-
-<div id="quiz-step-3" style="display:none">
-<p><strong>3) Atualmente você está fazendo algum tratamento?</strong></p>
-<label><input type="radio" name="q3" value="0"> Não estou tratando</label>
-<label><input type="radio" name="q3" value="1"> Só remédio</label>
-<label><input type="radio" name="q3" value="2"> Remédio + hábitos saudáveis</label>
-<button onclick="verResultado()">Ver Resultado</button>
-</div>
-
-<div id="quiz-result" style="display:none">
-<p id="quiz-texto-resultado" style="margin-bottom:18px"></p>
-<button onclick="mostrarConteudoPrincipal()">Continuar</button>
-</div>
+      <!-- Resultado (muda conforme respostas) -->
+      <div id="quiz-result" class="quiz-result">
+        <h3 id="quiz-headline" style="margin:0 0 8px"></h3>
+        <p id="quiz-message" style="margin:0 0 12px; color:#e9e9e9"></p>
+        <button class="quiz-cta" id="quiz-continue">Ver meu resultado e liberar a página →</button>
+        <div class="quiz-nav" style="margin-top:10px">
+          <button id="quiz-restart">Refazer</button>
+        </div>
+      </div>
+    </div>
+  </section>
