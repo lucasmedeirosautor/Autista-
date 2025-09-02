@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Quiz – Entenda seu Nível de Sofrimento Emocional</title>
+<title>Quiz – Descubra seu Nível Emocional</title>
 <style>
   :root{
     --bg: #0e0f12;
@@ -11,8 +11,12 @@
     --stroke: rgba(255,255,255,0.12);
     --txt: #f7f7fb;
     --muted: #b8bfd2;
-    --brand: #7c4dff;        /* roxo suave */
-    --brand-2: #00e1ff;      /* ciano */
+
+    /* PALETA DOURADA */
+    --gold-light: #fceabb;
+    --gold: #f8b500;
+    --gold-dark: #c79700;
+
     --accent-ok: #19c37d;
     --accent-warn: #ffb020;
     --accent-alert: #ff4757;
@@ -23,26 +27,15 @@
   html,body{height:100%}
   body{
     margin:0;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     color:var(--txt);
     background:
-      radial-gradient(1200px 600px at 10% -10%, rgba(124,77,255,.25), transparent 60%),
-      radial-gradient(900px 600px at 110% 110%, rgba(0,225,255,.18), transparent 55%),
+      radial-gradient(1000px 600px at 10% -10%, rgba(248,181,0,.15), transparent 60%),
+      radial-gradient(800px 600px at 110% 110%, rgba(250,208,125,.12), transparent 55%),
       var(--bg);
   }
-  .wrap{
-    max-width: 980px;
-    margin: 24px auto 64px;
-    padding: 16px;
-  }
-  .badge{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:.82rem; color:var(--muted); padding:6px 10px;
-    border:1px solid var(--stroke); border-radius:999px;
-    backdrop-filter: blur(8px);
-  }
+  .wrap{max-width: 980px; margin: 24px auto 64px; padding: 16px;}
   .quiz-card{
-    position:relative;
     margin-top:14px;
     background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
     border:1px solid var(--stroke);
@@ -50,106 +43,62 @@
     box-shadow: var(--shadow);
     overflow:hidden;
   }
-  .quiz-header{
-    padding:18px 18px 0;
-  }
   h1{
-    margin:8px 0 6px; font-size: clamp(22px, 3.4vw, 34px); line-height:1.1;
+    font-size: clamp(22px, 3.4vw, 34px);
+    font-weight: 800;
   }
-  .sub{
-    margin:0 0 18px; color:var(--muted);
-    font-size: clamp(13px, 2.3vw, 16px);
+  h1 span{
+    background: linear-gradient(90deg, var(--gold-light), var(--gold));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color: transparent;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
   }
-  .progress{
-    height:10px; background:rgba(255,255,255,.07);
-    border:1px solid var(--stroke);
-    border-radius:999px; overflow:hidden; margin: 8px 18px 0;
-  }
+  .sub{color:var(--muted); font-size: clamp(14px, 2.3vw, 16px);}
+  .progress{height:10px; background:rgba(255,255,255,.07); border:1px solid var(--stroke); border-radius:999px; overflow:hidden; margin: 8px 18px;}
   .bar{
-    height:100%;
-    width:0%;
-    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    height:100%; width:0%;
+    background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-dark));
+    background-size: 300% 300%;
+    animation: shine 3s linear infinite;
     transition: width .35s ease;
   }
-  .question{
-    padding: 18px;
+  @keyframes shine {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
   }
-  .q-text{
-    font-size: clamp(17px, 2.8vw, 22px);
-    margin: 0 0 14px;
-  }
+  .question{padding:18px;}
+  .q-text{font-size: clamp(17px, 2.8vw, 22px);}
   .options{display:grid; gap:10px}
-  .opt{
-    position:relative;
-    display:flex; align-items:center; gap:12px;
-    padding:14px 14px;
-    background: var(--card);
-    border:1px solid var(--stroke);
-    border-radius:12px; cursor:pointer;
-    transition: transform .06s ease, border-color .2s ease, background .2s ease;
-  }
-  .opt input{appearance:none; width:18px; height:18px; border-radius:50%; border:2px solid #cfd3e2; outline:none; display:inline-block; position:relative}
-  .opt input:checked{border-color:transparent; background:linear-gradient(90deg, var(--brand), var(--brand-2)); box-shadow: 0 0 0 3px rgba(124,77,255,.25)}
-  .opt:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.28)}
-  .opt strong{font-weight:600}
-  .opt small{color:var(--muted)}
-  .nav{
-    display:flex; justify-content:space-between; align-items:center; gap:10px; padding: 4px 18px 20px;
-  }
+  .opt{padding:14px; border:1px solid var(--stroke); border-radius:12px; background:var(--card); cursor:pointer; transition:.2s}
+  .opt:hover{border-color:rgba(248,181,0,.6); box-shadow:0 0 8px rgba(248,181,0,.3)}
+  .opt input{margin-right:10px}
+  .nav{display:flex; justify-content:space-between; padding:0 18px 18px}
   .btn{
-    user-select:none;
+    padding:12px 16px; border-radius:10px;
     border:1px solid var(--stroke); background:var(--card);
-    border-radius:10px; padding:12px 16px; color:var(--txt);
-    font-weight:600; cursor:pointer; transition: transform .06s ease, border-color .2s ease, background .2s ease, opacity .2s ease;
+    color:var(--txt); font-weight:600; cursor:pointer; transition:.2s;
   }
-  .btn[disabled]{opacity:.5; pointer-events:none}
   .btn-primary{
-    background: linear-gradient(90deg, var(--brand), var(--brand-2));
-    border-color: transparent;
+    background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-dark));
+    border:none; color:#1a1a1a; font-weight:700;
+    text-shadow:0 1px 1px rgba(255,255,255,.6);
   }
-  .btn-ghost:hover{border-color:rgba(255,255,255,.25)}
-  .kicker{
-    padding: 12px 18px 18px; color:var(--muted); font-size:.92rem; border-top:1px dashed var(--stroke);
-  }
-  /* Resultado */
-  .result{
-    display:none; padding: 20px 18px 24px; border-top:1px solid var(--stroke); background: rgba(255,255,255,.03);
-  }
-  .result.show{display:block; animation: fadeIn .35s ease}
-  @keyframes fadeIn{from{opacity:0; transform: translateY(6px)} to{opacity:1; transform:none}}
-  .score-pill{
-    display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke);
-    background: rgba(255,255,255,.06); margin-bottom:8px; font-size:.9rem
-  }
-  .meter{
-    height:8px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; margin:8px 0 16px; border:1px solid var(--stroke)
-  }
-  .meter > span{display:block; height:100%; width:0%; transition: width .45s ease}
-  .meter.low > span{background: linear-gradient(90deg, #2bd67b, #19c37d)}
-  .meter.mild > span{background: linear-gradient(90deg, #ffd166, #ffb020)}
-  .meter.mod > span{background: linear-gradient(90deg, #ff8e53, #ff6a3d)}
-  .meter.high > span{background: linear-gradient(90deg, #ff5e6c, #ff4757)}
-  .cta{
-    margin-top:16px; display:grid; gap:10px;
-  }
-  .cta .guarantee{font-size:.86rem; color:var(--muted)}
-  .legal{
-    margin-top:8px; font-size:.78rem; color:var(--muted)
-  }
-  /* Gate opcional para travar conteúdo da página até concluir o quiz */
-  #conteudo.locked{
-    filter: blur(4px) saturate(.8);
-    pointer-events:none; user-select:none;
-  }
-  .gate-tip{
-    display:none; text-align:center; color:var(--muted); font-size:.9rem; margin-top:8px
-  }
-  #conteudo.locked + .gate-tip{display:block}
-  /* Confete */
-  .confetti{pointer-events:none; position:fixed; inset:0; overflow:hidden}
+  .btn-primary:hover{box-shadow:0 0 12px rgba(248,181,0,.7); transform:translateY(-2px)}
+  .result{display:none; padding:20px; border-top:1px solid var(--stroke)}
+  .result.show{display:block; animation:fadeIn .35s ease}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+  .meter{height:8px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; margin:12px 0}
+  .meter>span{display:block; height:100%; width:0%; transition: width .45s ease}
+  .meter.low>span{background:linear-gradient(90deg,#d4fc79,#96e6a1)}
+  .meter.mild>span{background:linear-gradient(90deg,#ffd166,#ffb020)}
+  .meter.mod>span{background:linear-gradient(90deg,var(--gold),var(--gold-dark))}
+  .meter.high>span{background:linear-gradient(90deg,#ff9966,#ff5e62)}
   .confetti i{
-    position:absolute; width:8px; height:14px; background: linear-gradient(180deg, var(--brand), var(--brand-2));
-    opacity:0; transform: translateY(-20px) rotate(0deg);
+    position:absolute; width:8px; height:14px;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+    box-shadow:0 0 6px rgba(248,181,0,.6);
     animation: drop 1.6s ease-in forwards;
   }
   @keyframes drop{
@@ -157,395 +106,96 @@
     5%{opacity:1}
     100%{transform: translateY(110vh) rotate(720deg)}
   }
-  /* Responsivo */
-  @media (min-width: 860px){
-    .quiz-card{display:grid; grid-template-columns: 1.1fr .9fr}
-    .result{grid-column: 1 / -1}
-    .kicker{grid-column: 1 / -1}
-  }
 </style>
 </head>
 <body>
-
 <div class="wrap">
-  <span class="badge" aria-label="Segurança e privacidade"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9.3-8 10-4.5-.7-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.5"/></svg> Seus dados não são enviados a terceiros</span>
-  <h1>Descubra seu <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Nível de Sofrimento Emocional</span></h1>
-  <p class="sub">Responda em menos de 60 segundos. Ao final, receba um plano prático e um presente exclusivo do livro.</p>
-
-  <!-- QUIZ -->
-  <section id="quiz" class="quiz-card" role="region" aria-label="Quiz de bem-estar emocional">
-    <div class="quiz-header">
-      <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
-      <h2 class="visually-hidden" style="position:absolute;left:-9999px">Quiz</h2>
-    </div>
-
-    <div class="question" id="questionBox" aria-live="polite"></div>
-
+  <h1>Descubra seu <span>Nível de Sofrimento Emocional</span></h1>
+  <p class="sub">Responda em menos de 1 minuto e receba seu resultado personalizado.</p>
+  <section class="quiz-card">
+    <div class="progress"><div class="bar" id="progressBar"></div></div>
+    <div class="question" id="questionBox"></div>
     <div class="nav">
-      <button class="btn btn-ghost" id="prevBtn" aria-label="Pergunta anterior">← Voltar</button>
-      <div style="flex:1"></div>
-      <button class="btn btn-primary" id="nextBtn" aria-label="Próxima pergunta">Continuar →</button>
+      <button class="btn" id="prevBtn">← Voltar</button>
+      <button class="btn btn-primary" id="nextBtn">Continuar →</button>
     </div>
-
-    <div class="kicker">
-      Dica: responda pensando nos últimos 14 dias. Suas respostas são anônimas.
-    </div>
-
-    <div class="result" id="resultBox" aria-live="polite"></div>
+    <div class="result" id="resultBox"></div>
   </section>
-
-  <!-- CONTEÚDO DA PÁGINA (opcionalmente bloqueado até finalizar o quiz) -->
-  <section id="conteudo" class="locked" style="margin-top:22px">
-    <!-- Remova a classe 'locked' acima se NÃO quiser travar o conteúdo até concluir o quiz -->
-    <div style="background:var(--card); border:1px solid var(--stroke); border-radius: var(--radius); padding:18px;">
-      <h2>Conteúdo da sua página de vendas</h2>
-      <p>Este bloco está aqui apenas como demonstração. Ao finalizar o quiz, ele é liberado automaticamente.</p>
-    </div>
-  </section>
-  <div class="gate-tip">Complete o quiz para liberar o conteúdo 👆</div>
-
-  <div class="legal">
-    <strong>Atenção:</strong> este material não substitui avaliação profissional. Se você estiver em risco ou pensando em se ferir, ligue 188 (CVV), acesse <a href="https://www.cvv.org.br/" target="_blank" rel="noopener" style="color:var(--brand-2);">cvv.org.br</a> ou procure ajuda de emergência.
-  </div>
 </div>
-
-<!-- Confete -->
 <div class="confetti" id="confetti"></div>
 
 <script>
 (function(){
-  // ===== CONFIGURAÇÕES =====
-  const HOTMART_URL = "https://go.hotmart.com/T100961079V"; // <-- coloque aqui seu link final
-  const gateContent = true; // true = trava #conteudo até concluir o quiz
-  const showCountdown = true; // contador suave de bônus
-  const bonusMinutes = 10; // duração do bônus (minutos) após o resultado
-
+  const HOTMART_URL = "https://go.hotmart.com/T100961079V";
   const questions = [
-    { id: 1, text: "Quanta energia ou motivação você sentiu para realizar tarefas simples?",
-      options: [
-        {label:"Muita energia", score:0, hint:"Você se sentiu disposto(a)."},
-        {label:"Alguma energia", score:1},
-        {label:"Pouca energia", score:2},
-        {label:"Quase nenhuma", score:3}
-      ]},
-    { id: 2, text: "Com que frequência você se sentiu triste, vazio(a) ou para baixo?",
-      options: freq()
-    },
-    { id: 3, text: "Seu sono ficou pior (dificuldade para dormir ou dormir demais)?",
-      options: freq()
-    },
-    { id: 4, text: "Você se sentiu sem esperança em relação ao futuro?",
-      options: freq()
-    },
-    { id: 5, text: "Como esteve sua capacidade de se concentrar em tarefas do dia a dia?",
-      options: [
-        {label:"Excelente", score:0},
-        {label:"Boa parte do tempo", score:1},
-        {label:"Com dificuldade", score:2},
-        {label:"Quase impossível", score:3}
-      ]},
-    { id: 6, text: "Você se sentiu culpado(a), inútil ou com autoestima muito baixa?",
-      options: freq()
-    },
-    { id: 7, text: "Como esteve seu apetite (de menos ou de mais)?",
-      options: [
-        {label:"Normal", score:0},
-        {label:"Leve alteração", score:1},
-        {label:"Bastante alterado", score:2},
-        {label:"Extremo (quase sem controle)", score:3}
-      ]},
-    { id: 8, text: "Quantas vezes você evitou compromissos por não ter forças?",
-      options: [
-        {label:"Nenhuma", score:0},
-        {label:"Algumas vezes", score:1},
-        {label:"Muitas vezes", score:2},
-        {label:"Quase sempre", score:3}
-      ]},
-    { id: 9, text: "Nos últimos 14 dias, pensamentos muito negativos apareceram?",
-      options: [
-        {label:"Não", score:0},
-        {label:"Raramente", score:1},
-        {label:"Frequentemente", score:2},
-        {label:"Quase todos os dias", score:3}
-      ]}
+    {text:"Com que frequência você se sentiu triste ou sem energia?",
+     options:["Nunca","Alguns dias","Mais da metade","Quase todos os dias"]},
+    {text:"Seu sono ficou prejudicado?",
+     options:["Não","Alguns dias","Muitos dias","Quase todos os dias"]},
+    {text:"Você se sentiu sem esperança em relação ao futuro?",
+     options:["Nunca","Alguns dias","Muitos dias","Quase sempre"]},
+    {text:"Com que frequência perdeu a vontade de fazer atividades simples?",
+     options:["Nunca","Algumas vezes","Muitas vezes","Quase sempre"]}
   ];
-  function freq(){
-    return [
-      {label:"Nunca", score:0},
-      {label:"Alguns dias", score:1},
-      {label:"Mais da metade dos dias", score:2},
-      {label:"Quase todos os dias", score:3}
-    ];
-  }
+  let step=0, answers=[];
+  const questionBox=document.getElementById("questionBox");
+  const progressBar=document.getElementById("progressBar");
+  const resultBox=document.getElementById("resultBox");
+  const prevBtn=document.getElementById("prevBtn");
+  const nextBtn=document.getElementById("nextBtn");
+  const confetti=document.getElementById("confetti");
 
-  // ===== ESTADO =====
-  const state = {
-    step: 0,
-    answers: Array(questions.length).fill(null),
-    completed: false,
-    bonusDeadline: null
-  };
-
-  // ===== ELEMENTOS =====
-  const questionBox = document.getElementById("questionBox");
-  const resultBox = document.getElementById("resultBox");
-  const progressBar = document.getElementById("progressBar");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const confetti = document.getElementById("confetti");
-  const conteudo = document.getElementById("conteudo");
-
-  // ===== INÍCIO =====
-  restoreIfCompleted();
   render();
 
-  // ===== EVENTOS =====
-  prevBtn.addEventListener("click", () => {
-    if(state.step>0){ state.step--; render(); }
-  });
-  nextBtn.addEventListener("click", () => {
-    if(state.step < questions.length-1){
-      // impedir avanço sem marcar
-      if(state.answers[state.step]===null){
-        pulse(questionBox);
-        return;
-      }
-      state.step++; render();
-    }else{
-      if(state.answers[state.step]===null){ pulse(questionBox); return; }
-      finish();
-    }
-  });
+  prevBtn.onclick=()=>{if(step>0){step--;render();}};
+  nextBtn.onclick=()=>{if(step<questions.length-1){if(answers[step]==null)return;step++;render();}else{if(answers[step]==null)return;finish();}};
 
-  // Enter/Space navegação acessível
-  document.addEventListener("keydown", (e)=>{
-    if(e.key === "Enter"){ nextBtn.click(); }
-    else if(e.key === "ArrowLeft"){ prevBtn.click(); }
-  });
-
-  // ===== FUNÇÕES =====
   function render(){
-    const total = questions.length;
-    const q = questions[state.step];
-    const pct = Math.round((state.step) / total * 100);
-    progressBar.style.width = pct + "%";
-
-    prevBtn.style.visibility = state.step===0 ? "hidden" : "visible";
-    nextBtn.textContent = state.step === total-1 ? "Ver resultado →" : "Continuar →";
-
-    questionBox.innerHTML = `
-      <p class="q-text"><strong>${state.step+1}/${total}</strong> — ${q.text}</p>
-      <div class="options" role="listbox" aria-label="Opções">
-        ${q.options.map((o,idx)=>{
-          const checked = state.answers[state.step]===idx ? "checked" : "";
-          const desc = o.hint ? `<br><small>${o.hint}</small>` : "";
-          return `
-            <label class="opt" tabindex="0" aria-label="${o.label}">
-              <input type="radio" name="q${q.id}" ${checked} />
-              <div>
-                <strong>${o.label}</strong>${desc}
-              </div>
-            </label>
-          `;
-        }).join("")}
-      </div>
-    `;
-
-    [...questionBox.querySelectorAll(".opt")].forEach((el, idx)=>{
-      el.addEventListener("click", ()=> select(idx));
-      el.addEventListener("keydown", (e)=>{ if(e.key===" "){ e.preventDefault(); select(idx);} });
-    });
-  }
-
-  function select(idx){
-    state.answers[state.step] = idx;
-    // feedback de seleção
-    const radios = questionBox.querySelectorAll('input[type="radio"]');
-    radios.forEach((r,i)=> r.checked = (i===idx));
-    // auto-avançar após pequena pausa
-    setTimeout(()=>{
-      if(state.step < questions.length-1){ state.step++; render(); }
-      else { nextBtn.focus(); }
-    }, 130);
+    const q=questions[step];
+    progressBar.style.width=(step/questions.length*100)+"%";
+    prevBtn.style.visibility=step===0?"hidden":"visible";
+    nextBtn.textContent=step===questions.length-1?"Ver resultado →":"Continuar →";
+    questionBox.innerHTML=`
+      <p class="q-text"><strong>${step+1}/${questions.length}</strong> — ${q.text}</p>
+      <div class="options">
+        ${q.options.map((opt,i)=>`
+          <label class="opt"><input type="radio" name="q${step}" ${answers[step]===i?"checked":""}/> ${opt}</label>
+        `).join("")}
+      </div>`;
+    [...questionBox.querySelectorAll("input")].forEach((el,i)=>el.onchange=()=>{answers[step]=i;});
   }
 
   function finish(){
-    const score = state.answers.reduce((acc, ansIdx, i)=> acc + questions[i].options[ansIdx].score, 0);
-    const max = questions.length * 3; // 27
-    const pct = Math.round(score / max * 100);
-
-    const level = score<=4 ? "baixo"
-                : score<=9 ? "leve"
-                : score<=14 ? "moderado"
-                : "alto";
-
-    const meterClass = {
-      baixo: "meter low",
-      leve: "meter mild",
-      moderado: "meter mod",
-      alto: "meter high"
-    }[level];
-
-    const headline = {
-      baixo: "Boa! Vamos blindar sua mente para manter essa energia.",
-      leve: "Sinais leves — agir agora evita que piore.",
-      moderado: "Atenção: você está carregando peso demais sozinho(a).",
-      alto: "Alerta: seu bem-estar precisa de prioridade máxima."
-    }[level];
-
-    const promise = {
-      baixo: "Você vai receber hábitos simples para fortalecer o emocional e manter constância.",
-      leve: "Você vai receber passos práticos que aliviam a pressão mental em minutos por dia.",
-      moderado: "Você vai receber um plano direto ao ponto para aliviar sintomas e retomar o controle.",
-      alto: "Você vai receber orientação objetiva para estabilizar a mente e reconstruir sua rotina."
-    }[level];
-
-    // CTA copy e benefícios sob medida
-    const bullets = {
-      baixo: [
-        "Rotina anti-ressaca emocional (5 minutos)",
-        "Técnica de foco de 3 etapas",
-        "Checklist anti-procrastinação"
-      ],
-      leve: [
-        "Primeiros socorros mentais (2× ao dia)",
-        "Respiração 4-2-6 para acalmar agora",
-        "Script de auto-fala que reduz ruminância"
-      ],
-      moderado: [
-        "Plano 7 dias para reduzir sintomas",
-        "Como voltar a comer e dormir melhor",
-        "Ferramenta simples para interromper ciclos negativos"
-      ],
-      alto: [
-        "Primeiras 24h: como estabilizar",
-        "Micro-rotinas de 60–120s (funcionam mesmo sem energia)",
-        "Guia de pedido de ajuda sem vergonha"
-      ]
-    }[level];
-
-    // UTM carry
-    const utm = window.location.search || "";
-    const link = HOTMART_URL + utm;
-
-    // Contador de bônus
-    if(showCountdown){
-      const now = new Date();
-      state.bonusDeadline = new Date(now.getTime() + bonusMinutes*60000);
-      localStorage.setItem("quiz_bonus_deadline", state.bonusDeadline.toISOString());
-    }
-
-    // Result UI
-    resultBox.innerHTML = `
-      <div class="score-pill" aria-label="Seu resultado">
-        Seu nível atual: <strong style="text-transform:uppercase; letter-spacing:.5px">${level}</strong> • Pontos ${score}/${max} (${pct}%)
-      </div>
-      <h3 style="margin:6px 0 4px; font-size: clamp(20px,3vw,26px)">${headline}</h3>
-      <p style="color:var(--muted); margin:0 0 10px">${promise}</p>
-
-      <div class="${meterClass}" aria-label="Indicador de nível"><span style="width:${Math.max(6, pct)}%"></span></div>
-
-      <ul style="margin:0; padding:0 0 0 18px">
-        ${bullets.map(b=> `<li style="margin:6px 0">${b}</li>`).join("")}
-      </ul>
-
-      <div class="cta">
-        <a id="ctaBtn" class="btn btn-primary" href="${link}" target="_blank" rel="noopener">
-          Quero o método agora →
-        </a>
-        <div class="guarantee">
-          Acesso imediato + garantia de 7 dias. Bônus liberado por tempo limitado
-          ${showCountdown ? `<span id="countdown" aria-live="polite"></span>` : ""}.
-        </div>
-        <button class="btn btn-ghost" id="restart">Recomeçar o quiz</button>
-      </div>
+    const score=answers.reduce((a,b)=>a+b,0);
+    const max=questions.length*3;
+    const pct=Math.round(score/max*100);
+    let level="baixo",msg="Você está em bom equilíbrio. Vamos fortalecer isso.";
+    if(score<=4){level="baixo";}
+    else if(score<=7){level="leve";msg="Alguns sinais leves. Agir agora evita que piore.";}
+    else if(score<=10){level="moderado";msg="Atenção: você está carregando peso demais sozinho(a).";}
+    else{level="alto";msg="Alerta: seu bem-estar precisa de prioridade máxima.";}
+    resultBox.innerHTML=`
+      <h3>Resultado: ${level.toUpperCase()}</h3>
+      <p>${msg}</p>
+      <div class="meter ${level}"><span style="width:${pct}%"></span></div>
+      <a class="btn btn-primary" href="${HOTMART_URL}" target="_blank">Quero o método agora →</a>
     `;
     resultBox.classList.add("show");
-
-    // progress 100%
-    progressBar.style.width = "100%";
-
-    // liberar conteúdo
-    if(gateContent && conteudo){ conteudo.classList.remove("locked"); }
-
-    // confete 🎉
-    confettiBlast();
-
-    // countdown
-    if(showCountdown){ startCountdown(); }
-
-    // persistência: marcar como concluído por 24h
-    const stamp = { completed: true, ts: Date.now(), ttl: 24*60*60*1000 };
-    localStorage.setItem("quiz_completed", JSON.stringify(stamp));
-
-    document.getElementById("restart").addEventListener("click", resetQuiz);
+    progressBar.style.width="100%";
+    blast();
   }
 
-  function pulse(el){
-    el.animate([{transform:"scale(1)"},{transform:"scale(1.02)"},{transform:"scale(1)"}],{duration:220, easing:"ease-out"});
-  }
-
-  function confettiBlast(){
-    confetti.innerHTML = "";
-    const n = 80;
-    for(let i=0;i<n;i++){
-      const p = document.createElement("i");
-      p.style.left = Math.random()*100 + "vw";
-      p.style.animationDelay = (Math.random()*0.6) + "s";
-      p.style.opacity = 0;
-      // cores alternadas
-      if(i%4===0) p.style.background = "linear-gradient(180deg,#7c4dff,#00e1ff)";
-      if(i%4===1) p.style.background = "linear-gradient(180deg,#19c37d,#2bd67b)";
-      if(i%4===2) p.style.background = "linear-gradient(180deg,#ff8e53,#ff6a3d)";
-      if(i%4===3) p.style.background = "linear-gradient(180deg,#ff5e6c,#ff4757)";
+  function blast(){
+    confetti.innerHTML="";
+    for(let i=0;i<60;i++){
+      const p=document.createElement("i");
+      p.style.left=Math.random()*100+"vw";
+      p.style.animationDelay=(Math.random()*0.6)+"s";
       confetti.appendChild(p);
     }
   }
-
-  function startCountdown(){
-    const node = document.getElementById("countdown");
-    const tick = ()=>{
-      const dl = localStorage.getItem("quiz_bonus_deadline");
-      if(!dl){ node.textContent=""; return; }
-      const diff = new Date(dl) - new Date();
-      if(diff <= 0){ node.textContent = " (bônus expirado)"; return; }
-      const m = Math.floor(diff/60000);
-      const s = Math.floor((diff%60000)/1000);
-      node.textContent = ` (${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")})`;
-      requestAnimationFrame(()=> setTimeout(tick, 250));
-    };
-    tick();
-  }
-
-  function resetQuiz(){
-    state.step = 0;
-    state.answers = Array(questions.length).fill(null);
-    state.completed = false;
-    resultBox.classList.remove("show");
-    resultBox.innerHTML = "";
-    progressBar.style.width = "0%";
-    // re-bloqueia conteúdo se gate habilitado
-    if(gateContent && conteudo){ conteudo.classList.add("locked"); }
-    render();
-    window.scrollTo({top:0, behavior:"smooth"});
-  }
-
-  function restoreIfCompleted(){
-    // Se a pessoa já completou nas últimas 24h, você pode pular direto pro resultado neutro
-    const raw = localStorage.getItem("quiz_completed");
-    if(!raw) return;
-    try{
-      const data = JSON.parse(raw);
-      if(Date.now() - data.ts < data.ttl){
-        // não pulamos o quiz, mas liberamos o conteúdo para não bloquear retorno
-        if(gateContent && conteudo){ conteudo.classList.remove("locked"); }
-      }else{
-        localStorage.removeItem("quiz_completed");
-      }
-    }catch(e){}
-  }
-
 })();
 </script>
 </body>
 </html>
+
