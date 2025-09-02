@@ -1,224 +1,551 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Quiz Premium - Guia Acelerador</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quiz – Entenda seu Nível de Sofrimento Emocional</title>
 <style>
-:root{
-    --bg:#0B0B0C;
-    --card:#121316;
-    --muted:#9aa0a6;
-    --text:#F5F7FA;
-    --gold:#FFD54A;
-    --green:#23C55E;
-    --green-2:#1BA14D;
-    --red:#FF5757;
-    --shadow:0 10px 30px rgba(0,0,0,.35);
-    --radius:16px;
-    --gradient: linear-gradient(135deg,#0056ff,#00d4ff);
-}
-
-*{box-sizing:border-box}
-body, html{margin:0;padding:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);}
-h2,h3{margin:0;}
-a{text-decoration:none;color:inherit;}
-input{cursor:pointer;}
-
-#quiz-container{
-    max-width:600px;
-    margin:60px auto;
-    background:var(--card);
-    border-radius:var(--radius);
-    padding:30px;
-    box-shadow:var(--shadow);
+  :root{
+    --bg: #0e0f12;
+    --card: rgba(255,255,255,0.06);
+    --stroke: rgba(255,255,255,0.12);
+    --txt: #f7f7fb;
+    --muted: #b8bfd2;
+    --brand: #7c4dff;        /* roxo suave */
+    --brand-2: #00e1ff;      /* ciano */
+    --accent-ok: #19c37d;
+    --accent-warn: #ffb020;
+    --accent-alert: #ff4757;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius: 16px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    color:var(--txt);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(124,77,255,.25), transparent 60%),
+      radial-gradient(900px 600px at 110% 110%, rgba(0,225,255,.18), transparent 55%),
+      var(--bg);
+  }
+  .wrap{
+    max-width: 980px;
+    margin: 24px auto 64px;
+    padding: 16px;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.82rem; color:var(--muted); padding:6px 10px;
+    border:1px solid var(--stroke); border-radius:999px;
+    backdrop-filter: blur(8px);
+  }
+  .quiz-card{
+    position:relative;
+    margin-top:14px;
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+    border:1px solid var(--stroke);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     overflow:hidden;
+  }
+  .quiz-header{
+    padding:18px 18px 0;
+  }
+  h1{
+    margin:8px 0 6px; font-size: clamp(22px, 3.4vw, 34px); line-height:1.1;
+  }
+  .sub{
+    margin:0 0 18px; color:var(--muted);
+    font-size: clamp(13px, 2.3vw, 16px);
+  }
+  .progress{
+    height:10px; background:rgba(255,255,255,.07);
+    border:1px solid var(--stroke);
+    border-radius:999px; overflow:hidden; margin: 8px 18px 0;
+  }
+  .bar{
+    height:100%;
+    width:0%;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    transition: width .35s ease;
+  }
+  .question{
+    padding: 18px;
+  }
+  .q-text{
+    font-size: clamp(17px, 2.8vw, 22px);
+    margin: 0 0 14px;
+  }
+  .options{display:grid; gap:10px}
+  .opt{
     position:relative;
-}
-
-.quiz-step{
-    display:none;
-    flex-direction:column;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    position:absolute;
-    width:100%;
-    top:0;
-    left:0;
-}
-
-.quiz-step.active{
-    display:flex;
-    position:relative;
-    opacity:1;
-}
-
-.quiz-step h2{
-    font-size:28px;
-    margin-bottom:20px;
-    text-align:center;
-    background:var(--gradient);
-    -webkit-background-clip: text;
-    color:transparent;
-}
-
-.quiz-step p{
-    font-size:1rem;
-    margin-bottom:15px;
-}
-
-.quiz-options label{
-    display:block;
-    border:1px solid #2a2d33;
-    border-radius:12px;
-    padding:12px 16px;
-    margin:10px 0;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.quiz-options input:checked + span{
-    background:var(--green);
-    color:#0B0B0C;
-    font-weight:600;
-    border-color:var(--green-2);
-}
-
-.quiz-options label:hover{
-    background:#1a1b1e;
-}
-
-button{
-    margin-top:20px;
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    font-weight:700;
-    cursor:pointer;
-    background:var(--gradient);
-    color:#fff;
-    font-size:1rem;
-    transition:0.3s;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-#quiz-result{
-    text-align:center;
-}
-
-#quiz-texto-resultado{
-    font-size:1.1rem;
-    margin-bottom:20px;
-}
-
-.confetti-piece{
-    position:absolute;
-    width:10px;
-    height:10px;
-    background:var(--gold);
-    opacity:0.8;
-    animation:confetti-fall 2s linear forwards;
-}
-
-@keyframes confetti-fall{
-    0%{transform:translateY(0) rotate(0deg);}
-    100%{transform:translateY(400px) rotate(360deg); opacity:0;}
-}
-
+    display:flex; align-items:center; gap:12px;
+    padding:14px 14px;
+    background: var(--card);
+    border:1px solid var(--stroke);
+    border-radius:12px; cursor:pointer;
+    transition: transform .06s ease, border-color .2s ease, background .2s ease;
+  }
+  .opt input{appearance:none; width:18px; height:18px; border-radius:50%; border:2px solid #cfd3e2; outline:none; display:inline-block; position:relative}
+  .opt input:checked{border-color:transparent; background:linear-gradient(90deg, var(--brand), var(--brand-2)); box-shadow: 0 0 0 3px rgba(124,77,255,.25)}
+  .opt:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.28)}
+  .opt strong{font-weight:600}
+  .opt small{color:var(--muted)}
+  .nav{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; padding: 4px 18px 20px;
+  }
+  .btn{
+    user-select:none;
+    border:1px solid var(--stroke); background:var(--card);
+    border-radius:10px; padding:12px 16px; color:var(--txt);
+    font-weight:600; cursor:pointer; transition: transform .06s ease, border-color .2s ease, background .2s ease, opacity .2s ease;
+  }
+  .btn[disabled]{opacity:.5; pointer-events:none}
+  .btn-primary{
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    border-color: transparent;
+  }
+  .btn-ghost:hover{border-color:rgba(255,255,255,.25)}
+  .kicker{
+    padding: 12px 18px 18px; color:var(--muted); font-size:.92rem; border-top:1px dashed var(--stroke);
+  }
+  /* Resultado */
+  .result{
+    display:none; padding: 20px 18px 24px; border-top:1px solid var(--stroke); background: rgba(255,255,255,.03);
+  }
+  .result.show{display:block; animation: fadeIn .35s ease}
+  @keyframes fadeIn{from{opacity:0; transform: translateY(6px)} to{opacity:1; transform:none}}
+  .score-pill{
+    display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke);
+    background: rgba(255,255,255,.06); margin-bottom:8px; font-size:.9rem
+  }
+  .meter{
+    height:8px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; margin:8px 0 16px; border:1px solid var(--stroke)
+  }
+  .meter > span{display:block; height:100%; width:0%; transition: width .45s ease}
+  .meter.low > span{background: linear-gradient(90deg, #2bd67b, #19c37d)}
+  .meter.mild > span{background: linear-gradient(90deg, #ffd166, #ffb020)}
+  .meter.mod > span{background: linear-gradient(90deg, #ff8e53, #ff6a3d)}
+  .meter.high > span{background: linear-gradient(90deg, #ff5e6c, #ff4757)}
+  .cta{
+    margin-top:16px; display:grid; gap:10px;
+  }
+  .cta .guarantee{font-size:.86rem; color:var(--muted)}
+  .legal{
+    margin-top:8px; font-size:.78rem; color:var(--muted)
+  }
+  /* Gate opcional para travar conteúdo da página até concluir o quiz */
+  #conteudo.locked{
+    filter: blur(4px) saturate(.8);
+    pointer-events:none; user-select:none;
+  }
+  .gate-tip{
+    display:none; text-align:center; color:var(--muted); font-size:.9rem; margin-top:8px
+  }
+  #conteudo.locked + .gate-tip{display:block}
+  /* Confete */
+  .confetti{pointer-events:none; position:fixed; inset:0; overflow:hidden}
+  .confetti i{
+    position:absolute; width:8px; height:14px; background: linear-gradient(180deg, var(--brand), var(--brand-2));
+    opacity:0; transform: translateY(-20px) rotate(0deg);
+    animation: drop 1.6s ease-in forwards;
+  }
+  @keyframes drop{
+    0%{opacity:0; transform: translateY(-20px) rotate(0)}
+    5%{opacity:1}
+    100%{transform: translateY(110vh) rotate(720deg)}
+  }
+  /* Responsivo */
+  @media (min-width: 860px){
+    .quiz-card{display:grid; grid-template-columns: 1.1fr .9fr}
+    .result{grid-column: 1 / -1}
+    .kicker{grid-column: 1 / -1}
+  }
 </style>
 </head>
 <body>
 
-<section id="quiz-container">
-    <!-- STEP 1 -->
-    <div class="quiz-step active" id="step-1">
-        <h2>Vamos começar! 🎯</h2>
-        <p>1) Com que frequência você se sente sem energia e desanimado(a)?</p>
-        <div class="quiz-options">
-            <label><input type="radio" name="q1" value="0"><span>Raramente</span></label>
-            <label><input type="radio" name="q1" value="1"><span>Às vezes</span></label>
-            <label><input type="radio" name="q1" value="2"><span>Frequentemente</span></label>
-        </div>
-        <button onclick="nextStep(1)">Próxima</button>
+<div class="wrap">
+  <span class="badge" aria-label="Segurança e privacidade"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 9.3-8 10-4.5-.7-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.5"/></svg> Seus dados não são enviados a terceiros</span>
+  <h1>Descubra seu <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Nível de Sofrimento Emocional</span></h1>
+  <p class="sub">Responda em menos de 60 segundos. Ao final, receba um plano prático e um presente exclusivo do livro.</p>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="quiz-card" role="region" aria-label="Quiz de bem-estar emocional">
+    <div class="quiz-header">
+      <div class="progress" aria-hidden="true"><div class="bar" id="progressBar"></div></div>
+      <h2 class="visually-hidden" style="position:absolute;left:-9999px">Quiz</h2>
     </div>
 
-    <!-- STEP 2 -->
-    <div class="quiz-step" id="step-2">
-        <h2>Quase lá! 🚀</h2>
-        <p>2) Você já buscou ajuda de um profissional de saúde mental?</p>
-        <div class="quiz-options">
-            <label><input type="radio" name="q2" value="0"><span>Nunca</span></label>
-            <label><input type="radio" name="q2" value="1"><span>Alguma vez</span></label>
-            <label><input type="radio" name="q2" value="2"><span>Atualmente</span></label>
-        </div>
-        <button onclick="nextStep(2)">Próxima</button>
+    <div class="question" id="questionBox" aria-live="polite"></div>
+
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn" aria-label="Pergunta anterior">← Voltar</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-primary" id="nextBtn" aria-label="Próxima pergunta">Continuar →</button>
     </div>
 
-    <!-- STEP 3 -->
-    <div class="quiz-step" id="step-3">
-        <h2>Última pergunta! ✨</h2>
-        <p>3) Atualmente, você faz algo para melhorar seu bem-estar emocional?</p>
-        <div class="quiz-options">
-            <label><input type="radio" name="q3" value="0"><span>Não</span></label>
-            <label><input type="radio" name="q3" value="1"><span>Algum hábito</span></label>
-            <label><input type="radio" name="q3" value="2"><span>Hábito + acompanhamento</span></label>
-        </div>
-        <button onclick="verResultado()">Ver Resultado</button>
+    <div class="kicker">
+      Dica: responda pensando nos últimos 14 dias. Suas respostas são anônimas.
     </div>
 
-    <!-- RESULT -->
-    <div class="quiz-step" id="quiz-result">
-        <h2>Parabéns! 🎉</h2>
-        <p id="quiz-texto-resultado"></p>
-        <button onclick="mostrarConteudoPrincipal()">Continuar</button>
+    <div class="result" id="resultBox" aria-live="polite"></div>
+  </section>
+
+  <!-- CONTEÚDO DA PÁGINA (opcionalmente bloqueado até finalizar o quiz) -->
+  <section id="conteudo" class="locked" style="margin-top:22px">
+    <!-- Remova a classe 'locked' acima se NÃO quiser travar o conteúdo até concluir o quiz -->
+    <div style="background:var(--card); border:1px solid var(--stroke); border-radius: var(--radius); padding:18px;">
+      <h2>Conteúdo da sua página de vendas</h2>
+      <p>Este bloco está aqui apenas como demonstração. Ao finalizar o quiz, ele é liberado automaticamente.</p>
     </div>
-</section>
+  </section>
+  <div class="gate-tip">Complete o quiz para liberar o conteúdo 👆</div>
+
+  <div class="legal">
+    <strong>Atenção:</strong> este material não substitui avaliação profissional. Se você estiver em risco ou pensando em se ferir, ligue 188 (CVV), acesse <a href="https://www.cvv.org.br/" target="_blank" rel="noopener" style="color:var(--brand-2);">cvv.org.br</a> ou procure ajuda de emergência.
+  </div>
+</div>
+
+<!-- Confete -->
+<div class="confetti" id="confetti"></div>
 
 <script>
-let currentStep = 1;
+(function(){
+  // ===== CONFIGURAÇÕES =====
+  const HOTMART_URL = "https://go.hotmart.com/T100961079V"; // <-- coloque aqui seu link final
+  const gateContent = true; // true = trava #conteudo até concluir o quiz
+  const showCountdown = true; // contador suave de bônus
+  const bonusMinutes = 10; // duração do bônus (minutos) após o resultado
 
-function nextStep(step){
-    const stepEl = document.getElementById(`step-${step}`);
-    const nextEl = document.getElementById(`step-${step+1}`);
-    stepEl.classList.remove('active');
-    nextEl.classList.add('active');
-}
+  const questions = [
+    { id: 1, text: "Quanta energia ou motivação você sentiu para realizar tarefas simples?",
+      options: [
+        {label:"Muita energia", score:0, hint:"Você se sentiu disposto(a)."},
+        {label:"Alguma energia", score:1},
+        {label:"Pouca energia", score:2},
+        {label:"Quase nenhuma", score:3}
+      ]},
+    { id: 2, text: "Com que frequência você se sentiu triste, vazio(a) ou para baixo?",
+      options: freq()
+    },
+    { id: 3, text: "Seu sono ficou pior (dificuldade para dormir ou dormir demais)?",
+      options: freq()
+    },
+    { id: 4, text: "Você se sentiu sem esperança em relação ao futuro?",
+      options: freq()
+    },
+    { id: 5, text: "Como esteve sua capacidade de se concentrar em tarefas do dia a dia?",
+      options: [
+        {label:"Excelente", score:0},
+        {label:"Boa parte do tempo", score:1},
+        {label:"Com dificuldade", score:2},
+        {label:"Quase impossível", score:3}
+      ]},
+    { id: 6, text: "Você se sentiu culpado(a), inútil ou com autoestima muito baixa?",
+      options: freq()
+    },
+    { id: 7, text: "Como esteve seu apetite (de menos ou de mais)?",
+      options: [
+        {label:"Normal", score:0},
+        {label:"Leve alteração", score:1},
+        {label:"Bastante alterado", score:2},
+        {label:"Extremo (quase sem controle)", score:3}
+      ]},
+    { id: 8, text: "Quantas vezes você evitou compromissos por não ter forças?",
+      options: [
+        {label:"Nenhuma", score:0},
+        {label:"Algumas vezes", score:1},
+        {label:"Muitas vezes", score:2},
+        {label:"Quase sempre", score:3}
+      ]},
+    { id: 9, text: "Nos últimos 14 dias, pensamentos muito negativos apareceram?",
+      options: [
+        {label:"Não", score:0},
+        {label:"Raramente", score:1},
+        {label:"Frequentemente", score:2},
+        {label:"Quase todos os dias", score:3}
+      ]}
+  ];
+  function freq(){
+    return [
+      {label:"Nunca", score:0},
+      {label:"Alguns dias", score:1},
+      {label:"Mais da metade dos dias", score:2},
+      {label:"Quase todos os dias", score:3}
+    ];
+  }
 
-function verResultado(){
-    const v1 = +document.querySelector('input[name="q1"]:checked')?.value || 0;
-    const v2 = +document.querySelector('input[name="q2"]:checked')?.value || 0;
-    const v3 = +document.querySelector('input[name="q3"]:checked')?.value || 0;
-    const total = v1 + v2 + v3;
+  // ===== ESTADO =====
+  const state = {
+    step: 0,
+    answers: Array(questions.length).fill(null),
+    completed: false,
+    bonusDeadline: null
+  };
 
-    let texto = "";
-    if(total >= 4){
-        texto = "Você demonstra sinais claros de exaustão emocional, mas já tomar essa iniciativa mostra coragem. Conheça o Guia Acelerador e transforme sua vida!";
-    } else {
-        texto = "Você está em um momento de cansaço ou sobrecarga, mas pequenas ações podem mudar tudo. O Guia Acelerador pode te guiar!";
+  // ===== ELEMENTOS =====
+  const questionBox = document.getElementById("questionBox");
+  const resultBox = document.getElementById("resultBox");
+  const progressBar = document.getElementById("progressBar");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const confetti = document.getElementById("confetti");
+  const conteudo = document.getElementById("conteudo");
+
+  // ===== INÍCIO =====
+  restoreIfCompleted();
+  render();
+
+  // ===== EVENTOS =====
+  prevBtn.addEventListener("click", () => {
+    if(state.step>0){ state.step--; render(); }
+  });
+  nextBtn.addEventListener("click", () => {
+    if(state.step < questions.length-1){
+      // impedir avanço sem marcar
+      if(state.answers[state.step]===null){
+        pulse(questionBox);
+        return;
+      }
+      state.step++; render();
+    }else{
+      if(state.answers[state.step]===null){ pulse(questionBox); return; }
+      finish();
+    }
+  });
+
+  // Enter/Space navegação acessível
+  document.addEventListener("keydown", (e)=>{
+    if(e.key === "Enter"){ nextBtn.click(); }
+    else if(e.key === "ArrowLeft"){ prevBtn.click(); }
+  });
+
+  // ===== FUNÇÕES =====
+  function render(){
+    const total = questions.length;
+    const q = questions[state.step];
+    const pct = Math.round((state.step) / total * 100);
+    progressBar.style.width = pct + "%";
+
+    prevBtn.style.visibility = state.step===0 ? "hidden" : "visible";
+    nextBtn.textContent = state.step === total-1 ? "Ver resultado →" : "Continuar →";
+
+    questionBox.innerHTML = `
+      <p class="q-text"><strong>${state.step+1}/${total}</strong> — ${q.text}</p>
+      <div class="options" role="listbox" aria-label="Opções">
+        ${q.options.map((o,idx)=>{
+          const checked = state.answers[state.step]===idx ? "checked" : "";
+          const desc = o.hint ? `<br><small>${o.hint}</small>` : "";
+          return `
+            <label class="opt" tabindex="0" aria-label="${o.label}">
+              <input type="radio" name="q${q.id}" ${checked} />
+              <div>
+                <strong>${o.label}</strong>${desc}
+              </div>
+            </label>
+          `;
+        }).join("")}
+      </div>
+    `;
+
+    [...questionBox.querySelectorAll(".opt")].forEach((el, idx)=>{
+      el.addEventListener("click", ()=> select(idx));
+      el.addEventListener("keydown", (e)=>{ if(e.key===" "){ e.preventDefault(); select(idx);} });
+    });
+  }
+
+  function select(idx){
+    state.answers[state.step] = idx;
+    // feedback de seleção
+    const radios = questionBox.querySelectorAll('input[type="radio"]');
+    radios.forEach((r,i)=> r.checked = (i===idx));
+    // auto-avançar após pequena pausa
+    setTimeout(()=>{
+      if(state.step < questions.length-1){ state.step++; render(); }
+      else { nextBtn.focus(); }
+    }, 130);
+  }
+
+  function finish(){
+    const score = state.answers.reduce((acc, ansIdx, i)=> acc + questions[i].options[ansIdx].score, 0);
+    const max = questions.length * 3; // 27
+    const pct = Math.round(score / max * 100);
+
+    const level = score<=4 ? "baixo"
+                : score<=9 ? "leve"
+                : score<=14 ? "moderado"
+                : "alto";
+
+    const meterClass = {
+      baixo: "meter low",
+      leve: "meter mild",
+      moderado: "meter mod",
+      alto: "meter high"
+    }[level];
+
+    const headline = {
+      baixo: "Boa! Vamos blindar sua mente para manter essa energia.",
+      leve: "Sinais leves — agir agora evita que piore.",
+      moderado: "Atenção: você está carregando peso demais sozinho(a).",
+      alto: "Alerta: seu bem-estar precisa de prioridade máxima."
+    }[level];
+
+    const promise = {
+      baixo: "Você vai receber hábitos simples para fortalecer o emocional e manter constância.",
+      leve: "Você vai receber passos práticos que aliviam a pressão mental em minutos por dia.",
+      moderado: "Você vai receber um plano direto ao ponto para aliviar sintomas e retomar o controle.",
+      alto: "Você vai receber orientação objetiva para estabilizar a mente e reconstruir sua rotina."
+    }[level];
+
+    // CTA copy e benefícios sob medida
+    const bullets = {
+      baixo: [
+        "Rotina anti-ressaca emocional (5 minutos)",
+        "Técnica de foco de 3 etapas",
+        "Checklist anti-procrastinação"
+      ],
+      leve: [
+        "Primeiros socorros mentais (2× ao dia)",
+        "Respiração 4-2-6 para acalmar agora",
+        "Script de auto-fala que reduz ruminância"
+      ],
+      moderado: [
+        "Plano 7 dias para reduzir sintomas",
+        "Como voltar a comer e dormir melhor",
+        "Ferramenta simples para interromper ciclos negativos"
+      ],
+      alto: [
+        "Primeiras 24h: como estabilizar",
+        "Micro-rotinas de 60–120s (funcionam mesmo sem energia)",
+        "Guia de pedido de ajuda sem vergonha"
+      ]
+    }[level];
+
+    // UTM carry
+    const utm = window.location.search || "";
+    const link = HOTMART_URL + utm;
+
+    // Contador de bônus
+    if(showCountdown){
+      const now = new Date();
+      state.bonusDeadline = new Date(now.getTime() + bonusMinutes*60000);
+      localStorage.setItem("quiz_bonus_deadline", state.bonusDeadline.toISOString());
     }
 
-    document.getElementById('quiz-texto-resultado').innerText = texto;
-    document.getElementById('step-3').classList.remove('active');
-    document.getElementById('quiz-result').classList.add('active');
+    // Result UI
+    resultBox.innerHTML = `
+      <div class="score-pill" aria-label="Seu resultado">
+        Seu nível atual: <strong style="text-transform:uppercase; letter-spacing:.5px">${level}</strong> • Pontos ${score}/${max} (${pct}%)
+      </div>
+      <h3 style="margin:6px 0 4px; font-size: clamp(20px,3vw,26px)">${headline}</h3>
+      <p style="color:var(--muted); margin:0 0 10px">${promise}</p>
 
-    // Confetti
-    for(let i=0;i<100;i++){
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti-piece');
-        confetti.style.left = Math.random()*100 + "%";
-        confetti.style.background = `hsl(${Math.random()*360},100%,50%)`;
-        document.getElementById('quiz-container').appendChild(confetti);
-        setTimeout(()=>{confetti.remove()},2000);
+      <div class="${meterClass}" aria-label="Indicador de nível"><span style="width:${Math.max(6, pct)}%"></span></div>
+
+      <ul style="margin:0; padding:0 0 0 18px">
+        ${bullets.map(b=> `<li style="margin:6px 0">${b}</li>`).join("")}
+      </ul>
+
+      <div class="cta">
+        <a id="ctaBtn" class="btn btn-primary" href="${link}" target="_blank" rel="noopener">
+          Quero o método agora →
+        </a>
+        <div class="guarantee">
+          Acesso imediato + garantia de 7 dias. Bônus liberado por tempo limitado
+          ${showCountdown ? `<span id="countdown" aria-live="polite"></span>` : ""}.
+        </div>
+        <button class="btn btn-ghost" id="restart">Recomeçar o quiz</button>
+      </div>
+    `;
+    resultBox.classList.add("show");
+
+    // progress 100%
+    progressBar.style.width = "100%";
+
+    // liberar conteúdo
+    if(gateContent && conteudo){ conteudo.classList.remove("locked"); }
+
+    // confete 🎉
+    confettiBlast();
+
+    // countdown
+    if(showCountdown){ startCountdown(); }
+
+    // persistência: marcar como concluído por 24h
+    const stamp = { completed: true, ts: Date.now(), ttl: 24*60*60*1000 };
+    localStorage.setItem("quiz_completed", JSON.stringify(stamp));
+
+    document.getElementById("restart").addEventListener("click", resetQuiz);
+  }
+
+  function pulse(el){
+    el.animate([{transform:"scale(1)"},{transform:"scale(1.02)"},{transform:"scale(1)"}],{duration:220, easing:"ease-out"});
+  }
+
+  function confettiBlast(){
+    confetti.innerHTML = "";
+    const n = 80;
+    for(let i=0;i<n;i++){
+      const p = document.createElement("i");
+      p.style.left = Math.random()*100 + "vw";
+      p.style.animationDelay = (Math.random()*0.6) + "s";
+      p.style.opacity = 0;
+      // cores alternadas
+      if(i%4===0) p.style.background = "linear-gradient(180deg,#7c4dff,#00e1ff)";
+      if(i%4===1) p.style.background = "linear-gradient(180deg,#19c37d,#2bd67b)";
+      if(i%4===2) p.style.background = "linear-gradient(180deg,#ff8e53,#ff6a3d)";
+      if(i%4===3) p.style.background = "linear-gradient(180deg,#ff5e6c,#ff4757)";
+      confetti.appendChild(p);
     }
-}
+  }
 
-function mostrarConteudoPrincipal(){
-    alert("Aqui você pode liberar o conteúdo principal da página.");
-}
+  function startCountdown(){
+    const node = document.getElementById("countdown");
+    const tick = ()=>{
+      const dl = localStorage.getItem("quiz_bonus_deadline");
+      if(!dl){ node.textContent=""; return; }
+      const diff = new Date(dl) - new Date();
+      if(diff <= 0){ node.textContent = " (bônus expirado)"; return; }
+      const m = Math.floor(diff/60000);
+      const s = Math.floor((diff%60000)/1000);
+      node.textContent = ` (${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")})`;
+      requestAnimationFrame(()=> setTimeout(tick, 250));
+    };
+    tick();
+  }
+
+  function resetQuiz(){
+    state.step = 0;
+    state.answers = Array(questions.length).fill(null);
+    state.completed = false;
+    resultBox.classList.remove("show");
+    resultBox.innerHTML = "";
+    progressBar.style.width = "0%";
+    // re-bloqueia conteúdo se gate habilitado
+    if(gateContent && conteudo){ conteudo.classList.add("locked"); }
+    render();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+
+  function restoreIfCompleted(){
+    // Se a pessoa já completou nas últimas 24h, você pode pular direto pro resultado neutro
+    const raw = localStorage.getItem("quiz_completed");
+    if(!raw) return;
+    try{
+      const data = JSON.parse(raw);
+      if(Date.now() - data.ts < data.ttl){
+        // não pulamos o quiz, mas liberamos o conteúdo para não bloquear retorno
+        if(gateContent && conteudo){ conteudo.classList.remove("locked"); }
+      }else{
+        localStorage.removeItem("quiz_completed");
+      }
+    }catch(e){}
+  }
+
+})();
 </script>
 </body>
 </html>
