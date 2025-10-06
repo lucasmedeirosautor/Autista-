@@ -1,352 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Guia Acelerador - Vença a Depressão em 7 Dias</title>
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Como Fazer uma Caneca Personalizada Perfeita — Lucas Medeiros</title>
+  <meta name="description" content="Guia completo para criar e vender canecas personalizadas: técnicas, materiais, mockups, vendas e 20 artes bônus." />
+  <!--
+    INSTRUÇÕES RÁPIDAS:
+    1) Substitua as imagens de placeholder em /assets/ (ou use URLs externas).
+    2) Coloque seu PDF em /ebook.pdf (ou atualize o link #downloadButton.href).
+    3) Se for usar Hotmart/checkout, substitua HOTMART_LINK na parte do botão Comprar.
+    4) Ative GitHub Pages (branch main) e o site ficará disponível automaticamente.
+  -->
   <style>
-    :root {
-      --bg: #0B0B0C;
-      --card: #121316;
-      --muted: #9aa0a6;
-      --text: #F5F7FA;
-      --gold: #FFD54A;
-      --green: #23C55E;
-      --green-2: #1BA14D;
-      --red: #FF5757;
-      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
-      --radius: 16px;
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#f6b042;
+      --muted:#9aa7b2;
+      --white:#ffffff;
+      --glass: rgba(255,255,255,0.04);
+      --container-max:1100px;
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, Arial, sans-serif; line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    /* Estilos do Quiz */
-    #quiz-section {
-      max-width: 550px; margin: 40px auto; padding: 24px;
-      background: var(--card);
-      border-radius: var(--radius); border: 1px solid #1d2026;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#071026 0%, #0f2032 100%);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
-    #quiz-section:hover { transform: scale(1.02); }
-    #quiz-section h2 {
-      margin-top: 0; font-size: 28px; text-align: center; margin-bottom: 18px;
+    .wrap{max-width:var(--container-max);margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff7b7b);display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b1220}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    /* HERO */
+    .hero{display:grid;grid-template-columns: 1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    .hero .left h1{font-size:30px;margin:0 0 10px}
+    .hero .left p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;gap:10px;align-items:center;padding:12px 18px;border-radius:12px;
+      background:var(--accent);color:#091220;font-weight:700;border:none;cursor:pointer;text-decoration:none;
+      box-shadow: 0 6px 18px rgba(246,176,66,0.18);
     }
-    #quiz-section label {
-      display: block; border: 1px solid #2a2d33;
-      border-radius: 12px; padding: 10px 14px; margin: 8px 0;
-      cursor: pointer; transition: .2s;
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+    .book-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;border-radius:16px;box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
+    .mockup{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .mockup img{max-width:100%;border-radius:10px;box-shadow: 0 12px 30px rgba(2,6,23,0.6)}
+    /* FEATURES */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+    .card{background:var(--card);padding:16px;border-radius:12px}
+    .card h4{margin:0 0 8px}
+    .muted{color:var(--muted);font-size:14px}
+    /* PROVA SOCIAL */
+    .testimonials{margin-top:28px;display:flex;gap:12px;overflow:auto;padding-bottom:4px}
+    .testimonial{min-width:260px;background:var(--glass);padding:14px;border-radius:12px}
+    .author{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .author img{width:44px;height:44px;border-radius:8px;object-fit:cover}
+    /* OFFER */
+    .offer{display:flex;gap:18px;align-items:center;margin-top:26px;padding:18px;border-radius:14px;background:linear-gradient(90deg, rgba(246,176,66,0.12), rgba(255,255,255,0.02))}
+    .price{font-size:22px;font-weight:800}
+    /* FORM */
+    form{display:flex;gap:8px;flex-wrap:wrap}
+    input[type="email"]{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white);min-width:240px}
+    footer{margin-top:36px;color:var(--muted);font-size:13px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03)}
+    /* responsiveness */
+    @media (max-width:940px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .grid{grid-template-columns:repeat(1,1fr)}
+      .hero .left h1{font-size:26px}
     }
-    #quiz-section label:hover { background: #1a1b1e; }
-    #quiz-section button {
-      margin-top: 20px; width: 100%;
-      padding: 12px; border: none; border-radius: 12px;
-      font-weight: 700; cursor: pointer;
-      background: var(--green); color: #0B0B0C;
-      transition: background 0.3s;
-    }
-    #quiz-section button:hover { background: var(--green-2); }
-
-    /* Estilos do botão de amostra grátis */
-    .sample-button {
-      background: #FFD54A; color: #0B0B0C;
-      padding: 15px 30px; border-radius: 10px; font-size: 1.1rem;
-      text-decoration: none; font-weight: 600; display: inline-block;
-      box-shadow: 0 6px 15px rgba(255, 213, 74, 0.3);
-      transition: background 0.3s, transform 0.3s;
-      margin: 20px 0;
-    }
-    .sample-button:hover {
-      background: #FFC107; transform: scale(1.05);
+    @media (max-width:420px){
+      .wrap{padding:14px}
+      .logo .mark{width:40px;height:40px}
     }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="mark">LM</div>
+        <div>
+          <div style="font-weight:700">Lucas Medeiros</div>
+          <div style="font-size:12px;color:var(--muted)">Autor · Canecas Personalizadas</div>
+        </div>
+      </div>
+      <nav aria-label="principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#comprar">Comprar</a>
+      </nav>
+    </header>
 
-<!-- ======================= QUIZ ======================= -->
-<section id="quiz-section">
-  <h2>Vamos começar com um teste rápido 👇</h2>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="left">
+        <h1 id="hero-title">Como Fazer uma Caneca Personalizada Perfeita</h1>
+        <p class="muted">O guia completo para criar canecas que encantam — técnicas de produção, mockups, fontes que vendem e 20 artes prontas como bônus.</p>
 
-  <div id="quiz-step-1">
-    <p><strong>1) Com que frequência você se sente sem energia e desanimado(a)?</strong></p>
-    <label><input type="radio" name="q1" value="0"> Raramente</label>
-    <label><input type="radio" name="q1" value="1"> Às vezes</label>
-    <label><input type="radio" name="q1" value="2"> Frequentemente</label>
-    <button onclick="nextStep(1)">Próxima</button>
-  </div>
+        <div class="cta-row">
+          <!-- Download assumes ebook.pdf placed in the repo root. Update href if different. -->
+          <a id="downloadButton" class="btn" href="/ebook.pdf" target="_blank" rel="noopener noreferrer" download>
+            📘 Baixar Agora (PDF)
+          </a>
 
-  <div id="quiz-step-2" style="display:none">
-    <p><strong>2) Você já passou com psicólogo ou psiquiatra?</strong></p>
-    <label><input type="radio" name="q2" value="0"> Nunca fiz</label>
-    <label><input type="radio" name="q2" value="1"> Já fiz uma época</label>
-    <label><input type="radio" name="q2" value="2"> Ainda faço atualmente</label>
-    <button onclick="nextStep(2)">Próxima</button>
-  </div>
+          <!-- Substitua HOTMART_LINK pela URL real de venda/seu checkout -->
+          <a id="buyButton" class="btn secondary" href="https://go.hotmart.com/SEU_LINK_AQUI" target="_blank" rel="noopener noreferrer">
+            🛒 Comprar com Bônus
+          </a>
+        </div>
 
-  <div id="quiz-step-3" style="display:none">
-    <p><strong>3) Atualmente você está fazendo algum tratamento?</strong></p>
-    <label><input type="radio" name="q3" value="0"> Não estou tratando</label>
-    <label><input type="radio" name="q3" value="1"> Só remédio</label>
-    <label><input type="radio" name="q3" value="2"> Remédio + hábitos saudáveis</label>
-    <button onclick="verResultado()">Ver Resultado</button>
-  </div>
+        <div style="margin-top:16px" class="muted">
+          <strong>Inclui:</strong> Técnicas práticas • Modelo de preço • Mockups editáveis • 20 artes prontas
+        </div>
 
-  <div id="quiz-result" style="display:none">
-    <p id="quiz-texto-resultado" style="margin-bottom:18px"></p>
-    <button onclick="mostrarConteudoPrincipal()">Continuar</button>
-  </div>
-</section>
+        <!-- LEAD CAPTURE -->
+        <div style="margin-top:18px;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;display:inline-block">
+          <form id="leadForm" onsubmit="event.preventDefault(); sendLead()">
+            <input id="emailInput" type="email" placeholder="Seu melhor e-mail" required />
+            <button class="btn" type="submit">Receber Amostra Grátis</button>
+          </form>
+          <div id="leadMsg" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
+        </div>
+      </div>
 
-<!--================== CONTEÚDO PRINCIPAL ==================-->
-<div id="conteudo-principal" style="display:none">
-  <!-- Barra fixa CTA (mobile) -->
-  <div class="sticky-cta" id="bar">
-    <span class="label">Guia Acelerador</span>
-    <a class="btn btn-primary" href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener">Começar agora</a>
-  </div>
-
-  <!-- SEÇÃO DE DEPOIMENTOS -->
-  <section style="padding:60px 20px; background:#0B0B0C; color:#fff; font-family:Inter, sans-serif;">
-    <div style="max-width:1000px; margin:0 auto; text-align:center;">
-      <h2 style="font-size:2.2rem; margin-bottom:10px;">Veja o que dizem as pessoas que seguiram o Guia Acelerador e Leram o Livro</h2>
-      <p style="color:#9aa0a6; margin-bottom:50px;">e Viram Diferença Em 7 Dias.</p>
-
-      <div style="display:grid; gap:30px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-        <!-- CARD 1 -->
-        <div style="background:#121316; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.3); text-align:left;">
-          <div style="margin-bottom:15px;">
-            <strong>Mariana Souza</strong><br>
-            <span style="color:#9aa0a6; font-size:0.9rem;">32 anos, São Paulo/SP</span>
+      <aside class="book-card" aria-hidden="false">
+        <div style="display:flex;gap:12px;align-items:center">
+          <!-- Substitua src pelo caminho da sua capa 3D -->
+          <div style="width:160px">
+            <div class="mockup">
+              <img id="coverImg" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="Capa do ebook Como Fazer uma Caneca Personalizada Perfeita" />
+            </div>
           </div>
-          <p style="font-size:1rem; color:#eaeaea;">
-            “Eu estava há meses sem conseguir levantar da cama com ânimo. O livro e o Guia foi a primeira coisa que consegui fazer sem me sentir sobrecarregada. Em 7 dias, já me sentia outra pessoa.”
-          </p>
-        </div>
-
-        <!-- CARD 2 -->
-        <div style="background:#121316; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.3); text-align:left;">
-          <div style="margin-bottom:15px;">
-            <strong>Ricardo Almeida</strong><br>
-            <span style="color:#9aa0a6; font-size:0.9rem;">40 anos, Belo Horizonte/MG</span>
+          <div style="flex:1">
+            <h3 style="margin:0 0 6px">Ebook + Bônus</h3>
+            <div class="muted" style="font-size:14px">Acesso imediato | PDF 56 páginas | Templates editáveis</div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;text-align:center">
+                <div style="font-weight:700">56</div>
+                <div style="font-size:12px" class="muted">Páginas</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;text-align:center">
+                <div style="font-weight:700">20</div>
+                <div style="font-size:12px" class="muted">Artes</div>
+              </div>
+            </div>
           </div>
-          <p style="font-size:1rem; color:#eaeaea;">
-            “Achei que precisava de algo complexo, mas o simples funcionou. Os 10 minutos por dia mudaram completamente meu humor e minha rotina. Recomendo de verdade.”
-          </p>
         </div>
+      </aside>
+    </section>
 
-        <!-- CARD 3 -->
-        <div style="background:#121316; padding:20px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.3); text-align:left;">
-          <div style="margin-bottom:15px;">
-            <strong>Jéssica Lima</strong><br>
-            <span style="color:#9aa0a6; font-size:0.9rem;">26 anos, Curitiba/PR</span>
+    <!-- FEATURES / WHAT YOU LEARN -->
+    <section id="conteudo">
+      <div class="grid" style="margin-top:22px">
+        <div class="card">
+          <h4>Materiais & Equipamentos</h4>
+          <p class="muted">O que realmente importa: tipos de canecas, tintas, impressoras e fornecedores acessíveis.</p>
+        </div>
+        <div class="card">
+          <h4>Técnicas de Sublimação</h4>
+          <p class="muted">Passo a passo com fotos e ajustes que evitam erros comuns.</p>
+        </div>
+        <div class="card">
+          <h4>Design que Vende</h4>
+          <p class="muted">Como criar estampas com apelo comercial e mockups que convertem.</p>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <h4>Precificação</h4>
+          <p class="muted">Modelos simples para ganhar margem e competir no mercado.</p>
+        </div>
+        <div class="card">
+          <h4>Vendas & Divulgação</h4>
+          <p class="muted">Como anunciar em redes sociais e usar marketplaces para começar a vender.</p>
+        </div>
+        <div class="card">
+          <h4>Bônus: 20 Artes</h4>
+          <p class="muted">Arquivos prontos para baixar e usar em produção imediata.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section style="margin-top:26px">
+      <h3 style="margin:0 0 12px">Veja o que você poderá criar</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <!-- Substitua as imagens por suas próprias imagens de mockup -->
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup 1" style="width:240px;border-radius:12px;object-fit:cover" />
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup 2" style="width:240px;border-radius:12px;object-fit:cover" />
+        <img src="https://images.unsplash.com/photo-1524758631624-...placeholder" alt="mockup 3" style="width:240px;border-radius:12px;object-fit:cover" />
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="depoimentos" style="margin-top:22px">
+      <h3>O que quem leu diz</h3>
+      <div class="testimonials" aria-live="polite">
+        <div class="testimonial">
+          <div style="font-weight:700">“Simples e objetivo — já comecei a vender!”</div>
+          <div class="muted" style="font-size:13px;margin-top:8px">“As técnicas de sublimação salvaram meu tempo. Em 2 semanas já vendi 5 canecas.”</div>
+          <div class="author">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="foto cliente" />
+            <div>
+              <div style="font-weight:700">Mariana R.</div>
+              <div class="muted">Empreendedora</div>
+            </div>
           </div>
-          <p style="font-size:1rem; color:#eaeaea;">
-            “Eu já fazia terapia, mas ainda me sentia travada. O Guia e o Livro me deram um empurrãozinho diário, um motivo pra seguir. Nunca pensei que algo tão simples teria tanto impacto.”
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO SOBRE O AUTOR -->
-  <section style="padding:80px 20px; background:#fff; font-family:Inter, sans-serif;">
-    <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:40px;">
-      <div style="flex:1; min-width:280px; text-align:center;">
-        <img src="Foto.png" alt="Lucas Daniel" style="width:100%; max-width:350px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,.15);">
-      </div>
-      <div style="flex:2; min-width:280px;">
-        <h2 style="font-size:2.2rem; color:#111; margin-bottom:20px;">Sobre o Autor</h2>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
-          Meu nome é <strong>Lucas Daniel</strong>. Sou cristão, estudante de Direito, palestrante na área de saúde mental, escritor e mentor.
-        </p>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
-          Minha trajetória como autor começou de forma intensa: todos os meus livros nasceram da minha própria luta contra a depressão. Eu sei, na pele, o que significa sentir o peso desse desafio.
-        </p>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:15px;">
-          Diferente de muitos que falam de fora, eu conto sem máscaras o que realmente me ajudou a vencer: Caminhos reais, sem enrolação, que transformaram minha vida e hoje transformam a vida de outros.
-        </p>
-        <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:20px;">
-          Minha missão é clara: <strong>mostrar que é possível vencer a depressão e a ansiedade</strong>, com fé, disciplina e estratégias práticas que funcionam no dia a dia.
-        </p>
-        <p style="font-size:1.2rem; font-weight:600; color:#0056ff;">
-          Se eu venci, você também pode vencer!
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO APRESENTAÇÃO DO LIVRO -->
-  <section style="padding:80px 20px; background:#f9f9f9; font-family:Inter, sans-serif;">
-    <div style="max-width:1100px; margin:0 auto; display:grid; gap:40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items:center;">
-      <div style="text-align:center;">
-        <img src="capa.png" alt="Capa do livro Como Vencer a Depressão" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
-      </div>
-      <div>
-        <h2 style="font-size:2.4rem; color:#111; margin-bottom:15px;">O Livro <span style="color:#0056ff;">Como Vencer a Depressão</span></h2>
-        <p style="font-size:1.15rem; color:#333; margin-bottom:20px; line-height:1.6;">
-          Este livro nasceu da minha própria história.  
-          Tudo o que me ajudou a sair do fundo do poço, a recuperar a vontade de viver e a construir uma nova vida, eu reuni aqui.  
-          <strong>“Como Vencer a Depressão”</strong> é mais do que páginas escritas, é um guia baseado em dor, superação e vitória real.
-        </p>
-
-        <h3 style="font-size:1.4rem; color:#111; margin:25px 0 15px;">E para potencializar ainda mais…</h3>
-        <p style="font-size:1.05rem; color:#444; margin-bottom:20px; line-height:1.6;">
-          Criei também o <strong>Guia Acelerador</strong>, um plano simples de 10 minutos por dia.  
-          Ele funciona como um apoio garantido, um braço prático que, junto com o livro, forma uma <span style="color:#0056ff; font-weight:600;">arma poderosa contra a depressão</span>.
-        </p>
-
-        <ul style="list-style:none; padding:0; margin:0 0 25px 0; color:#444; font-size:1rem;">
-          <li style="margin-bottom:12px;">✔ Um relato real de quem enfrentou e venceu a depressão</li>
-          <li style="margin-bottom:12px;">✔ Passos práticos e aplicáveis no dia a dia</li>
-          <li style="margin-bottom:12px;">✔ O Guia Acelerador como apoio diário e constante</li>
-          <li style="margin-bottom:12px;">✔ Livro + Guia: teoria e prática caminhando juntas</li>
-        </ul>
-
-        <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener"
-           style="background:#0056ff; color:#fff; padding:15px 30px; border-radius:10px; font-size:1.1rem; text-decoration:none; font-weight:600; display:inline-block; box-shadow:0 6px 15px rgba(0,86,255,0.3);">
-          Quero transformar minha vida →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SEÇÃO Guia Acelerador -->
-  <section style="padding:80px 20px; background:#fff; font-family:Inter, sans-serif;">
-    <div style="max-width:1100px; margin:0 auto; text-align:center;">
-      <div style="text-align:center;">
-        <img src="Guia.png" alt="Capa do Guia Acelerador" style="max-width:100%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.2);">
-      </div>
-      <h2 style="font-size:2.4rem; color:#111; margin-bottom:20px;">
-        O <span style="color:#0056ff;">Guia Acelerador</span>
-      </h2>
-      <p style="max-width:800px; margin:0 auto 40px auto; font-size:1.15rem; color:#444; line-height:1.6;">
-        Criado a partir da minha própria experiência, o <strong>Guia Acelerador</strong> é um plano simples e eficaz:  
-        apenas <strong>5 passos rápidos</strong>, aplicados em <strong>10 minutos por dia</strong>.  
-        Ele funciona como um apoio garantido, reforçando todos os ensinamentos do livro.
-      </p>
-
-      <!-- CAIXAS DOS 5 PASSOS -->
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:25px; margin-bottom:40px;">
-        <div style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">1. Respiração</h3>
-          <p style="color:#555; font-size:0.95rem;">Técnicas simples para acalmar a mente e controlar a ansiedade.</p>
         </div>
 
-        <div style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">2. Movimento</h3>
-          <p style="color:#555; font-size:0.95rem;">Exercícios leves que aumentam a energia e combatem a apatia.</p>
-        </div>
-
-        <div style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">3. Mentalidade</h3>
-          <p style="color:#555; font-size:0.95rem;">Práticas de foco e reprogramação de pensamentos negativos.</p>
-        </div>
-
-        <div style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">4. Escrita</h3>
-          <p style="color:#555; font-size:0.95rem;">Exercícios de autoexpressão para organizar emoções e aliviar a mente.</p>
-        </div>
-
-        <div style="background:#f9f9f9; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,.08);">
-          <h3 style="color:#0056ff; font-size:1.3rem; margin-bottom:10px;">5. Gratidão</h3>
-          <p style="color:#555; font-size:0.95rem;">Prática diária de gratidão para fortalecer a motivação e esperança.</p>
+        <div class="testimonial">
+          <div style="font-weight:700">“Bônus de artes vale ouro.”</div>
+          <div class="muted" style="font-size:13px;margin-top:8px">“Os arquivos prontos me economizaram horas de design.”</div>
+          <div class="author">
+            <img src="https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="foto cliente" />
+            <div>
+              <div style="font-weight:700">João P.</div>
+              <div class="muted">Designer</div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- CHAMADA FINAL -->
-      <p style="font-size:1.15rem; color:#333; margin-bottom:25px;">
-        Em apenas <strong>10 minutos por dia</strong>, você cria um ciclo positivo de energia, clareza e propósito.  
-        Quando aplicado junto ao livro <strong>“Como Vencer a Depressão”</strong>, o resultado é ainda mais poderoso.
-      </p>
-
-      <a href="https://go.hotmart.com/T100961079V?dp=1" target="_blank" rel="noopener"
-         style="background:#0056ff; color:#fff; padding:15px 30px; border-radius:10px; font-size:1.1rem; text-decoration:none; font-weight:600; display:inline-block; box-shadow:0 6px 15px rgba(0,86,255,0.3);">
-        Quero aplicar o Guia Acelerador →
-      </a>
-    </div>
-  </section>
-
-  <!-- SEÇÃO OFERTA ESPECIAL -->
-  <section style="padding:70px 20px; background:#f1f6ff; font-family:Inter, sans-serif;">
-    <div style="max-width:900px; margin:0 auto; text-align:center;">
-      <h2 style="font-size:2rem; color:#111; margin-bottom:15px;">
-        🎁 Oferta Exclusiva: Ebook <span style="color:#0056ff;">Como Vencer a Ansiedade</span>
-      </h2>
-
-      <p style="font-size:1.1rem; color:#444; margin-bottom:25px; line-height:1.6;">
-        Baseado também na minha experiência pessoal, este ebook traz um plano simples e eficaz  
-        para lidar com a ansiedade no dia a dia.  
-        E você pode adicioná-lo ao seu pedido por apenas <strong style="color:#e63946;">R$ 9,99</strong>.
-      </p>
-
-      <div style="background:#fff; border-radius:12px; padding:25px; box-shadow:0 8px 20px rgba(0,0,0,.1); margin-bottom:25px; display:flex; align-items:center; gap:25px; flex-wrap:wrap;">
-        <div style="flex:1; min-width:250px; text-align:center;">
-          <img src="Ansiedade.png" alt="Ebook Como Vencer a Ansiedade" style="max-width:100%; border-radius:12px; box-shadow:0 8px 18px rgba(0,0,0,.15);">
+    <!-- OFFER -->
+    <section id="comprar" style="margin-top:26px">
+      <div class="offer">
+        <div style="flex:1">
+          <div style="font-size:14px;color:var(--muted)">Oferta Especial</div>
+          <div class="price">R$ 29,90 <span style="font-weight:400;color:var(--muted);font-size:13px"> (ou acesso via Hotmart)</span></div>
+          <div class="muted" style="margin-top:6px">Acesso imediato + bônus 20 artes + suporte por e-mail</div>
         </div>
-        <div style="flex:2; min-width:250px; text-align:left;">
-          <ul style="list-style:none; padding:0; margin:0; color:#333; font-size:1rem;">
-            <li style="margin-bottom:12px;">✔ Técnicas rápidas para reduzir crises de ansiedade</li>
-            <li style="margin-bottom:12px;">✔ Exercícios de respiração e foco em menos de 5 minutos</li>
-            <li style="margin-bottom:12px;">✔ Um plano prático de 7 dias para restaurar sua paz interior</li>
-            <li style="margin-bottom:12px;">✔ Apoio extra para potencializar o Guia Acelerador</li>
-          </ul>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="btn" href="/ebook.pdf" download>📥 Download Imediato</a>
+          <a class="btn secondary" href="https://go.hotmart.com/SEU_LINK_AQUI" target="_blank">🛒 Comprar no Hotmart</a>
         </div>
       </div>
+    </section>
 
-      <a href="https://pay.hotmart.com/U101468779L?checkoutMode=10" target="_blank" rel="noopener"
-         style="background:#e63946; color:#fff; padding:18px 40px; border-radius:12px; font-size:1.3rem; text-decoration:none; font-weight:700; display:inline-block; box-shadow:0 6px 15px rgba(230,57,70,0.4); transition:all .3s ease-in-out;">
-        ✅ Quero adicionar por apenas R$ 9,99
-      </a>
+    <!-- GUARANTEE -->
+    <section style="margin-top:22px">
+      <div class="card" style="display:flex;gap:12px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700">✔</div>
+        <div>
+          <div style="font-weight:700">Garantia de Qualidade</div>
+          <div class="muted">Se você não ficar satisfeito, entre em contato em até 7 dias para análise e reembolso.</div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Botão de amostra grátis -->
-      <a href="#amostra-gratis" class="sample-button">📥 Solicitar Amostra Grátis</a>
-    </div>
-  </section>
-</div> <!-- fim do #conteudo-principal -->
+    <footer>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div>© <strong>Lucas Medeiros</strong> — Como Fazer uma Caneca Personalizada Perfeita</div>
+        <div style="color:var(--muted)">Contato: <a href="mailto:lucasdmedeiros.10@gmail.com" style="color:var(--muted);text-decoration:underline">lucasdmedeiros.10@gmail.com</a></div>
+      </div>
+    </footer>
+  </div>
 
-<script>
-  // Funções JS do Quiz
-  function nextStep(step) {
-    if (step === 1) {
-      document.getElementById('quiz-step-1').style.display = 'none';
-      document.getElementById('quiz-step-2').style.display = 'block';
-    }
-    if (step === 2) {
-      document.getElementById('quiz-step-2').style.display = 'none';
-      document.getElementById('quiz-step-3').style.display = 'block';
-    }
-  }
+  <script>
+    // Pequena lógica para o formulário de captura de email.
+    function sendLead(){
+      const email = document.getElementById('emailInput').value.trim();
+      const msg = document.getElementById('leadMsg');
+      if(!email || !email.includes('@')){ msg.textContent = 'Digite um e-mail válido.'; return; }
 
-  function verResultado() {
-    const v1 = +document.querySelector('input[name="q1"]:checked')?.value || 0;
-    const v2 = +document.querySelector('input[name="q2"]:checked')?.value || 0;
-    const v3 = +document.querySelector('input[name="q3"]:checked')?.value || 0;
-    const total = v1 + v2 + v3;
-    let texto = "";
-
-    if (total >= 4) {
-      texto = "Você demonstra sinais claros de exaustão emocional, mas o fato de estar aqui já mostra que está buscando uma forma real de melhorar. Eu também passei por isso, e foi daí que nasceu o Livro Como Vencer A Depressão e o Guia Acelerador.";
-    } else {
-      texto = "Você pode estar em um momento de cansaço mental ou emocional. Com algumas ações simples e consistentes, é possível mudar completamente a forma como você se sente nos próximos dias.";
+      // Comportamento padrão: redirecionar para o download (se você quer capturar antes de liberar, substitua por seu endpoint)
+      msg.textContent = 'Pronto! Verifique seu e-mail — ou clique no download para abrir o PDF.';
+      // opcional: abrir o pdf diretamente
+      window.open('/ebook.pdf', '_blank');
+      // Se quiser enviar para um endpoint real, implemente fetch() para sua API aqui.
     }
 
-    document.getElementById('quiz-texto-resultado').innerText = texto;
-    document.getElementById('quiz-step-3').style.display = 'none';
-    document.getElementById('quiz-result').style.display = 'block';
-  }
-
-  function mostrarConteudoPrincipal() {
-    document.getElementById('quiz-section').style.display = 'none';
-    document.getElementById('conteudo-principal').style.display = 'block';
-  }
-</script>
-
+    // Trocar capa dinamicamente (opcional): se tiver uma URL pública, basta definir aqui.
+    // document.getElementById('coverImg').src = '/assets/capa-3d.png';
+  </script>
 </body>
 </html>
