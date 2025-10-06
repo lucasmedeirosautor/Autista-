@@ -226,6 +226,46 @@
         <img src="https://images.unsplash.com/photo-1524758631624-...placeholder" alt="mockup3" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
       </div>
     </section>
+<!-- BONUS DESIGNS GALLERY -->
+<section id="bonus-gallery" style="margin-top:60px;text-align:center">
+  <h3 style="color:var(--gold);font-size:24px;margin-bottom:16px">
+    🎨 Bonus Designs Gallery — Algumas das artes que você ganhará
+  </h3>
+  <p class="muted" style="max-width:680px;margin:0 auto 26px">
+    Uma prévia das artes exclusivas incluídas no e-book — apenas quem comprar terá acesso completo a todos os arquivos prontos para uso.
+  </p>
+
+  <div class="bonus-grid">
+    <img src="assets/_muestra (20).jpg" alt="bonus design 1">
+    <img src="assets/_muestra (3).jpg" alt="bonus design 2">
+    <img src="assets/_muestra (11).jpg" alt="bonus design 3">
+    <img src="assets/_muestra (26).jpg" alt="bonus design 4">
+    <img src="assets/IMG_7271.jpeg" alt="bonus design 5">
+    <img src="assets/IMG_5377.png" alt="bonus design 6">
+  </div>
+</section>
+
+<style>
+  /* --- Bonus Designs Gallery --- */
+  .bonus-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+    justify-items:center;
+  }
+  .bonus-grid img{
+    width:100%;
+    max-width:320px;
+    border-radius:14px;
+    object-fit:cover;
+    box-shadow:0 10px 40px rgba(2,6,23,0.7);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .bonus-grid img:hover{
+    transform:scale(1.05);
+    box-shadow:0 20px 60px rgba(217,162,58,0.25);
+  }
+</style>
 
     <!-- TESTIMONIALS -->
     <section id="reviews" style="margin-top:22px">
