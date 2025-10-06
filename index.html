@@ -1,230 +1,256 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Como Fazer uma Caneca Personalizada Perfeita — Lucas Medeiros</title>
-  <meta name="description" content="Guia completo para criar e vender canecas personalizadas: técnicas, materiais, mockups, vendas e 20 artes bônus." />
+  <title>Personalized Mugs — The Art That Became an Income | Lucas Medeiros</title>
+  <meta name="description" content="Turn your creativity into income. Full step-by-step guide to create, print and sell perfect sublimation mugs — by Lucas Medeiros." />
   <!--
-    INSTRUÇÕES RÁPIDAS:
-    1) Substitua as imagens de placeholder em /assets/ (ou use URLs externas).
-    2) Coloque seu PDF em /ebook.pdf (ou atualize o link #downloadButton.href).
-    3) Se for usar Hotmart/checkout, substitua HOTMART_LINK na parte do botão Comprar.
-    4) Ative GitHub Pages (branch main) e o site ficará disponível automaticamente.
+    INSTRUCTIONS:
+    1) Replace HOTMART_LINK_HERE with your Hotmart checkout/affiliate URL.
+    2) Replace /assets/cover-3d.png with your real cover image (recommended size: 1200x1600).
+    3) Optionally add your preview PDF to /preview.pdf and set PREVIEW_PDF=true in JS to enable preview downloads.
+    4) Commit this file as index.html to a GitHub repo and enable GitHub Pages (branch main).
   -->
   <style>
+    /* --- color palette & typography --- */
     :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#f6b042;
-      --muted:#9aa7b2;
-      --white:#ffffff;
-      --glass: rgba(255,255,255,0.04);
-      --container-max:1100px;
-      --radius:14px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --bg:#060709;
+      --panel:#0d1114;
+      --gold:#d9a23a;
+      --gold-2:#f0bf63;
+      --muted:#99a0a6;
+      --glass: rgba(255,255,255,0.03);
+      --accent-glow: 0 8px 40px rgba(217,162,58,0.14);
+      --radius:16px;
+      --container:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      background:linear-gradient(180deg,#071026 0%, #0f2032 100%);
-      color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      background: linear-gradient(180deg, rgba(6,7,9,1) 0%, rgba(13,16,20,1) 100%);
+      color:#fff;
+      min-height:100vh;
       line-height:1.45;
     }
-    .wrap{max-width:var(--container-max);margin:32px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff7b7b);display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b1220}
+    .wrap{max-width:var(--container);margin:28px auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      display:flex;align-items:center;justify-content:center;color:#071217;font-weight:800;font-size:20px;
+      box-shadow: var(--accent-glow);
+    }
     nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
     /* HERO */
-    .hero{display:grid;grid-template-columns: 1fr 420px;gap:28px;align-items:center;margin-top:18px}
-    .hero .left h1{font-size:30px;margin:0 0 10px}
-    .hero .left p{color:var(--muted);margin:0 0 18px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center;padding:26px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow: 0 12px 60px rgba(2,6,23,0.6)}
+    .kicker{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:0.6px}
+    h1{font-size:34px;margin:10px 0 8px}
+    .lead{color:var(--muted);margin:0 0 18px}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .btn{
-      display:inline-flex;gap:10px;align-items:center;padding:12px 18px;border-radius:12px;
-      background:var(--accent);color:#091220;font-weight:700;border:none;cursor:pointer;text-decoration:none;
-      box-shadow: 0 6px 18px rgba(246,176,66,0.18);
+      display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border-radius:12px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#071217;font-weight:700;border:none;cursor:pointer;text-decoration:none;
+      box-shadow: var(--accent-glow);
     }
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
-    .book-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;border-radius:16px;box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
-    .mockup{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-    .mockup img{max-width:100%;border-radius:10px;box-shadow: 0 12px 30px rgba(2,6,23,0.6)}
-    /* FEATURES */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-    .card{background:var(--card);padding:16px;border-radius:12px}
-    .card h4{margin:0 0 8px}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--gold)}
+    .hero .meta{margin-top:10px;color:var(--muted);font-size:13px}
+    /* BOOK CARD */
+    .book-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:center}
+    .cover{width:200px;height:260px;border-radius:10px;overflow:hidden;box-shadow: 0 18px 50px rgba(2,6,23,0.6)}
+    .cover img{width:100%;height:100%;object-fit:cover;display:block}
+    .book-info{flex:1}
+    .badge-row{display:flex;gap:8px;margin-top:10px}
+    .badge{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    /* WHAT YOU'LL LEARN */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .feature{background:var(--panel);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{margin:0 0 6px}
     .muted{color:var(--muted);font-size:14px}
-    /* PROVA SOCIAL */
-    .testimonials{margin-top:28px;display:flex;gap:12px;overflow:auto;padding-bottom:4px}
-    .testimonial{min-width:260px;background:var(--glass);padding:14px;border-radius:12px}
-    .author{display:flex;gap:12px;align-items:center;margin-top:12px}
+    /* testimonials */
+    .testimonials{display:flex;gap:12px;margin-top:22px;overflow:auto;padding-bottom:6px}
+    .testimonial{min-width:280px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
+    .author{display:flex;gap:10px;align-items:center;margin-top:12px}
     .author img{width:44px;height:44px;border-radius:8px;object-fit:cover}
-    /* OFFER */
-    .offer{display:flex;gap:18px;align-items:center;margin-top:26px;padding:18px;border-radius:14px;background:linear-gradient(90deg, rgba(246,176,66,0.12), rgba(255,255,255,0.02))}
-    .price{font-size:22px;font-weight:800}
-    /* FORM */
-    form{display:flex;gap:8px;flex-wrap:wrap}
-    input[type="email"]{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--white);min-width:240px}
-    footer{margin-top:36px;color:var(--muted);font-size:13px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03)}
-    /* responsiveness */
-    @media (max-width:940px){
+    /* offer strip */
+    .offer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;margin-top:26px;border-radius:12px;background:linear-gradient(90deg, rgba(217,162,58,0.09), rgba(255,255,255,0.01));box-shadow: var(--accent-glow)}
+    .price{font-size:22px;font-weight:800;color:#071217}
+    .price .tag{background:#071217;padding:4px 8px;color:var(--gold);border-radius:8px;font-size:12px;margin-left:8px}
+    /* guarantee & policy */
+    .guarantee{display:flex;gap:12px;align-items:center;margin-top:18px;background:var(--glass);padding:14px;border-radius:12px}
+    .guarantee svg{fill:var(--gold)}
+    /* footer */
+    footer{margin-top:36px;color:var(--muted);font-size:13px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    /* countdown */
+    .countdown{display:inline-flex;gap:8px;align-items:center}
+    .countdown .cell{background:#071217;padding:8px 10px;border-radius:8px;font-weight:800;color:var(--gold)}
+    /* responsive */
+    @media (max-width:980px){
       .hero{grid-template-columns:1fr; text-align:center}
-      .grid{grid-template-columns:repeat(1,1fr)}
-      .hero .left h1{font-size:26px}
+      .features{grid-template-columns:1fr}
+      .book-card{justify-content:center}
+      .cover{margin:0 auto}
     }
     @media (max-width:420px){
-      .wrap{padding:14px}
-      .logo .mark{width:40px;height:40px}
+      h1{font-size:24px}
+      .logo{width:52px;height:52px;font-size:18px}
+      .wrap{padding:16px}
     }
+
+    /* microinteractions */
+    .btn:hover{transform:translateY(-3px);transition:all .18s ease}
+    .feature:hover{transform:translateY(-6px);transition:all .22s ease;box-shadow:0 14px 40px rgba(2,6,23,0.5)}
+    .testimonial{transition:transform .18s ease}
+    .testimonial:hover{transform:translateY(-6px)}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="logo">
-        <div class="mark">LM</div>
+      <div class="brand">
+        <div class="logo">LM</div>
         <div>
           <div style="font-weight:700">Lucas Medeiros</div>
-          <div style="font-size:12px;color:var(--muted)">Autor · Canecas Personalizadas</div>
+          <div style="font-size:13px;color:var(--muted)">Author · Personalized Mugs Expert</div>
         </div>
       </div>
-      <nav aria-label="principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#conteudo">Conteúdo</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#comprar">Comprar</a>
+      <nav aria-label="main-nav">
+        <a href="#about">About</a>
+        <a href="#learn">What you'll learn</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#buy">Buy</a>
       </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="left">
-        <h1 id="hero-title">Como Fazer uma Caneca Personalizada Perfeita</h1>
-        <p class="muted">O guia completo para criar canecas que encantam — técnicas de produção, mockups, fontes que vendem e 20 artes prontas como bônus.</p>
+      <div>
+        <div class="kicker">NEW LAUNCH • LIMITED PRICE</div>
+        <h1 id="hero-title">Personalized Mugs — The Art That Became an Income</h1>
+        <p class="lead muted">A practical, step-by-step ebook that teaches you how to design, print and sell perfect sublimation mugs — from your first prototype to a profitable small business.</p>
 
-        <div class="cta-row">
-          <!-- Download assumes ebook.pdf placed in the repo root. Update href if different. -->
-          <a id="downloadButton" class="btn" href="/ebook.pdf" target="_blank" rel="noopener noreferrer" download>
-            📘 Baixar Agora (PDF)
+        <div class="cta-row" style="margin-top:10px">
+          <!-- IMPORTANT: Replace HOTMART_LINK_HERE with your actual Hotmart checkout link -->
+          <a id="mainBuy" class="btn" href="HOTMART_LINK_HERE" target="_blank" rel="noopener noreferrer">
+            🔥 Get Instant Access — Buy on Hotmart
           </a>
 
-          <!-- Substitua HOTMART_LINK pela URL real de venda/seu checkout -->
-          <a id="buyButton" class="btn secondary" href="https://go.hotmart.com/SEU_LINK_AQUI" target="_blank" rel="noopener noreferrer">
-            🛒 Comprar com Bônus
+          <a id="previewBtn" class="btn ghost" href="#" onclick="openPreview(event)">
+            📄 Preview Free Sample
           </a>
         </div>
 
-        <div style="margin-top:16px" class="muted">
-          <strong>Inclui:</strong> Técnicas práticas • Modelo de preço • Mockups editáveis • 20 artes prontas
+        <div class="meta" style="margin-top:14px">
+          <span style="margin-right:12px">✔ Instant PDF delivery</span>
+          <span style="margin-right:12px">✔ 20 ready-to-use designs included</span>
+          <span>✔ 7-day Hotmart refund policy</span>
         </div>
 
-        <!-- LEAD CAPTURE -->
-        <div style="margin-top:18px;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;display:inline-block">
-          <form id="leadForm" onsubmit="event.preventDefault(); sendLead()">
-            <input id="emailInput" type="email" placeholder="Seu melhor e-mail" required />
-            <button class="btn" type="submit">Receber Amostra Grátis</button>
-          </form>
-          <div id="leadMsg" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
-        </div>
-      </div>
-
-      <aside class="book-card" aria-hidden="false">
-        <div style="display:flex;gap:12px;align-items:center">
-          <!-- Substitua src pelo caminho da sua capa 3D -->
-          <div style="width:160px">
-            <div class="mockup">
-              <img id="coverImg" src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="Capa do ebook Como Fazer uma Caneca Personalizada Perfeita" />
+        <!-- AUTHOR / AUTHORITY -->
+        <div id="about" style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <img src="https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="author lucas" style="width:84px;height:84px;border-radius:12px;object-fit:cover;box-shadow: 0 8px 30px rgba(2,6,23,0.6)" />
+          <div>
+            <div style="font-weight:700">Lucas Medeiros</div>
+            <div class="muted" style="font-size:13px">12+ years of hands-on experience in sublimation & product design. Practical, no-fluff methods used by makers and small shops.</div>
+            <div class="badge-row" style="margin-top:10px">
+              <div class="badge">E-book • 56 pages</div>
+              <div class="badge">20 Designs • Ready to print</div>
+              <div class="badge">Practical step-by-step</div>
             </div>
           </div>
-          <div style="flex:1">
-            <h3 style="margin:0 0 6px">Ebook + Bônus</h3>
-            <div class="muted" style="font-size:14px">Acesso imediato | PDF 56 páginas | Templates editáveis</div>
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;text-align:center">
-                <div style="font-weight:700">56</div>
-                <div style="font-size:12px" class="muted">Páginas</div>
-              </div>
-              <div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;text-align:center">
-                <div style="font-weight:700">20</div>
-                <div style="font-size:12px" class="muted">Artes</div>
-              </div>
+        </div>
+
+      </div>
+
+      <!-- COVER CARD -->
+      <aside class="book-card" aria-hidden="false">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+          <!-- Replace cover-3d.png with your real cover file in /assets/cover-3d.png -->
+          <div class="cover">
+            <img id="coverImg" src="/assets/cover-3d.png" alt="Personalized Mugs - cover" />
+          </div>
+
+          <div style="text-align:center">
+            <div style="font-weight:800">Special Launch</div>
+            <div class="muted" style="font-size:13px;margin-top:6px">Price available for a limited time</div>
+            <div style="margin-top:10px">
+              <a class="btn" href="HOTMART_LINK_HERE" target="_blank">Buy on Hotmart</a>
             </div>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- FEATURES / WHAT YOU LEARN -->
-    <section id="conteudo">
-      <div class="grid" style="margin-top:22px">
-        <div class="card">
-          <h4>Materiais & Equipamentos</h4>
-          <p class="muted">O que realmente importa: tipos de canecas, tintas, impressoras e fornecedores acessíveis.</p>
+    <!-- WHAT YOU'LL LEARN -->
+    <section id="learn">
+      <h3 style="margin-top:26px">What you'll learn</h3>
+      <div class="features" aria-hidden="false">
+        <div class="feature">
+          <h4>Complete Production Workflow</h4>
+          <p class="muted">From design sizing to heat settings and the crucial thermal shock technique for perfect results.</p>
         </div>
-        <div class="card">
-          <h4>Técnicas de Sublimação</h4>
-          <p class="muted">Passo a passo com fotos e ajustes que evitam erros comuns.</p>
+        <div class="feature">
+          <h4>Tools, Materials & Suppliers</h4>
+          <p class="muted">Printer choices, inks, papers, presses, and affordable supplier options to save costs.</p>
         </div>
-        <div class="card">
-          <h4>Design que Vende</h4>
-          <p class="muted">Como criar estampas com apelo comercial e mockups que convertem.</p>
+        <div class="feature">
+          <h4>Designs That Sell</h4>
+          <p class="muted">How to create or adapt artwork with commercial appeal and mockups that convert.</p>
         </div>
-      </div>
 
-      <div class="grid" style="margin-top:12px">
-        <div class="card">
-          <h4>Precificação</h4>
-          <p class="muted">Modelos simples para ganhar margem e competir no mercado.</p>
+        <div class="feature">
+          <h4>Packing & Photos</h4>
+          <p class="muted">Simple tricks to make your product photos look professional using a smartphone.</p>
         </div>
-        <div class="card">
-          <h4>Vendas & Divulgação</h4>
-          <p class="muted">Como anunciar em redes sociais e usar marketplaces para começar a vender.</p>
+        <div class="feature">
+          <h4>Pricing & Sales Channels</h4>
+          <p class="muted">Practical pricing formula and where to sell (Etsy, Instagram, local markets).</p>
         </div>
-        <div class="card">
-          <h4>Bônus: 20 Artes</h4>
-          <p class="muted">Arquivos prontos para baixar e usar em produção imediata.</p>
+        <div class="feature">
+          <h4>20 Ready-to-Use Designs</h4>
+          <p class="muted">Immediate assets you can print and sell — tested by the author.</p>
         </div>
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section style="margin-top:26px">
-      <h3 style="margin:0 0 12px">Veja o que você poderá criar</h3>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <!-- Substitua as imagens por suas próprias imagens de mockup -->
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup 1" style="width:240px;border-radius:12px;object-fit:cover" />
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup 2" style="width:240px;border-radius:12px;object-fit:cover" />
-        <img src="https://images.unsplash.com/photo-1524758631624-...placeholder" alt="mockup 3" style="width:240px;border-radius:12px;object-fit:cover" />
+    <!-- GALLERY / MOCKUPS -->
+    <section style="margin-top:22px">
+      <h3>Examples & Mockups</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup1" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup2" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
+        <img src="https://images.unsplash.com/photo-1524758631624-...placeholder" alt="mockup3" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="depoimentos" style="margin-top:22px">
-      <h3>O que quem leu diz</h3>
+    <section id="reviews" style="margin-top:22px">
+      <h3>What readers say</h3>
       <div class="testimonials" aria-live="polite">
         <div class="testimonial">
-          <div style="font-weight:700">“Simples e objetivo — já comecei a vender!”</div>
-          <div class="muted" style="font-size:13px;margin-top:8px">“As técnicas de sublimação salvaram meu tempo. Em 2 semanas já vendi 5 canecas.”</div>
+          <div style="font-weight:700">“No fluff — real results.”</div>
+          <div class="muted" style="margin-top:8px">“I sold my first 10 mugs after applying the layout and pricing tips. Highly recommended.”</div>
           <div class="author">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="foto cliente" />
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="client" />
             <div>
-              <div style="font-weight:700">Mariana R.</div>
-              <div class="muted">Empreendedora</div>
+              <div style="font-weight:700">Mariana R. — Toronto, CA</div>
+              <div class="muted">Handmade seller</div>
             </div>
           </div>
         </div>
 
         <div class="testimonial">
-          <div style="font-weight:700">“Bônus de artes vale ouro.”</div>
-          <div class="muted" style="font-size:13px;margin-top:8px">“Os arquivos prontos me economizaram horas de design.”</div>
+          <div style="font-weight:700">“Brought my craft to market.”</div>
+          <div class="muted" style="margin-top:8px">“The thermal shock tip was a game changer. Colors now pop.”</div>
           <div class="author">
-            <img src="https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="foto cliente" />
+            <img src="https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="client 2" />
             <div>
-              <div style="font-weight:700">João P.</div>
-              <div class="muted">Designer</div>
+              <div style="font-weight:700">James P. — California, USA</div>
+              <div class="muted">Small business owner</div>
             </div>
           </div>
         </div>
@@ -232,55 +258,101 @@
     </section>
 
     <!-- OFFER -->
-    <section id="comprar" style="margin-top:26px">
+    <section id="buy">
       <div class="offer">
         <div style="flex:1">
-          <div style="font-size:14px;color:var(--muted)">Oferta Especial</div>
-          <div class="price">R$ 29,90 <span style="font-weight:400;color:var(--muted);font-size:13px"> (ou acesso via Hotmart)</span></div>
-          <div class="muted" style="margin-top:6px">Acesso imediato + bônus 20 artes + suporte por e-mail</div>
+          <div style="font-size:13px;color:var(--muted)">Launch Special</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+            <div class="price">$19 <span class="muted" style="font-weight:600;font-size:13px;margin-left:6px">normally $39</span></div>
+            <div class="tag" style="margin-left:10px;background:#071217;padding:6px 10px;border-radius:8px;color:var(--gold);font-weight:700">$AVE</div>
+          </div>
+          <div class="muted" style="margin-top:8px">Instant access on Hotmart • 20 ready-to-use designs • 7-day refund policy</div>
+          <div style="margin-top:10px">
+            <div class="countdown muted" aria-hidden="false">
+              <div style="font-size:13px">Offer ends in</div>
+              <div id="cdDays" class="cell">00</div>
+              <div id="cdHours" class="cell">00</div>
+              <div id="cdMins" class="cell">00</div>
+            </div>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <a class="btn" href="/ebook.pdf" download>📥 Download Imediato</a>
-          <a class="btn secondary" href="https://go.hotmart.com/SEU_LINK_AQUI" target="_blank">🛒 Comprar no Hotmart</a>
+
+        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+          <a class="btn" href="HOTMART_LINK_HERE" target="_blank" rel="noopener noreferrer">Buy on Hotmart — Instant access</a>
+          <a class="btn ghost" href="#reviews" style="padding:12px 14px">See Reviews</a>
         </div>
       </div>
-    </section>
 
-    <!-- GUARANTEE -->
-    <section style="margin-top:22px">
-      <div class="card" style="display:flex;gap:12px;align-items:center">
-        <div style="width:64px;height:64px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700">✔</div>
+      <div class="guarantee" style="margin-top:12px">
+        <svg width="42" height="42" viewBox="0 0 24 24" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 1l3 2 5 1v6c0 6-5 11-10 13-5-2-10-7-10-13V4l5-1 3-2z"></path>
+        </svg>
         <div>
-          <div style="font-weight:700">Garantia de Qualidade</div>
-          <div class="muted">Se você não ficar satisfeito, entre em contato em até 7 dias para análise e reembolso.</div>
+          <div style="font-weight:700">Hotmart 7-day refund • Secure payment</div>
+          <div class="muted" style="margin-top:6px">If it doesn't help you, claim a refund through Hotmart within 7 days — no risk.</div>
         </div>
       </div>
     </section>
 
     <footer>
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-        <div>© <strong>Lucas Medeiros</strong> — Como Fazer uma Caneca Personalizada Perfeita</div>
-        <div style="color:var(--muted)">Contato: <a href="mailto:lucasdmedeiros.10@gmail.com" style="color:var(--muted);text-decoration:underline">lucasdmedeiros.10@gmail.com</a></div>
-      </div>
+      <div>© <strong>Lucas Medeiros</strong> — Personalized Mugs: The Art That Became an Income</div>
+      <div class="muted">Support: <a href="mailto:lucasdmedeiros.10@gmail.com" style="color:var(--muted);text-decoration:underline">lucasdmedeiros.10@gmail.com</a> · Terms · Privacy</div>
     </footer>
   </div>
 
+  <!-- OPTIONAL PREVIEW MODAL / LEAD CAPTURE (local fallback) -->
   <script>
-    // Pequena lógica para o formulário de captura de email.
-    function sendLead(){
-      const email = document.getElementById('emailInput').value.trim();
-      const msg = document.getElementById('leadMsg');
-      if(!email || !email.includes('@')){ msg.textContent = 'Digite um e-mail válido.'; return; }
+    // CONFIG
+    const HOTMART_LINK = "HOTMART_LINK_HERE"; // <-- replace with your real Hotmart link
+    const PREVIEW_PDF = false; // set to true if you uploaded /preview.pdf to repo and want preview enabled
 
-      // Comportamento padrão: redirecionar para o download (se você quer capturar antes de liberar, substitua por seu endpoint)
-      msg.textContent = 'Pronto! Verifique seu e-mail — ou clique no download para abrir o PDF.';
-      // opcional: abrir o pdf diretamente
-      window.open('/ebook.pdf', '_blank');
-      // Se quiser enviar para um endpoint real, implemente fetch() para sua API aqui.
+    // preview button behavior
+    function openPreview(e){
+      e.preventDefault();
+      if(PREVIEW_PDF){
+        window.open('/preview.pdf', '_blank');
+        return;
+      }
+      // fallback: capture email then redirect to Hotmart
+      const email = prompt("Enter your email to receive a FREE sample (preview pages).");
+      if(!email || !email.includes('@')){ alert('Please enter a valid email.'); return; }
+      // Optional: implement fetch() to send email to your email marketing service here.
+      alert('Thanks! A preview link will be sent to ' + email + ' (if you want direct preview, enable preview.pdf).');
+      // as fallback, open Hotmart buy page
+      window.open(HOTMART_LINK, '_blank');
     }
 
-    // Trocar capa dinamicamente (opcional): se tiver uma URL pública, basta definir aqui.
-    // document.getElementById('coverImg').src = '/assets/capa-3d.png';
+    // countdown to create urgency (24 hours from first visit)
+    (function initCountdown(){
+      const startStr = localStorage.getItem('lm_launch_time');
+      let start = startStr ? new Date(startStr) : new Date();
+      if(!startStr) localStorage.setItem('lm_launch_time', start.toISOString());
+      const end = new Date(start.getTime() + 24*60*60*1000); // 24h window
+      const d = () => {
+        const now = new Date();
+        let diff = Math.max(0, end - now);
+        const days = Math.floor(diff / (1000*60*60*24));
+        diff -= days * (1000*60*60*24);
+        const hours = Math.floor(diff / (1000*60*60));
+        diff -= hours * (1000*60*60);
+        const mins = Math.floor(diff / (1000*60));
+        document.getElementById('cdDays').textContent = String(days).padStart(2,'0');
+        document.getElementById('cdHours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('cdMins').textContent = String(mins).padStart(2,'0');
+      };
+      d();
+      setInterval(d, 60*1000);
+    })();
+
+    // small safety: direct the main buttons to HOTMART_LINK if placeholder not replaced
+    document.getElementById('mainBuy').addEventListener('click', function(e){
+      if(HOTMART_LINK === "HOTMART_LINK_HERE"){ alert('Please replace HOTMART_LINK_HERE in the HTML with your Hotmart checkout link.'); }
+    });
+
+    // if cover missing, show a subtle default image (optional)
+    document.getElementById('coverImg').addEventListener('error', function(){
+      this.src = 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER';
+    });
   </script>
 </body>
 </html>
