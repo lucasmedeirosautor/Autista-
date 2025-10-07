@@ -1,398 +1,665 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Personalized Mugs — The Art That Became an Income | Lucas Medeiros</title>
-  <meta name="description" content="Turn your creativity into income. Full step-by-step guide to create, print and sell perfect sublimation mugs — by Lucas Medeiros." />
-  <!--
-    INSTRUCTIONS:
-    1) Replace HOTMART_LINK_HERE with your Hotmart checkout/affiliate URL.
-    2) Replace /assets/cover-3d.png with your real cover image (recommended size: 1200x1600).
-    3) Optionally add your preview PDF to /preview.pdf and set PREVIEW_PDF=true in JS to enable preview downloads.
-    4) Commit this file as index.html to a GitHub repo and enable GitHub Pages (branch main).
-  -->
-  <style>
-    /* --- color palette & typography --- */
-    :root{
-      --bg:#060709;
-      --panel:#0d1114;
-      --gold:#d9a23a;
-      --gold-2:#f0bf63;
-      --muted:#99a0a6;
-      --glass: rgba(255,255,255,0.03);
-      --accent-glow: 0 8px 40px rgba(217,162,58,0.14);
-      --radius:16px;
-      --container:1100px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background: linear-gradient(180deg, rgba(6,7,9,1) 0%, rgba(13,16,20,1) 100%);
-      color:#fff;
-      min-height:100vh;
-      line-height:1.45;
-    }
-    .wrap{max-width:var(--container);margin:28px auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:64px;height:64px;border-radius:12px;
-      background:linear-gradient(135deg,var(--gold),var(--gold-2));
-      display:flex;align-items:center;justify-content:center;color:#071217;font-weight:800;font-size:20px;
-      box-shadow: var(--accent-glow);
-    }
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center;padding:26px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow: 0 12px 60px rgba(2,6,23,0.6)}
-    .kicker{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:0.6px}
-    h1{font-size:34px;margin:10px 0 8px}
-    .lead{color:var(--muted);margin:0 0 18px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border-radius:12px;
-      background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#071217;font-weight:700;border:none;cursor:pointer;text-decoration:none;
-      box-shadow: var(--accent-glow);
-    }
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--gold)}
-    .hero .meta{margin-top:10px;color:var(--muted);font-size:13px}
-    /* BOOK CARD */
-    .book-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:center}
-    .cover{width:200px;height:260px;border-radius:10px;overflow:hidden;box-shadow: 0 18px 50px rgba(2,6,23,0.6)}
-    .cover img{width:100%;height:100%;object-fit:cover;display:block}
-    .book-info{flex:1}
-    .badge-row{display:flex;gap:8px;margin-top:10px}
-    .badge{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
-    /* WHAT YOU'LL LEARN */
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-    .feature{background:var(--panel);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .feature h4{margin:0 0 6px}
-    .muted{color:var(--muted);font-size:14px}
-    /* testimonials */
-    .testimonials{display:flex;gap:12px;margin-top:22px;overflow:auto;padding-bottom:6px}
-    .testimonial{min-width:280px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
-    .author{display:flex;gap:10px;align-items:center;margin-top:12px}
-    .author img{width:44px;height:44px;border-radius:8px;object-fit:cover}
-    /* offer strip */
-    .offer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;margin-top:26px;border-radius:12px;background:linear-gradient(90deg, rgba(217,162,58,0.09), rgba(255,255,255,0.01));box-shadow: var(--accent-glow)}
-    .price{font-size:22px;font-weight:800;color:#071217}
-    .price .tag{background:#071217;padding:4px 8px;color:var(--gold);border-radius:8px;font-size:12px;margin-left:8px}
-    /* guarantee & policy */
-    .guarantee{display:flex;gap:12px;align-items:center;margin-top:18px;background:var(--glass);padding:14px;border-radius:12px}
-    .guarantee svg{fill:var(--gold)}
-    /* footer */
-    footer{margin-top:36px;color:var(--muted);font-size:13px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-    /* countdown */
-    .countdown{display:inline-flex;gap:8px;align-items:center}
-    .countdown .cell{background:#071217;padding:8px 10px;border-radius:8px;font-weight:800;color:var(--gold)}
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr; text-align:center}
-      .features{grid-template-columns:1fr}
-      .book-card{justify-content:center}
-      .cover{margin:0 auto}
-    }
-    @media (max-width:420px){
-      h1{font-size:24px}
-      .logo{width:52px;height:52px;font-size:18px}
-      .wrap{padding:16px}
-    }
+Que ótima ideia! Criar uma página de vendas de alta conversão para o seu eBook "Canecas Personalizadas: A Arte Que Virou Renda" é um passo fundamental para o sucesso.
 
-    /* microinteractions */
-    .btn:hover{transform:translateY(-3px);transition:all .18s ease}
-    .feature:hover{transform:translateY(-6px);transition:all .22s ease;box-shadow:0 14px 40px rgba(2,6,23,0.5)}
-    .testimonial{transition:transform .18s ease}
-    .testimonial:hover{transform:translateY(-6px)}
-  </style>
+Como um modelo de linguagem, não consigo interagir diretamente com o GitHub ou criar repositórios para você. No entanto, posso te fornecer o código completo (HTML, CSS e JavaScript) para uma página de vendas otimizada para conversão. Você poderá copiar esse código, criar os arquivos no seu computador e depois carregá-los para um repositório no GitHub.
+
+Este código será estruturado para:
+*   **Chamar a atenção:** Com uma headline forte e benefícios claros.
+*   **Gerar interesse:** Detalhando o conteúdo do eBook e o que o cliente vai aprender.
+*   **Construir desejo:** Mostrando o potencial de lucro e a facilidade de começar.
+*   **Impulsionar a ação:** Com chamadas para ação claras e um bônus exclusivo.
+
+Vamos criar uma estrutura moderna e responsiva.
+
+---
+
+### Estrutura dos Arquivos
+
+Você precisará de três arquivos principais:
+1.  `index.html` (para a estrutura da página)
+2.  `style.css` (para o estilo e design)
+3.  `script.js` (para alguma interatividade, se necessário, ou apenas para carregar fontes/ícones)
+
+---
+
+### 1. `index.html` (Estrutura da Página de Vendas)
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canecas Personalizadas: A Arte Que Virou Renda - Seu Guia Completo!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="Descubra como transformar sua criatividade em lucro com o eBook 'Canecas Personalizadas: A Arte Que Virou Renda' de Lucas Medeiros. Aprenda sublimação do zero e construa seu negócio!">
+    <meta name="keywords" content="canecas personalizadas, sublimação, negócio em casa, renda extra, lucas medeiros, ebook, empreendedorismo, arte, artesanato">
+    <meta property="og:title" content="Canecas Personalizadas: A Arte Que Virou Renda - Seu Guia Completo!">
+    <meta property="og:description" content="Descubra como transformar sua criatividade em lucro com o eBook 'Canecas Personalizadas: A Arte Que Virou Renda' de Lucas Medeiros. Aprenda sublimação do zero e construa seu negócio!">
+    <meta property="og:image" content="URL_DA_IMAGEM_DO_EBOOK_PARA_COMPARTILHAMENTO.jpg">
+    <meta property="og:url" content="SUA_URL_DA_PAGINA_DE_VENDAS.com">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">LM</div>
-        <div>
-          <div style="font-weight:700">Lucas Medeiros</div>
-          <div style="font-size:13px;color:var(--muted)">Author · Personalized Mugs Expert</div>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="tagline">Transforme Sua Paixão em Lucro Real!</p>
+                <h1>Canecas Personalizadas: <br>A Arte Que Virou Renda</h1>
+                <p class="subtitle">O guia completo e direto para você criar seu negócio de sublimação do zero, mesmo com recursos limitados, e gerar uma renda sólida!</p>
+                <div class="author-info">
+                    <img src="placeholder_author_lucas.jpg" alt="Lucas Medeiros" class="author-avatar">
+                    <p>Por Lucas Medeiros, especialista com mais de 12 anos de experiência.</p>
+                </div>
+                <a href="#buy-now" class="btn btn-primary btn-hero">Quero Transformar Minha Vida Agora!</a>
+                <p class="small-text">Aprenda a criar, produzir e vender canecas personalizadas de alta qualidade.</p>
+            </div>
+            <div class="hero-image">
+                <img src="placeholder_ebook_cover.png" alt="Capa do Ebook Canecas Personalizadas" class="ebook-cover">
+            </div>
         </div>
-      </div>
-      <nav aria-label="main-nav">
-        <a href="#about">About</a>
-        <a href="#learn">What you'll learn</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#buy">Buy</a>
-      </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <div class="kicker">NEW LAUNCH • LIMITED PRICE</div>
-        <h1 id="hero-title">Personalized Mugs — The Art That Became an Income</h1>
-        <p class="lead muted">A practical, step-by-step ebook that teaches you how to design, print and sell perfect sublimation mugs — from your first prototype to a profitable small business.</p>
-
-        <div class="cta-row" style="margin-top:10px">
-          <!-- IMPORTANT: Replace HOTMART_LINK_HERE with your actual Hotmart checkout link -->
-          <a id="mainBuy" class="btn" href="HOTMART_LINK_HERE" target="_blank" rel="noopener noreferrer">
-            🔥 Get Instant Access — Buy on Hotmart
-          </a>
-
-          <a id="previewBtn" class="btn ghost" href="#" onclick="openPreview(event)">
-            📄 Preview Free Sample
-          </a>
-        </div>
-
-        <div class="meta" style="margin-top:14px">
-          <span style="margin-right:12px">✔ Instant PDF delivery</span>
-          <span style="margin-right:12px">✔ 20 ready-to-use designs included</span>
-          <span>✔ 7-day Hotmart refund policy</span>
-        </div>
-
-        <!-- AUTHOR / AUTHORITY -->
-        <div id="about" style="margin-top:18px;display:flex;gap:12px;align-items:center">
-          <img src="https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="author lucas" style="width:84px;height:84px;border-radius:12px;object-fit:cover;box-shadow: 0 8px 30px rgba(2,6,23,0.6)" />
-          <div>
-            <div style="font-weight:700">Lucas Medeiros</div>
-            <div class="muted" style="font-size:13px">12+ years of hands-on experience in sublimation & product design. Practical, no-fluff methods used by makers and small shops.</div>
-            <div class="badge-row" style="margin-top:10px">
-              <div class="badge">E-book • 56 pages</div>
-              <div class="badge">20 Designs • Ready to print</div>
-              <div class="badge">Practical step-by-step</div>
+    <section id="problem-solution" class="section-dark">
+        <div class="container">
+            <h2>Você sonha em ter uma renda extra ou seu próprio negócio, mas...</h2>
+            <div class="grid-2-cols">
+                <ul class="problem-list">
+                    <li><i class="fas fa-times-circle"></i> Não sabe por onde começar?</li>
+                    <li><i class="fas fa-times-circle"></i> Acha que precisa de um investimento alto?</li>
+                    <li><i class="fas fa-times-circle"></i> Tem medo de cometer erros e perder dinheiro?</li>
+                    <li><i class="fas fa-times-circle"></i> Quer um trabalho prazeroso e criativo?</li>
+                </ul>
+                <div class="solution-box">
+                    <h3>A Solução está aqui!</h3>
+                    <p>Com o eBook "Canecas Personalizadas: A Arte Que Virou Renda", Lucas Medeiros te pega pela mão e te mostra o caminho para:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Iniciar com baixo investimento.</li>
+                        <li><i class="fas fa-check-circle"></i> Dominar a técnica da sublimação.</li>
+                        <li><i class="fas fa-check-circle"></i> Criar designs incríveis e lucrativos.</li>
+                        <li><i class="fas fa-check-circle"></i> Vender suas canecas e construir um negócio sólido!</li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div>
-
-      </div>
-
-      <!-- COVER CARD -->
-      <aside class="book-card" aria-hidden="false">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
-          <!-- Replace cover-3d.png with your real cover file in /assets/cover-3d.png -->
-          <div class="cover">
-            <img id="coverImg" src="/assets/cover-3d.png" alt="Personalized Mugs - cover" />
-          </div>
-
-          <div style="text-align:center">
-            <div style="font-weight:800">Special Launch</div>
-            <div class="muted" style="font-size:13px;margin-top:6px">Price available for a limited time</div>
-            <div style="margin-top:10px">
-              <a class="btn" href="HOTMART_LINK_HERE" target="_blank">Buy on Hotmart</a>
-            </div>
-          </div>
-        </div>
-      </aside>
     </section>
 
-    <!-- WHAT YOU'LL LEARN -->
-    <section id="learn">
-      <h3 style="margin-top:26px">What you'll learn</h3>
-      <div class="features" aria-hidden="false">
-        <div class="feature">
-          <h4>Complete Production Workflow</h4>
-          <p class="muted">From design sizing to heat settings and the crucial thermal shock technique for perfect results.</p>
-        </div>
-        <div class="feature">
-          <h4>Tools, Materials & Suppliers</h4>
-          <p class="muted">Printer choices, inks, papers, presses, and affordable supplier options to save costs.</p>
-        </div>
-        <div class="feature">
-          <h4>Designs That Sell</h4>
-          <p class="muted">How to create or adapt artwork with commercial appeal and mockups that convert.</p>
-        </div>
-
-        <div class="feature">
-          <h4>Packing & Photos</h4>
-          <p class="muted">Simple tricks to make your product photos look professional using a smartphone.</p>
-        </div>
-        <div class="feature">
-          <h4>Pricing & Sales Channels</h4>
-          <p class="muted">Practical pricing formula and where to sell (Etsy, Instagram, local markets).</p>
-        </div>
-        <div class="feature">
-          <h4>20 Ready-to-Use Designs</h4>
-          <p class="muted">Immediate assets you can print and sell — tested by the author.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY / MOCKUPS -->
-    <section style="margin-top:22px">
-      <h3>Examples & Mockups</h3>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup1" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="mockup2" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
-        <img src="https://images.unsplash.com/photo-1524758631624-...placeholder" alt="mockup3" style="width:260px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(2,6,23,0.6)" />
-      </div>
-    </section>
-<!-- BONUS DESIGNS GALLERY -->
-<section id="bonus-gallery" style="margin-top:60px;text-align:center">
-  <h3 style="color:var(--gold);font-size:24px;margin-bottom:16px">
-    🎨 Bonus Designs Gallery — Algumas das artes que você ganhará
-  </h3>
-  <p class="muted" style="max-width:680px;margin:0 auto 26px">
-    Uma prévia das artes exclusivas incluídas no e-book — apenas quem comprar terá acesso completo a todos os arquivos prontos para uso.
-  </p>
-
-  <div class="bonus-grid">
-    <img src="assets/_muestra (20).jpg" alt="bonus design 1">
-    <img src="assets/_muestra (3).jpg" alt="bonus design 2">
-    <img src="assets/_muestra (11).jpg" alt="bonus design 3">
-    <img src="assets/_muestra (26).jpg" alt="bonus design 4">
-    <img src="assets/IMG_7271.jpeg" alt="bonus design 5">
-    <img src="assets/IMG_5377.png" alt="bonus design 6">
-  </div>
-</section>
-
-<style>
-  /* --- Bonus Designs Gallery --- */
-  .bonus-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:16px;
-    justify-items:center;
-  }
-  .bonus-grid img{
-    width:100%;
-    max-width:320px;
-    border-radius:14px;
-    object-fit:cover;
-    box-shadow:0 10px 40px rgba(2,6,23,0.7);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .bonus-grid img:hover{
-    transform:scale(1.05);
-    box-shadow:0 20px 60px rgba(217,162,58,0.25);
-  }
-</style>
-
-    <!-- TESTIMONIALS -->
-    <section id="reviews" style="margin-top:22px">
-      <h3>What readers say</h3>
-      <div class="testimonials" aria-live="polite">
-        <div class="testimonial">
-          <div style="font-weight:700">“No fluff — real results.”</div>
-          <div class="muted" style="margin-top:8px">“I sold my first 10 mugs after applying the layout and pricing tips. Highly recommended.”</div>
-          <div class="author">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="client" />
-            <div>
-              <div style="font-weight:700">Mariana R. — Toronto, CA</div>
-              <div class="muted">Handmade seller</div>
+    <section id="benefits" class="section-light">
+        <div class="container">
+            <h2>Por que Canecas Personalizadas são a Sua Melhor Oportunidade?</h2>
+            <div class="grid-3-cols">
+                <div class="benefit-card">
+                    <i class="fas fa-dollar-sign icon-large"></i>
+                    <h3>Baixo Investimento Inicial</h3>
+                    <p>Comece com o básico: uma prensa, uma impressora e sua criatividade. Sem grandes gastos para dar o primeiro passo.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line icon-large"></i>
+                    <h3>Alta Lucratividade por Unidade</h3>
+                    <p>O custo de produção é baixo, mas o valor percebido pelo cliente é alto, especialmente com designs emocionais e únicos.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users icon-large"></i>
+                    <h3>Demanda Constante e Versátil</h3>
+                    <p>Empresas, festas, casamentos, aniversários, formaturas... todos querem algo personalizado! O mercado não para de crescer.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-paint-brush icon-large"></i>
+                    <h3>Trabalho Prazeroso e Criativo</h3>
+                    <p>Diferente de outras rendas extras, aqui você trabalha com arte, emoção e expressão. Cada caneca conta uma história.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-expand-alt icon-large"></i>
+                    <h3>Fácil Expansão de Negócio</h3>
+                    <p>Comece com canecas e, depois, expanda para camisetas, garrafas, almofadas e outros produtos sublimáveis. O céu é o limite!</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-home icon-large"></i>
+                    <h3>Trabalhe no Conforto da Sua Casa</h3>
+                    <p>Tenha a flexibilidade de gerenciar seu tempo e seu negócio diretamente do seu lar, com total autonomia.</p>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="testimonial">
-          <div style="font-weight:700">“Brought my craft to market.”</div>
-          <div class="muted" style="margin-top:8px">“The thermal shock tip was a game changer. Colors now pop.”</div>
-          <div class="author">
-            <img src="https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER" alt="client 2" />
-            <div>
-              <div style="font-weight:700">James P. — California, USA</div>
-              <div class="muted">Small business owner</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- OFFER -->
-    <section id="buy">
-      <div class="offer">
-        <div style="flex:1">
-          <div style="font-size:13px;color:var(--muted)">Launch Special</div>
-          <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
-            <div class="price">$19 <span class="muted" style="font-weight:600;font-size:13px;margin-left:6px">normally $39</span></div>
-            <div class="tag" style="margin-left:10px;background:#071217;padding:6px 10px;border-radius:8px;color:var(--gold);font-weight:700">$AVE</div>
-          </div>
-          <div class="muted" style="margin-top:8px">Instant access on Hotmart • 20 ready-to-use designs • 7-day refund policy</div>
-          <div style="margin-top:10px">
-            <div class="countdown muted" aria-hidden="false">
-              <div style="font-size:13px">Offer ends in</div>
-              <div id="cdDays" class="cell">00</div>
-              <div id="cdHours" class="cell">00</div>
-              <div id="cdMins" class="cell">00</div>
+    <section id="about-author" class="section-dark">
+        <div class="container">
+            <div class="grid-2-cols align-center">
+                <div class="author-image-wrapper">
+                    <img src="placeholder_author_lucas_full.jpg" alt="Lucas Medeiros" class="author-full-image">
+                </div>
+                <div class="author-text">
+                    <h2>Conheça Lucas Medeiros: Seu Mentor Nesta Jornada</h2>
+                    <p>Lucas Medeiros não é apenas um autor, mas um verdadeiro mestre na arte da sublimação. Com mais de <strong>12 anos de experiência real</strong>, ele abriu as portas do mundo das canecas personalizadas, revelando tudo o que aprendeu na prática.</p>
+                    <p>Desde a criação de designs até o processo técnico, as melhores configurações, as dicas que ninguém te conta e os erros que ele mesmo cometeu antes de se tornar uma referência na área.</p>
+                    <p class="quote">"A sublimação mudou a minha vida. E agora, quero que mude a sua também." <br>— Lucas Medeiros</p>
+                    <p>Este não é apenas um manual. É um guia passo a passo, direto e humano, feito para quem quer começar de verdade e construir uma renda sólida com sublimação, mesmo com recursos limitados.</p>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
-          <a class="btn" href="HOTMART_LINK_HERE" target="_blank" rel="noopener noreferrer">Buy on Hotmart — Instant access</a>
-          <a class="btn ghost" href="#reviews" style="padding:12px 14px">See Reviews</a>
-        </div>
-      </div>
-
-      <div class="guarantee" style="margin-top:12px">
-        <svg width="42" height="42" viewBox="0 0 24 24" style="flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 1l3 2 5 1v6c0 6-5 11-10 13-5-2-10-7-10-13V4l5-1 3-2z"></path>
-        </svg>
-        <div>
-          <div style="font-weight:700">Hotmart 7-day refund • Secure payment</div>
-          <div class="muted" style="margin-top:6px">If it doesn't help you, claim a refund through Hotmart within 7 days — no risk.</div>
-        </div>
-      </div>
     </section>
 
-    <footer>
-      <div>© <strong>Lucas Medeiros</strong> — Personalized Mugs: The Art That Became an Income</div>
-      <div class="muted">Support: <a href="mailto:lucasdmedeiros.10@gmail.com" style="color:var(--muted);text-decoration:underline">lucasdmedeiros.10@gmail.com</a> · Terms · Privacy</div>
+    <section id="whats-inside" class="section-light">
+        <div class="container">
+            <h2>O Que Você Vai Encontrar Neste Guia Completo?</h2>
+            <p class="subtitle">Cada capítulo foi cuidadosamente elaborado para te levar do zero ao sucesso na sublimação de canecas.</p>
+            <div class="grid-chapters">
+                <div class="chapter-card">
+                    <h3><i class="fas fa-book-open"></i> Introdução: A Arte Que Virou Renda</h3>
+                    <p>Entenda o potencial ilimitado do mercado de canecas personalizadas.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-mug-hot"></i> Cap. 1: Por Que Canecas São Tão Lucrativas</h3>
+                    <p>Descubra os segredos por trás da alta demanda e rentabilidade deste produto.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-tools"></i> Cap. 2: Materiais e Ferramentas Essenciais</h3>
+                    <p>Tudo o que você precisa para começar, sem gastar fortunas.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-pen-nib"></i> Cap. 3: Criando Seu Primeiro Design Passo a Passo</h3>
+                    <p>Domine a arte de criar artes que vendem, mesmo sem experiência em design.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-print"></i> Cap. 4: Processo Completo de Impressão e Prensagem</h3>
+                    <p>O passo a passo técnico para uma sublimação perfeita, sem erros.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-handshake"></i> Cap. 5: Como Vender e Transformar em Negócio</h3>
+                    <p>Estratégias eficazes para precificar, divulgar e vender suas canecas.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-rocket"></i> Cap. 6: Escalando e Profissionalizando Seu Negócio</h3>
+                    <p>Dicas para crescer, expandir sua linha de produtos e automatizar processos.</p>
+                </div>
+                <div class="chapter-card">
+                    <h3><i class="fas fa-lightbulb"></i> Cap. 7: Dicas Extras e Erros Que Ninguém Te Conta</h3>
+                    <p>Evite as armadilhas comuns e acelere seu aprendizado com a experiência de Lucas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bonus" class="section-accent">
+        <div class="container">
+            <div class="grid-2-cols align-center">
+                <div class="bonus-content">
+                    <h2><i class="fas fa-gift"></i> BÔNUS EXCLUSIVO!</h2>
+                    <h3>20 Designs Prontos Para Você Começar HOJE!</h3>
+                    <p>Para te ajudar a dar o pontapé inicial sem perder tempo, Lucas preparou um bônus incrível:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>20 designs exclusivos</strong></li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Perfeitamente dimensionados</strong> para canecas de 11oz</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Testados e aprovados</strong> pelo próprio Lucas Medeiros</li>
+                        <li><i class="fas fa-check-circle"></i> Basta imprimir e prensar!</li>
+                    </ul>
+                    <p>Tudo está aqui para que você não precise adivinhar o que funciona — apenas siga os passos e coloque em prática!</p>
+                    <a href="#buy-now" class="btn btn-secondary btn-bonus">Garanta Seu Bônus Agora!</a>
+                </div>
+                <div class="bonus-image">
+                    <img src="placeholder_bonus_designs.png" alt="20 Designs Exclusivos de Canecas">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-dark" style="padding-top: 50px;">
+        <div class="container text-center">
+            <h2>Invista no Seu Futuro e Transforme Sua Vida!</h2>
+            <p class="subtitle">Este não é apenas um eBook, é um atalho para o seu sucesso no mundo das canecas personalizadas.</p>
+            <div class="price-box">
+                <p class="original-price">De <span class="strikethrough">R$ 197,00</span></p>
+                <p class="current-price">Por Apenas</p>
+                <p class="main-price">R$ 49,90</p>
+                <p class="installments">Ou em até 12x de R$ 5,00 no cartão!</p>
+                <a href="LINK_DO_SEU_CHECKOUT_DE_VENDAS" target="_blank" class="btn btn-primary btn-cta" id="buy-now">Quero Meu Ebook + Bônus Agora!</a>
+                <p class="guarantee"><i class="fas fa-shield-alt"></i> Sua compra é 100% segura e garantida.</p>
+            </div>
+            <p class="limited-offer">Oferta por tempo limitado! Aproveite antes que o preço suba.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="section-light">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <h3 class="faq-question">O que é sublimação?</h3>
+                <div class="faq-answer">
+                    <p>Sublimação é o processo onde uma imagem impressa em papel especial é transferida para uma superfície revestida através de calor e pressão. O resultado são cores vibrantes e um acabamento profissional.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Preciso de experiência prévia para começar?</h3>
+                <div class="faq-answer">
+                    <p>Não! O eBook foi criado para iniciantes. Lucas Medeiros te guia passo a passo, desde a escolha dos materiais até a venda, mesmo que você nunca tenha trabalhado com sublimação antes.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Quais materiais são necessários para iniciar?</h3>
+                <div class="faq-answer">
+                    <p>Você precisará de uma impressora de sublimação (ou adaptada), tinta sublimática, papel sublimático, uma prensa de canecas (ou forno/air fryer com adaptadores), canecas resinadas e fita térmica. O eBook detalha cada um e sugere as melhores opções.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">O bônus de 20 designs é realmente útil?</h3>
+                <div class="faq-answer">
+                    <p>Sim, muito! Ele foi pensado para você começar a produzir e vender imediatamente, sem a necessidade de criar seus próprios designs no início. Os designs são testados e prontos para uso.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Como receberei o eBook e o bônus?</h3>
+                <div class="faq-answer">
+                    <p>Após a confirmação do pagamento, você receberá um e-mail com o link para download do eBook em formato PDF e do bônus exclusivo. É tudo digital e instantâneo!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Canecas Personalizadas: A Arte Que Virou Renda. Todos os direitos reservados.</p>
+            <p>Desenvolvido por [Seu Nome/Nome da Sua Empresa]</p>
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a>
+            </div>
+        </div>
     </footer>
-  </div>
 
-  <!-- OPTIONAL PREVIEW MODAL / LEAD CAPTURE (local fallback) -->
-  <script>
-    // CONFIG
-    const HOTMART_LINK = "HOTMART_LINK_HERE"; // <-- replace with your real Hotmart link
-    const PREVIEW_PDF = false; // set to true if you uploaded /preview.pdf to repo and want preview enabled
-
-    // preview button behavior
-    function openPreview(e){
-      e.preventDefault();
-      if(PREVIEW_PDF){
-        window.open('/preview.pdf', '_blank');
-        return;
-      }
-      // fallback: capture email then redirect to Hotmart
-      const email = prompt("Enter your email to receive a FREE sample (preview pages).");
-      if(!email || !email.includes('@')){ alert('Please enter a valid email.'); return; }
-      // Optional: implement fetch() to send email to your email marketing service here.
-      alert('Thanks! A preview link will be sent to ' + email + ' (if you want direct preview, enable preview.pdf).');
-      // as fallback, open Hotmart buy page
-      window.open(HOTMART_LINK, '_blank');
-    }
-
-    // countdown to create urgency (24 hours from first visit)
-    (function initCountdown(){
-      const startStr = localStorage.getItem('lm_launch_time');
-      let start = startStr ? new Date(startStr) : new Date();
-      if(!startStr) localStorage.setItem('lm_launch_time', start.toISOString());
-      const end = new Date(start.getTime() + 24*60*60*1000); // 24h window
-      const d = () => {
-        const now = new Date();
-        let diff = Math.max(0, end - now);
-        const days = Math.floor(diff / (1000*60*60*24));
-        diff -= days * (1000*60*60*24);
-        const hours = Math.floor(diff / (1000*60*60));
-        diff -= hours * (1000*60*60);
-        const mins = Math.floor(diff / (1000*60));
-        document.getElementById('cdDays').textContent = String(days).padStart(2,'0');
-        document.getElementById('cdHours').textContent = String(hours).padStart(2,'0');
-        document.getElementById('cdMins').textContent = String(mins).padStart(2,'0');
-      };
-      d();
-      setInterval(d, 60*1000);
-    })();
-
-    // small safety: direct the main buttons to HOTMART_LINK if placeholder not replaced
-    document.getElementById('mainBuy').addEventListener('click', function(e){
-      if(HOTMART_LINK === "HOTMART_LINK_HERE"){ alert('Please replace HOTMART_LINK_HERE in the HTML with your Hotmart checkout link.'); }
-    });
-
-    // if cover missing, show a subtle default image (optional)
-    document.getElementById('coverImg').addEventListener('error', function(){
-      this.src = 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER';
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
+```
+
+---
+
+### 2. `style.css` (Estilo da Página)
+
+```css
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f7f6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Títulos e Parágrafos */
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.subtitle {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background-color: #e74c3c; /* Vermelho vibrante */
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: #2ecc71; /* Verde de sucesso */
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #27ae60;
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.6);
+}
+
+.btn-secondary {
+    background-color: #f39c12; /* Laranja para bônus */
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+.btn-secondary:hover {
+    background-color: #e67e22;
+    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);
+}
+
+/* Seções */
+section {
+    padding: 80px 0;
+}
+
+.section-dark {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.section-dark h2, .section-dark h3 {
+    color: #ecf0f1;
+}
+
+.section-light {
+    background-color: #f4f7f6;
+}
+
+.section-accent {
+    background-color: #ecf0f1;
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #3498db, #8e44ad); /* Azul para roxo */
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ebook-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.ebook-cover:hover {
+    transform: translateY(-5px);
+}
+
+.tagline {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #f1c40f; /* Amarelo */
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 3.8em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero .subtitle {
+    font-size: 1.6em;
+    color: #ecf0f1;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #f1c40f;
+    object-fit: cover;
+}
+
+.author-info p {
+    font-size: 1.1em;
+    color: #ecf0f1;
+    margin: 0;
+}
+
+.hero .btn-hero {
+    margin-top: 20px;
+    padding: 18px 40px;
+    font-size: 1.4em;
+}
+
+.small-text {
+    font-size: 0.9em;
+    margin-top: 15px;
+    color: #ecf0f1;
+}
+
+/* Problem-Solution Section */
+#problem-solution .grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.problem-list, .solution-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.problem-list li, .solution-box ul li {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.problem-list .fa-times-circle {
+    color: #e74c3c;
+    font-size: 1.4em;
+}
+
+.solution-box {
+    background-color: #34495e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.solution-box h3 {
+    color: #2ecc71;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.solution-box p {
+    color: #ecf0f1;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.solution-box ul li .fa-check-circle {
+    color: #2ecc71;
+    font-size: 1.4em;
+}
+
+/* Benefits Section */
+#benefits .grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card .icon-large {
+    font-size: 3.5em;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* About Author Section */
+#about-author .grid-2-cols {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.author-image-wrapper {
+    text-align: center;
+}
+
+.author-full-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.author-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.author-text p {
+    font-size: 1.1em;
+    color: #ecf0f1;
+    margin-bottom: 15px;
+}
+
+.author-text .quote {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #f1c40f;
+    border-left: 4px solid #f1c40f;
+    padding-left: 20px;
+    margin: 25px 0;
+}
+
+/* What's Inside Section */
+#whats-inside .grid-chapters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.chapter-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.chapter-card:hover {
+    transform: translateY(-5px);
+}
+
+.chapter-card h3 {
+    font-size: 1.4em;
+    color: #3498db;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.chapter-card h3 .fas {
+    font-size: 1.2em;
+}
+
+.chapter-card p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Bonus Section */
+#bonus {
+    background-color: #f1c40f; /* Amarelo */
+    color: #2c3e
