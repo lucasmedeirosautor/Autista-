@@ -42,7 +42,7 @@
 
     .wrap{max-width:var(--container);margin:0 auto;}
 
-    /* Header */
+/* ---------- Header ---------- */
     header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
     .brand{display:flex;align-items:center;gap:14px}
     .logo{
@@ -54,7 +54,7 @@
     .brand .name{font-weight:800;font-size:16px}
     .brand .sub{font-size:12px;color:var(--muted);margin-top:2px}
 
-    /* Hero */
+/* ---------- Hero ---------- */
     .hero{
       display:grid;
       grid-template-columns:1fr 420px;
@@ -67,6 +67,7 @@
       overflow:hidden;
       position:relative;
     }
+    /* gold shimmer band */
     .hero::after{
       content:"";
       position:absolute;left:-20%;top:-40%;width:140%;height:220%;
@@ -81,8 +82,8 @@
     .kicker{color:var(--gold-2);font-weight:700;font-size:13px;letter-spacing:0.6px;opacity:0.95}
     h1{font-size:34px;margin:10px 0 10px;line-height:1.08;letter-spacing:-0.2px}
     .lead{color:var(--muted);margin:0 0 18px;font-size:15px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .btn{
       display:inline-flex;gap:10px;align-items:center;padding:14px 20px;border-radius:12px;
       background:var(--gold-1);
@@ -92,6 +93,7 @@
       position:relative;
       overflow:hidden;
     }
+    /* animated gold sheen */
     .btn::before{
       content:"";
       position:absolute;left:-40%;top:0;width:40%;height:100%;
@@ -110,21 +112,88 @@
 
     .meta{margin-top:12px;color:var(--muted);font-size:13px}
 
+/* ---------- Book / Cover card ---------- */
     .book-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:18px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:center;box-shadow:var(--accent-shadow)}
     .cover{width:220px;height:300px;border-radius:12px;overflow:hidden;box-shadow: 0 30px 80px rgba(4,6,8,0.7);border:1px solid rgba(255,255,255,0.03)}
     .cover img{width:100%;height:100%;object-fit:cover;display:block}
 
+/* ---------- Sections ---------- */
     section{margin-top:30px}
     h2{font-size:20px;margin:0 0 12px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--panel);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .muted{color:var(--muted);font-size:14px}
+
+/* ---------- Features (o que você vai aprender) ---------- */
     .features .card h4{margin:0 0 8px;font-size:15px}
     .features .card p{margin:0;color:var(--muted)}
 
+/* ---------- Gallery ---------- */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      align-items:stretch;
+    }
+    .mockup{
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.02));
+      box-shadow: 0 20px 60px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+      transform:translateY(0);
+      transition:transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s ease;
+    }
+    .mockup img{width:100%;height:100%;object-fit:cover;display:block}
+    .mockup:hover{transform:translateY(-10px) scale(1.02); box-shadow:0 40px 120px rgba(217,162,58,0.18)}
+    .mockup .tag{
+      position:absolute;left:12px;top:12px;background:rgba(7,9,12,0.7);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--gold-2);font-size:13px;border:1px solid rgba(255,255,255,0.03)
+    }
+
+/* ---------- Offer strip ---------- */
+    .offer{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;border-radius:14px;background:linear-gradient(90deg, rgba(217,162,58,0.06), rgba(255,255,255,0.01));box-shadow: 0 20px 80px rgba(14,11,8,0.5);
+    }
+    .price{font-size:26px;font-weight:900;color:#071217;background:var(--gold-1);padding:8px 12px;border-radius:10px;display:inline-block}
+    .price .normal{display:inline-block;margin-left:10px;color:var(--muted);font-weight:700;font-size:13px;background:transparent;padding:0}
+
+/* ---------- Footer ---------- */
+    footer{margin-top:34px;color:var(--muted);font-size:13px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ---------- Animations & Reveal ---------- */
+    .reveal{opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.2,.9,.2,1);will-change:transform,opacity}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* flashy heading underline */
+    .title-underline{
+      display:inline-block;
+      position:relative;
+      padding-bottom:8px;
+    }
+    .title-underline::after{
+      content:"";
+      position:absolute;left:0;bottom:0;height:6px;width:80%;
+      background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
+      border-radius:999px;
+      transform:translateY(8px) scaleX(0);
+      transform-origin:left;
+      transition:transform .7s cubic-bezier(.2,.9,.2,1);
+      filter:blur(6px);
+      opacity:0.95;
+    }
+    .title-underline.revealed::after{transform:translateY(0) scaleX(1)}
+
+    /* responsive */
     @media (max-width:980px){
       .hero{grid-template-columns:1fr; text-align:center}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .book-card{justify-content:center}
     }
     @media (max-width:560px){
-      h1{font-size:24px}
+      .gallery{grid-template-columns:1fr}
       .logo{width:56px;height:56px}
+      h1{font-size:24px}
     }
   </style>
 </head>
@@ -138,6 +207,7 @@
           <div class="sub">Autor · Especialista em Canecas Personalizadas</div>
         </div>
       </div>
+
       <nav aria-label="main-navigation">
         <a href="#about" style="color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px">Sobre</a>
         <a href="#learn" style="color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px">O que você aprende</a>
@@ -154,9 +224,11 @@
         <p class="lead muted">O guia prático e definitivo para criar a caneca perfeita: design, preparação, acabamento e fotos que vendem — tudo explicado passo a passo.</p>
 
         <div class="cta-row" style="margin-top:14px">
+          <!-- Replace # with your purchase link when ready -->
           <a id="buyBtn" class="btn" href="#" aria-label="Comprar eBook — sem link ainda">
             ✨ Quero Garantir a Minha Cópia
           </a>
+
           <a id="previewBtn" class="btn ghost" href="#" onclick="openPreview(event)" aria-label="Solicitar amostra grátis">
             📄 Solicitar Amostra (Grátis)
           </a>
@@ -177,8 +249,10 @@
       <aside class="book-card reveal" aria-hidden="false">
         <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
           <div class="cover" aria-hidden="true">
+            <!-- substitute with your real cover (recommended 1200x1600) -->
             <img id="7.PNG" src="7.PNG" alt="Capa do eBook Personalized Mugs — Lucas Medeiros" />
           </div>
+
           <div style="text-align:center">
             <div style="font-weight:800">E-book • Guia Completo</div>
             <div class="muted" style="font-size:13px;margin-top:6px">Aprenda a produzir canecas perfeitas e vender com margem</div>
@@ -194,7 +268,7 @@
     <section id="about" class="reveal">
       <h2>Sobre o autor</h2>
       <div style="display:flex;gap:14px;align-items:center;margin-top:10px;flex-wrap:wrap">
-        <img src="Foto.png .JPG.JPG" alt="Lucas Medeiros" style="width:92px;height:92px;border-radius:12px;object-fit:cover;box-shadow:0 18px 50px rgba(2,6,23,0.6)">
+        <img src="Foto.png .JPG.JPG" alt="Lucas Medeiros" style="width:92px;height:92px;border-radius:12px;object-fit:cover;box-shadow:0 18px 50px rgba(2,6,23,0.6)" onerror="this.src='https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         <div>
           <div style="font-weight:800">Lucas Medeiros</div>
           <div class="muted" style="max-width:780px;margin-top:6px">
@@ -236,35 +310,42 @@
         </div>
       </div>
     </section>
-        <!-- GALLERY / MOCKUPS -->
+
+    <!-- GALLERY / MOCKUPS -->
     <section id="gallery" class="reveal" style="margin-top:26px">
       <h2>Essas são algumas das artes que você ganhará</h2>
       <p class="muted" style="margin-top:6px">Prévia das 6 artes inclusas no e-book — use para testar, imprimir e vender.</p>
 
       <div class="gallery" style="margin-top:14px">
+        <!-- Replace the src with your real files in assets/ (6 slots) -->
         <div class="mockup" role="img" aria-label="Arte bônus 1">
           <div class="tag">Bônus 1</div>
-          <img src="1.jpg" alt="Arte bônus 1 — caneca">
+          <img src="1.jpg" alt="Arte bônus 1 — caneca" onerror="this.src='https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         </div>
+
         <div class="mockup" role="img" aria-label="Arte bônus 2">
           <div class="tag">Bônus 2</div>
-          <img src="2.jpg" alt="Arte bônus 2 — caneca">
+          <img src="2.jpg" alt="Arte bônus 2 — caneca" onerror="this.src='https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         </div>
+
         <div class="mockup" role="img" aria-label="Arte bônus 3">
           <div class="tag">Bônus 3</div>
-          <img src="3.jpg" alt="Arte bônus 3 — caneca">
+          <img src="3.jpg" alt="Arte bônus 3 — caneca" onerror="this.src='https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         </div>
+
         <div class="mockup" role="img" aria-label="Arte bônus 4">
           <div class="tag">Bônus 4</div>
-          <img src="4.jpg" alt="Arte bônus 4 — caneca">
+          <img src="4.jpg" alt="Arte bônus 4 — caneca" onerror="this.src='https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         </div>
+
         <div class="mockup" role="img" aria-label="Arte bônus 5">
           <div class="tag">Bônus 5</div>
-          <img src="5.jpg" alt="Arte bônus 5 — caneca">
+          <img src="5.jpg" alt="Arte bônus 5 — caneca" onerror="this.src='https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         </div>
+
         <div class="mockup" role="img" aria-label="Arte bônus 6">
           <div class="tag">Bônus 6</div>
-          <img src="6.jpg" alt="Arte bônus 6 — caneca">
+          <img src="6.jpg" alt="Arte bônus 6 — caneca" onerror="this.src='https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
         </div>
       </div>
     </section>
@@ -282,13 +363,10 @@
           <div style="margin-top:12px">
             <div style="font-size:13px" class="muted">Oferta válida por tempo limitado</div>
           </div>
-          <!-- Contador de compradores -->
-          <div id="buyerCounter" style="margin-top:12px;font-size:14px;color:var(--gold-2);font-weight:700">
-            Já comprado por <span id="buyerCount">55</span> pessoas
-          </div>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+          <!-- Button WITHOUT link (replace href="#" with your Hotmart link when ready) -->
           <a id="primaryBuy" class="btn" href="#" aria-label="Comprar eBook — sem link">
             ✨ Comprar Agora
           </a>
@@ -297,14 +375,13 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div>© <strong>Lucas Medeiros</strong> — Personalized Mugs: The Art That Became an Income</div>
       <div class="muted">Contato: <a href="mailto:lucasdmedeiros.10@gmail.com" style="color:var(--muted);text-decoration:underline">lucasdmedeiros.10@gmail.com</a></div>
     </footer>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPTS: reveal on scroll, preview fallback, small interactions -->
   <script>
     // Reveal on scroll
     (function(){
@@ -313,41 +390,50 @@
         entries.forEach(e=>{
           if(e.isIntersecting) {
             e.target.classList.add('visible');
+            // add underline reveal for title
             const underline = e.target.querySelector('.title-underline');
             if(underline) underline.classList.add('revealed');
             obs.unobserve(e.target);
           }
         });
       }, opts);
+
       document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     })();
 
-    // Preview email capture
+    // Preview email capture fallback
     function openPreview(e){
       e.preventDefault();
       const email = prompt("Digite seu e-mail para receber a amostra grátis:");
       if(!email || !email.includes("@")){ alert("E-mail inválido. Tente novamente."); return; }
+      // NOTE: aqui você pode integrar seu serviço de e-mail (Mailchimp, ConvertKit, etc.)
       alert("Obrigado! Enviaremos a amostra para: " + email + " (conteúdo de exemplo).");
     }
 
-    // CTA microinteraction
+    // CTA microinteraction: botão compra sem link mostra mensagem
     document.getElementById('primaryBuy').addEventListener('click', function(e){
       if(this.getAttribute('href') === '#'){
         e.preventDefault();
-        alert('Ótimo! Assim que tiver o link de compra eu já atualizo o botão.');
+        alert('Ótimo! Assim que tiver o link de compra eu já atualizo o botão. Substitua o href="#" pelo seu link de checkout.');
       }
     });
 
-    // Contador de compradores animado
+    // fallback cover image
+    document.getElementById('coverImg').addEventListener('error',function(){ this.src = 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER' })
+
+    // Optional: tiny parallax on mouse for cover card (subtle)
     (function(){
-      let count = 55; // início do contador
-      const el = document.getElementById('buyerCount');
-      setInterval(()=>{
-        if(count < 102) { // número máximo fictício
-          count += Math.floor(Math.random()*2+1); // sobe 1 ou 2 de cada vez
-          el.textContent = count;
-        }
-      }, 3500); // atualiza a cada 3,5s
+      const card = document.querySelector('.book-card');
+      if(!card) return;
+      card.addEventListener('mousemove', function(ev){
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width/2;
+        const cy = r.top + r.height/2;
+        const dx = (ev.clientX - cx)/20;
+        const dy = (ev.clientY - cy)/30;
+        card.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+      });
+      card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
     })();
   </script>
 </body>
