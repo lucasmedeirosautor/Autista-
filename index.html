@@ -741,20 +741,32 @@
   </script>
 <!-- 🔥 TESTE DE CONTADORES E NOTIFICAÇÕES -->
 <style>
-  .counter-box {
-    text-align:center;
-    margin-top:60px;
-    font-weight:700;
-    font-size:1.2rem;
-    background:linear-gradient(90deg,#d4a24a,#f2c46a);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:pulseGold 2s infinite alternate;
-  }
-  @keyframes pulseGold {
-    from {opacity:0.7; transform:scale(1);}
-    to {opacity:1; transform:scale(1.03);}
-  }
+  ..counter-box {
+  text-align:center;
+  margin-top:60px;
+  font-weight:700;
+  font-size:1.2rem;
+  background:linear-gradient(90deg,#d4a24a,#f2c46a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: pulseGold 2s infinite alternate, fadeIn 1.5s ease-out forwards;
+  opacity:0;
+}
+
+@keyframes pulseGold {
+  from {opacity:0.8; text-shadow:0 0 10px rgba(242,196,106,0.3);}
+  to {opacity:1; text-shadow:0 0 25px rgba(242,196,106,0.6);}
+}
+
+@keyframes fadeIn {
+  to {opacity:1; transform:translateY(0);}
+}@keyframes sparkle {
+  0%,100% { text-shadow: 0 0 10px #f2c46a, 0 0 20px #d4a24a; }
+  50% { text-shadow: 0 0 25px #fff4c2, 0 0 40px #f2c46a; }
+}
+#offerCounter {
+  animation: sparkle 3s infinite ease-in-out;
+}
   .purchase-toast {
     position:fixed;
     bottom:25px;
@@ -771,10 +783,34 @@
     transition:opacity .8s ease,transform .8s ease;
     z-index:9999;
   }
-  .purchase-toast.show {
-    opacity:1;
-    transform:translateY(0);
-  }
+  ..purchase-toast {
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:rgba(15,15,15,0.95);
+  border:1px solid rgba(255,215,150,0.25);
+  box-shadow:0 0 15px rgba(255,215,150,0.3);
+  color:#f2c46a;
+  padding:14px 22px;
+  border-radius:14px;
+  font-weight:600;
+  opacity:0;
+  transform:translateY(40px) scale(0.95);
+  transition:opacity .8s ease, transform .8s ease;
+  z-index:9999;
+  backdrop-filter:blur(6px);
+}
+
+.purchase-toast.show {
+  opacity:1;
+  transform:translateY(0) scale(1);
+  animation: glowToast 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowToast {
+  from { box-shadow:0 0 15px rgba(255,215,150,0.3); }
+  to { box-shadow:0 0 35px rgba(255,215,150,0.7); }
+}
 </style>
 
 <div class="counter-box">
