@@ -1,866 +1,368 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Personalized Mugs — The Art That Became an Income | Lucas Medeiros</title>
-  <meta name="description" content="Guia definitivo para criar a caneca perfeita: design, produção, acabamento e vendas. Por Lucas Medeiros." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Fazer a Caneca Perfeita</title>
+
+  <!-- Fontes e Estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg-900:#050506;
-      --bg-800:#0b0b0c;
-      --panel:#0e1112;
-      --gold-1:#d4a24a;
-      --gold-2:#f2c46a;
-      --gold-metal: linear-gradient(90deg, var(--gold-1), var(--gold-2));
-      --muted:#9aa1a6;
-      --glass: rgba(255,255,255,0.03);
-      --radius:16px;
-      --container:1120px;
-      --accent-shadow: 0 18px 60px rgba(12,8,4,0.55);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      min-height:100%;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(210,162,70,0.05), transparent 8%),
-        radial-gradient(900px 450px at 90% 90%, rgba(255,210,120,0.03), transparent 8%),
-        linear-gradient(180deg,var(--bg-900),var(--bg-800));
-      color:#fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:28px 20px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .wrap{max-width:var(--container);margin:0 auto;}
-
-/* ---------- Header ---------- */
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{
-      width:68px;height:68px;border-radius:14px;
-      background:linear-gradient(135deg,var(--gold-1),var(--gold-2));
-      display:flex;align-items:center;justify-content:center;color:#071217;font-weight:800;font-size:20px;
-      box-shadow: 0 12px 50px rgba(214,162,74,0.12), var(--accent-shadow);
-    }
-    .brand .name{font-weight:800;font-size:16px}
-    .brand .sub{font-size:12px;color:var(--muted);margin-top:2px}
-
-/* ---------- Hero ---------- */
-    .hero{
-      display:grid;
-      grid-template-columns:1fr 420px;
-      gap:32px;
-      align-items:center;
-      padding:28px;
-      border-radius:20px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow: 0 18px 80px rgba(2,6,23,0.6);
-      overflow:hidden;
-      position:relative;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;left:-20%;top:-40%;width:140%;height:220%;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(255,210,120,0.06), transparent 25%);
-      transform: rotate(-10deg);
-      pointer-events:none;
-      animation: slow-rotate 18s linear infinite;
-      opacity:0.9;
-    }
-    @keyframes slow-rotate{from{transform:rotate(-10deg)}to{transform:rotate(350deg)}}
-
-    .kicker{color:var(--gold-2);font-weight:700;font-size:13px;letter-spacing:0.6px;opacity:0.95}
-    h1{font-size:34px;margin:10px 0 10px;line-height:1.08;letter-spacing:-0.2px}
-    .lead{color:var(--muted);margin:0 0 18px;font-size:15px}
-
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;gap:10px;align-items:center;padding:14px 20px;border-radius:12px;
-      background:var(--gold-1);
-      color:#071217;font-weight:800;border:none;cursor:pointer;text-decoration:none;
-      box-shadow: 0 12px 40px rgba(214,162,74,0.14), 0 6px 18px rgba(0,0,0,0.4);
-      transform:translateZ(0);
-      position:relative;
-      overflow:hidden;
-    }
-    .btn::before{
-      content:"";
-      position:absolute;left:-40%;top:0;width:40%;height:100%;
-      background:linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
-      transform: skewX(-18deg) translateX(0);
-      transition:transform .9s cubic-bezier(.2,.9,.2,1);
-      mix-blend-mode:overlay;
-      pointer-events:none;
-    }
-    .btn:hover::before{transform:skewX(-18deg) translateX(260%); transition-duration:.7s}
-    .btn:active{transform:translateY(1px)}
-    .btn.ghost{
-      background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--gold-2);font-weight:700;
-      box-shadow:none;
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf8;
+      overflow-x: hidden;
     }
 
-    .meta{margin-top:12px;color:var(--muted);font-size:13px}
-
-/* ---------- Book / Cover card ---------- */
-    .book-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:18px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:center;box-shadow:var(--accent-shadow)}
-    .cover{width:220px;height:300px;border-radius:12px;overflow:hidden;box-shadow: 0 30px 80px rgba(4,6,8,0.7);border:1px solid rgba(255,255,255,0.03)}
-    .cover img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* ---------- Sections ---------- */
-    section{margin-top:30px}
-    h2{font-size:20px;margin:0 0 12px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{background:var(--panel);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .muted{color:var(--muted);font-size:14px}
-
-/* ---------- Features (o que você vai aprender) ---------- */
-    .features .card h4{margin:0 0 8px;font-size:15px}
-    .features .card p{margin:0;color:var(--muted)}
-
-/* ---------- Gallery ---------- */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      align-items:stretch;
-    }
-    .mockup{
-      position:relative;
-      border-radius:14px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.02));
-      box-shadow: 0 20px 60px rgba(2,6,23,0.6);
-      border:1px solid rgba(255,255,255,0.03);
-      transform:translateY(0);
-      transition:transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s ease;
-    }
-    .mockup img{width:100%;height:100%;object-fit:cover;display:block}
-    .mockup:hover{transform:translateY(-10px) scale(1.02); box-shadow:0 40px 120px rgba(217,162,58,0.18)}
-    .mockup .tag{
-      position:absolute;left:12px;top:12px;background:rgba(7,9,12,0.7);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--gold-2);font-size:13px;border:1px solid rgba(255,255,255,0.03)
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      transition: background-color 1s ease;
     }
 
-/* ---------- Offer strip ---------- */
-    .offer{
-      display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;border-radius:14px;background:linear-gradient(90deg, rgba(217,162,58,0.06), rgba(255,255,255,0.01));box-shadow: 0 20px 80px rgba(14,11,8,0.5);
-    }
-    .price{font-size:26px;font-weight:900;color:#071217;background:var(--gold-1);padding:8px 12px;border-radius:10px;display:inline-block}
-    .price .normal{display:inline-block;margin-left:10px;color:var(--muted);font-weight:700;font-size:13px;background:transparent;padding:0}
-
-/* ---------- Footer ---------- */
-    footer{margin-top:34px;color:var(--muted);font-size:13px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-/* ---------- Animations & Reveal ---------- */
-    .reveal{opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.2,.9,.2,1);will-change:transform,opacity}
-    .reveal.visible{opacity:1;transform:none}
-
-    .title-underline{
-      display:inline-block;
-      position:relative;
-      padding-bottom:8px;
-    }
-    .title-underline::after{
-      content:"";
-      position:absolute;left:0;bottom:0;height:6px;width:80%;
-      background:linear-gradient(90deg,var(--gold-1),var(--gold-2));
-      border-radius:999px;
-      transform:translateY(8px) scaleX(0);
-      transform-origin:left;
-      transition:transform .7s cubic-bezier(.2,.9,.2,1);
-      filter:blur(6px);
-      opacity:0.95;
-    }
-    .title-underline.revealed::after{transform:translateY(0) scaleX(1)}
-
-/* ---------- Responsivo ---------- */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr; text-align:center}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .book-card{justify-content:center}
-    }
-    @media (max-width:560px){
-      .gallery{grid-template-columns:1fr}
-      .logo{width:56px;height:56px}
-      h1{font-size:24px}
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
     }
 
-/* ====== ADIÇÕES VISUAIS PREMIUM ====== */
-    /* contador de oferta (dourado pulsante) */
-    .offer-counter {
-      margin-top:8px;
-      font-size:14px;
-      color: var(--gold-2);
-      font-weight:700;
-      text-shadow: 0 6px 18px rgba(212,162,74,0.08);
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:10px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(214,162,74,0.02));
-      border: 1px solid rgba(214,162,74,0.08);
-      backdrop-filter: blur(3px);
-      box-shadow: 0 8px 40px rgba(212,162,74,0.06);
-      transition: transform .35s ease, box-shadow .35s ease;
-    }
-    .offer-counter.spark {
-      animation: sparkle 1.2s ease-in-out;
-    }
-    @keyframes sparkle {
-      0%{ transform: scale(1); box-shadow: 0 6px 24px rgba(214,162,74,0.06) }
-      50%{ transform: scale(1.03); box-shadow: 0 12px 50px rgba(214,162,74,0.12) }
-      100%{ transform: scale(1); box-shadow: 0 6px 24px rgba(214,162,74,0.06) }
+    /* ======= FUNDOS PREMIUM POR BLOCO ======= */
+    section:nth-of-type(1) { background: linear-gradient(135deg, #fce4ec, #f8cdda); } /* Rose Gold */
+    section:nth-of-type(2) { background: linear-gradient(135deg, #fff8e1, #f7d56e); } /* Dourado */
+    section:nth-of-type(3) { background: linear-gradient(135deg, #1a1a1a, #2e2e2e); color: #fff; } /* Preto Brilhante */
+    section:nth-of-type(4) { background: linear-gradient(135deg, #fff, #fafafa); } /* Branco Perolado */
+    section:nth-of-type(5) { background: linear-gradient(135deg, #f8cdda, #fbeee6); } /* Rose Gold Final */
+
+    /* ======= ANIMAÇÕES DE ENTRADA ======= */
+    .hidden {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: all 1s ease-out;
     }
 
-    /* purchase toast no canto inferior direito (estética premium) */
+    .show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ======= BOTÕES PREMIUM ======= */
+    .btn-premium {
+      display: inline-block;
+      padding: 15px 35px;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #d4af37, #f5e6b3);
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn-premium:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+    }
+
+    /* ======= CONTADORES ======= */
+    .counter-box {
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    /* ======= NOTIFICAÇÕES ======= */
     .purchase-toast {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:220px;
-      max-width:360px;
-      background: linear-gradient(180deg, rgba(16,16,16,0.92), rgba(26,26,26,0.86));
-      border: 1px solid rgba(214,162,74,0.12);
-      color: #fff;
-      padding: 12px 14px;
-      border-radius: 12px;
-      box-shadow: 0 18px 60px rgba(12,8,4,0.6);
-      opacity: 0;
-      transform: translateY(20px) scale(.98);
-      transition: opacity .45s cubic-bezier(.2,.9,.2,1), transform .45s cubic-bezier(.2,.9,.2,1);
-      z-index: 99999;
-      pointer-events: none;
+      bottom: 30px;
+      left: 30px;
+      background: rgba(255, 255, 255, 0.85);
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      animation: fadeSlideIn 0.8s ease forwards;
+      display: none;
+      z-index: 9999;
     }
-    .purchase-toast.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: auto;
-    }
-    .purchase-toast .dot {
-      width:12px;height:12px;border-radius:50%;
-      background: radial-gradient(circle at 35% 30%, #fff, var(--gold-1));
-      box-shadow: 0 6px 20px rgba(214,162,74,0.12), 0 2px 6px rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.06);
-    }
-    .purchase-toast .msg { color: var(--gold-2); font-weight:700; font-size:14px; }
 
-/* small shimmer sparkles around toast */
-    .sparkle {
-      position:absolute;
-      width:8px;height:8px;border-radius:50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(242,196,106,0.95));
-      box-shadow: 0 6px 20px rgba(242,196,106,0.12);
-      opacity:0;
-      transform:scale(.6);
-      pointer-events:none;
-      animation: sparkleFloat 1.2s ease-in-out infinite;
-    }
-    @keyframes sparkleFloat {
-      0%{ opacity:0; transform: translateY(0) scale(.6) }
-      20%{ opacity:1; transform: translateY(-6px) scale(1) }
-      80%{ opacity:0; transform: translateY(-18px) scale(.8) }
-      100%{ opacity:0; transform: translateY(0) scale(.6) }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true">LM</div>
-        <div>
-          <div class="name">Lucas Medeiros</div>
-          <div class="sub">Autor · Especialista em Canecas Personalizadas</div>
-        </div>
-      </div>
 
-      <nav aria-label="main-navigation">
-        <a href="#about" style="color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px">Sobre</a>
-        <a href="#learn" style="color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px">O que você aprende</a>
-        <a href="#gallery" style="color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px">Galeria</a>
-        <a href="#buy" style="color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px">Comprar</a>
-      </nav>
-    </header>
-        <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="reveal" style="z-index:2">
-        <div class="kicker">LANÇAMENTO • EDIÇÃO PREMIUM</div>
-        <h1 id="hero-title">Personalized Mugs — The Art That Became an Income</h1>
-        <p class="lead muted">O guia prático e definitivo para criar a caneca perfeita: design, preparação, acabamento e fotos que vendem — tudo explicado passo a passo.</p>
-
-        <div class="cta-row" style="margin-top:14px">
-          <!-- Replace # with your purchase link when ready -->
-          <a id="buyBtn" class="btn" href="#" aria-label="Comprar eBook — sem link ainda">
-            ✨ Quero Garantir a Minha Cópia
-          </a>
-
-          <a id="previewBtn" class="btn ghost" href="#" onclick="openPreview(event)" aria-label="Solicitar amostra grátis">
-            📄 Solicitar Amostra (Grátis)
-          </a>
-        </div>
-
-        <div class="meta" style="margin-top:12px">
-          <span style="margin-right:12px">✔ Foco exclusivo: canecas de cerâmica</span>
-          <span style="margin-right:12px">✔ 20 modelos de arte prontos</span>
-          <span>✔ Checklist de produção passo a passo</span>
-        </div>
-
-        <div style="margin-top:18px">
-          <div class="reveal title-underline" style="display:inline-block">Essencial para quem quer produzir canecas perfeitas</div>
-        </div>
-      </div>
-
-      <!-- COVER / CARD -->
-      <aside class="book-card reveal" aria-hidden="false">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
-          <div class="cover" aria-hidden="true">
-            <!-- substitute with your real cover (recommended 1200x1600) -->
-            <img id="coverImg" src="7.PNG" alt="Capa do eBook Personalized Mugs — Lucas Medeiros" />
-          </div>
-
-          <div style="text-align:center">
-            <div style="font-weight:800">E-book • Guia Completo</div>
-            <div class="muted" style="font-size:13px;margin-top:6px">Aprenda a produzir canecas perfeitas e vender com margem</div>
-            <div style="margin-top:10px">
-              <a class="btn ghost" href="#buy">Saiba Mais</a>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ABOUT / AUTHOR -->
-    <section id="about" class="reveal">
-      <h2>Sobre o autor</h2>
-      <div style="display:flex;gap:14px;align-items:center;margin-top:10px;flex-wrap:wrap">
-        <img src="Foto.png .JPG.JPG" alt="Lucas Medeiros" style="width:92px;height:92px;border-radius:12px;object-fit:cover;box-shadow:0 18px 50px rgba(2,6,23,0.6)" onerror="this.src='https://images.unsplash.com/photo-1545996124-1b2fb6f4f8d8?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        <div>
-          <div style="font-weight:800">Lucas Medeiros</div>
-          <div class="muted" style="max-width:780px;margin-top:6px">
-            Especialista em produção e design de canecas personalizadas. Neste e-book Lucas reúne técnicas testadas para
-            conseguir acabamento profissional, cores vibrantes e foto-packaging que converte em vendas.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHAT YOU'LL LEARN -->
-    <section id="learn" class="reveal">
-      <h2>O que você vai aprender</h2>
-      <div class="features" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px">
-        <div class="card">
-          <h4>Preparação & dimensões</h4>
-          <p class="muted">Como ajustar seu arquivo para a circunferência ideal da caneca — sem distorções.</p>
-        </div>
-        <div class="card">
-          <h4>Materiais ideais</h4>
-          <p class="muted">Escolha de canecas, tintas e papéis que garantem durabilidade e cores fiéis após a queima.</p>
-        </div>
-        <div class="card">
-          <h4>Temperatura & tempo</h4>
-          <p class="muted">Passo a passo de processos térmicos (tempo, temperatura e pressão) para acabamento perfeito.</p>
-        </div>
-
-        <div class="card">
-          <h4>Acabamento profissional</h4>
-          <p class="muted">Como evitar bolhas, manchas e garantir aderência e brilho consistente.</p>
-        </div>
-        <div class="card">
-          <h4>Fotografia & embalagem</h4>
-          <p class="muted">Truques simples para produzir fotos que vendem usando apenas smartphone.</p>
-        </div>
-        <div class="card">
-          <h4>Modelos prontos</h4>
-          <p class="muted">20 artes prontas para imprimir — mockups e templates para começar imediatamente.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY / MOCKUPS -->
-    <section id="gallery" class="reveal" style="margin-top:26px">
-      <h2>Essas são algumas das artes que você ganhará</h2>
-      <p class="muted" style="margin-top:6px">Prévia das 6 artes inclusas no e-book — use para testar, imprimir e vender.</p>
-
-      <div class="gallery" style="margin-top:14px">
-        <!-- Replace the src with your real files in assets/ (6 slots) -->
-        <div class="mockup" role="img" aria-label="Arte bônus 1">
-          <div class="tag">Bônus 1</div>
-          <img src="1.jpg" alt="Arte bônus 1 — caneca" onerror="this.src='https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        </div>
-
-        <div class="mockup" role="img" aria-label="Arte bônus 2">
-          <div class="tag">Bônus 2</div>
-          <img src="2.jpg" alt="Arte bônus 2 — caneca" onerror="this.src='https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        </div>
-
-        <div class="mockup" role="img" aria-label="Arte bônus 3">
-          <div class="tag">Bônus 3</div>
-          <img src="3.jpg" alt="Arte bônus 3 — caneca" onerror="this.src='https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        </div>
-
-        <div class="mockup" role="img" aria-label="Arte bônus 4">
-          <div class="tag">Bônus 4</div>
-          <img src="4.jpg" alt="Arte bônus 4 — caneca" onerror="this.src='https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        </div>
-
-        <div class="mockup" role="img" aria-label="Arte bônus 5">
-          <div class="tag">Bônus 5</div>
-          <img src="5.jpg" alt="Arte bônus 5 — caneca" onerror="this.src='https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        </div>
-
-        <div class="mockup" role="img" aria-label="Arte bônus 6">
-          <div class="tag">Bônus 6</div>
-          <img src="6.jpg" alt="Arte bônus 6 — caneca" onerror="this.src='https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER'">
-        </div>
-      </div>
-    </section>
-
-    <!-- OFFER -->
-    <section id="buy" class="reveal" style="margin-top:30px">
-      <div class="offer">
-        <div style="flex:1">
-          <div style="font-size:13px;color:var(--muted)">Oferta de Lançamento — Edição Premium</div>
-          <div style="display:flex;align-items:center;gap:12px;margin-top:6px">
-            <div class="price">R$39</div>
-            <div class="normal muted">valor sugerido R$89</div>
-          </div>
-          <div class="muted" style="margin-top:8px">Inclui: guia detalhado + 20 artes prontas + checklist de produção.</div>
-          <div style="margin-top:12px">
-            <div style="font-size:13px" class="muted">Oferta válida por tempo limitado</div>
-            <!-- Offer counter adicionado (inicia em 97 conforme pediu) -->
-            <div class="offer-counter" id="offerCounter">Restam 97 cópias promocionais</div>
-          </div>
-        </div>
-
-        <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
-          <!-- Button WITHOUT link (replace href="#" with your Hotmart link when ready) -->
-          <a id="primaryBuy" class="btn" href="#" aria-label="Comprar eBook — sem link">
-            ✨ Comprar Agora
-          </a>
-          <a class="btn ghost" href="#gallery" style="padding:10px 14px">Ver Galeria</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div>© <strong>Lucas Medeiros</strong> — Personalized Mugs: The Art That Became an Income</div>
-      <div class="muted">Contato: <a href="mailto:lucasdmedeiros.10@gmail.com" style="color:var(--muted);text-decoration:underline">lucasdmedeiros.10@gmail.com</a></div>
-    </footer>
-  </div>
-
-  <!-- Purchase Notification (bottom-right premium toast) -->
-  <div class="purchase-toast" id="purchaseToast" aria-live="polite" aria-atomic="true">
-    <div class="dot" aria-hidden="true"></div>
-    <div class="msg" id="purchaseToastMsg">Alguém acabou de comprar!</div>
-    <!-- sparkle elements (will be positioned dynamically) -->
-    <div class="sparkle" id="spark1" style="left:10px; top:-8px;"></div>
-    <div class="sparkle" id="spark2" style="left:30px; top:-6px;"></div>
-  </div>
-    <!-- SCRIPTS: reveal on scroll, preview fallback, pequenos interactions e novos scripts -->
-  <script>
-    // ====== Mantive e preservei os scripts que já existiam no teu código original ======
-
-    // Reveal on scroll
-    (function(){
-      const opts = { threshold: 0.14 };
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting) {
-            e.target.classList.add('visible');
-            const underline = e.target.querySelector('.title-underline');
-            if(underline) underline.classList.add('revealed');
-            obs.unobserve(e.target);
-          }
-        });
-      }, opts);
-
-      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-    })();
-
-    // Preview email capture fallback
-    function openPreview(e){
-      e.preventDefault();
-      const email = prompt("Digite seu e-mail para receber a amostra grátis:");
-      if(!email || !email.includes("@")){ alert("E-mail inválido. Tente novamente."); return; }
-      // NOTE: aqui você pode integrar seu serviço de e-mail (Mailchimp, ConvertKit, etc.)
-      alert("Obrigado! Enviaremos a amostra para: " + email + " (conteúdo de exemplo).");
-    }
-
-    // CTA microinteraction: botão compra sem link mostra mensagem
-    document.getElementById('primaryBuy')?.addEventListener('click', function(e){
-      if(this.getAttribute('href') === '#'){
-        e.preventDefault();
-        alert('Ótimo! Assim que tiver o link de compra eu já atualizo o botão. Substitua o href="#" pelo seu link de checkout.');
-      }
-    });
-
-    // fallback cover image
-    document.getElementById('coverImg')?.addEventListener('error',function(){ this.src = 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=PLACEHOLDER' })
-
-    // Optional: tiny parallax on mouse for cover card (subtle)
-    (function(){
-      const card = document.querySelector('.book-card');
-      if(!card) return;
-      card.addEventListener('mousemove', function(ev){
-        const r = card.getBoundingClientRect();
-        const cx = r.left + r.width/2;
-        const cy = r.top + r.height/2;
-        const dx = (ev.clientX - cx)/20;
-        const dy = (ev.clientY - cy)/30;
-        card.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
-      });
-      card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
-    })();
-
-    /* ====== NOVOS RECURSOS: contador + notificação + oferta ====== */
-
-    // lista de ~100 nomes (mix de curtinhos e reconhecíveis)
-    const buyerNames = [
-      "João M.","Maria P.","Carlos S.","Ana L.","Pedro T.","Lucas R.","Fernanda B.","Sandra C.","Bruno V.","Camila F.",
-      "Thiago G.","Juliana H.","Rafael I.","Patrícia J.","Roberto K.","Carla N.","André O.","Marcia Q.","Ricardo U.","Vivian W.",
-      "Leandro X.","Clara Z.","Eduardo Y.","Daniel A.","Bianca B.","Victor C.","Giovana D.","Felipe E.","Isabela F.","Gustavo G.",
-      "Sabrina H.","Ramon I.","Priscila J.","Brenda K.","Mateus L.","Lorena M.","Diego N.","Alice O.","Marcos P.","Julio Q.",
-      "Amanda R.","José S.","Rachel T.","Gisele U.","Fábio V.","Tatiana W.","Vanessa Y.","Miguel Z","Helena A.","Roberta B.",
-      "Bruna C.","Márcio D.","Natália E.","Renato F.","Aline G.","Milena H.","Fabrício I.","Pamela K.","Célia L.","Gilmar M.",
-      "Valéria N.","Edson O.","Wesley Q.","Regina R.","Adriana S.","Cris T.","Simone U.","Luana W.","Eduarda X.","Marcelo Y",
-      "Kátia Z.","Ronaldo A.","Ana B.","Carlos D.","Claudia E.","Sergio H.","Larissa I.","Manuel J.","Antonia K","Fabiana L",
-      "Helder M","Denise N","Tiago P","Mirella Q","Robson R","Lívia S","Cíntia T","Wagner U","Julieta V","Marcos A","Paula B",
-      "Samuel C","Diana D","Arthur E","Jéssica F","Noah G","Lorena H","Rita I","Otávio J","Sofia K","Vitor L","Mayra M","Jair N"
-    ];
-
-    // configurações iniciais conforme tu pediu:
-    const INITIAL_BUYERS = 55; // começa em 55
-    const INITIAL_OFFERS = 97; // começa em 97
-
-    // util helpers
-    function randBetween(min, max){ return Math.floor(Math.random() * (max - min + 1)) + min; }
-    function safeGet(id){ return document.getElementById(id) || null; }
-
-    // inicializa o contador de compradores no carregamento (não incrementa aqui)
-    function initBuyerCounter() {
-      const el = safeGet('buyerCounter');
-      if(!el) return;
-      const stored = localStorage.getItem('buyerCount');
-      if(stored && !isNaN(parseInt(stored,10))) {
-        el.textContent = stored;
-      } else {
-        localStorage.setItem('buyerCount', INITIAL_BUYERS);
-        el.textContent = INITIAL_BUYERS;
-      }
-      // micro efeito de brilho quando abre
-      el.style.transition = 'transform .5s ease, text-shadow .5s ease';
-    }
-
-    // atualiza o contador (incrementa + anima)
-    function incrementBuyerCounter() {
-      const el = safeGet('buyerCounter');
-      if(!el) return;
-      let count = parseInt(localStorage.getItem('buyerCount') || INITIAL_BUYERS, 10);
-      count += 1;
-      localStorage.setItem('buyerCount', count);
-      el.textContent = count;
-      // brilho dourado pulse
-      el.animate([
-        { transform: 'scale(1)', textShadow: '0 6px 18px rgba(0,0,0,0)' },
-        { transform: 'scale(1.06)', textShadow: '0 18px 40px rgba(214,162,74,0.16)' },
-        { transform: 'scale(1)', textShadow: '0 6px 18px rgba(0,0,0,0)' }
-      ], { duration: 650, easing: 'cubic-bezier(.2,.9,.2,1)' });
-    }
-
-    // inicializa o contador de ofertas restantes
-    function initOfferLeft() {
-      const el = safeGet('offerCounter');
-      if(!el) return;
-      const stored = localStorage.getItem('offerLeft');
-      if(stored && !isNaN(parseInt(stored,10))) {
-        el.textContent = `Restam ${stored} cópias promocionais`;
-      } else {
-        localStorage.setItem('offerLeft', INITIAL_OFFERS);
-        el.textContent = `Restam ${INITIAL_OFFERS} cópias promocionais`;
-      }
-    }
-
-    // decrementa oferta com proteção (não menor que 0)
-    function decrementOfferLeft() {
-      const el = safeGet('offerCounter');
-      if(!el) return;
-      let left = parseInt(localStorage.getItem('offerLeft') || INITIAL_OFFERS, 10);
-      if(left <= 0) {
-        left = 0;
-        localStorage.setItem('offerLeft', left);
-        el.textContent = `Esgotado`;
-        return;
-      }
-      // reduz de forma randômica 0 ou 1 (simula compras reais com menor chance de reduzir)
-      const reduce = Math.random() < 0.92 ? 1 : 0; // 92% das vezes reduz 1
-      left = Math.max(0, left - reduce);
-      localStorage.setItem('offerLeft', left);
-      el.textContent = `Restam ${left} cópias promocionais`;
-
-      // spark animation class
-      el.classList.add('spark');
-      setTimeout(()=> el.classList.remove('spark'), 900);
-    }
-
-    // mostrar toast de compra (com animação - canto inferior direito)
-    function showPurchaseToast(nameText) {
-      const toast = safeGet('purchaseToast');
-      const msg = safeGet('purchaseToastMsg');
-      if(!toast || !msg) return;
-      msg.textContent = nameText;
-      // position adjustment for small viewports (avoid covering CTA)
-      toast.classList.add('show');
-
-      // cria pequenos sparks aleatórios posicionados ao redor do toast
-      const s1 = safeGet('spark1'), s2 = safeGet('spark2');
-      if(s1 && s2) {
-        s1.style.opacity = 1;
-        s2.style.opacity = 1;
-        // randomize positions slightly
-        s1.style.left = `${randBetween(6, 18)}px`;
-        s1.style.top = `${randBetween(-12, -4)}px`;
-        s2.style.left = `${randBetween(24, 40)}px`;
-        s2.style.top = `${randBetween(-10, 0)}px`;
-      }
-
-      // auto hide
-      setTimeout(()=> {
-        toast.classList.remove('show');
-      }, 4200);
-    }
-
-    // função que simula uma "compra" — combina incremento, toast e oferta
-    function simulatePurchase() {
-      const name = buyerNames[Math.floor(Math.random() * buyerNames.length)];
-      // frases variadas
-      const templates = [
-        `${name} acabou de comprar!`,
-        `${name} garantiu a cópia agora.`,
-        `${name} garantiu a edição premium!`,
-        `${name} acabou de garantir a dela.`,
-        `${name} finalizou a compra!`
-      ];
-      const text = templates[Math.floor(Math.random() * templates.length)];
-      incrementBuyerCounter();
-      // só decrementa oferta se ainda houver
-      decrementOfferLeft();
-      showPurchaseToast(text);
-    }
-
-    // Inicia o cycle de simulação — intervalo aleatório entre 10 e 25s
-    function startPurchaseCycle() {
-      // já agendamos primeiro evento com leve delay
-      const scheduleNext = () => {
-        const delay = randBetween(10000, 25000); // 10s - 25s
-        setTimeout(() => {
-          simulatePurchase();
-          scheduleNext();
-        }, delay);
-      };
-      // start
-      scheduleNext();
-    }
-
-    // Adiciona pequeno contador incremental ao entrar na página (visita)
-    function incrementOnVisit() {
-      // para evitar que cada reload do mesmo usuário incremente duas vezes em sequência,
-      // vamos usar um token de visita com TTL curto (por ex: 3 minutos)
-      try {
-        const lastVisit = localStorage.getItem('lastVisitToken');
-        const now = Date.now();
-        if(!lastVisit || (now - parseInt(lastVisit,10)) > (3 * 60 * 1000)) {
-          // considera nova visita -> incrementa 50% de chance pra não exagerar
-          if(Math.random() < 0.6) {
-            incrementBuyerCounter();
-          }
-          localStorage.setItem('lastVisitToken', String(now));
-        }
-      } catch(e){ /* silence */ }
-    }
-
-    // Quando a página carrega
-    window.addEventListener('load', () => {
-      // inicializações
-      initBuyerCounter();
-      initOfferLeft();
-
-      // mostra uma primeira notificação suave (não invasiva)
-      setTimeout(() => {
-        // exibe um primeiro toast com um nome aleatório
-        const n = buyerNames[Math.floor(Math.random() * buyerNames.length)];
-        showPurchaseToast(`${n} acabou de comprar!`);
-      }, 1800);
-
-      // start ciclo de simulação
-      startPurchaseCycle();
-
-      // incrementa na visita (opcional leve incremento)
-      incrementOnVisit();
-
-      // accessibility: close toast on click
-      const toast = safeGet('purchaseToast');
-      if(toast) {
-        toast.addEventListener('click', () => toast.classList.remove('show'));
-      }
-    });
-
-    /* ====== Inserir elemento de buyerCounter dinamicamente se não existir (compatibilidade) ====== */
-    (function ensureBuyerCounterElement() {
-      // Se já existe dentro do DOM (talvez você já tenha inserido), não duplicar.
-      if(document.getElementById('buyerCounter')) return;
-      // vamos procurar a seção #buy e inserir logo acima do botão comprar
-      const buySection = document.getElementById('buy');
-      if(!buySection) return;
-      // criar container discreto e alinhado ao design
-      const counterWrapper = document.createElement('div');
-      counterWrapper.style.textAlign = 'center';
-      counterWrapper.style.marginTop = '18px';
-      counterWrapper.innerHTML = `<div style="font-size:16px;font-weight:800;color:var(--gold-2)">Já são <span id="buyerCounter">${INITIAL_BUYERS}</span> compradores satisfeitos!</div>`;
-      // inserir antes da seção buy (para não quebrar layout)
-      buySection.parentNode.insertBefore(counterWrapper, buySection.nextSibling);
-      // inicializa valor real
-      initBuyerCounter();
-    })();
-
-    /* ====== OPTIONAL: proteger localStorage errors ====== */
-    window.addEventListener('error', function(e){
-      // se localStorage falhar (modo privado), não deixa o site quebrar
-      // (silencioso, dev console terá o erro)
-    });
-  </script>
-<!-- 🔥 TESTE DE CONTADORES E NOTIFICAÇÕES -->
+<body><!-- ===== PARTE 2: Estilos por bloco + animações de entrada (Cole logo após <div class="wrap">) ===== -->
 <style>
-  ..counter-box {
-  text-align:center;
-  margin-top:60px;
-  font-weight:700;
-  font-size:1.2rem;
-  background:linear-gradient(90deg,#d4a24a,#f2c46a);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation: pulseGold 2s infinite alternate, fadeIn 1.5s ease-out forwards;
-  opacity:0;
-}
+  /* backgrounds premium específicos (mais controle que nth-of-type) */
+  .bg-rose { background: linear-gradient(135deg, #fbe8ec 0%, #f7d7d0 100%); color: #1a1a1a; }
+  .bg-gold { background: linear-gradient(135deg, #fff8e6 0%, #f6d57a 100%); color: #111; }
+  .bg-black { background: linear-gradient(135deg, #0b0b0b 0%, #262626 100%); color: #fff; }
+  .bg-pearl { background: linear-gradient(135deg, #ffffff 0%, #fbfbfb 100%); color: #111; }
 
-@keyframes pulseGold {
-  from {opacity:0.8; text-shadow:0 0 10px rgba(242,196,106,0.3);}
-  to {opacity:1; text-shadow:0 0 25px rgba(242,196,106,0.6);}
-}
-
-@keyframes fadeIn {
-  to {opacity:1; transform:translateY(0);}
-}@keyframes sparkle {
-  0%,100% { text-shadow: 0 0 10px #f2c46a, 0 0 20px #d4a24a; }
-  50% { text-shadow: 0 0 25px #fff4c2, 0 0 40px #f2c46a; }
-}
-#offerCounter {
-  animation: sparkle 3s infinite ease-in-out;
-}
-  .purchase-toast {
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:rgba(15,15,15,0.92);
-    border:1px solid rgba(255,215,150,0.25);
-    box-shadow:0 0 15px rgba(255,215,150,0.3);
-    color:#f2c46a;
-    padding:14px 22px;
-    border-radius:14px;
-    font-weight:600;
-    opacity:0;
-    transform:translateY(40px);
-    transition:opacity .8s ease,transform .8s ease;
-    z-index:9999;
+  /* override de padding/spacing por bloco (visual premium) */
+  .wrap > header, .wrap > section, .wrap > footer, .wrap > aside {
+    border-radius: 18px;
+    margin-bottom: 22px;
+    padding: 34px;
+    transition: background 0.9s ease, transform 0.7s cubic-bezier(.2,.9,.2,1), box-shadow .7s ease;
   }
-  ..purchase-toast {
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:rgba(15,15,15,0.95);
-  border:1px solid rgba(255,215,150,0.25);
-  box-shadow:0 0 15px rgba(255,215,150,0.3);
-  color:#f2c46a;
-  padding:14px 22px;
-  border-radius:14px;
-  font-weight:600;
-  opacity:0;
-  transform:translateY(40px) scale(0.95);
-  transition:opacity .8s ease, transform .8s ease;
-  z-index:9999;
-  backdrop-filter:blur(6px);
-}
 
-.purchase-toast.show {
-  opacity:1;
-  transform:translateY(0) scale(1);
-  animation: glowToast 2.5s ease-in-out infinite alternate;
-}
+  /* card sombreado discretamente */
+  .wrap > header, .wrap > aside, .wrap > section:not(#gallery) {
+    box-shadow: 0 20px 60px rgba(8,6,6,0.18);
+  }
 
-@keyframes glowToast {
-  from { box-shadow:0 0 15px rgba(255,215,150,0.3); }
-  to { box-shadow:0 0 35px rgba(255,215,150,0.7); }
-}
+  /* animação: entrar da direita (aplicada via JS adicionando classe .hidden/.show) */
+  .hidden-sect {
+    opacity: 0;
+    transform: translateX(60px);
+    will-change: transform, opacity;
+  }
+  .show-sect {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.9s ease;
+  }
+
+  /* títulos premium por seção */
+  .wrap h2, .wrap h1 {
+    margin: 0 0 12px 0;
+    line-height: 1.06;
+  }
+  .wrap h2 {
+    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.6px;
+  }
+
+  /* botão premium — mix com teu .btn existente (mantém comportamento) */
+  .btn-premium {
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-weight: 800;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(0,0,0,0.28); }
+
+  /* mockups: leve flutuação e máscara brilhante por cima */
+  .mockup {
+    overflow: hidden;
+    border-radius: 14px;
+    position: relative;
+    transition: transform .6s cubic-bezier(.2,.9,.2,1), box-shadow .6s ease;
+  }
+  .mockup img { display:block; width:100%; height:100%; object-fit:cover; }
+  .mockup.float {
+    animation: floatY 6s ease-in-out infinite;
+  }
+  @keyframes floatY {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* destaque visual para o contador e preço (pulse discreto) */
+  .price { transition: transform .4s ease; }
+  .price.pulse { animation: pricePulse 2.2s ease-in-out infinite; }
+  @keyframes pricePulse {
+    0% { transform: scale(1); filter: drop-shadow(0 6px 18px rgba(212,162,74,0.06)); }
+    50% { transform: scale(1.03); filter: drop-shadow(0 18px 50px rgba(212,162,74,0.12)); }
+    100% { transform: scale(1); filter: drop-shadow(0 6px 18px rgba(212,162,74,0.06)); }
+  }
+
+  /* responsividade: reduz padding em telas pequenas */
+  @media (max-width: 980px) {
+    .wrap > header, .wrap > aside, .wrap > section, .wrap > footer { padding: 22px; }
+  }
 </style>
 
-<div class="counter-box">
-  Já são <span id="buyerCounter">55</span> compradores satisfeitos!<br>
-  <small>Restam apenas <span id="offerCounter">97</span> cópias promocionais</small>
-</div>
+<script>
+  (function(){
+    // Aplica classes de fundo em ordem premium: rose -> gold -> black -> pearl -> rose...
+    const bgClasses = ['bg-rose','bg-gold','bg-black','bg-pearl'];
+    // Seleciona blocos que vamos estilizar (mantemos tudo que já existe)
+    const selectors = ['header', 'section', 'aside.book-card', 'footer'];
+    // cria lista linear de elementos dentro da .wrap que correspondem aos seletores (na ordem do DOM)
+    const wrap = document.querySelector('.wrap');
+    if(!wrap) return;
 
-<div class="purchase-toast" id="purchaseToast"></div>
+    // coletar nodes que faremos efeito (manter ordem do DOM)
+    const nodes = [];
+    wrap.childNodes.forEach(n => {
+      if(n.nodeType !== 1) return; // elemento
+      const tag = n.tagName.toLowerCase();
+      if(tag === 'header' || tag === 'footer' || (tag === 'aside' && n.classList.contains('book-card')) || tag === 'section') {
+        nodes.push(n);
+      }
+    });
+
+    // Atribui background cyclicamente e aplica classes de animação inicial
+    nodes.forEach((el, idx) => {
+      // Evitar sobrescrever se já tiveres uma classe de background manual
+      const hasBg = el.classList.contains('bg-rose') || el.classList.contains('bg-gold') || el.classList.contains('bg-black') || el.classList.contains('bg-pearl');
+      if(!hasBg) {
+        const cls = bgClasses[idx % bgClasses.length];
+        el.classList.add(cls);
+      }
+      // adiciona classe escondida para animação de entrada
+      el.classList.add('hidden-sect');
+
+      // marca elementos importantes com botões premium
+      // se o elemento contém .btn ou .btn.ghost, adicione estilo premium
+      const btns = el.querySelectorAll('.btn');
+      btns.forEach(b => b.classList.add('btn-premium'));
+    });
+
+    // IntersectionObserver para revelar (rolando da direita)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          const el = entry.target;
+          // small stagger depending on position within node
+          const children = Array.from(el.querySelectorAll(':scope > *'));
+          // reveal parent
+          el.classList.add('show-sect');
+          el.classList.remove('hidden-sect');
+          // reveal inner children with small delays
+          children.forEach((child, i) => {
+            child.style.transition = `opacity 0.8s ease ${i*90}ms, transform 0.8s cubic-bezier(.2,.9,.2,1) ${i*90}ms`;
+            child.style.opacity = 1;
+            child.style.transform = 'translateX(0)';
+          });
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+    // Observe each collected node
+    nodes.forEach((n, idx) => {
+      // slight initial offset for children to allow staggered reveal
+      n.querySelectorAll('*').forEach(ch => {
+        ch.style.opacity = 0;
+        ch.style.transform = 'translateX(18px)';
+      });
+      io.observe(n);
+    });
+
+    // Add subtle float animation to mockups for visual premium
+    const mockups = document.querySelectorAll('.mockup');
+    mockups.forEach((m, i) => {
+      m.classList.add('float');
+      // add slight rotate on hover
+      m.addEventListener('mouseenter', () => m.style.transform = 'translateY(-8px) rotate(-0.4deg) scale(1.02)');
+      m.addEventListener('mouseleave', () => m.style.transform = '');
+    });
+
+    // aplica pulse no price (se existir)
+    const priceEl = document.querySelector('.price');
+    if(priceEl) priceEl.classList.add('pulse');
+
+    // Accessibility: enable keyboard focus outlines for .btn-premium
+    document.querySelectorAll('.btn-premium').forEach(b => {
+      b.addEventListener('focus', ()=> b.style.boxShadow = '0 0 0 4px rgba(212,162,74,0.12)');
+      b.addEventListener('blur', ()=> b.style.boxShadow = '');
+    });
+
+    // tiny optimization: remove pre-existing legacy reveal classes to avoid conflicts (não remove conteúdo)
+    document.querySelectorAll('.reveal').forEach(r => {
+      // keep class but avoid duplicate transition fights
+      r.style.transition = 'none';
+      // allow intersection observer above to handle reveal
+    });
+
+    // Done - nodes now styled + will animate when scrolled into view
+  })();
+</script>
+<!-- ===== FIM PARTE 2 ===== -->
+  <!-- ===== PARTE 3: Contador dinâmico de compradores + toasts ===== -->
+<style>
+  /* Toasts simples e premium */
+  .toast {
+    position: fixed;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 248, 230, 0.96);
+    color: #111;
+    padding: 14px 22px;
+    border-radius: 12px;
+    box-shadow: 0 14px 38px rgba(0,0,0,0.18);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    z-index: 9999;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+  }
+</style>
 
 <script>
-  // 🔢 Contador de compradores
-  let buyers = localStorage.getItem('buyersCount') || 55;
-  document.getElementById('buyerCounter').innerText = buyers;
+  (function(){
+    // Inicializa contador persistente
+    const storageKey = 'contador_compradores';
+    let count = parseInt(localStorage.getItem(storageKey)) || 72; // valor inicial
+    const contadorEl = document.querySelector('#contador');
+    if(contadorEl) contadorEl.textContent = count;
 
-  function incrementBuyers(){
-    buyers++;
-    localStorage.setItem('buyersCount', buyers);
-    document.getElementById('buyerCounter').innerText = buyers;
-  }
-  setInterval(()=>{
-    if(Math.random() < 0.6) incrementBuyers();
-  }, Math.random()*10000+15000);
+    // Nomes fictícios para toasts
+    const firstNames = ["Lucas","Mariana","Rafael","Julia","Carlos","Fernanda","Thiago","Amanda","Gabriel","Patrícia"];
+    const lastNames = ["Silva","Santos","Oliveira","Pereira","Costa","Almeida","Medeiros","Rodrigues","Lima","Gomes"];
 
-  // ⏳ Contador de cópias restantes
-  let copies = localStorage.getItem('copiesLeft') || 97;
-  document.getElementById('offerCounter').innerText = copies;
-
-  function decreaseCopies(){
-    if(copies > 3){
-      copies--;
-      localStorage.setItem('copiesLeft', copies);
-      document.getElementById('offerCounter').innerText = copies;
+    // Função para gerar nome + sobrenome aleatório
+    function randomName() {
+      const first = firstNames[Math.floor(Math.random()*firstNames.length)];
+      const last = lastNames[Math.floor(Math.random()*lastNames.length)];
+      return `${first} ${last}`;
     }
-  }
-  setInterval(()=>{
-    if(Math.random() < 0.4) decreaseCopies();
-  }, Math.random()*20000+30000);
 
-  // 💬 Notificações animadas
-  const names = ["João M.","Maria P.","Lucas D.","Ana R.","Pedro H.","Larissa F.","Tiago S.","Carla T.","Rafael G.","Juliana M.","André V.","Beatriz N.","Felipe C.","Marina K.","Eduardo A."];
-  const toast = document.getElementById('purchaseToast');
+    // Cria toast no DOM
+    function showToast(name) {
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = `${name} acabou de adquirir o eBook!`;
+      document.body.appendChild(t);
+      setTimeout(() => t.classList.add('show'), 50);
+      setTimeout(() => {
+        t.classList.remove('show');
+        setTimeout(() => t.remove(), 700);
+      }, 4000);
+    }
 
-  function showToast(){
-    const name = names[Math.floor(Math.random()*names.length)];
-    toast.innerText = `${name} acabou de comprar!`;
-    toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'), 5000);
-  }
-  setInterval(()=>{
-    if(Math.random()<0.8) showToast();
-  }, Math.random()*15000+10000);
+    // Incremento automático
+    function incrementCounter() {
+      const increment = 1; // pode variar se quiser
+      count += increment;
+      if(contadorEl) contadorEl.textContent = count;
+      localStorage.setItem(storageKey, count);
+      // exibe toast
+      showToast(randomName());
+    }
+
+    // Intervalo aleatório entre 10 e 25 segundos
+    function scheduleNext() {
+      const ms = 10000 + Math.random()*15000;
+      setTimeout(() => {
+        incrementCounter();
+        scheduleNext();
+      }, ms);
+    }
+
+    // Inicia loop
+    scheduleNext();
+  })();
 </script>
-<!-- 🔥 FIM TESTE -->
+<!-- ===== FIM PARTE 3 ===== -->
