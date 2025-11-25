@@ -1,415 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Curso Master em Designer de Sobrancelhas — Mari Vivía</title>
-  <meta name="description" content="Curso Master em Designer de Sobrancelhas com Mari Vivía — mapeamento avançado, simetria, correções e técnicas exclusivas. Transforme sua carreira." />
-  <!-- Open Graph -->
-  <meta property="og:title" content="Curso Master em Designer de Sobrancelhas — Mari Vivía" />
-  <meta property="og:description" content="Domine técnicas avançadas de sobrancelhas e torne-se uma Master no mercado de beleza." />
-  <meta property="og:image" content="assets/og-image.jpg" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="assets/favicon.png" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Curso Master em Designer de Sobrancelhas — Mari Vivía</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#0f0b0b;
-      --rose-1: #f7d9d6;
-      --rose-2: #f2c5b8;
-      --gold-1: #c8a15a;
-      --gold-2: #e6c88a;
-      --card: rgba(255,255,255,0.04);
-      --glass: rgba(255,255,255,0.03);
-      --accent-grad: linear-gradient(135deg, rgba(242,197,184,0.12), rgba(200,161,90,0.08));
-      --text: #fff;
-      --muted: rgba(255,255,255,0.7);
+<style>
+    body {
+        margin: 0;
+        background: #0f0b0b;
+        font-family: 'Inter', sans-serif;
+        color: white;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: radial-gradient(1200px 500px at 10% 10%, rgba(200,161,90,0.03), transparent),
-                  radial-gradient(900px 400px at 90% 90%, rgba(242,197,184,0.02), transparent),
-                  #0b0b0b;
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding-bottom:80px;
+    header {
+        text-align: center;
+        padding: 40px 20px;
     }
 
-    /* container */
-    .container{
-      max-width:1100px;
-      margin:40px auto;
-      padding:28px;
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 42px;
+        margin: 0;
+        background: linear-gradient(90deg, #f7d9d6, #c8a15a);
+        -webkit-background-clip: text;
+        color: transparent;
     }
 
-    /* header */
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:28px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      color:var(--text);
-    }
-    .brand img{width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,0.6);}
-    .brand h1{
-      font-family: "Playfair Display", serif;
-      margin:0;
-      font-size:18px;
-      letter-spacing:0.2px;
-    }
-    .brand p{margin:0;font-size:12px;color:var(--muted);}
-
-    .cta-header{
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .btn{
-      background: linear-gradient(90deg, rgba(242,197,184,1), rgba(200,161,90,1));
-      color:#081018;
-      border:none;
-      padding:12px 18px;
-      font-weight:600;
-      border-radius:10px;
-      cursor:pointer;
-      box-shadow:0 6px 18px rgba(200,161,90,0.12);
-      transition:transform .18s ease, box-shadow .18s ease;
-      text-decoration:none;
-    }
-    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(200,161,90,0.18);}
-
-    /* hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
-      align-items:center;
-      margin-bottom:36px;
-    }
-    .hero-card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:18px;
-      padding:30px;
-      box-shadow: 0 8px 40px rgba(2,2,2,0.6);
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-    .kicker{
-      display:inline-block;
-      font-size:13px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:linear-gradient(90deg, rgba(242,197,184,0.12), rgba(200,161,90,0.08));
-      color:var(--muted);
-      margin-bottom:12px;
-    }
-    .promo-title{
-      font-family: "Playfair Display", serif;
-      font-size:32px;
-      margin:6px 0 10px 0;
-      line-height:1.02;
-    }
-    .lead{
-      color:var(--muted);
-      margin-bottom:18px;
-      font-size:15px;
-    }
-    .hero-features{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
-    .pill{
-      background:var(--card);
-      padding:10px 12px;
-      border-radius:999px;
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,0.03);
+    h2 {
+        font-family: 'Playfair Display', serif;
+        color: #f7d9d6;
+        text-align: center;
     }
 
-    /* price / CTA box */
-    .cta-box{
-      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:center;
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .price{
-      font-family: "Playfair Display", serif;
-      font-size:28px;
-      color:var(--gold-2);
-      margin:0;
-    }
-    .small{font-size:13px;color:var(--muted)}
-    .btn-cta{width:100% ;text-align:center;padding:12px 14px;font-weight:700;border-radius:10px}
-
-    /* instructor card */
-    .instructor{
-      display:flex;
-      gap:16px;
-      align-items:center;
-      margin-top:18px;
-    }
-    .instructor img{
-      width:76px;height:76px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.03);
-      box-shadow:0 8px 30px rgba(0,0,0,0.5);
-    }
-    .instructor .bio{font-size:14px;color:var(--muted)}
-
-    /* sections */
-    section{margin-bottom:28px}
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:18px;
-    }
-    .card{
-      background:var(--glass);
-      border-radius:12px;
-      padding:18px;
-      border:1px solid rgba(255,255,255,0.03);
-      min-height:120px;
-    }
-    .card h3{margin:0 0 8px 0;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-
-    /* curriculum list */
-    .curriculum {display:flex;flex-direction:column;gap:10px}
-    .lesson{
-      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);
-      display:flex;justify-content:space-between;align-items:center;
-    }
-    .lesson strong{font-size:14px}
-    .lesson span{color:var(--muted);font-size:13px}
-
-    /* testimonials */
-    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .testimonial{padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
-    .testimonial p{font-size:14px;color:var(--muted);margin:0 0 10px 0}
-    .testimonial .who{font-weight:700;font-size:13px}
-
-    /* faq */
-    .faq .q{font-weight:600;margin-bottom:6px}
-    .faq .a{color:var(--muted);margin-bottom:12px}
-
-    /* footer */
-    footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;padding:24px 0}
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:repeat(2,1fr)}
-      .testimonials{grid-template-columns:1fr}
-    }
-    @media (max-width:560px){
-      .grid-3{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
-      .brand h1{font-size:16px}
-      .promo-title{font-size:26px}
+    p {
+        text-align: center;
+        color: #ddc9c9;
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 10px auto;
     }
 
-    /* subtle entrance */
-    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .7s forwards}
-    @keyframes fadeUp{to{opacity:1;transform:none}}
-  </style>
+    .section {
+        max-width: 900px;
+        margin: 30px auto;
+        background: rgba(255,255,255,0.05);
+        padding: 30px;
+        border-radius: 18px;
+        border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .btn {
+        display: block;
+        width: max-content;
+        margin: 25px auto;
+        padding: 16px 40px;
+        font-size: 20px;
+        font-weight: 600;
+        background: linear-gradient(90deg, #c8a15a, #f7d9d6);
+        color: #000;
+        border-radius: 40px;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.08);
+        background: linear-gradient(90deg, #f7d9d6, #c8a15a);
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        color: #caaaaa;
+        font-size: 14px;
+    }
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <a class="brand" href="#">
-        <img src="assets/logo.png" alt="Logo Mari Vivía" />
-        <div>
-          <h1>Curso Master em Designer de Sobrancelhas</h1>
-          <p>Com Mari Vivía — Especialista em Sobrancelhas</p>
-        </div>
-      </a>
 
-      <div class="cta-header">
-        <a href="#sobre" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);">Saiba Mais</a>
-        <a id="buy-top" class="btn" href="HOTMART_LINK" target="_blank" rel="noopener">INSCREVA-SE</a>
-      </div>
-    </header>
+<header>
+    <h1>Curso Master em Designer de Sobrancelhas</h1>
+    <p>Com Mari Vivía — Especialista em Sobrancelhas</p>
+</header>
 
-    <main>
-      <div class="hero">
-        <div class="hero-card fade-up" style="animation-delay:.05s">
-          <span class="kicker">VAGAS LIMITADAS</span>
-          <h2 class="promo-title">Curso Master em Designer de Sobrancelhas</h2>
-          <p class="lead">Técnicas avançadas, mapeamento profissional, correções complexas e o método prático para você subir de nível profissional e fidelizar clientes.</p>
+<div class="section">
+    <h2>Domine as técnicas que colocam você no topo</h2>
+    <p>
+        O Curso Master em Designer de Sobrancelhas é o treinamento mais completo para quem deseja se tornar referência no mercado da beleza.
+        Aprenda técnicas avançadas, mapeamento preciso, simetria real e segredos profissionais com Mari Vivía.
+    </p>
+</div>
 
-          <div class="hero-features">
-            <div class="pill">Mapeamento Avançado</div>
-            <div class="pill">Simetria Profissional</div>
-            <div class="pill">Correções Complexas</div>
-            <div class="pill">Aulas Práticas</div>
-          </div>
+<div class="section">
+    <h2>O que você vai aprender</h2>
+    <p>✔ Mapeamento avançado<br>
+       ✔ Técnicas profissionais<br>
+       ✔ Correções complexas<br>
+       ✔ Design perfeito e simétrico<br>
+       ✔ Segredos das designers de elite</p>
+</div>
 
-          <div style="display:flex;gap:12px;align-items:center">
-            <a class="btn btn-cta" href="HOTMART_LINK" target="_blank" rel="noopener">Quero me inscrever</a>
-            <a class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)" href="#curriculo">Ver currículo</a>
-          </div>
+<div class="section">
+    <h2>Garanta sua vaga</h2>
+    <a class="btn" href="#" target="_blank">Quero entrar no Curso Master</a>
+    <p><small>Vagas limitadas</small></p>
+</div>
 
-          <div class="instructor" style="margin-top:14px">
-            <img src="assets/instructor.jpg" alt="Mari Vivía" />
-            <div>
-              <div style="font-weight:700">Mari Vivía</div>
-              <div class="bio">Especialista em sobrancelhas • +5 anos de experiência • Formação em técnicas avançadas e correções</div>
-            </div>
-          </div>
-        </div>
+<footer>
+    © 2025 Curso Master de Sobrancelhas — Mari Vivía
+</footer>
 
-        <aside class="cta-box fade-up" style="animation-delay:.12s">
-          <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
-            <div>
-              <div class="small">Investimento</div>
-              <div class="price">Preço Especial</div>
-              <div class="small">Parcelamento disponível na Hotmart</div>
-            </div>
-            <div style="width:96px;height:96px;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.5)">
-              <img src="assets/hero.jpg" alt="Preview" style="width:100%;height:100%;object-fit:cover" />
-            </div>
-          </div>
-
-          <a href="HOTMART_LINK" class="btn btn-cta" target="_blank" rel="noopener">GARANTIR MINHA VAGA</a>
-          <div style="font-size:13px;color:var(--muted)">Garantia de satisfação de 7 dias (conforme política da plataforma)</div>
-        </aside>
-      </div>
-
-      <!-- Features -->
-      <section id="sobre">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:12px">
-          <h2 style="margin:0;font-family:'Playfair Display', serif">O que você vai aprender</h2>
-          <div style="color:var(--muted)">Formação prática e rápida para resultados reais</div>
-        </div>
-
-        <div class="grid-3 fade-up" style="animation-delay:.16s">
-          <div class="card">
-            <h3>Mapeamento Avançado</h3>
-            <p>Aprenda a mapear cada formato de rosto com precisão de mestre — técnica passo a passo para simetria perfeita.</p>
-          </div>
-          <div class="card">
-            <h3>Correções e Retoques</h3>
-            <p>Resolva sobrancelhas com cicatrizes, falhas e assimetrias usando técnicas profissionais de correção.</p>
-          </div>
-          <div class="card">
-            <h3>Design Natural</h3>
-            <p>Crie resultados naturais e harmônicos que aumentam a confiança e fidelizam clientes.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Curriculum -->
-      <section id="curriculo" class="fade-up" style="animation-delay:.22s">
-        <h2 style="font-family:'Playfair Display', serif">Currículo do Curso</h2>
-        <div class="curriculum" style="margin-top:12px">
-          <div class="lesson"><strong>Módulo 1 - Fundamentos</strong><span>Introdução, materiais, biossegurança</span></div>
-          <div class="lesson"><strong>Módulo 2 - Mapeamento</strong><span>Técnicas avançadas de mapeamento</span></div>
-          <div class="lesson"><strong>Módulo 3 - Correções</strong><span>Assimetrias, cicatrizes, alopecias</span></div>
-          <div class="lesson"><strong>Módulo 4 - Técnicas Hair-by-Hair</strong><span>Prática passo a passo</span></div>
-          <div class="lesson"><strong>Módulo 5 - Atendimento profissional</strong><span>Consultoria, precificação e fidelização</span></div>
-        </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section class="fade-up" style="animation-delay:.28s">
-        <h2 style="font-family:'Playfair Display', serif">Depoimentos</h2>
-        <div class="testimonials" style="margin-top:12px">
-          <div class="testimonial">
-            <p>“O curso transformou minha forma de atender — agora os resultados são previsíveis e meus clientes voltam sempre.”</p>
-            <div class="who">— Alessandra, Designer de Sobrancelhas</div>
-          </div>
-          <div class="testimonial">
-            <p>“Aprendi a resolver casos que antes eu evitava. Técnica clara, prática e com muito conteúdo útil.”</p>
-            <div class="who">— Camila, Técnica</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About instructor -->
-      <section class="fade-up" style="animation-delay:.34s">
-        <h2 style="font-family:'Playfair Display', serif">Sobre a professora</h2>
-        <div style="display:flex;gap:18px;align-items:center;margin-top:12px;flex-wrap:wrap">
-          <img src="assets/instructor.jpg" alt="Mari Vivía" style="width:160px;height:160px;border-radius:12px;object-fit:cover;box-shadow:0 8px 40px rgba(0,0,0,0.55)" />
-          <div style="max-width:760px">
-            <h3 style="margin:0">Mari Vivía — Especialista em Sobrancelhas</h3>
-            <p style="color:var(--muted);margin-top:8px">
-              Mari Vivía é especialista em design de sobrancelhas com anos de experiência em atendimentos clínicos e formação de profissionais. Seu método combina estética, técnica e atendimento estratégico para resultados que fidelizam clientes.
-            </p>
-            <ul style="color:var(--muted);margin-top:10px">
-              <li>Formação avançada em mapeamento e correção</li>
-              <li>Mais de 1.000 atendimentos realizados</li>
-              <li>Aulas práticas e suporte pós-curso</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="fade-up" style="animation-delay:.4s">
-        <h2 style="font-family:'Playfair Display', serif">Perguntas Frequentes</h2>
-        <div class="faq" style="margin-top:12px">
-          <div>
-            <div class="q">Como acesso as aulas?</div>
-            <div class="a">As aulas ficam disponíveis em área de alunos na plataforma escolhida (Hotmart). Você recebe o acesso imediatamente após a confirmação do pagamento.</div>
-          </div>
-
-          <div>
-            <div class="q">Preciso de experiência prévia?</div>
-            <div class="a">Não — o curso foi desenhado para iniciantes e profissionais que queiram aprimorar técnicas avançadas.</div>
-          </div>
-
-          <div>
-            <div class="q">Há certificado?</div>
-            <div class="a">Sim — certificado digital ao completar o curso.</div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div style="margin-bottom:10px">Pronto para transformar sua carreira? <a href="HOTMART_LINK" target="_blank" rel="noopener" style="color:var(--gold-2);font-weight:700">Inscreva-se agora</a></div>
-      <div>&copy; <span id="year"></span> Mari Vivía • Curso Master em Designer de Sobrancelhas</div>
-    </footer>
-  </div>
-
-  <script>
-    // small helpers
-    document.getElementById('year').innerText = new Date().getFullYear();
-
-    // Replace HOTMART_LINK in runtime if present as data attribute (optionally)
-    // You can also set a global JS variable here with the real link.
-    // Example: window.HOTMART_LINK = 'https://go.hotmart.com/SEU_LINK';
-    (function(){
-      const HOT = 'HOTMART_LINK';
-      document.querySelectorAll('a[href="HOTMART_LINK"]').forEach(a=>{
-        // If you already set window.HOTMART_LINK, use it; otherwise leave placeholder.
-        if(window.HOTMART_LINK) a.href = window.HOTMART_LINK;
-      });
-    })();
-
-    // very small reveal animations on load
-    window.addEventListener('load', ()=>{
-      document.querySelectorAll('.fade-up').forEach((el,i)=>{
-        el.style.animationDelay = (0.05 + i*0.05) + 's';
-      });
-    });
-  </script>
 </body>
 </html>
