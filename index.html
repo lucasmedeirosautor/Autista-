@@ -19,23 +19,25 @@ body {
     overflow-x: hidden;
 }
 
-/* Partículas rosas brilhando */
-@keyframes particles {
-  0% { background-position: 0 0; }
-  100% { background-position: 4000px 4000px; }
-}
-
 #particles {
     position: fixed;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-image: radial-gradient(2px 2px at 20px 20px, rgba(255,200,200,0.35), transparent),
-                      radial-gradient(2px 2px at 100px 80px, rgba(255,140,180,0.25), transparent),
-                      radial-gradient(2px 2px at 200px 150px, rgba(255,220,220,0.4), transparent),
-                      radial-gradient(2px 2px at 300px 250px, rgba(255,160,160,0.4), transparent);
+    top: 0;
+    left: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 20px, rgba(255,200,200,0.45), transparent),
+        radial-gradient(2px 2px at 100px 80px, rgba(255,160,180,0.25), transparent),
+        radial-gradient(2px 2px at 200px 150px, rgba(255,220,220,0.45), transparent),
+        radial-gradient(2px 2px at 300px 250px, rgba(255,160,160,0.4), transparent);
     background-size: 500px 500px;
-    animation: particles 90s linear infinite;
+    animation: particles 120s linear infinite;
+}
+
+@keyframes particles {
+  0% { background-position: 0 0; }
+  100% { background-position: 4000px 4000px; }
 }
 
 /* ===========================================================
@@ -43,26 +45,22 @@ body {
    =========================================================== */
 header {
     text-align: center;
-    padding: 120px 20px 70px;
+    padding: 140px 20px 70px;
     position: relative;
     z-index: 2;
 }
 
 h1 {
     font-family: "Playfair Display", serif;
-    font-size: 60px;
+    font-size: 56px;
     margin: 0;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-
-    background: linear-gradient(90deg, #ffded8, #e5b57b, #ffded8);
+    background: linear-gradient(90deg, #ffded8, #e6c089, #c89458, #ffded8);
     -webkit-background-clip: text;
     color: transparent;
-
-    text-shadow: 0 0 25px rgba(255,200,200,0.25);
-
     animation: goldFlow 8s ease infinite;
-    background-size: 300% 300%;
+    background-size: 300%;
 }
 
 @keyframes goldFlow {
@@ -73,26 +71,24 @@ h1 {
 
 header p {
     font-size: 22px;
-    color: #e4caca;
+    color: #e9c9c9;
     margin-top: 15px;
 }
 
 /* ===========================================================
-   SEÇÃO GLASSMORPHISM 3D
+   SEÇÕES GLASSMORPHISM 3D
    =========================================================== */
 .section {
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 50px auto;
     padding: 50px;
-    border-radius: 30px;
-
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 26px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(14px);
-
     transform: translateY(20px);
     opacity: 0;
-    animation: fadeUp 1.4s ease forwards;
+    animation: fadeUp 1.2s ease forwards;
 }
 
 @keyframes fadeUp {
@@ -105,53 +101,70 @@ header p {
 .section h2 {
     font-family: "Playfair Display", serif;
     font-size: 34px;
-    text-align: center;
-    color: #ffded8;
     margin-bottom: 20px;
+    background: linear-gradient(90deg, #f7d9d6, #d7b889);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.section p {
+    font-size: 18px;
+    color: #e7dada;
+    line-height: 1.7;
 }
 
 /* ===========================================================
-   LISTA PERSONALIZADA
+   LISTA LUXO
    =========================================================== */
-.list {
-    font-size: 20px;
+ul {
+    color: #f3e4e4;
+    font-size: 18px;
     line-height: 1.8;
-    color: #ffe5e1;
-    text-align: center;
+}
+
+ul li::marker {
+    color: #e6c089;
 }
 
 /* ===========================================================
-   BOTÃO GOLD LUXURY COM BRILHO
+   BOTÃO PREMIUM DOURADO COM BRILHO
    =========================================================== */
 .btn {
     display: block;
-    margin: 40px auto 10px;
-    padding: 20px 60px;
-    font-size: 24px;
-    font-weight: 700;
-
-    background: linear-gradient(90deg, #d7aa67, #ffded8, #d7aa67);
-    background-size: 300% 300%;
-
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
+    width: max-content;
+    margin: 35px auto;
+    padding: 18px 45px;
+    font-size: 22px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #c89458, #e9c38a, #ffded8);
     color: #000;
-
-    animation: goldShine 6s ease infinite;
-    transition: transform 0.3s;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
 }
 
-@keyframes goldShine {
-    0% { background-position: 0%; }
-    50% { background-position: 100%; }
-    100% { background-position: 0%; }
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80px;
+    height: 100%;
+    width: 60px;
+    background: rgba(255,255,255,0.4);
+    transform: skewX(-20deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -80px; }
+    50% { left: 120%; }
+    100% { left: 120%; }
 }
 
 .btn:hover {
-    transform: scale(1.15);
-    filter: brightness(1.2);
+    transform: scale(1.08);
 }
 
 /* ===========================================================
@@ -159,10 +172,12 @@ header p {
    =========================================================== */
 footer {
     text-align: center;
-    padding: 60px;
-    color: #caa9a9;
-    margin-top: 30px;
+    padding: 40px;
+    color: #b99;
+    font-size: 15px;
+    margin-top: 60px;
 }
+
 </style>
 </head>
 
@@ -171,36 +186,37 @@ footer {
 <div id="particles"></div>
 
 <header>
-    <h1>Curso Master</h1>
-    <p>Designer de Sobrancelhas • Por Mari Vivía</p>
+    <h1>Curso Master em Designer de Sobrancelhas</h1>
+    <p>Com Mari Vivía — Especialista em Sobrancelhas</p>
 </header>
 
 <div class="section">
-    <h2>O Treinamento Mais Luxuoso e Completo</h2>
-    <p class="list">
-        ✦ Técnicas avançadas de designer <br>
-        ✦ Mapeamento de precisão absoluta <br>
-        ✦ Correções profissionais <br>
-        ✦ Estética premium e simetria real <br>
-        ✦ Segredos usados por especialistas de elite
+    <h2>Domine técnicas que colocam você no topo</h2>
+    <p>
+        O Curso Master em Designer de Sobrancelhas é um treinamento premium para quem deseja se tornar referência absoluta na área.
+        Aprenda mapeamento avançado, simetria real e técnicas profissionais aplicadas pelas designers de elite.
     </p>
 </div>
 
 <div class="section">
-    <h2>Transforme sua carreira</h2>
-    <p style="text-align:center;color:#e8d7d7;font-size:20px;line-height:1.7;">
-        Aprenda com Mari Vivía, especialista em beleza e referência no design moderno de sobrancelhas.<br>
-        Um curso criado para quem deseja se tornar uma profissional disputada.
-    </p>
+    <h2>O que você vai aprender</h2>
+    <ul>
+        <li>Mapeamento avançado</li>
+        <li>Design profissional e simétrico</li>
+        <li>Correções difíceis</li>
+        <li>Harmonia facial aplicada ao design</li>
+        <li>Segredos das designers top do mercado</li>
+    </ul>
 </div>
 
 <div class="section">
-    <h2>Garanta sua vaga agora</h2>
-    <a href="#" target="_blank" class="btn">Quero entrar para o Master</a>
+    <h2>Garanta sua vaga</h2>
+    <a class="btn" href="#" target="_blank">Quero entrar no Master</a>
+    <p style="text-align:center;color:#e8cccc;"><small>Vagas limitadas</small></p>
 </div>
 
 <footer>
-    © 2025 — Curso Master Designer de Sobrancelhas • Mari Vivía
+    © 2025 Curso Master de Sobrancelhas — Mari Vivía
 </footer>
 
 </body>
