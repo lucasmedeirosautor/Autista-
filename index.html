@@ -1,368 +1,415 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Como Fazer a Caneca Perfeita</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curso Master em Designer de Sobrancelhas — Mari Vivía</title>
+  <meta name="description" content="Curso Master em Designer de Sobrancelhas com Mari Vivía — mapeamento avançado, simetria, correções e técnicas exclusivas. Transforme sua carreira." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Curso Master em Designer de Sobrancelhas — Mari Vivía" />
+  <meta property="og:description" content="Domine técnicas avançadas de sobrancelhas e torne-se uma Master no mercado de beleza." />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.png" />
 
-  <!-- Fontes e Estilos -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root{
+      --bg:#0f0b0b;
+      --rose-1: #f7d9d6;
+      --rose-2: #f2c5b8;
+      --gold-1: #c8a15a;
+      --gold-2: #e6c88a;
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.03);
+      --accent-grad: linear-gradient(135deg, rgba(242,197,184,0.12), rgba(200,161,90,0.08));
+      --text: #fff;
+      --muted: rgba(255,255,255,0.7);
     }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fffaf8;
-      overflow-x: hidden;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 500px at 10% 10%, rgba(200,161,90,0.03), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(242,197,184,0.02), transparent),
+                  #0b0b0b;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding-bottom:80px;
     }
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
-      transition: background-color 1s ease;
+    /* container */
+    .container{
+      max-width:1100px;
+      margin:40px auto;
+      padding:28px;
     }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      letter-spacing: 1px;
+    /* header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .brand img{width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,0.6);}
+    .brand h1{
+      font-family: "Playfair Display", serif;
+      margin:0;
+      font-size:18px;
+      letter-spacing:0.2px;
+    }
+    .brand p{margin:0;font-size:12px;color:var(--muted);}
+
+    .cta-header{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn{
+      background: linear-gradient(90deg, rgba(242,197,184,1), rgba(200,161,90,1));
+      color:#081018;
+      border:none;
+      padding:12px 18px;
+      font-weight:600;
+      border-radius:10px;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(200,161,90,0.12);
+      transition:transform .18s ease, box-shadow .18s ease;
+      text-decoration:none;
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(200,161,90,0.18);}
+
+    /* hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:36px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:30px;
+      box-shadow: 0 8px 40px rgba(2,2,2,0.6);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .kicker{
+      display:inline-block;
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(242,197,184,0.12), rgba(200,161,90,0.08));
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+    .promo-title{
+      font-family: "Playfair Display", serif;
+      font-size:32px;
+      margin:6px 0 10px 0;
+      line-height:1.02;
+    }
+    .lead{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:15px;
+    }
+    .hero-features{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+    .pill{
+      background:var(--card);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.03);
     }
 
-    /* ======= FUNDOS PREMIUM POR BLOCO ======= */
-    section:nth-of-type(1) { background: linear-gradient(135deg, #fce4ec, #f8cdda); } /* Rose Gold */
-    section:nth-of-type(2) { background: linear-gradient(135deg, #fff8e1, #f7d56e); } /* Dourado */
-    section:nth-of-type(3) { background: linear-gradient(135deg, #1a1a1a, #2e2e2e); color: #fff; } /* Preto Brilhante */
-    section:nth-of-type(4) { background: linear-gradient(135deg, #fff, #fafafa); } /* Branco Perolado */
-    section:nth-of-type(5) { background: linear-gradient(135deg, #f8cdda, #fbeee6); } /* Rose Gold Final */
+    /* price / CTA box */
+    .cta-box{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .price{
+      font-family: "Playfair Display", serif;
+      font-size:28px;
+      color:var(--gold-2);
+      margin:0;
+    }
+    .small{font-size:13px;color:var(--muted)}
+    .btn-cta{width:100% ;text-align:center;padding:12px 14px;font-weight:700;border-radius:10px}
 
-    /* ======= ANIMAÇÕES DE ENTRADA ======= */
-    .hidden {
-      opacity: 0;
-      transform: translateX(60px);
-      transition: all 1s ease-out;
+    /* instructor card */
+    .instructor{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-top:18px;
+    }
+    .instructor img{
+      width:76px;height:76px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.03);
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+    }
+    .instructor .bio{font-size:14px;color:var(--muted)}
+
+    /* sections */
+    section{margin-bottom:28px}
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    .card{
+      background:var(--glass);
+      border-radius:12px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      min-height:120px;
+    }
+    .card h3{margin:0 0 8px 0;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* curriculum list */
+    .curriculum {display:flex;flex-direction:column;gap:10px}
+    .lesson{
+      background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .lesson strong{font-size:14px}
+    .lesson span{color:var(--muted);font-size:13px}
+
+    /* testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .testimonial{padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .testimonial p{font-size:14px;color:var(--muted);margin:0 0 10px 0}
+    .testimonial .who{font-weight:700;font-size:13px}
+
+    /* faq */
+    .faq .q{font-weight:600;margin-bottom:6px}
+    .faq .a{color:var(--muted);margin-bottom:12px}
+
+    /* footer */
+    footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;padding:24px 0}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .grid-3{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .brand h1{font-size:16px}
+      .promo-title{font-size:26px}
     }
 
-    .show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* ======= BOTÕES PREMIUM ======= */
-    .btn-premium {
-      display: inline-block;
-      padding: 15px 35px;
-      border-radius: 50px;
-      background: linear-gradient(45deg, #d4af37, #f5e6b3);
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-      transition: all 0.3s ease;
-    }
-
-    .btn-premium:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
-    }
-
-    /* ======= CONTADORES ======= */
-    .counter-box {
-      font-size: 1.2em;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-
-    /* ======= NOTIFICAÇÕES ======= */
-    .purchase-toast {
-      position: fixed;
-      bottom: 30px;
-      left: 30px;
-      background: rgba(255, 255, 255, 0.85);
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 500;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      animation: fadeSlideIn 0.8s ease forwards;
-      display: none;
-      z-index: 9999;
-    }
-
-    @keyframes fadeSlideIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    /* subtle entrance */
+    .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .7s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
   </style>
 </head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <img src="assets/logo.png" alt="Logo Mari Vivía" />
+        <div>
+          <h1>Curso Master em Designer de Sobrancelhas</h1>
+          <p>Com Mari Vivía — Especialista em Sobrancelhas</p>
+        </div>
+      </a>
 
-<body><!-- ===== PARTE 2: Estilos por bloco + animações de entrada (Cole logo após <div class="wrap">) ===== -->
-<style>
-  /* backgrounds premium específicos (mais controle que nth-of-type) */
-  .bg-rose { background: linear-gradient(135deg, #fbe8ec 0%, #f7d7d0 100%); color: #1a1a1a; }
-  .bg-gold { background: linear-gradient(135deg, #fff8e6 0%, #f6d57a 100%); color: #111; }
-  .bg-black { background: linear-gradient(135deg, #0b0b0b 0%, #262626 100%); color: #fff; }
-  .bg-pearl { background: linear-gradient(135deg, #ffffff 0%, #fbfbfb 100%); color: #111; }
+      <div class="cta-header">
+        <a href="#sobre" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);">Saiba Mais</a>
+        <a id="buy-top" class="btn" href="HOTMART_LINK" target="_blank" rel="noopener">INSCREVA-SE</a>
+      </div>
+    </header>
 
-  /* override de padding/spacing por bloco (visual premium) */
-  .wrap > header, .wrap > section, .wrap > footer, .wrap > aside {
-    border-radius: 18px;
-    margin-bottom: 22px;
-    padding: 34px;
-    transition: background 0.9s ease, transform 0.7s cubic-bezier(.2,.9,.2,1), box-shadow .7s ease;
-  }
+    <main>
+      <div class="hero">
+        <div class="hero-card fade-up" style="animation-delay:.05s">
+          <span class="kicker">VAGAS LIMITADAS</span>
+          <h2 class="promo-title">Curso Master em Designer de Sobrancelhas</h2>
+          <p class="lead">Técnicas avançadas, mapeamento profissional, correções complexas e o método prático para você subir de nível profissional e fidelizar clientes.</p>
 
-  /* card sombreado discretamente */
-  .wrap > header, .wrap > aside, .wrap > section:not(#gallery) {
-    box-shadow: 0 20px 60px rgba(8,6,6,0.18);
-  }
+          <div class="hero-features">
+            <div class="pill">Mapeamento Avançado</div>
+            <div class="pill">Simetria Profissional</div>
+            <div class="pill">Correções Complexas</div>
+            <div class="pill">Aulas Práticas</div>
+          </div>
 
-  /* animação: entrar da direita (aplicada via JS adicionando classe .hidden/.show) */
-  .hidden-sect {
-    opacity: 0;
-    transform: translateX(60px);
-    will-change: transform, opacity;
-  }
-  .show-sect {
-    opacity: 1;
-    transform: translateX(0);
-    transition: transform 0.9s cubic-bezier(.2,.9,.2,1), opacity 0.9s ease;
-  }
+          <div style="display:flex;gap:12px;align-items:center">
+            <a class="btn btn-cta" href="HOTMART_LINK" target="_blank" rel="noopener">Quero me inscrever</a>
+            <a class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)" href="#curriculo">Ver currículo</a>
+          </div>
 
-  /* títulos premium por seção */
-  .wrap h2, .wrap h1 {
-    margin: 0 0 12px 0;
-    line-height: 1.06;
-  }
-  .wrap h2 {
-    font-size: 22px;
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 0.6px;
-  }
+          <div class="instructor" style="margin-top:14px">
+            <img src="assets/instructor.jpg" alt="Mari Vivía" />
+            <div>
+              <div style="font-weight:700">Mari Vivía</div>
+              <div class="bio">Especialista em sobrancelhas • +5 anos de experiência • Formação em técnicas avançadas e correções</div>
+            </div>
+          </div>
+        </div>
 
-  /* botão premium — mix com teu .btn existente (mantém comportamento) */
-  .btn-premium {
-    border-radius: 999px;
-    padding: 14px 28px;
-    font-weight: 800;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(0,0,0,0.28); }
+        <aside class="cta-box fade-up" style="animation-delay:.12s">
+          <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
+            <div>
+              <div class="small">Investimento</div>
+              <div class="price">Preço Especial</div>
+              <div class="small">Parcelamento disponível na Hotmart</div>
+            </div>
+            <div style="width:96px;height:96px;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.5)">
+              <img src="assets/hero.jpg" alt="Preview" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+          </div>
 
-  /* mockups: leve flutuação e máscara brilhante por cima */
-  .mockup {
-    overflow: hidden;
-    border-radius: 14px;
-    position: relative;
-    transition: transform .6s cubic-bezier(.2,.9,.2,1), box-shadow .6s ease;
-  }
-  .mockup img { display:block; width:100%; height:100%; object-fit:cover; }
-  .mockup.float {
-    animation: floatY 6s ease-in-out infinite;
-  }
-  @keyframes floatY {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
-  }
+          <a href="HOTMART_LINK" class="btn btn-cta" target="_blank" rel="noopener">GARANTIR MINHA VAGA</a>
+          <div style="font-size:13px;color:var(--muted)">Garantia de satisfação de 7 dias (conforme política da plataforma)</div>
+        </aside>
+      </div>
 
-  /* destaque visual para o contador e preço (pulse discreto) */
-  .price { transition: transform .4s ease; }
-  .price.pulse { animation: pricePulse 2.2s ease-in-out infinite; }
-  @keyframes pricePulse {
-    0% { transform: scale(1); filter: drop-shadow(0 6px 18px rgba(212,162,74,0.06)); }
-    50% { transform: scale(1.03); filter: drop-shadow(0 18px 50px rgba(212,162,74,0.12)); }
-    100% { transform: scale(1); filter: drop-shadow(0 6px 18px rgba(212,162,74,0.06)); }
-  }
+      <!-- Features -->
+      <section id="sobre">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:12px">
+          <h2 style="margin:0;font-family:'Playfair Display', serif">O que você vai aprender</h2>
+          <div style="color:var(--muted)">Formação prática e rápida para resultados reais</div>
+        </div>
 
-  /* responsividade: reduz padding em telas pequenas */
-  @media (max-width: 980px) {
-    .wrap > header, .wrap > aside, .wrap > section, .wrap > footer { padding: 22px; }
-  }
-</style>
+        <div class="grid-3 fade-up" style="animation-delay:.16s">
+          <div class="card">
+            <h3>Mapeamento Avançado</h3>
+            <p>Aprenda a mapear cada formato de rosto com precisão de mestre — técnica passo a passo para simetria perfeita.</p>
+          </div>
+          <div class="card">
+            <h3>Correções e Retoques</h3>
+            <p>Resolva sobrancelhas com cicatrizes, falhas e assimetrias usando técnicas profissionais de correção.</p>
+          </div>
+          <div class="card">
+            <h3>Design Natural</h3>
+            <p>Crie resultados naturais e harmônicos que aumentam a confiança e fidelizam clientes.</p>
+          </div>
+        </div>
+      </section>
 
-<script>
-  (function(){
-    // Aplica classes de fundo em ordem premium: rose -> gold -> black -> pearl -> rose...
-    const bgClasses = ['bg-rose','bg-gold','bg-black','bg-pearl'];
-    // Seleciona blocos que vamos estilizar (mantemos tudo que já existe)
-    const selectors = ['header', 'section', 'aside.book-card', 'footer'];
-    // cria lista linear de elementos dentro da .wrap que correspondem aos seletores (na ordem do DOM)
-    const wrap = document.querySelector('.wrap');
-    if(!wrap) return;
+      <!-- Curriculum -->
+      <section id="curriculo" class="fade-up" style="animation-delay:.22s">
+        <h2 style="font-family:'Playfair Display', serif">Currículo do Curso</h2>
+        <div class="curriculum" style="margin-top:12px">
+          <div class="lesson"><strong>Módulo 1 - Fundamentos</strong><span>Introdução, materiais, biossegurança</span></div>
+          <div class="lesson"><strong>Módulo 2 - Mapeamento</strong><span>Técnicas avançadas de mapeamento</span></div>
+          <div class="lesson"><strong>Módulo 3 - Correções</strong><span>Assimetrias, cicatrizes, alopecias</span></div>
+          <div class="lesson"><strong>Módulo 4 - Técnicas Hair-by-Hair</strong><span>Prática passo a passo</span></div>
+          <div class="lesson"><strong>Módulo 5 - Atendimento profissional</strong><span>Consultoria, precificação e fidelização</span></div>
+        </div>
+      </section>
 
-    // coletar nodes que faremos efeito (manter ordem do DOM)
-    const nodes = [];
-    wrap.childNodes.forEach(n => {
-      if(n.nodeType !== 1) return; // elemento
-      const tag = n.tagName.toLowerCase();
-      if(tag === 'header' || tag === 'footer' || (tag === 'aside' && n.classList.contains('book-card')) || tag === 'section') {
-        nodes.push(n);
-      }
-    });
+      <!-- Testimonials -->
+      <section class="fade-up" style="animation-delay:.28s">
+        <h2 style="font-family:'Playfair Display', serif">Depoimentos</h2>
+        <div class="testimonials" style="margin-top:12px">
+          <div class="testimonial">
+            <p>“O curso transformou minha forma de atender — agora os resultados são previsíveis e meus clientes voltam sempre.”</p>
+            <div class="who">— Alessandra, Designer de Sobrancelhas</div>
+          </div>
+          <div class="testimonial">
+            <p>“Aprendi a resolver casos que antes eu evitava. Técnica clara, prática e com muito conteúdo útil.”</p>
+            <div class="who">— Camila, Técnica</div>
+          </div>
+        </div>
+      </section>
 
-    // Atribui background cyclicamente e aplica classes de animação inicial
-    nodes.forEach((el, idx) => {
-      // Evitar sobrescrever se já tiveres uma classe de background manual
-      const hasBg = el.classList.contains('bg-rose') || el.classList.contains('bg-gold') || el.classList.contains('bg-black') || el.classList.contains('bg-pearl');
-      if(!hasBg) {
-        const cls = bgClasses[idx % bgClasses.length];
-        el.classList.add(cls);
-      }
-      // adiciona classe escondida para animação de entrada
-      el.classList.add('hidden-sect');
+      <!-- About instructor -->
+      <section class="fade-up" style="animation-delay:.34s">
+        <h2 style="font-family:'Playfair Display', serif">Sobre a professora</h2>
+        <div style="display:flex;gap:18px;align-items:center;margin-top:12px;flex-wrap:wrap">
+          <img src="assets/instructor.jpg" alt="Mari Vivía" style="width:160px;height:160px;border-radius:12px;object-fit:cover;box-shadow:0 8px 40px rgba(0,0,0,0.55)" />
+          <div style="max-width:760px">
+            <h3 style="margin:0">Mari Vivía — Especialista em Sobrancelhas</h3>
+            <p style="color:var(--muted);margin-top:8px">
+              Mari Vivía é especialista em design de sobrancelhas com anos de experiência em atendimentos clínicos e formação de profissionais. Seu método combina estética, técnica e atendimento estratégico para resultados que fidelizam clientes.
+            </p>
+            <ul style="color:var(--muted);margin-top:10px">
+              <li>Formação avançada em mapeamento e correção</li>
+              <li>Mais de 1.000 atendimentos realizados</li>
+              <li>Aulas práticas e suporte pós-curso</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-      // marca elementos importantes com botões premium
-      // se o elemento contém .btn ou .btn.ghost, adicione estilo premium
-      const btns = el.querySelectorAll('.btn');
-      btns.forEach(b => b.classList.add('btn-premium'));
-    });
+      <!-- FAQ -->
+      <section class="fade-up" style="animation-delay:.4s">
+        <h2 style="font-family:'Playfair Display', serif">Perguntas Frequentes</h2>
+        <div class="faq" style="margin-top:12px">
+          <div>
+            <div class="q">Como acesso as aulas?</div>
+            <div class="a">As aulas ficam disponíveis em área de alunos na plataforma escolhida (Hotmart). Você recebe o acesso imediatamente após a confirmação do pagamento.</div>
+          </div>
 
-    // IntersectionObserver para revelar (rolando da direita)
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if(entry.isIntersecting) {
-          const el = entry.target;
-          // small stagger depending on position within node
-          const children = Array.from(el.querySelectorAll(':scope > *'));
-          // reveal parent
-          el.classList.add('show-sect');
-          el.classList.remove('hidden-sect');
-          // reveal inner children with small delays
-          children.forEach((child, i) => {
-            child.style.transition = `opacity 0.8s ease ${i*90}ms, transform 0.8s cubic-bezier(.2,.9,.2,1) ${i*90}ms`;
-            child.style.opacity = 1;
-            child.style.transform = 'translateX(0)';
-          });
-          io.unobserve(el);
-        }
+          <div>
+            <div class="q">Preciso de experiência prévia?</div>
+            <div class="a">Não — o curso foi desenhado para iniciantes e profissionais que queiram aprimorar técnicas avançadas.</div>
+          </div>
+
+          <div>
+            <div class="q">Há certificado?</div>
+            <div class="a">Sim — certificado digital ao completar o curso.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="margin-bottom:10px">Pronto para transformar sua carreira? <a href="HOTMART_LINK" target="_blank" rel="noopener" style="color:var(--gold-2);font-weight:700">Inscreva-se agora</a></div>
+      <div>&copy; <span id="year"></span> Mari Vivía • Curso Master em Designer de Sobrancelhas</div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Replace HOTMART_LINK in runtime if present as data attribute (optionally)
+    // You can also set a global JS variable here with the real link.
+    // Example: window.HOTMART_LINK = 'https://go.hotmart.com/SEU_LINK';
+    (function(){
+      const HOT = 'HOTMART_LINK';
+      document.querySelectorAll('a[href="HOTMART_LINK"]').forEach(a=>{
+        // If you already set window.HOTMART_LINK, use it; otherwise leave placeholder.
+        if(window.HOTMART_LINK) a.href = window.HOTMART_LINK;
       });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    })();
 
-    // Observe each collected node
-    nodes.forEach((n, idx) => {
-      // slight initial offset for children to allow staggered reveal
-      n.querySelectorAll('*').forEach(ch => {
-        ch.style.opacity = 0;
-        ch.style.transform = 'translateX(18px)';
+    // very small reveal animations on load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{
+        el.style.animationDelay = (0.05 + i*0.05) + 's';
       });
-      io.observe(n);
     });
-
-    // Add subtle float animation to mockups for visual premium
-    const mockups = document.querySelectorAll('.mockup');
-    mockups.forEach((m, i) => {
-      m.classList.add('float');
-      // add slight rotate on hover
-      m.addEventListener('mouseenter', () => m.style.transform = 'translateY(-8px) rotate(-0.4deg) scale(1.02)');
-      m.addEventListener('mouseleave', () => m.style.transform = '');
-    });
-
-    // aplica pulse no price (se existir)
-    const priceEl = document.querySelector('.price');
-    if(priceEl) priceEl.classList.add('pulse');
-
-    // Accessibility: enable keyboard focus outlines for .btn-premium
-    document.querySelectorAll('.btn-premium').forEach(b => {
-      b.addEventListener('focus', ()=> b.style.boxShadow = '0 0 0 4px rgba(212,162,74,0.12)');
-      b.addEventListener('blur', ()=> b.style.boxShadow = '');
-    });
-
-    // tiny optimization: remove pre-existing legacy reveal classes to avoid conflicts (não remove conteúdo)
-    document.querySelectorAll('.reveal').forEach(r => {
-      // keep class but avoid duplicate transition fights
-      r.style.transition = 'none';
-      // allow intersection observer above to handle reveal
-    });
-
-    // Done - nodes now styled + will animate when scrolled into view
-  })();
-</script>
-<!-- ===== FIM PARTE 2 ===== -->
-  <!-- ===== PARTE 3: Contador dinâmico de compradores + toasts ===== -->
-<style>
-  /* Toasts simples e premium */
-  .toast {
-    position: fixed;
-    bottom: 26px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 248, 230, 0.96);
-    color: #111;
-    padding: 14px 22px;
-    border-radius: 12px;
-    box-shadow: 0 14px 38px rgba(0,0,0,0.18);
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    z-index: 9999;
-  }
-  .toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-12px);
-  }
-</style>
-
-<script>
-  (function(){
-    // Inicializa contador persistente
-    const storageKey = 'contador_compradores';
-    let count = parseInt(localStorage.getItem(storageKey)) || 72; // valor inicial
-    const contadorEl = document.querySelector('#contador');
-    if(contadorEl) contadorEl.textContent = count;
-
-    // Nomes fictícios para toasts
-    const firstNames = ["Lucas","Mariana","Rafael","Julia","Carlos","Fernanda","Thiago","Amanda","Gabriel","Patrícia"];
-    const lastNames = ["Silva","Santos","Oliveira","Pereira","Costa","Almeida","Medeiros","Rodrigues","Lima","Gomes"];
-
-    // Função para gerar nome + sobrenome aleatório
-    function randomName() {
-      const first = firstNames[Math.floor(Math.random()*firstNames.length)];
-      const last = lastNames[Math.floor(Math.random()*lastNames.length)];
-      return `${first} ${last}`;
-    }
-
-    // Cria toast no DOM
-    function showToast(name) {
-      const t = document.createElement('div');
-      t.className = 'toast';
-      t.textContent = `${name} acabou de adquirir o eBook!`;
-      document.body.appendChild(t);
-      setTimeout(() => t.classList.add('show'), 50);
-      setTimeout(() => {
-        t.classList.remove('show');
-        setTimeout(() => t.remove(), 700);
-      }, 4000);
-    }
-
-    // Incremento automático
-    function incrementCounter() {
-      const increment = 1; // pode variar se quiser
-      count += increment;
-      if(contadorEl) contadorEl.textContent = count;
-      localStorage.setItem(storageKey, count);
-      // exibe toast
-      showToast(randomName());
-    }
-
-    // Intervalo aleatório entre 10 e 25 segundos
-    function scheduleNext() {
-      const ms = 10000 + Math.random()*15000;
-      setTimeout(() => {
-        incrementCounter();
-        scheduleNext();
-      }, ms);
-    }
-
-    // Inicia loop
-    scheduleNext();
-  })();
-</script>
-<!-- ===== FIM PARTE 3 ===== -->
+  </script>
+</body>
+</html>
