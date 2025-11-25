@@ -1,118 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curso Master em Designer de Sobrancelhas — Mari Vivía</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        background: #0f0b0b;
-        font-family: 'Inter', sans-serif;
-        color: white;
-    }
+/* ======== GLOBAL ======== */
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #0a0808, #1b1313, #0a0808);
+    font-family: 'Inter', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
 
-    header {
-        text-align: center;
-        padding: 40px 20px;
-    }
+/* Fade in suave */
+.fade {
+    animation: fadeIn 1.5s ease forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 42px;
-        margin: 0;
-        background: linear-gradient(90deg, #f7d9d6, #c8a15a);
-        -webkit-background-clip: text;
-        color: transparent;
-    }
+/* ======== HEADER ======== */
+header {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
 
-    h2 {
-        font-family: 'Playfair Display', serif;
-        color: #f7d9d6;
-        text-align: center;
-    }
+/* TÍTULO com brilho dourado animado */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    margin: 0;
 
-    p {
-        text-align: center;
-        color: #ddc9c9;
-        font-size: 18px;
-        line-height: 1.6;
-        max-width: 800px;
-        margin: 10px auto;
-    }
+    background: linear-gradient(
+        90deg,
+        #f7d9d6,
+        #c8a15a,
+        #e0b48c,
+        #f7d9d6
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: goldMove 6s ease infinite;
+}
 
-    .section {
-        max-width: 900px;
-        margin: 30px auto;
-        background: rgba(255,255,255,0.05);
-        padding: 30px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,0.12);
-    }
+@keyframes goldMove {
+    0% { background-position: 0% }
+    50% { background-position: 100% }
+    100% { background-position: 0% }
+}
 
-    .btn {
-        display: block;
-        width: max-content;
-        margin: 25px auto;
-        padding: 16px 40px;
-        font-size: 20px;
-        font-weight: 600;
-        background: linear-gradient(90deg, #c8a15a, #f7d9d6);
-        color: #000;
-        border-radius: 40px;
-        text-decoration: none;
-        transition: .3s;
-    }
+header p {
+    margin-top: 12px;
+    font-size: 20px;
+    color: #e6c8c8;
+}
 
-    .btn:hover {
-        transform: scale(1.08);
-        background: linear-gradient(90deg, #f7d9d6, #c8a15a);
-    }
+/* ======== SEÇÕES (GLASSMORPHISM) ======== */
+.section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
 
-    footer {
-        text-align: center;
-        padding: 40px;
-        color: #caaaaa;
-        font-size: 14px;
-    }
+    animation: fadeIn 1.5s ease forwards;
+    transform: translateY(20px);
+}
+
+/* Subtítulos */
+h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: #f7d9d6;
+    font-size: 30px;
+}
+
+/* Texto */
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #d7c7c7;
+}
+
+/* ======== BOTÃO PREMIUM ======== */
+.btn {
+    display: block;
+    width: max-content;
+    margin: 30px auto 10px;
+    padding: 18px 48px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #c8a15a, #f7d9d6, #c8a15a);
+    background-size: 300% 300%;
+    animation: shine 4s ease infinite;
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    font-size: 22px;
+    transition: transform .3s;
+}
+
+@keyframes shine {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* ======== FOOTER ======== */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    font-size: 15px;
+    color: #caaaaa;
+}
+
+/* ======== EFEITO DE BRILHO FLUTUANTE ======== */
+.sparkles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 3px);
+    background-size: 150px 150px;
+    animation: sparkleMove 8s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes sparkleMove {
+    from { background-position: 0 0; }
+    to { background-position: 300px 600px; }
+}
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="sparkles"></div>
+
+<header class="fade">
     <h1>Curso Master em Designer de Sobrancelhas</h1>
     <p>Com Mari Vivía — Especialista em Sobrancelhas</p>
 </header>
 
-<div class="section">
+<div class="section fade">
     <h2>Domine as técnicas que colocam você no topo</h2>
     <p>
-        O Curso Master em Designer de Sobrancelhas é o treinamento mais completo para quem deseja se tornar referência no mercado da beleza.
-        Aprenda técnicas avançadas, mapeamento preciso, simetria real e segredos profissionais com Mari Vivía.
+        O Curso Master em Designer de Sobrancelhas é o treinamento mais completo para quem deseja se tornar referência
+        no mercado da beleza. Aprenda técnicas avançadas, mapeamento preciso, simetria e segredos profissionais com Mari Vivía.
     </p>
 </div>
 
-<div class="section">
+<div class="section fade">
     <h2>O que você vai aprender</h2>
-    <p>✔ Mapeamento avançado<br>
-       ✔ Técnicas profissionais<br>
-       ✔ Correções complexas<br>
-       ✔ Design perfeito e simétrico<br>
-       ✔ Segredos das designers de elite</p>
+    <p>
+        ✔ Mapeamento avançado<br>
+        ✔ Técnicas profissionais<br>
+        ✔ Correções complexas<br>
+        ✔ Design perfeito e simétrico<br>
+        ✔ Segredos das designers de elite
+    </p>
 </div>
 
-<div class="section">
+<div class="section fade">
     <h2>Garanta sua vaga</h2>
     <a class="btn" href="#" target="_blank">Quero entrar no Curso Master</a>
     <p><small>Vagas limitadas</small></p>
 </div>
 
-<footer>
+<footer class="fade">
     © 2025 Curso Master de Sobrancelhas — Mari Vivía
 </footer>
 
