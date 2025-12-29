@@ -49,7 +49,9 @@ button{
 </head>
 <body>
 
-<audio id="music" src="https://cdn.pixabay.com/audio/2022/03/15/audio_0c2e0e4c60.mp3"></audio>
+<audio id="music" preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_0c2e0e4c60.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
 
@@ -79,13 +81,11 @@ button{
 <div id="igreja" class="hidden fade" style="margin-top:40px; padding:25px; background:#ffffff10; border-radius:10px;">
     <h2>📍 Visite Nossa Igreja</h2>
 
-    <p style="font-size:16px;">
-        Estamos esperando você para viver algo real com Deus.
-    </p>
+    <p>Estamos esperando você para viver algo real com Deus.</p>
 
     <p><strong>📅 Dias de Culto:</strong></p>
-    <p style="line-height:1.6;">
-        ➝ <strong>Quarta-feira:</strong> 19:30 às 21:00<br>
+    <p>
+        ➝ <strong>Quarta:</strong> 19:30 às 21:00<br>
         ➝ <strong>Sábado:</strong> 19:00 às 21:00<br>
         ➝ <strong>Domingo:</strong> 18:30 às 20:30
     </p>
@@ -93,9 +93,10 @@ button{
     <p><strong>📌 Endereço:</strong></p>
     <p>Av. Prof. Benedicto Montenegro, 274 - Alvorada Parque</p>
 
-    <p><strong>📲 Instagram da Igreja:</strong></p>
-    <a href="https://www.instagram.com/ad.belem_betel?igsh=MTBqc2VvYjY4M3Z1dw==" target="_blank" style="color:#ffcc00; font-weight:bold; text-decoration:none;">
-        👉 Clique para seguir a igreja no Instagram
+    <p><strong>📲 Instagram:</strong></p>
+    <a href="https://www.instagram.com/ad.belem_betel?igsh=MTBqc2VvYjY4M3Z1dw==" target="_blank"
+       style="color:#ffcc00; font-weight:bold; text-decoration:none;">
+       👉 Clique para seguir a igreja
     </a>
 </div>
 
@@ -106,12 +107,17 @@ function next1(){
     document.getElementById("q1").classList.add("hidden");
     document.getElementById("q2").classList.remove("hidden");
 }
+
 function showResult(){
     document.getElementById("q2").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
     document.getElementById("igreja").classList.remove("hidden");
-    document.getElementById("music").play();
+
+    const audio = document.getElementById("music");
+    audio.volume = 0.4;
+    audio.play().catch(()=>{});
 }
+
 function goSales(){
     window.location.href = "SUA_URL_DA_PAGINA_DE_VENDAS_AQUI";
 }
