@@ -1,121 +1,969 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Descubra Seu Propósito</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Como Vencer a Depressão | Lucas Daniel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Inter',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(180deg,#0a2a5e,#00162f);
-    color:white;
-    text-align:center;
+
+background:#050505;
+
+color:white;
+
+overflow-x:hidden;
+
 }
+
+:root{
+
+--gold:#FFD54A;
+
+--blue:#2B6CFF;
+
+--green:#25D366;
+
+--text:#F5F5F5;
+
+--gray:#A4A4A4;
+
+--card:#101010;
+
+}
+
+section{
+
+padding:90px 8%;
+
+}
+
 .container{
-    max-width:500px;
-    margin:auto;
-    padding:40px 20px;
+
+max-width:1200px;
+
+margin:auto;
+
 }
-h1{font-size:28px;}
-h2{font-size:22px;}
-button{
-    width:100%;
-    padding:15px;
-    margin-top:15px;
-    font-size:16px;
-    border:none;
-    border-radius:6px;
-    background:#ffcc00;
-    color:#000;
-    font-weight:bold;
+
+h1{
+
+font-size:56px;
+
+font-weight:900;
+
+line-height:1.1;
+
+margin-bottom:25px;
+
 }
-.hidden{display:none;}
-.option{
-    background:#ffffff10;
-    padding:15px;
-    border-radius:6px;
-    margin:10px 0;
-    cursor:pointer;
+
+h2{
+
+font-size:42px;
+
+font-weight:800;
+
+margin-bottom:25px;
+
 }
-.option:hover{background:#ffffff30;}
-.fade{animation: fade 2s;}
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
+
+h3{
+
+font-size:28px;
+
+margin-bottom:15px;
+
 }
+
+p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#DDDDDD;
+
+}
+
+.gold{
+
+color:var(--gold);
+
+}
+
+.blue{
+
+color:var(--blue);
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:18px 40px;
+
+background:linear-gradient(90deg,#2B6CFF,#1B56D8);
+
+border-radius:60px;
+
+font-size:20px;
+
+font-weight:700;
+
+text-decoration:none;
+
+color:white;
+
+transition:.4s;
+
+box-shadow:0 20px 40px rgba(43,108,255,.3);
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+background:
+
+linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
+
+url(hero.jpg);
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+.hero-grid{
+
+display:grid;
+
+grid-template-columns:1fr 500px;
+
+align-items:center;
+
+gap:60px;
+
+}
+
+.hero img{
+
+width:100%;
+
+animation:flutuar 4s infinite ease-in-out;
+
+filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));
+
+}
+
+@keyframes flutuar{
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+background:#111;
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:40px;
+
+margin-bottom:25px;
+
+font-size:15px;
+
+color:var(--gold);
+
+}
+
+.hero ul{
+
+margin-top:35px;
+
+list-style:none;
+
+}
+
+.hero li{
+
+margin-bottom:18px;
+
+font-size:19px;
+
+}
+
+.hero li::before{
+
+content:"✔";
+
+color:var(--gold);
+
+margin-right:12px;
+
+}
+
+.author{
+
+display:flex;
+
+align-items:center;
+
+margin-top:40px;
+
+gap:18px;
+
+}
+
+.author img{
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid var(--gold);
+
+}
+
+.author span{
+
+display:block;
+
+font-size:15px;
+
+color:#AFAFAF;
+
+}
+
+.progress{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:0;
+
+height:6px;
+
+background:linear-gradient(90deg,var(--gold),#fff);
+
+z-index:9999;
+
+}
+
+.sticky{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:#111;
+
+padding:15px 20px;
+
+border-radius:50px;
+
+display:flex;
+
+gap:20px;
+
+align-items:center;
+
+box-shadow:0 20px 40px rgba(0,0,0,.5);
+
+z-index:999;
+
+}
+
+.sticky a{
+
+background:var(--green);
+
+padding:15px 30px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:black;
+
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero{
+
+padding-top:80px;
+
+}
+
+h1{
+
+font-size:38px;
+
+}
+
+h2{
+
+font-size:30px;
+
+}
+
+p{
+
+font-size:18px;
+
+}
+
+.author{
+
+justify-content:center;
+
+}
+
+.hero img{
+
+max-width:320px;
+
+margin:auto;
+
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
 
-<audio id="music" src="https://cdn.pixabay.com/audio/2022/03/15/audio_0c2e0e4c60.mp3"></audio>
+<div class="progress" id="progress"></div>
+
+<div class="sticky">
+
+<span>📘 Comece hoje sua transformação</span>
+
+<a href="https://go.hotmart.com/T100961079V?dp=1">
+
+Comprar Agora
+
+</a>
+
+</div>
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+
+★★★★★ Transformando vidas através da fé e da experiência real
+
+</div>
+
+<h1>
+
+Existe um caminho para
+
+<span class="gold">
+
+reencontrar
+
+</span>
+
+a esperança.
+
+</h1>
+
+<p>
+
+Você não está comprando apenas um livro.
+
+Está conhecendo a história de alguém que enfrentou a depressão, recuperou a vontade de viver e decidiu compartilhar tudo aquilo que realmente fez diferença durante essa caminhada.
+
+</p>
+
+<ul>
+
+<li>História real e emocionante</li>
+
+<li>Princípios práticos para o dia a dia</li>
+
+<li>Exercícios simples e aplicáveis</li>
+
+<li>Devocional de 30 dias incluso</li>
+
+<li>Leitura leve e transformadora</li>
+
+</ul>
+
+<br><br>
+
+<a class="btn"
+
+href="https://go.hotmart.com/T100961079V?dp=1">
+
+QUERO COMEÇAR AGORA
+
+</a>
+
+<div class="author">
+
+<img src="Foto.png.JPG.JPG">
+
+<div>
+
+<strong>
+
+Lucas Daniel
+
+</strong>
+
+<span>
+
+Autor • Mentor • Palestrante
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="capa.png.JPG.JPG">
+
+</div>
+
+</div>
+
+</section>
+<!-- ===================================================
+QUIZ
+==================================================== -->
+
+<section id="quiz">
 
 <div class="container">
 
-<div id="q1">
-    <h1>Como você se sente quando fica sozinho e em silêncio?</h1>
-    <div class="option" onclick="next1()">Em paz</div>
-    <div class="option" onclick="next1()">Confuso</div>
-    <div class="option" onclick="next1()">Vazio</div>
-    <div class="option" onclick="next1()">Sobrecarregado</div>
-</div>
+<div class="quiz-box">
 
-<div id="q2" class="hidden">
-    <h1>O que melhor descreve sua vida hoje?</h1>
-    <div class="option" onclick="showResult()">Tenho tudo, mas falta algo</div>
-    <div class="option" onclick="showResult()">Estou perdido e sem direção</div>
-    <div class="option" onclick="showResult()">Vivo no automático</div>
-    <div class="option" onclick="showResult()">Sinto que nasci para algo maior</div>
-</div>
+<div class="quiz-header">
 
-<div id="result" class="hidden fade">
-    <h1>Não é coincidência você estar aqui agora.</h1>
-    <p>Sua resposta revela mais do que você imagina.</p>
-    <p>Existe algo dentro de você pedindo por respostas.</p>
-    <button onclick="goSales()">QUERO DESCOBRIR MEU PROPÓSITO AGORA</button>
-</div>
+<h2>Antes de continuar...</h2>
 
-<div id="igreja" class="hidden fade" style="margin-top:40px; padding:25px; background:#ffffff10; border-radius:10px;">
-    <h2>📍 Visite Nossa Igreja</h2>
+<p>
 
-    <p style="font-size:16px;">
-        Estamos esperando você para viver algo real com Deus.
-    </p>
+Responda apenas 3 perguntas.
 
-    <p><strong>📅 Dias de Culto:</strong></p>
-    <p style="line-height:1.6;">
-        ➝ <strong>Quarta-feira:</strong> 19:30 às 21:00<br>
-        ➝ <strong>Sábado:</strong> 19:00 às 21:00<br>
-        ➝ <strong>Domingo:</strong> 18:30 às 20:30
-    </p>
+Isso leva menos de 30 segundos.
 
-    <p><strong>📌 Endereço:</strong></p>
-    <p>Av. Prof. Benedicto Montenegro, 274 - Alvorada Parque</p>
-
-    <p><strong>📲 Instagram da Igreja:</strong></p>
-    <a href="https://www.instagram.com/ad.belem_betel?igsh=MTBqc2VvYjY4M3Z1dw==" target="_blank" style="color:#ffcc00; font-weight:bold; text-decoration:none;">
-        👉 Clique para seguir a igreja no Instagram
-    </a>
-</div>
+</p>
 
 </div>
+
+<div class="quiz-progress">
+
+<div class="quiz-progress-bar" id="quizBar"></div>
+
+</div>
+
+<div class="quiz-step active">
+
+<h3>
+
+1. Como você tem se sentido nos últimos dias?
+
+</h3>
+
+<button onclick="nextQuiz(33)">
+
+😊 Bem
+
+</button>
+
+<button onclick="nextQuiz(33)">
+
+😐 Cansado emocionalmente
+
+</button>
+
+<button onclick="nextQuiz(33)">
+
+😔 Muito desanimado
+
+</button>
+
+</div>
+
+<div class="quiz-step">
+
+<h3>
+
+2. Você sente que perdeu a esperança?
+
+</h3>
+
+<button onclick="nextQuiz(66)">
+
+Não
+
+</button>
+
+<button onclick="nextQuiz(66)">
+
+Às vezes
+
+</button>
+
+<button onclick="nextQuiz(66)">
+
+Sim
+
+</button>
+
+</div>
+
+<div class="quiz-step">
+
+<h3>
+
+3. Você gostaria de voltar a sentir alegria?
+
+</h3>
+
+<button onclick="finishQuiz()">
+
+Sim
+
+</button>
+
+<button onclick="finishQuiz()">
+
+Muito
+
+</button>
+
+<button onclick="finishQuiz()">
+
+É tudo que eu quero
+
+</button>
+
+</div>
+
+<div id="quizResult">
+
+<h2>
+
+Obrigado por responder.
+
+</h2>
+
+<p>
+
+Independentemente da resposta...
+
+Existe esperança.
+
+E talvez hoje seja o começo de uma nova fase da sua vida.
+
+</p>
+
+<a href="#historia" class="btn">
+
+CONTINUAR
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+#quiz{
+
+background:#080808;
+
+}
+
+.quiz-box{
+
+max-width:850px;
+
+margin:auto;
+
+background:#101010;
+
+border-radius:30px;
+
+padding:60px;
+
+box-shadow:0 30px 60px rgba(0,0,0,.5);
+
+}
+
+.quiz-header{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+.quiz-progress{
+
+width:100%;
+
+height:10px;
+
+background:#222;
+
+border-radius:30px;
+
+overflow:hidden;
+
+margin-bottom:40px;
+
+}
+
+.quiz-progress-bar{
+
+width:0%;
+
+height:100%;
+
+background:linear-gradient(90deg,#FFD54A,#FFB800);
+
+transition:.5s;
+
+}
+
+.quiz-step{
+
+display:none;
+
+animation:fade .5s;
+
+}
+
+.quiz-step.active{
+
+display:block;
+
+}
+
+.quiz-step h3{
+
+text-align:center;
+
+margin-bottom:35px;
+
+}
+
+.quiz-step button{
+
+width:100%;
+
+padding:20px;
+
+margin:12px 0;
+
+background:#191919;
+
+border:none;
+
+border-radius:15px;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.quiz-step button:hover{
+
+background:#2B6CFF;
+
+transform:scale(1.02);
+
+}
+
+#quizResult{
+
+display:none;
+
+text-align:center;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
 
 <script>
-function next1(){
-    document.getElementById("q1").classList.add("hidden");
-    document.getElementById("q2").classList.remove("hidden");
+
+let step=0;
+
+const steps=document.querySelectorAll(".quiz-step");
+
+function nextQuiz(progress){
+
+steps[step].classList.remove("active");
+
+step++;
+
+steps[step].classList.add("active");
+
+document.getElementById("quizBar").style.width=progress+"%";
+
 }
-function showResult(){
-    document.getElementById("q2").classList.add("hidden");
-    document.getElementById("result").classList.remove("hidden");
-    document.getElementById("igreja").classList.remove("hidden");
-    document.getElementById("music").play();
+
+function finishQuiz(){
+
+steps[step].style.display="none";
+
+document.getElementById("quizBar").style.width="100%";
+
+document.getElementById("quizResult").style.display="block";
+
 }
-function goSales(){
-    window.location.href = "SUA_URL_DA_PAGINA_DE_VENDAS_AQUI";
-}
+
 </script>
 
-</body>
-</html>
+<!-- ===================================================
+MINHA HISTÓRIA
+==================================================== -->
+
+<section id="historia">
+
+<div class="container">
+
+<div class="story">
+
+<div class="story-image">
+
+<img src="Foto.png.JPG.JPG">
+
+</div>
+
+<div class="story-text">
+
+<span class="gold">
+
+MINHA HISTÓRIA
+
+</span>
+
+<h2>
+
+Eu não escrevi este livro porque estudei a depressão.
+
+Escrevi porque sobrevivi a ela.
+
+</h2>
+
+<p>
+
+Durante muito tempo eu achei que ninguém conseguiria entender a dor que eu carregava.
+
+A depressão roubou minha alegria.
+
+Minha força.
+
+Minha esperança.
+
+Minha vontade de viver.
+
+</p>
+
+<p>
+
+Houve noites em que fiquei dias sem conseguir dormir.
+
+Meu corpo estava completamente cansado.
+
+Mas minha mente simplesmente não desligava.
+
+</p>
+
+<p>
+
+Cheguei ao ponto de tomar um vidro inteiro de maracujina tentando descansar.
+
+Mesmo assim...
+
+Eu não consegui dormir.
+
+</p>
+
+<p>
+
+Foi quando percebi que meu problema não era apenas físico.
+
+Era uma batalha dentro da minha própria mente.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+.story{
+
+display:grid;
+
+grid-template-columns:400px 1fr;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.story img{
+
+width:100%;
+
+border-radius:25px;
+
+box-shadow:0 30px 60px rgba(0,0,0,.5);
+
+}
+
+.story p{
+
+margin-bottom:25px;
+
+font-size:20px;
+
+}
+
+@media(max-width:900px){
+
+.story{
+
+grid-template-columns:1fr;
+
+}
+
+.story img{
+
+max-width:320px;
+
+margin:auto;
+
+}
+
+}
+
+</style>
